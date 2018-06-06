@@ -1,0 +1,59 @@
+===================================
+GISMAPS - www.gismaps.com.br
+===================================
+Mapas Temáticos - Geoprocessamento
+===================================
+
+* Grupo: Divisão Política
+
+* Título: Mapa do Estado de São Paulo
+
+* Descrição: Mapa da malha municipal do estado de São Paulo e sede dos municípios; 
+	    área, nome e código dos municípios e das micro e meso regiões.
+
+* Ano/Revisão: 2002.2
+
+* Data de atualização: 21/06/2005
+
+* Fonte: IBGE
+
+* Conteúdo:
+
+******************** sao_paulo.dbf  ********************		
+CODMUNIC	-código do município
+NOMEMUNICP	-nome do município sem acentuação
+NOMEMUNIC	-nome do município
+CODUF		-código da Unidade da Federação
+NOMEUF_1	-nome da Unidade da Federação
+NOMEUF_2	-sigla da Unidade da Federação
+REGIAO_1	-nome da região
+REGIAO_2	-sigla da região
+CODMESO	-código da meso-região
+NOMEMESO	-nome da meso-região
+CODMICRO	-código da micro-região
+NOMEMICRO	-nome da micro-região
+CODUFMESO	-código UF-meso-região
+CODUFMESOM	-código UF-meso-região-micro-região
+AREA_97		-área do município em km2
+		
+******************** sede_municípios_sp.dbf  ********************		
+CODMUNIC	-código do município
+NOMEMUNICP	-nome do município sem acentuação
+NOMEMUNIC	-nome do município
+CODUF		-código da Unidade da Federação
+NOMEUF_1	-nome da Unidade da Federação
+NOMEUF_2	-sigla da Unidade da Federação
+REGIAO_1	-nome da região
+REGIAO_2	-sigla da região
+CODMESO	-código da meso-região
+NOMEMESO	-nome da meso-região
+CODMICRO	-código da micro-região
+NOMEMICRO	-nome da micro-região
+CODUFMESO	-código UF-meso-região
+CODUFMESOM	-código UF-meso-região-micro-região
+LONGITUDE	-longitude da sede do município
+LATITUDE	-latitude da sede do município
+
+===================================
+GISMAPS - www.gismaps.com.br
+===================================
