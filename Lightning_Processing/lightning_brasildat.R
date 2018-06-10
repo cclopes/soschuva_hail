@@ -1,13 +1,13 @@
 #---------------------------------------------------------------------------------------------------------------------------------
-#-- Exporting entries from "processing_fortracc.R"
+#-- Importing entries from "processing_fortracc.R"
 #-- Reading lightning data from BrasilDAT
 #-- Plotting IC/CG/total lightning distribution and rate during life cycle
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Loading necessary scripts and packages
 require(fields); require(maptools); require(reshape2); require(tidyverse); require(magrittr); require(lubridate)
-library(scales); require(cowplot)
-load("../Processamento_ForTraCC/fortracc_data.RData") #-- Loading data from ForTraCC
+require(scales); require(cowplot)
+load("ForTraCC_Processing/fortracc_data.RData") #-- Loading data from ForTraCC
 theme_set(theme_grey())
 #---------------------------------------------------------------------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ selected_latlon <- modify_depth(selected_clusters, 2, mutate,
 
 
 #-- Reading/processing lightning data
-data_brasildat <- read_table("entry_data/filenames_brasildat", col_names = F) %>% unlist() %>% 
+data_brasildat <- read_table("Lightning_Processing/filenames_brasildat", col_names = F) %>% unlist() %>% 
   map(read_csv) %>% map(~`colnames<-`(.x, c("date", "lat", "lon", "z", "peak_curr", "class", "axis_bigger", #-- Reading files
                                       "axis_smaller", "angle", "nsp"))) %>% 
   map(~mutate(.x, class = ifelse(class == 0, "CG", "IC")) %>% #-- Giving "IC/CG" names 
@@ -78,8 +78,8 @@ ggplot(data = data_brasildat_df) +
   # theme(legend.position = "bottom") + #-- For less plots
   # guides(size = "none", color = guide_colorbar(barwidth = 15)) + #-- For less plots
   facet_wrap(~ case)
-ggsave("brasildat_location.png", width = 8.5, height = 4.25)
-# ggsave("brasildat_location_less.png", width = 7.5, height = 3.25) #-- For less plots
+ggsave("Lightning_Processing/figures/brasildat_location.png", width = 8.5, height = 4.25)
+# ggsave("Lightning_Processing/figures/brasildat_location_less.png", width = 7.5, height = 3.25) #-- For less plots
 
 #-- Plotting temporal distribution
 plt_brasildat <- ggplot(rcount) +
@@ -89,7 +89,5 @@ plt_brasildat <- ggplot(rcount) +
   labs(x = "Hour (UTC)", y = "Strokes/min") +
   facet_grid(case ~ ., scales = "free_y")
 
-#-- Joining dBZ, size and lightning
-plt <- plot_grid(plt_dbz, plt_size, plt_brasildat, labels = c("a", "b", "c"), ncol = 3, rel_widths = c(0.4, 0.4, 0.55))
-save_plot("cases_dbz_size_lightning.png", plot = plt, ncol = 3, base_width = 3, base_height = 5)
-# save_plot("cases_dbz_size_lightning_less.png", plot = plt, ncol = 3, base_width = 3, base_height = 3) #-- For less plots
+#-- Saving variables
+save.image("General_Processing/lifecycle_data.RData")
