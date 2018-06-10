@@ -11,7 +11,7 @@
 
 #-- Loading necessary scripts and packages
 require(lubridate); require(fields); require(maptools); require(reshape2); require(tidyverse); require(magrittr)
-source("Data/GENERAL/functions.R")
+source("General_Processing/functions.R")
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Radar Configuration
@@ -22,12 +22,12 @@ lins <- 500
 cols <- 500
 
 #--- Navigation
-# lat_matrix <- file("navigation/nav_rd.lat", "rb") %>% #-- FCTH
-lat_matrix <- file("navigation/nav_sr.lat", "rb") %>% #-- SR
+# lat_matrix <- file("Data/GENERAL/navigation/nav_rd.lat", "rb") %>% #-- FCTH
+lat_matrix <- file("Data/GENERAL/navigation/nav_sr.lat", "rb") %>% #-- SR
   readBin(., numeric(), size=4, n=lins*cols) %>%
   matrix(., nrow = lins, ncol = cols)
-# lon_matrix <- file("navigation/nav_rd.lon", "rb") %>% #-- FCTH
-lon_matrix <- file("navigation/nav_sr.lon", "rb") %>% #-- SR
+# lon_matrix <- file("Data/GENERAL/navigation/nav_rd.lon", "rb") %>% #-- FCTH
+lon_matrix <- file("Data/GENERAL/navigation/nav_sr.lon", "rb") %>% #-- SR
   readBin(., numeric(), size=4, n=lins*cols) %>%
   matrix(., nrow = lins, ncol = cols)
 closeAllConnections()
@@ -40,10 +40,11 @@ lims_in_plot <- data.frame(lon = c(-48, -46), lat = c(-23.5, -22))
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Reading families, clusters and cappis filenames
-filenames_fams <- dir(path = "familias", pattern = "*.txt", full.names = T)
-filenames_clusters <- data.frame("path" = dir(path = "clusters", pattern = "*.dat", full.names = T)) %>%
+filenames_fams <- dir(path = "ForTraCC_Processing/families", pattern = "*.txt", full.names = T)
+filenames_clusters <- data.frame("path" = dir(path = "ForTraCC_Processing/clusters", 
+                                              pattern = "*.dat", full.names = T)) %>%
   mutate(date = str_extract(path, "201\\d\\d\\d\\d\\d\\d\\d\\d\\d"))
-filenames_cappis <- data.frame("path" = dir(path = "../Dados/RADAR/SR/level_2", pattern = "cappi_CZ_03000_201*",
+filenames_cappis <- data.frame("path" = dir(path = "Data/RADAR/SR/level_2", pattern = "cappi_CZ_03000_201*",
                                             full.names = T)) %>%
   mutate(date = str_extract(path, "201\\d\\d\\d\\d\\d_\\d\\d\\d\\d") %>% gsub("\\_", "", .))
 
@@ -96,7 +97,7 @@ rm(filenames_cappis)
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Reading and processing hailpads registry data
-data_hailpads <- read.table("hailpads_registry", header = T) %>%
+data_hailpads <- read.table("Data/GENERAL/hailpads_registry", header = T) %>%
   mutate(date_arqs = str_replace_all(data, "-", "")) %>%
   mutate(date = as.POSIXct(strptime(data, format = "%Y-%m-%d-%H-%M", "GMT")))
 #---------------------------------------------------------------------------------------------------------------------------------
