@@ -10,9 +10,9 @@ source("ForTraCC_Processing/processing_fortracc.R") #-- Necessary packages are c
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Selecting part of the families
-# selected_fams <- selected_fams[c(3,4,5)]
-# selected_fams_df <- selected_fams_df %>% filter(case == "Case 2017-03-14 " | case == "Case 2017-03-14  " | case == "Case 2017-11-15 ")
-# data_hailpads <- data_hailpads[3:5,]
+selected_fams <- selected_fams[c(3,4,5)]
+selected_fams_df <- selected_fams_df %>% filter(case == "Case 2017-03-14 " | case == "Case 2017-03-14  " | case == "Case 2017-11-15 ")
+data_hailpads <- data_hailpads[3:5,]
 
 #-- Plotting cappi + clusters in specific times (defined by "n")
 # n <- 64
@@ -50,12 +50,12 @@ ggplot(data = selected_fams_df) +
   scale_color_distiller(palette = "Set1", breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(20, 15, 18, 0), labels = c("Continuity", "Merge", "New", "Split")) +
   labs(x = "Longitude", y = "Latitude", color = "Time (UTC)", shape = "Classification") +
-  guides(size = "none", color = guide_colorbar(barheight = 12)) +
-  # theme(legend.position = "bottom") + #-- For less plots
-  # guides(size = "none", color = guide_colorbar(barwidth = 15), shape = guide_legend(nrow = 2, byrow = T)) + #-- For less plots
+  # guides(size = "none", color = guide_colorbar(barheight = 12)) +
+  theme(legend.position = "bottom") + #-- For less plots
+  guides(size = "none", color = guide_colorbar(barwidth = 15), shape = guide_legend(nrow = 2, byrow = T)) + #-- For less plots
   facet_wrap(~ case)
-ggsave("ForTraCC_Processing/figures/trajectories_cases.png", width = 8.5, height = 4.25)
-# ggsave("ForTraCC_Processing/figures/trajectories_cases_less.png", width = 7.5, height = 3.25) #-- For less plots
+# ggsave("ForTraCC_Processing/figures/trajectories_cases.png", width = 8.5, height = 4.25)
+ggsave("ForTraCC_Processing/figures/trajectories_cases_less.png", width = 7.5, height = 3.25) #-- For less plots
 
 #-- Generating plots of life cycle of dBZ max and area for future plot
 plt_dbz <- ggplot(data = selected_fams_df) +
