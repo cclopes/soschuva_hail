@@ -10,7 +10,7 @@
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Loading necessary scripts and packages
-require(lubridate); require(fields); require(maptools); require(reshape2); require(tidyverse); require(magrittr)
+require(tidyverse); require(lubridate); require(fields); require(maptools); require(reshape2); require(magrittr)
 source("General_Processing/functions.R")
 #---------------------------------------------------------------------------------------------------------------------------------
 
@@ -54,28 +54,28 @@ filenames_cappis <- filenames_cappis %>% filter(date %in% dates_clusters_cappis)
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Reading and processing families data
-data_fams <- filenames_fams %>% map(~read_table(.x, col_names = c("n", "year", "month", "day", "hour", "min",
+data_fams <- filenames_fams %>% purrr::map(~read_table(.x, col_names = c("n", "year", "month", "day", "hour", "min",
                                         "lat", "lon", "size", "dsize", "pmed", "dpmed", "pmax", "dpmax", "pmax9",
                                         "dpmax9", "frac", "vel", "dir", "t_ini", "class", "sys", "sys_ant1", "sys_ant2",
                                         "sys_ant3", "sys_ant4", "sys_ant5", "sys_ant6", "sys_ant7", "sys_ant8", "sys_ant9",
                                         "sys_ant10"))) %>%
-  map(~unite(.x, sys_ant1, sys_ant2, sys_ant3, sys_ant4, sys_ant5, sys_ant6, sys_ant7, sys_ant8, sys_ant9, sys_ant10,
+  purrr::map(~unite(.x, sys_ant1, sys_ant2, sys_ant3, sys_ant4, sys_ant5, sys_ant6, sys_ant7, sys_ant8, sys_ant9, sys_ant10,
              col = "sys_ant", sep = ",")) %>%
-  map(~unite(.x, year, month, day, hour, min, col = "date", sep = "_")) %>%
-  map(~mutate(.x, date = as.POSIXct(strptime(date, format = "%Y_%m_%d_%H_%M", "GMT")))) %>%
-  map(~mutate(.x, date = floor_date(date, unit = "10 minutes")))
+  purrr::map(~unite(.x, year, month, day, hour, min, col = "date", sep = "_")) %>%
+  purrr::map(~mutate(.x, date = as.POSIXct(strptime(date, format = "%Y_%m_%d_%H_%M", "GMT")))) %>%
+  purrr::map(~mutate(.x, date = floor_date(date, unit = "10 minutes")))
 rm(filenames_fams)
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Reading and processing clusters data
 
 #--- If this doesn't work, you don't have enough memory (I think)...
-# data_clusters <- filenames_clusters %>% map(~file(.x, "rb")) %>%
-#   map(~readBin(.x, integer(), size = 2, n = lins*cols)) %>%
-#   map(~matrix(.x, nrow = lins, ncol = cols)) %>%
-#   map(~ifelse(.x <= 0, NA, .x))
+# data_clusters <- filenames_clusters %>% purrr::map(~file(.x, "rb")) %>%
+#   purrr::map(~readBin(.x, integer(), size = 2, n = lins*cols)) %>%
+#   purrr::map(~matrix(.x, nrow = lins, ncol = cols)) %>%
+#   purrr::map(~ifelse(.x <= 0, NA, .x))
 # closeAllConnections()
-# # data_clusters <- map(data_clusters, ~.x[, cols:1])
+# # data_clusters <- purrr::map(data_clusters, ~.x[, cols:1])
 # rm(filenames_clusters)
 
 #--- ... so use this instead.
@@ -92,7 +92,7 @@ rm(filenames_clusters)
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Reading and processing cappis data
-data_cappis <- filenames_cappis %>% map(~le_cappi(.x, lins, cols))
+data_cappis <- filenames_cappis %>% purrr::map(~le_cappi(.x, lins, cols))
 rm(filenames_cappis)
 #---------------------------------------------------------------------------------------------------------------------------------
 
@@ -106,8 +106,8 @@ data_hailpads <- read.table("Data/GENERAL/hailpads_registry", header = T) %>%
 
 #--- Step 1: Find systems in the clusters where each hailpad is located
 selected_clusters <- which(dates_clusters_cappis %in% data_hailpads$date_arqs, arr.ind = T) %>% data_clusters[.]
-selected_lat <- map(as.list(data_hailpads$lat), ~which(lat_vector < (.x+0.025) & lat_vector > (.x-0.025))) #-- Not on the point!
-selected_lon <- map(as.list(data_hailpads$lon), ~which(lon_vector < (.x+0.025) & lon_vector > (.x-0.025))) #-- Not on the point!
+selected_lat <- purrr::map(as.list(data_hailpads$lat), ~which(lat_vector < (.x+0.025) & lat_vector > (.x-0.025))) #-- Not on the point!
+selected_lon <- purrr::map(as.list(data_hailpads$lon), ~which(lon_vector < (.x+0.025) & lon_vector > (.x-0.025))) #-- Not on the point!
 
 #--- Step 2: Extract these systems
 selected_sys <- list()
@@ -115,12 +115,12 @@ for(i in 1:length(selected_clusters)){
   selected_sys[[i]] <- selected_clusters[[i]][selected_lon[[i]],]
   selected_sys[[i]] <- selected_sys[[i]][,selected_lat[[i]]]
 }
-selected_sys <- map(selected_sys, ~.x[which(!is.na(.x))]) %>% map_chr(unique) #- This may have problems if there is more
+selected_sys <- purrr::map(selected_sys, ~.x[which(!is.na(.x))]) %>% map_chr(unique) #- This may have problems if there is more
                                                                               #- than one family on the range defined above
 
 #--- Step 3: Find families correspondent to these systems
 selected_fams <- data_fams %>% map2(., data_hailpads$date, ~filter(.x, date == .y)) %>%
-  map2(., selected_sys, ~filter(.x, sys == .y)) %>% map(~select(.x, n)) %>% unlist %>% as.character()
+  map2(., selected_sys, ~filter(.x, sys == .y)) %>% purrr::map(~select(.x, n)) %>% unlist %>% as.character()
 
 #--- Extracting whole life cycles of the families
 selected_fams <- data_fams %>% map2(., selected_fams, ~filter(.x, n %in% .y))
@@ -128,10 +128,10 @@ selected_fams <- data_fams %>% map2(., selected_fams, ~filter(.x, n %in% .y))
 
 #-- Verifying the life cycles of the selected families and applying corrections if necessary
 
-problem_fams_start <- selected_fams %>% map(~group_by(.x, n)) %>% map(~slice(.x, 1)) %>%
+problem_fams_start <- selected_fams %>% purrr::map(~group_by(.x, n)) %>% purrr::map(~slice(.x, 1)) %>%
   map_df(~filter(.x, class %in% c("S", "C"))) %>% ungroup() #%>% select(date, lat, lon, class)
 
-problem_fams_end <- selected_fams %>% map(~group_by(.x, n)) %>% map(~slice(.x, n())) %>%
+problem_fams_end <- selected_fams %>% purrr::map(~group_by(.x, n)) %>% purrr::map(~slice(.x, n())) %>%
   map_df(~filter(.x, class %in% c("S", "M"))) %>% ungroup() #%>% select(date, lat, lon, class)
 
 #--- Automatically (FAILED)
