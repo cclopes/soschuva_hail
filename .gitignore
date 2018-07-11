@@ -3,5 +3,10 @@ Data/HAILPADS/
 Data/LIGHTNING/
 Data/SOUNDINGS/
 Data/RADAR/
+Data/SATELLITE/
 .Rproj.user
 .Rhistory
+
+Radar_Processing/\.ipynb_checkpoints/
+
+Satellite_Processing/\.ipynb_checkpoints/
