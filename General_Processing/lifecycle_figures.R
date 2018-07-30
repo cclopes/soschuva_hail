@@ -2,7 +2,7 @@
 #-- Importing ForTraCC and lightning entries with "lifecycle_data.RData"
 #-- Adding hailpads data
 #-- Generating table with overall information about the cases
-#-- PlottingForTraCC and lightning during life cycle
+#-- Plotting ForTraCC and lightning during life cycle
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Loading necessary scripts and packages

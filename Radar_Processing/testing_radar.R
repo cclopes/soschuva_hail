@@ -1,3 +1,7 @@
+#------------------------------------------------------
+#-- Script to test latlon matrices and cappi plots
+#------------------------------------------------------
+
 library(fields)
 
 aux1 <- as.matrix(read.table("/home/camila/Downloads/rad.lat"))

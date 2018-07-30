@@ -2,16 +2,16 @@ library(readr); library(ggplot2); library(ggalt); library(tidyverse); library(gr
 library(directlabels); library(scales); library(colorspace)
 theme_set(theme_grey())
 
-source("color_palette.R")
+source("General_Processing/color_palette.R")
 
 #----------------------------------------------------------------------------------------------------------------------
-#-- Gerando figura de classificação de hidrometeoros conceitual - Straka et al. (2000)
+#-- Conceptual model of hydrometeor classification - Straka et al. (2000)
 #----------------------------------------------------------------------------------------------------------------------
-hids <- read_csv('dados_entrada/hids')
+hids <- read_csv('Data/GENERAL/hids')
 
 plt_a <- ggplot(hids %>% select(HID, Zh_low, Zh_high), aes(x = Zh_low, xend = Zh_high, y = HID, group = HID)) +
   geom_dumbbell(color = "firebrick2", size = 1) +
-  scale_y_discrete(limits = rev(hids$HID), name = "") + scale_x_continuous(name = "Refletividade (dBZ)")
+  scale_y_discrete(limits = rev(hids$HID), name = "") + scale_x_continuous(name = "Reflectivity (dBZ)")
   
 plt_b <- ggplot(hids %>% select(HID, ZDR_low, ZDR_high), aes(x = ZDR_low, xend = ZDR_high, y = HID, group = HID)) +
   geom_dumbbell(color = "chartreuse3", size = 1) +
@@ -23,18 +23,18 @@ plt_c <- ggplot(hids %>% select(HID, KDP_low, KDP_high), aes(x = KDP_low, xend =
 
 plt_d <- ggplot(hids %>% select(HID, RHO_low, RHO_high), aes(x = RHO_low, xend = RHO_high, y = HID, group = HID)) +
   geom_dumbbell(color = "deeppink", size = 1) +
-  scale_y_discrete(limits = rev(hids$HID), name = "") + scale_x_continuous(name = "RHO (a.u.)")
+  scale_y_discrete(limits = rev(hids$HID), name = "") + scale_x_continuous(name = "RHO (dimensionless)")
 
 plt <- plot_grid(plt_a, plt_b, plt_c, plt_d, labels = c("a", "b", "c", "d"), ncol = 2)
-title <- ggdraw() + draw_label("Classificação de Hidrometeoros - Straka et al. (2000)", size = 15, fontface = "bold")
+title <- ggdraw() + draw_label("Hydrometeor Classification - Straka et al. (2000)", size = 15, fontface = "bold")
 plg <- plot_grid(title, plt, ncol = 1, rel_heights = c(0.1,1))
-save_plot("figuras/hids_strakaetal.png", plot = plg, ncol = 2, base_width = 5, base_height = 6)
+save_plot("General_Processing/figures/hids_strakaetal.png", plot = plg, ncol = 2, base_width = 5, base_height = 6)
 
 #----------------------------------------------------------------------------------------------------------------------
-#-- Gerando figura do Takahashi (1978)
+#-- Reproducing Takahashi (1978) classical figure
 #----------------------------------------------------------------------------------------------------------------------
 
-takahashi <- t(as.matrix(read_table2("dados_entrada/tkhash.q", col_names = FALSE)))
+takahashi <- t(as.matrix(read_table2("Data/GENERAL/tkhash.q", col_names = FALSE)))
 rownames(takahashi) <- seq(0, -30, length.out = 31)
 colnames(takahashi) <- exp(log(10)*seq(log10(0.01),log10(30),length.out = 30))
 
@@ -47,26 +47,26 @@ plt <- ggplot(tak_plot, aes(x = Var1, y = Var2)) +
   scale_fill_gradientn(colours = c("darkblue", "blue", "dodgerblue", "white", "brown1", "firebrick2", "darkred"), limits = c(-66, 66)) +
   labs(title = "Takahashi (1978)", fill = "fC", x = "T (°C)", y = "LWC (g/m³)") +
   theme_bw() + theme(panel.grid = element_blank(), plot.title = element_text(hjust = 0.5), legend.key.height = unit(x = 15, units = 'mm'))
-ggsave("figuras/takahashi.png", plot = plt, width = 4, height = 4)
+ggsave("General_Processing/figures/takahashi.png", plot = plt, width = 4, height = 4)
 
 #----------------------------------------------------------------------------------------------------------------------
-#-- Gerando figura de dados disponíveis por caso
+#-- Data available per case
 #----------------------------------------------------------------------------------------------------------------------
 
-files_sr <-  c(dir(path = "../Dados/RADAR/SR/level_0/2016-12-25/", pattern = "*.mvol", full.names = T),
-               dir(path = "../Dados/RADAR/SR/level_0/2017-01-31/", pattern = "*.mvol", full.names = T),
-               dir(path = "../Dados/RADAR/SR/level_0/2017-03-14/", pattern = "*.mvol", full.names = T),
-               dir(path = "../Dados/RADAR/SR/level_0/2017-11-15/", pattern = "*.mvol", full.names = T),
-               dir(path = "../Dados/RADAR/SR/level_0/2017-11-16/", pattern = "*.mvol", full.names = T)) %>% 
+files_sr <-  c(dir(path = "Data/RADAR/SR/level_0/2016-12-25/", pattern = "*.mvol", full.names = T),
+               dir(path = "Data/RADAR/SR/level_0/2017-01-31/", pattern = "*.mvol", full.names = T),
+               dir(path = "Data/RADAR/SR/level_0/2017-03-14/", pattern = "*.mvol", full.names = T),
+               dir(path = "Data/RADAR/SR/level_0/2017-11-15/", pattern = "*.mvol", full.names = T),
+               dir(path = "Data/RADAR/SR/level_0/2017-11-16/", pattern = "*.mvol", full.names = T)) %>% 
   as.data.frame() %>% 
   `colnames<-`("date") %>% mutate(date = str_extract(date, "201\\d-\\d\\d-\\d\\d--\\d\\d-\\d\\d")) %>% 
   mutate(date = lubridate::ymd_hm(date)) %>% mutate(hour = date) %>% mutate(date = as.character(lubridate::date(date))) %>% 
   mutate(Radar = "SR")
-files_cth <- c(dir(path = "../Dados/RADAR/CTH/level_0_hdf5/2016-12-25/", pattern = "*.HDF5", full.names = T),
-               dir(path = "../Dados/RADAR/CTH/level_0_hdf5/2017-01-31/", pattern = "*.HDF5", full.names = T),
-               dir(path = "../Dados/RADAR/CTH/level_0_hdf5/2017-03-14/", pattern = "*.HDF5", full.names = T),
-               dir(path = "../Dados/RADAR/CTH/level_0_hdf5/2017-11-15/", pattern = "*.HDF5", full.names = T),
-               dir(path = "../Dados/RADAR/CTH/level_0_hdf5/2017-11-16/", pattern = "*.HDF5", full.names = T)) %>% 
+files_cth <- c(dir(path = "Data/RADAR/CTH/level_0_hdf5/2016-12-25/", pattern = "*.HDF5", full.names = T),
+               dir(path = "Data/RADAR/CTH/level_0_hdf5/2017-01-31/", pattern = "*.HDF5", full.names = T),
+               dir(path = "Data/RADAR/CTH/level_0_hdf5/2017-03-14/", pattern = "*.HDF5", full.names = T),
+               dir(path = "Data/RADAR/CTH/level_0_hdf5/2017-11-15/", pattern = "*.HDF5", full.names = T),
+               dir(path = "Data/RADAR/CTH/level_0_hdf5/2017-11-16/", pattern = "*.HDF5", full.names = T)) %>% 
   as.data.frame() %>% 
   `colnames<-`("date") %>% mutate(date = str_extract(date, "201\\d\\d\\d\\d\\d\\d\\d\\d\\d")) %>% 
   mutate(date = lubridate::ymd_hm(date)) %>% mutate(hour = date) %>% mutate(date = as.character(lubridate::date(date))) %>% 
@@ -82,10 +82,10 @@ plt <- ggplot(files) +
   scale_y_datetime(labels = date_format("%H:%M")) +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom", axis.text.y = element_text(angle = 90, hjust = 0.5)) +
   coord_flip()
-ggsave("figuras/dados_disponiveis.png", plot = plt, width = 8, height = 5.5)
+ggsave("General_Processing/figures/data_availability.png", plot = plt, width = 8, height = 5.5)
 
 #----------------------------------------------------------------------------------------------------------------------
-#-- Gerando figuras das estratégias dos radares
+#-- Radar strategies
 #----------------------------------------------------------------------------------------------------------------------
 
 #-- Constantes
@@ -126,7 +126,7 @@ ggplot(cth_scan, aes(x = r)) +
   coord_cartesian(ylim = c(0,20), xlim = c(0,250)) +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom") +
   guides(fill = guide_legend(nrow = 1), color = guide_legend(nrow = 1))
-ggsave("figuras/scan_strategy_cth.png", width = 5.5, height = 4)
+ggsave("General_Processing/figures/scan_strategy_cth.png", width = 5.5, height = 4)
 
 ggplot(sr_scan, aes(x = r)) +
   geom_ribbon(aes(ymax = h_up, ymin = h_down, fill = elev, color = elev), alpha = 0.6, size = 0.1) +
@@ -138,7 +138,7 @@ ggplot(sr_scan, aes(x = r)) +
   coord_cartesian(ylim = c(0,20), xlim = c(0,250)) +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom") +
   guides(fill = guide_legend(nrow = 2, byrow = T), color = guide_legend(nrow = 2, byrow = T))
-ggsave("figuras/scan_strategy_sr.png", width = 5.5, height = 4.2)
+ggsave("General_Processing/figures/scan_strategy_sr.png", width = 5.5, height = 4.2)
 
 ggplot(xpol_scan, aes(x = r)) +
   geom_ribbon(aes(ymax = h_up, ymin = h_down, fill = elev, color = elev), alpha = 0.6, size = 0.1) +
@@ -150,4 +150,4 @@ ggplot(xpol_scan, aes(x = r)) +
   coord_cartesian(ylim = c(0,20), xlim = c(0,80)) +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom") +
   guides(fill = guide_legend(nrow = 3, byrow = T), color = guide_legend(nrow = 3, byrow = T))
-ggsave("figuras/scan_strategy_xpol.png", width = 5.5, height = 5)
+ggsave("General_Processing/figures/scan_strategy_xpol.png", width = 5.5, height = 5)

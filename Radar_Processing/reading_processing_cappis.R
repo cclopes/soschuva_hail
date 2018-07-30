@@ -1,10 +1,10 @@
 #----------------------------------------------------------------------------------------------------------
-#-- Lendo os CAPPIs dos casos com hailpads e plotando
+#-- Reading CAPPIS of the hailpad cases and plotting
 #----------------------------------------------------------------------------------------------------------
 
 #-- Carregando pacotes e scripts necessários
 require(fields); require(tidyverse); require(animation); require(reshape2)
-source("funções.R")
+source("Data/GENERAL/funções.R")
 
 #-- Parâmetros de entrada
 #---- 500 x 500 pontos
