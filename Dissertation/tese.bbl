@@ -1,0 +1,42 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{{Autor da dissertacao}}{{Autor da
+  dissertacao}}{2000}]{mestrado}
+{Autor da dissertacao} A.,  {Titulo da dissertacao de mestrado}, S\~{a}o Paulo:
+  Universidade 1, 2000, Disserta\c{c}\~{a}o de Mestrado, 500 p.
+
+\bibitem[\protect\citeauthoryear{{Autor da tese}}{{Autor da
+  tese}}{2001}]{doutorado}
+{Autor da tese} B.,  {Titulo da tese de doutorado}, S\~{a}o Paulo: Universidade
+  2, 2001, Tese de Doutorado, 1000 p.
+
+\bibitem[\protect\citeauthoryear{{autor1} e {Autor2}}{{autor1} e
+  {Autor2}}{2000}]{livro}
+{autor1} A.,  {Autor2} B.,  {Titulo do livro}.
+Edicao. Cidade: Editora, 2000, 100 p.
+
+\bibitem[\protect\citeauthoryear{{Autor1}, {Autor2} e {Autor 3}}{{Autor1}
+  et~al.}{2007}]{artigo1}
+{Autor1} A.,  {Autor2} B.,    {Autor 3} C.,  {Titulo do Artigo}, jornal, 2007,
+  vol.~1, p. 10
+
+\bibitem[\protect\citeauthoryear{{Autor1}, {Autor2}, {Autor 3} e
+  {Autor4}}{{Autor1} et~al.}{2007}]{artigo2}
+{Autor1} A.,  {Autor2} B.,  {Autor 3} C.,    {Autor4} D.,  {Titulo do Artigo},
+  jornal, 2007, vol.~2, p. 10
+
+\bibitem[\protect\citeauthoryear{{Bethe} e {Salpeter}}{{Bethe} e
+  {Salpeter}}{1983}]{bethe}
+{Bethe} H.~A.,  {Salpeter} E.~E.,  {The 1983 Nobel Prize in Physics -
+  Chandrasekhar and Fowler}, Science, 1983, vol.~222, p. 881
+
+\bibitem[\protect\citeauthoryear{{Feynman}}{{Feynman}}{1988}]{feynman}
+{Feynman} R.~P.,  {What do you care what other people think? Further adventures
+  of a curious character as told to Ralph Leighton}.
+1st ed. London: W W Norton \& Co Inc, 1988, 256 p.
+
+\bibitem[\protect\citeauthoryear{{Salpeter}}{{Salpeter}}{1970}]{salpeter}
+{Salpeter} E.~E.,  {Difficulties with fusion catalysis by quarks.}, \nat, 1970,
+  vol.~255, p. 165
+
+\end{thebibliography}
