@@ -4,7 +4,7 @@
 
 #-- Carregando pacotes e scripts necessários
 require(fields); require(tidyverse); require(animation); require(reshape2)
-source("Data/GENERAL/funções.R")
+source("General_Processing/functions.R")
 
 #-- Parâmetros de entrada
 #---- 500 x 500 pontos
@@ -28,8 +28,8 @@ lat_vetor <- seq(min(lat, na.rm = T), max(lat, na.rm = T), length = lins)
 lon_vetor <- seq(min(lon, na.rm = T), max(lon, na.rm = T), length = lins)
 
 #-- Criando variável com nomes das listas de arquivos
-listas_arqs <- paste("dados_entrada/cth_level2_0", seq(2,7), "000", sep = "") #-- FCTH
-# listas_arqs <- paste("dados_entrada/sr_level2_0", seq(2,5), "000", sep = "")  #-- SR
+listas_arqs <- paste("data_files/cth_level2_0", seq(2,7), "000", sep = "") #-- FCTH
+# listas_arqs <- paste("data_files/sr_level2_0", seq(2,5), "000", sep = "")  #-- SR
 
 for(c in listas_arqs){
   nomes_arqs <- read.table(c) %>% unlist() %>% as.vector()
@@ -42,4 +42,4 @@ for(c in listas_arqs){
 }
 
 #-- Plotando (gif com todas as imagens)
-# saveGIF(loop.animar(nomes_arqs_caso1), movie.name = "figuras/caso1_6km_20161225.gif", interval = 0.5, ani.width = 550, ani.height = 500)
+# saveGIF(loop.animar(nomes_arqs_caso1), movie.name = "figures/cappis/case1_6km_20161225.gif", interval = 0.5, ani.width = 550, ani.height = 500)
