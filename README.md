@@ -7,7 +7,7 @@ Processing weather radar data in two fronts:
   - Calculate hydrometeor classification (using [`CSU_RadarTools`](https://github.com/CSU-Radarmet/CSU_RadarTools)) and plot with polarimetric variables
   - Plot PPIs of single-pol variables
 - In R:
-  -
+  - Read and view CAPPI data (specially from São Roque radar)
 
 ## MultiDoppler_Processing [Python]
 Processing doppler data from 2 (or 3) weather radars using [`MultiDop`](https://github.com/nasa/MultiDop).
