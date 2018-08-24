@@ -4,17 +4,22 @@ Data/LIGHTNING/
 Data/SOUNDINGS/
 Data/RADAR/
 Data/SATELLITE/
+Data/REANALYSIS/
+
+\.RData
 .Rproj.user
 .Rhistory
 
 Radar_Processing/\.ipynb_checkpoints/
+Radar_Processing/figures/
 
 Satellite_Processing/\.ipynb_checkpoints/
+Satellite_Processing/figures/
 
 Sounding_Processing/\.ipynb_checkpoints/
 
-\.RData
-
-Data/REANALYSIS/
-
 MultiDoppler_Processing/\.ipynb_checkpoints/
+
+Reanalysis_Processing/figures/
+
+Satellite_Processing/read_process_goes16\.nbconvert\.ipynb
