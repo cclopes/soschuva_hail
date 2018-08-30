@@ -15,8 +15,8 @@ dir:  ./
 # max will be min + (num_points - 1) * step
 # Assume, perhaps naively, that distances are measured in meters,
 # angles in degrees.
-x:  -150000.0  1000.0  201  
-y:  0.0  1000.0  201  
+x:  -200000.0  1000.0  211  
+y:  -10000.0  1000.0  211  
 z:  1000.0  1000.0  20  
 
 # Geographic coordinates of grid origin, degrees
@@ -40,7 +40,7 @@ vt:  VT
 
 # Names of output file
 frprmn_out:  frprmn_out.nc
-writeout:  /tmp/tmpPAI12q
+writeout:  /tmp/tmp8B3X6A
 
 # Minimum beam crossing angle for optimal coverage
 min_cba:  20.0

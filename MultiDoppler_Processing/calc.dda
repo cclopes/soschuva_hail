@@ -118,7 +118,7 @@ filter:  none
 cvg_opt_bg:  2  SR  CTH  1
 
 # Background coverage arrays for suboptimal beam crossing angle for two radars
-cvg_sub_bg:  2  SR  CTH  0
+cvg_sub_bg:  2  SR  CTH  1
 
 # Filter coverage arrays for optimal beam crossing angle for two radars
 cvg_opt_fil:  2  SR  CTH  0
