@@ -40,7 +40,7 @@ vt:  VT
 
 # Names of output file
 frprmn_out:  frprmn_out.nc
-writeout:  /tmp/tmpg_VVG5
+writeout:  /tmp/tmpsT_snk
 
 # Minimum beam crossing angle for optimal coverage
 min_cba:  20.0
