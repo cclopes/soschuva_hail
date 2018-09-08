@@ -124,9 +124,11 @@ ggplot(cth_scan, aes(x = r)) +
   scale_fill_manual(values = pal_scan(length(cth_elevs))) +
   scale_color_manual(values = pal_scan(length(cth_elevs))) +
   coord_cartesian(ylim = c(0,20), xlim = c(0,250)) +
-  theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom") +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom",
+        plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")) +
   guides(fill = guide_legend(nrow = 1), color = guide_legend(nrow = 1))
-ggsave("General_Processing/figures/scan_strategy_cth.png", width = 5.5, height = 4)
+ggsave("General_Processing/figures/scan_strategy_cth.png", width = 6, height = 4, bg = "transparent")
 
 ggplot(sr_scan, aes(x = r)) +
   geom_ribbon(aes(ymax = h_up, ymin = h_down, fill = elev, color = elev), alpha = 0.6, size = 0.1) +
@@ -136,9 +138,11 @@ ggplot(sr_scan, aes(x = r)) +
   scale_fill_manual(values = pal_scan(length(sr_elevs))) +
   scale_color_manual(values = pal_scan(length(sr_elevs))) +
   coord_cartesian(ylim = c(0,20), xlim = c(0,250)) +
-  theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom") +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom",
+        plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")) +
   guides(fill = guide_legend(nrow = 2, byrow = T), color = guide_legend(nrow = 2, byrow = T))
-ggsave("General_Processing/figures/scan_strategy_sr.png", width = 5.5, height = 4.2)
+ggsave("General_Processing/figures/scan_strategy_sr.png", width = 6, height = 4.2, bg = "transparent")
 
 ggplot(xpol_scan, aes(x = r)) +
   geom_ribbon(aes(ymax = h_up, ymin = h_down, fill = elev, color = elev), alpha = 0.6, size = 0.1) +
@@ -148,6 +152,8 @@ ggplot(xpol_scan, aes(x = r)) +
   scale_fill_manual(values = pal_scan(length(xpol_elevs))) +
   scale_color_manual(values = pal_scan(length(xpol_elevs))) +
   coord_cartesian(ylim = c(0,20), xlim = c(0,80)) +
-  theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom") +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom",
+        plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")) +
   guides(fill = guide_legend(nrow = 3, byrow = T), color = guide_legend(nrow = 3, byrow = T))
-ggsave("General_Processing/figures/scan_strategy_xpol.png", width = 5.5, height = 5)
+ggsave("General_Processing/figures/scan_strategy_xpol.png", width = 5.5, height = 5, bg = "transparent")

@@ -54,9 +54,11 @@ ggplot(data = hailpads) +
   geom_boxplot(aes(x = plate, y = value, color = measured_by)) +
   labs(x = "Hailpad", y = "Diameter [mm]") + ggtitle("Distributions of All Measures") +
   scale_color_brewer(name = "Measured by", palette = "Set1") +
-  theme(legend.position = "bottom")
-# ggsave("Hailpads_Processing/figures/measures_distribution.png", width = 5.5, height = 4)
-ggsave("Hailpads_Processing/figures/measures_distribution_less.png", width = 4.5, height = 4) #-- For less cases
+  theme(legend.position = "bottom", 
+        plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent"))
+# ggsave("Hailpads_Processing/figures/measures_distribution.png", width = 5.5, height = 4,  bg = "transparent")
+ggsave("Hailpads_Processing/figures/measures_distribution_less.png", width = 4.5, height = 4,  bg = "transparent") #-- For less cases
 
 #--- Plot 2: Diameter vs Kinetic Energy (TORRO)
 ggplot(data = hailpads_perplate, aes(x = diam_typical, y = encin)) +
@@ -69,10 +71,12 @@ ggplot(data = hailpads_perplate, aes(x = diam_typical, y = encin)) +
   geom_errorbarh(aes(xmin = diam_typical-sd_typical, xmax = diam_typical+sd_typical, color = plate), size = 1) +
   labs(title = "Hailstorm Intensity - TORRO Scale", x = "Typical Diameter [mm]", y = "Kinetic Energy [J/m²]", color = "Hailpad") + 
   # theme(legend.position = "bottom") + guides(color = guide_legend(nrow = 2, byrow = T)) +
-  theme(legend.position = "bottom") + #-- For less cases
+  theme(legend.position = "bottom", 
+        plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")) + #-- For less cases
   labs(title = "Hailstorm Intensity - TORRO Scale", x = "Typical Diameter [mm]", y = "Kinetic Energy [J/m²]", color = "Hailpad")
-# ggsave("Hailpads_Processing/figures/data_torro.png", width = 5, height = 4)
-ggsave("Hailpads_Processing/figures/data_torro_less.png", width = 4, height = 4) #-- For less cases
+# ggsave("Hailpads_Processing/figures/data_torro.png", width = 5, height = 4,  bg = "transparent")
+ggsave("Hailpads_Processing/figures/data_torro_less.png", width = 4.5, height = 4,  bg = "transparent") #-- For less cases
 
 #--- Plot 2: Diameter vs Kinetic Energy (ANELFA)
 ggplot(data = hailpads_perplate, aes(x = diam_max, y = encin)) +
@@ -84,7 +88,9 @@ ggplot(data = hailpads_perplate, aes(x = diam_max, y = encin)) +
   geom_errorbar(aes(ymin = encin-sd_encin, ymax = encin+sd_encin, color = plate), size = 1, width = 0.2) +
   geom_errorbarh(aes(xmin = diam_max-sd_max, xmax = diam_max+sd_max, color = plate), size = 1) +
   # theme(legend.position = "bottom") + guides(color = guide_legend(nrow = 2, byrow = T)) +
-  theme(legend.position = "bottom") + #-- For less cases
+  theme(legend.position = "bottom", 
+        plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")) + #-- For less cases
   labs(title = "Hailstorm Intensity - ANELFA Scale", x = "Maximum Diameter [mm]", y = "Kinetic Energy [J/m²]", color = "Hailpad")
-# ggsave("Hailpads_Processing/figures/data_anelfa.png", width = 5, height = 4)
-ggsave("Hailpads_Processing/figures/data_anelfa_less.png", width = 4, height = 4) #-- For less cases
+# ggsave("Hailpads_Processing/figures/data_anelfa.png", width = 5, height = 4,  bg = "transparent")
+ggsave("Hailpads_Processing/figures/data_anelfa_less.png", width = 4.5, height = 4,  bg = "transparent") #-- For less cases

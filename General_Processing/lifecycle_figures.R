@@ -32,4 +32,5 @@ fams_summary <- selected_fams_df %>% group_by(case) %>%
 #-- Joining dBZ, size and lightning
 plt <- plot_grid(plt_dbz, plt_size, plt_brasildat, labels = c("a", "b", "c"), ncol = 3, rel_widths = c(0.4, 0.4, 0.55))
 # save_plot("General_Processing/figures/cases_dbz_size_lightning.png", plot = plt, ncol = 3, base_width = 3, base_height = 5)
-save_plot("General_Processing/figures/cases_dbz_size_lightning_less.png", plot = plt, ncol = 3, base_width = 2.5, base_height = 3) #-- For less plots
+save_plot("General_Processing/figures/cases_dbz_size_lightning_less.png", plot = plt, ncol = 3, 
+          base_width = 2.5, base_height = 3, bg = "transparent") #-- For less plots

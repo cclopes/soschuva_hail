@@ -76,17 +76,21 @@ ggplot(data = data_brasildat_df) +
   scale_shape_manual(values = c(4, 1)) +
   labs(x = "Longitude", y = "Latitude", color = "Time (UTC)", shape = "Type") +
   # guides(size = "none", color = guide_colorbar(barheight = 12)) +
-  theme(legend.position = "bottom") + #-- For less plots
+  theme(legend.position = "bottom", 
+        plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")) + #-- For less plots
   guides(size = "none", color = guide_colorbar(barwidth = 15)) + #-- For less plots
   facet_wrap(~ case)
 # ggsave("Lightning_Processing/figures/brasildat_location.png", width = 8.5, height = 4.25)
-ggsave("Lightning_Processing/figures/brasildat_location_less.png", width = 7.5, height = 3.25) #-- For less plots
+ggsave("Lightning_Processing/figures/brasildat_location_less.png", width = 7.5, height = 3.25, bg = "transparent") #-- For less plots
 
 #-- Plotting temporal distribution
 plt_brasildat <- ggplot(rcount) +
   geom_histogram(binwidth = 60, aes(x = hour, ..count.., fill = forcats::fct_rev(class))) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
   scale_fill_manual(name = "Type", values = c("darkgoldenrod1", "darkorchid")) +
+  theme(plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")) +
   labs(x = "Hour (UTC)", y = "Strokes/min") +
   facet_grid(case ~ ., scales = "free_y")
 

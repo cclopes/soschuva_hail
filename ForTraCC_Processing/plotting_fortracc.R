@@ -54,19 +54,23 @@ ggplot(data = selected_fams_df) +
   theme(legend.position = "bottom") + #-- For less plots
   guides(size = "none", color = guide_colorbar(barwidth = 15), shape = guide_legend(nrow = 2, byrow = T)) + #-- For less plots
   facet_wrap(~ case)
-# ggsave("ForTraCC_Processing/figures/trajectories_cases.png", width = 8.5, height = 4.25)
-ggsave("ForTraCC_Processing/figures/trajectories_cases_less.png", width = 7.5, height = 3.25) #-- For less plots
+# ggsave("ForTraCC_Processing/figures/trajectories_cases.png", width = 8.5, height = 4.25,  bg = "transparent")
+ggsave("ForTraCC_Processing/figures/trajectories_cases_less.png", width = 7.5, height = 3.25,  bg = "transparent") #-- For less plots
 
 #-- Generating plots of life cycle of dBZ max and area for future plot
 plt_dbz <- ggplot(data = selected_fams_df) +
   geom_path(aes(x = hour, y = pmax), color = "tomato") +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
+  theme(plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")) +
   labs(x = "Hour (UTC)", y = "Max Reflectivity (dBZ)") +
   facet_grid(case ~ .) +
   theme(strip.text = element_blank())
 
 plt_size <- ggplot(data = selected_fams_df) +
   geom_path(aes(x = hour, y = size), color = "navyblue") +
+  theme(plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
   labs(x = "Hour (UTC)", y = "Size (km²)") +
   facet_grid(case ~ .) +
