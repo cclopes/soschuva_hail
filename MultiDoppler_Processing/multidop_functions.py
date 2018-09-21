@@ -30,10 +30,19 @@ def read_dealise_radar(filename, dbz_field='corrected_reflectivity',
 
     """
     Reading radar data with radar_funs and:
-
     - Dealise data with pyart
     - Add a mising_value (and _FillValue if not available) field inside
       reflectivity (DT) and velocity (VT) fields
+      
+    Parameters
+    ----------
+    filename: .mvol or .HDF5 file
+    dbz_field: name of the reflectivity field to be used
+    vel_field: name of the velocity field to be used
+
+    Returns
+    -------
+    radar: dealised Py-ART radar data
     """
 
     # Reading
@@ -73,9 +82,22 @@ def grid_radar(radar, grid_shape=(20, 301,  301),
 
     """
     Using radar data:
-
     - Create a gridded version (grid) with pyart
     - Add azimuth and elevation information as fields of grid using multidop
+
+    Parameters
+    ----------
+    radar: Py-ART radar data
+    grid_shape: grid shape specifications
+        (# points in z, # points in y, # points in x)
+    xlim, ylim, zlim: plot limits in x, y, z
+        (min, max) in meters
+    fields: name of the reflectivity and velocity fields
+    origin: custom grid origin
+    
+    Returns
+    -------
+    grid: gridded radar data
     """
 
     # Count the time
@@ -101,25 +123,71 @@ def grid_radar(radar, grid_shape=(20, 301,  301),
     return grid
 
 
-def plot_gridded_radar(grid, name_radar, name_base,
-                       xlim=[-150, 150], ylim=[-150, 150]):
+def plot_gridded_maxdbz(grid, name_radar, name_base,
+                        xlim=[-150000, 150000], ylim=[-150000, 150000]):
     """
-    Using gridded radar data, plot reflectivity field using matplotlib.
+    Using gridded radar data, plot max reflectivity field using matplotlib
+
+    Parameters
+    ----------
+    grid: gridded radar data
+    name_radar: name of the radar to be plotted
+    name_base: name of the radar whose grid is based on
+    xlim, ylim: plot limits in x, y
+        (min, max) in meters
+
+    Returns
+    -------
+    Plot
     """
 
     DZcomp = np.amax(grid.fields['DT']['data'], axis=0)
 
     fig = plt.figure(figsize=(6, 5))
-    fig.set_facecolor('w')
-    x, y = np.meshgrid(0.001*grid.x['data'], 0.001*grid.y['data'])
-    cs = plt.pcolormesh(0.001*grid.x['data'], 0.001*grid.y['data'],
+    x, y = np.meshgrid(grid.x['data'], grid.y['data'])
+    cs = plt.pcolormesh(grid.x['data'], grid.y['data'],
                         DZcomp, vmin=0, vmax=75, cmap='pyart_NWSRef')
     plt.xlim(xlim)
     plt.ylim(ylim)
     plt.colorbar(cs, label='Reflectivity (dBZ)')
     plt.title('Max Reflectivity (filled) of ' + name_radar)
-    plt.xlabel('Distance east of ' + name_base + '  (km)')
-    plt.ylabel('Distance north of ' + name_base + '  (km)')
+    plt.xlabel('Distance east of ' + name_base + '  (m)')
+    plt.ylabel('Distance north of ' + name_base + '  (m)')
+    plt.show()
+
+
+def plot_gridded_velocity(grid, name_radar, name_base, height=0,
+                          xlim=[-150000, 150000], ylim=[-150000, 150000]):
+    """
+    Using gridded radar data, plot velocity field in a height using matplotlib
+
+    Parameters
+    ----------
+    grid: gridded radar data
+    name_radar: name of the radar to be plotted
+    name_base: name of the radar whose grid is based on
+    height: height index
+    xlim, ylim: plot limits in x, y
+        (min, max) in meters
+
+    Returns
+    -------
+    Plot
+    """
+
+    field = grid.fields['VT']['data'][height]
+
+    fig = plt.figure(figsize=(6, 5))
+    x, y = np.meshgrid(grid.x['data'], grid.y['data'])
+    cs = plt.pcolormesh(grid.x['data'], grid.y['data'],
+                        field, vmin=-15, vmax=15, cmap='pyart_BuDRd18')
+    plt.xlim(xlim)
+    plt.ylim(ylim)
+    plt.colorbar(cs, label='Velocity (m/s)')
+    plt.title(('Doppler Velocity of ' + name_radar + ' in ' + str(height + 1) +
+               ' km'))
+    plt.xlabel('Distance east of ' + name_base + '  (m)')
+    plt.ylabel('Distance north of ' + name_base + '  (m)')
     plt.show()
 
 
@@ -133,6 +201,23 @@ def calc_plot_wind_dbz(grid, lon_index, name_base, name_multi,
     - Plot horizontal and vertical views
         - In a specific height (defined by index)
         - In a specific longitudinal cross-section (defined by lon_index)
+
+    Parameters
+    ----------
+    grid: gridded multidoppler processed data
+    lon_index: longitude index for cross-section
+    name_base: name of the radar whose grid is based on
+    name_multi: acronym with all radar names
+    index: height of the horizontal view plot
+    thin: grid interval to plot wind arrows
+    xlim_hv, ylim_hv: plot limits in x, y for horizontal view
+        (min, max) in kilometers
+    xlim_vv, ylim_vv: plot limits in x, y for vertical view
+        (min, max) in kilometers
+
+    Returns
+    -------
+    Plots
     """
 
     # Selecting data
@@ -154,12 +239,11 @@ def calc_plot_wind_dbz(grid, lon_index, name_base, name_multi,
 
     # - Main figure
     fig = plt.figure(figsize=(10, 8))
-    fig.set_facecolor('w')
     ax = fig.add_subplot(111)
 
     # - Reflectivity (shaded)
     cs = ax.pcolormesh(0.001*grid.x['data'], 0.001*grid.y['data'],
-                       Z[index], vmin=0, vmax=70, cmap=cm.GMT_wysiwyg)
+                       Z[index], vmin=0, vmax=65, cmap=cm.GMT_wysiwyg)
     plt.colorbar(cs, label='Reflectivity (dBZ)', ax=ax)
 
     # - Vertical wind (contour)
@@ -186,7 +270,6 @@ def calc_plot_wind_dbz(grid, lon_index, name_base, name_multi,
 
     # - Main figure
     fig = plt.figure(figsize=(10, 8))
-    fig.set_facecolor('w')
     ax = fig.add_subplot(111)
 
     # - Reflectivity (shaded)

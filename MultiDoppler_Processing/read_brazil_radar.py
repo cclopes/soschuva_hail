@@ -85,7 +85,7 @@ def _initial_process(r):
                                  r[slab][mom].attrs['dyn_range_min'][0]) / div
                 data[mom][np.where(invalid == 0)] = bad
             data[mom] = np.ma.masked_where(data[mom] == bad, data[mom])
-                
+
         # Last sweep lacks completion time, need to infer from linear fit
         # to scan speed and time for each sweep.
         if i < elcnt - 1:
@@ -108,8 +108,9 @@ def _initial_process(r):
     elevations = np.concatenate(elevations)
     nyq = np.concatenate(nyq)
     urg = np.concatenate(urg)
-    dstart = dt.datetime.strptime(r['scan0']['how'].attrs['timestamp'][0],
-                                  '%Y-%m-%dT%H:%M:%S.000Z')
+    dstart = dt.datetime.strptime(
+            r['scan0']['how'].attrs['timestamp'][0],
+            '%Y-%m-%dT%H:%M:%S.000Z')
     dtime = np.array(
         [dstart + dt.timedelta(microseconds=int(j*1e6*totsec/len(azimuths)))
          for j in np.arange(len(azimuths))])
