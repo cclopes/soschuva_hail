@@ -34,9 +34,36 @@ def read_radar(filename):
     return radar
 
 
+def add_field_to_grid_object(field, grid, field_name='Reflectivity',
+                             units='dBZ', long_name='Reflectivity',
+                             standard_name='Reflectivity',
+                             dz_field='reflectivity'):
+    """
+    Adds a newly created field to the Py-ART radar object. If reflectivity is a
+    masked array, make the new field masked the same as reflectivity.
+    """
+
+    fill_value = -32768
+    masked_field = np.ma.asanyarray(field)
+    masked_field.mask = masked_field == fill_value
+    if hasattr(grid.fields[dz_field]['data'], 'mask'):
+        setattr(masked_field, 'mask',
+                np.logical_or(masked_field.mask,
+                              grid.fields[dz_field]['data'].mask))
+        fill_value = grid.fields[dz_field]['_FillValue']
+    field_dict = {'data': masked_field,
+                  'units': units,
+                  'long_name': long_name,
+                  'standard_name': standard_name,
+                  '_FillValue': fill_value}
+    grid.add_field(field_name, field_dict, replace_existing=True)
+
+    return grid
+
+
 def plot_dbz_vel_grid(radar, xlim, ylim, sweep=0,
                       dbz_field='corrected_reflectivity',
-                      vel_field='corrected_velocity',
+                      vel_field='velocity',
                       shapepath="../Data/GENERAL/shapefiles/sao_paulo",
                       name_fig='test.png'):
     """
@@ -80,4 +107,3 @@ def plot_dbz_vel_grid(radar, xlim, ylim, sweep=0,
                          cmap='pyart_BuDRd18',
                          colorbar_label=vel_field + ' (m/s)')
     plt.savefig(name_fig, dpi=300, bbox_inches='tight')
-    plt.show()

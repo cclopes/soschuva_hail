@@ -15,6 +15,7 @@ Based on MultiDop Sample Workflow Notebook by Timothy Lang.
 
 import time
 import tempfile
+from datetime import datetime
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -24,19 +25,27 @@ import multidop
 
 import multidop_functions as mf
 from multidop_parameters import params
-"""
+
 # CASE: 2017-11-15
 
 # - Custom variables
 filenames = open("filenames_20171115.txt").read().split('\n')
+date = datetime(2017, 11, 15, 12)
+station = "SBMT"
 grid_xlim, grid_ylim = (-200000.0, 10000.0), (-10000.0, 200000.0)
 grid_shape = (20, 211, 211)
 grid_spacing = 1000.0
 
 # - Reading data
-radar_1 = mf.read_dealise_radar(filenames[0])  # SR
-radar_2 = mf.read_dealise_radar(filenames[1], vel_field='velocity')  # CTH
-radar_3 = mf.read_dealise_radar(filenames[2], vel_field='velocity')  # XPOL
+#radar_1 = mf.read_dealise_region(filenames[0])  # SR
+#radar_2 = mf.read_dealise_region(filenames[1], vel_field='velocity')  # CTH
+#radar_3 = mf.read_dealise_region(filenames[2], vel_field='velocity')  # XPOL
+
+radar_1 = mf.read_dealise_4dd(filenames[0], date, station)  # SR
+radar_2 = mf.read_dealise_4dd(filenames[1], date, station,
+                              vel_field='velocity')  # CTH
+radar_3 = mf.read_dealise_4dd(filenames[2], date, station,
+                              vel_field='velocity')  # XPOL
 
 # - Gridding based on radar_2 (CTH)
 grid_1 = mf.grid_radar(radar_1,
@@ -140,7 +149,7 @@ final_grid = multidop.grid_io.make_new_grid([grid_1, grid_2, grid_3],
 # final_grid.write('case_20171115_cf_3rad.nc')
 localfile.close()
 grid_3rad = final_grid
-"""
+
 # - Reading/plotting results
 # grid_2rad = pyart.io.read_grid('case_20171115_cf_2rad.nc')
 # grid_3rad = pyart.io.read_grid('case_20171115_cf_3rad.nc')
@@ -175,7 +184,7 @@ mf.calc_plot_wind_dbz(grid_2rad, index=2, lon_index=71, name_base='CTH',
                       xlim_vv=(50, 85), ylim_vv=(1, 20))
 
 # --- 3 RADARS (SR, CTH, XPOL)
-mf.calc_plot_wind_dbz(grid_3rad, index=2, lon_index=78, name_base='CTH',
+mf.calc_plot_wind_dbz(grid_3rad, index=2, lon_index=71, name_base='CTH',
                       name_multi='SR/CTH/XPOL',
                       xlim_hv=(-150, -120), ylim_hv=(50, 85),
                       xlim_vv=(50, 85), ylim_vv=(1, 20))
