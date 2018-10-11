@@ -13,8 +13,8 @@ from multidop_functions import read_dealise_region, read_dealise_4dd
 from radar_functions import read_radar
 
 # Reading filenames
-files = (open("filenames_20171115.txt").read().split('\n') +
-         open("filenames_20171115_v2.txt").read().split('\n'))
+files = (open("filenames_20171115_21h40.txt").read().split('\n') +
+         open("filenames_20171115_21h50.txt").read().split('\n'))
 # Other necessary variables
 date = datetime(2017, 11, 15, 12)
 

@@ -115,36 +115,36 @@ filter:  none
 # combinations of radars.
 
 # Background coverage arrays for optimal beam crossing angle for two radars
-cvg_opt_bg:  2  CTH  XPOL  1
+cvg_opt_bg:  2  FCTH  XPOL  1
 cvg_opt_bg:  2  SR  XPOL  1
-cvg_opt_bg:  2  SR  CTH  1
+cvg_opt_bg:  2  SR  FCTH  1
 
 # Background coverage arrays for suboptimal beam crossing angle for two radars
-cvg_sub_bg:  2  CTH  XPOL  1
+cvg_sub_bg:  2  FCTH  XPOL  1
 cvg_sub_bg:  2  SR  XPOL  1
-cvg_sub_bg:  2  SR  CTH  1
+cvg_sub_bg:  2  SR  FCTH  1
 
 # Filter coverage arrays for optimal beam crossing angle for two radars
-cvg_opt_fil:  2  CTH  XPOL  0
+cvg_opt_fil:  2  FCTH  XPOL  0
 cvg_opt_fil:  2  SR  XPOL  1
-cvg_opt_fil:  2  SR  CTH  1
+cvg_opt_fil:  2  SR  FCTH  1
 
 # Filter coverage arrays for suboptimal beam crossing angle for two radars
-cvg_sub_fil:  2  CTH  XPOL  0
+cvg_sub_fil:  2  FCTH  XPOL  0
 cvg_sub_fil:  2  SR  XPOL  0
-cvg_sub_fil:  2  SR  CTH  0
+cvg_sub_fil:  2  SR  FCTH  0
 
 # Background coverage arrays for single radar
 cvg_bg:  SR  0
-cvg_bg:  CTH  0
+cvg_bg:  FCTH  0
 cvg_bg:  XPOL  0
 
 # Filter coverage arrays for single radar
 cvg_fil:  SR  0
-cvg_fil:  CTH  0
+cvg_fil:  FCTH  0
 cvg_fil:  XPOL  0
 
 # Data weight multiplier when all 3 radar pairs have good beam crossing angles
 sseq_trip:  SR  1.0
-sseq_trip:  CTH  1.0
+sseq_trip:  FCTH  1.0
 sseq_trip:  XPOL  0.0
