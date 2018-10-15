@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 from __future__ import print_function
 import numpy as np
 import h5py
@@ -90,10 +92,10 @@ def _initial_process(r):
         # to scan speed and time for each sweep.
         if i < elcnt - 1:
             dt1 = dt.datetime.strptime(
-                r['scan' + str(i)]['how'].attrs['timestamp'][0],
+                str(r['scan' + str(i)]['how'].attrs['timestamp'][0])[2:-1],
                 '%Y-%m-%dT%H:%M:%S.000Z')
             dt2 = dt.datetime.strptime(
-                r['scan' + str(i+1)]['how'].attrs['timestamp'][0],
+                str(r['scan' + str(i+1)]['how'].attrs['timestamp'][0])[2:-1],
                 '%Y-%m-%dT%H:%M:%S.000Z')
             x.append((dt2-dt1).total_seconds())
             y.append(r['scan' + str(i)]['how'].attrs['scan_speed'][0])
@@ -108,8 +110,9 @@ def _initial_process(r):
     elevations = np.concatenate(elevations)
     nyq = np.concatenate(nyq)
     urg = np.concatenate(urg)
-    dstart = dt.datetime.strptime(r['scan0']['how'].attrs['timestamp'][0],
-                                  '%Y-%m-%dT%H:%M:%S.000Z')
+    dstart = dt.datetime.strptime(
+            str(r['scan0']['how'].attrs['timestamp'][0])[2:-1],
+            '%Y-%m-%dT%H:%M:%S.000Z')
     dtime = np.array(
         [dstart + dt.timedelta(microseconds=int(j*1e6*totsec/len(azimuths)))
          for j in np.arange(len(azimuths))])

@@ -85,7 +85,7 @@ def _initial_process(r):
                                  r[slab][mom].attrs['dyn_range_min'][0]) / div
                 data[mom][np.where(invalid == 0)] = bad
             data[mom] = np.ma.masked_where(data[mom] == bad, data[mom])
-                
+
         # Last sweep lacks completion time, need to infer from linear fit
         # to scan speed and time for each sweep.
         if i < elcnt - 1:
