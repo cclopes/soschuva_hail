@@ -14,41 +14,20 @@ Based on MultiDop Sample Workflow Notebook by Timothy Lang.
 @author: Camila Lopes (camila.lopes@iag.usp.br)
 """
 
-from glob import glob
-
 import misc_functions as misc
 from radar_functions import plot_gridded_wind_dbz_panel
-
-# Custom variables
-shp_path = "../Data/GENERAL/shapefiles/sao_paulo"
-# - 2017-11-15
-xlim = (-47.4, -47.15)
-ylim = (-23.1, -22.88)
-hailpad = (-47.20541, -23.02940)
-zerodeg_height = 4.5
-# -- 21h40
-path = "2017-11-15_21h40/"
-date = path[:-1].replace('_', ' ') + 'Z'
-filenames = glob(path + '*.pkl')
-cs_lat = (-23.05, -23.01)  # (-23.07, -22.93)
-cs_lon = (-47.33, -47.14)  # (-47.19, -47.32)
-# -- 21h50
-# path = "2017-11-15_21h50/"
-# date = path[:-1].replace('_', ' ') + 'Z'
-# filenames = glob(path + '*.pkl')
-# cs_lat = (-23.03, -23.03)  # (-23.09, -22.99)
-# cs_lon = (-47.15, -47.33)  # (-47.28, -47.16)
+import custom_vars as cv
 
 # Reading/plotting results
-for filename in filenames:
-    name = filename.split('/')[1].split('_')[0].replace('-', '/').upper()
+for filename in cv.filenames_pkl:
+    name = filename.split('/')[2].split('_')[0].replace('-', '/').upper()
     grid = misc.open_object(filename)
-    plot_gridded_wind_dbz_panel(grid, level=0,
-                                lat_index=cs_lat, lon_index=cs_lon, date=date,
-                                name_multi=name + ' Multi-Doppler at ',
-                                shp_name=shp_path, hailpad_pos=hailpad,
-                                zero_height=zerodeg_height, grid_spc=.05,
-                                xlim=xlim, ylim=ylim)
+    plot_gridded_wind_dbz_panel(
+        grid, level=0, lat_index=cv.cs_lat, lon_index=cv.cs_lon,
+        date=cv.date_name, name_multi=name + ' Multi-Doppler at ',
+        shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
+        zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
+        grid_spc=.07, xlim=cv.xlim, ylim=cv.ylim)
 
 # Reading results
 # grid_2rad = misc.open_object('2017-11-15_21h50/20171115_fcth-xpol_cf.pkl')

@@ -63,7 +63,7 @@ def _initial_process(r):
 
         # Process each moment separately for each scan
         for mom in momlab:
-            if r[slab][mom].attrs['format'][0] == 'UV8':
+            if str(r[slab][mom].attrs['format'][0])[2:-1] == 'UV8':
                 div = 254.0
             else:
                 div = 65534.0
@@ -236,7 +236,8 @@ def read_rainbow_hdf5(fname):
         fields[field_name] = {}
         fields[field_name]['data'] = pr['fields'][key]
         fields[field_name]['long_name'] = field_name
-        fields[field_name]['units'] = r['scan0'][key].attrs['unit'][0]
+        fields[field_name]['units'] = str(
+            r['scan0'][key].attrs['unit'][0])[2:-1]
         fields[field_name]['coordinates'] = 'elevation azimuth range'
 
     # metadata
