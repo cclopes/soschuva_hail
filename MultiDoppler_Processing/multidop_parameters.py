@@ -33,8 +33,8 @@ params = {'dir': './',
 'filter': ['none', '', ''],
 'cvg_opt_bg': [1, 1, 1],
 'cvg_sub_bg': [1, 1, 1],
-'cvg_opt_fil': [0, 1, 1],
+'cvg_opt_fil': [0, 0, 0],
 'cvg_sub_fil': [0, 0, 0],
 'cvg_bg': [0, 0, 0],
 'cvg_fil': [0, 0, 0],
-'sseq_trip': [1.0, 1.0, 0.0]}
+'sseq_trip': [0.0, 0.0, 0.0]}

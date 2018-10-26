@@ -41,7 +41,7 @@ grid = rf.grid_radar(
             xlim=cv.grid_xlim, ylim=cv.grid_ylim, grid_shape=cv.grid_shape)
 
 name = 'FCTH'
-level, grid_spc = 2, 0.07
+level = 2
 
 rf.plot_field_panel(
     grid, 'FH', level=level, fmin=0, fmax=10, cmap=cv.cmaphid,
@@ -49,14 +49,15 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
-    grid_spc=grid_spc, xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
+    grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim,
+    save_path=cv.save_path)
 
 rf.plot_field_panel(
     grid, 'MW', level=level, fmin=0, fmax=10, cmap='YlGnBu',
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=grid_spc,
+    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
@@ -64,7 +65,7 @@ rf.plot_field_panel(
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=grid_spc,
+    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
@@ -72,15 +73,15 @@ rf.plot_field_panel(
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=grid_spc,
+    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
-    grid, 'differential_reflectivity', level=level, fmin=-2, fmax=7,
+    grid, 'differential_reflectivity', level=level, fmin=-2, fmax=3,
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=grid_spc,
+    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
@@ -88,7 +89,7 @@ rf.plot_field_panel(
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=grid_spc,
+    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
@@ -96,5 +97,5 @@ rf.plot_field_panel(
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=grid_spc,
+    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)

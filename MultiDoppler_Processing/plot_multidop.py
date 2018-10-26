@@ -27,7 +27,7 @@ for filename in cv.filenames_pkl:
         date=cv.date_name, name_multi=name + ' Multi-Doppler at ',
         shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
         zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
-        grid_spc=.07, xlim=cv.xlim, ylim=cv.ylim)
+        grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim)
 
 # Reading results
 # grid_2rad = misc.open_object('2017-11-15_21h50/20171115_fcth-xpol_cf.pkl')

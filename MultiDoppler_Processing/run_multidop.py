@@ -51,15 +51,15 @@ grid_3 = rf.grid_radar(radar_3, fields=['DT', 'VT'], for_multidop=True,
 
 # -- Plotting gridded data
 # rf.plot_gridded_maxdbz(grid_1, name_radar='SR', name_base='FCTH',
-#                        xlim=grid_xlim, ylim=grid_ylim)
+#                        xlim=cv.grid_xlim, ylim=cv.grid_ylim)
 # rf.plot_gridded_maxdbz(grid_2, name_radar='FCTH', name_base='FCTH',
-#                        xlim=grid_xlim, ylim=grid_ylim)
+#                        xlim=cv.grid_xlim, ylim=cv.grid_ylim)
 # rf.plot_gridded_maxdbz(grid_3, name_radar='XPOL', name_base='FCTH',
 #                        xlim=grid_xlim, ylim=grid_ylim)
 # rf.plot_gridded_velocity(grid_1, name_radar='SR', name_base='FCTH', height=0,
-#                          xlim=grid_xlim, ylim=grid_ylim)
+#                          xlim=cv.grid_xlim, ylim=cv.grid_ylim)
 # rf.plot_gridded_velocity(grid_2, name_radar='FCTH', name_base='FCTH', height=0,
-#                          xlim=grid_xlim, ylim=grid_ylim)
+#                          xlim=cv.grid_xlim, ylim=cv.grid_ylim)
 # rf.plot_gridded_velocity(grid_3, name_radar='XPOL', name_base='FCTH', height=0,
 #                          xlim=grid_xlim, ylim=grid_ylim)
 
@@ -80,6 +80,7 @@ params['z'][1] = cv.grid_spacing
 params['grid'] = [grid_1.origin_longitude['data'][0],
                   grid_1.origin_latitude['data'][0], 0.0]
 params['radar_names'] = ['SR', 'FCTH']
+params['sseq_trip'] = [0.5, 1.0]
 
 pf = multidop.parameters.ParamFile(params, 'sr-fcth.dda')
 pf = multidop.parameters.CalcParamFile(params, 'calculations.dda')
@@ -109,6 +110,7 @@ params['grid'] = [grid_1.origin_longitude['data'][0],
                   grid_1.origin_latitude['data'][0], 0.0]
 params['files'] = ['radar_1.nc', 'radar_3.nc']
 params['radar_names'] = ['SR', 'XPOL']
+params['sseq_trip'] = [0.5, 1.0]
 
 pf = multidop.parameters.ParamFile(params, 'sr-xpol.dda')
 pf = multidop.parameters.CalcParamFile(params, 'calculations.dda')
@@ -137,6 +139,7 @@ params['grid'] = [grid_1.origin_longitude['data'][0],
                   grid_1.origin_latitude['data'][0], 0.0]
 params['files'] = ['radar_2.nc', 'radar_3.nc']
 params['radar_names'] = ['FCTH', 'XPOL']
+params['sseq_trip'] = [1.0, 1.0]
 
 pf = multidop.parameters.ParamFile(params, 'fcth-xpol.dda')
 pf = multidop.parameters.CalcParamFile(params, 'calculations.dda')
@@ -165,6 +168,7 @@ params['grid'] = [grid_1.origin_longitude['data'][0],
                   grid_1.origin_latitude['data'][0], 0.0]
 params['files'] = ['radar_1.nc', 'radar_2.nc', 'radar_3.nc']
 params['radar_names'] = ['SR', 'FCTH', 'XPOL']
+params['sseq_trip'] = [0.5, 1.0, 1.0]
 
 pf = multidop.parameters.ParamFile(params, 'sr-fcth-xpol.dda')
 pf = multidop.parameters.CalcParamFile(params, 'calculations.dda')
