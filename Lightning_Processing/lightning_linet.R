@@ -14,11 +14,12 @@ require(lubridate)
 require(scales)
 require(cowplot)
 load("ForTraCC_Processing/fortracc_data.RData") # Loading data from ForTraCC
+source("Lightning_Processing/strokes_to_flashes.R")
 
 # Updating selected_clusters and -----------------------------------------------
 # creating selected_latlon with the whole families -----------------------------
 
-#-- Selecting part of the families
+#-- Selecting part of the families ---------------------------------------------
 selected_fams <- selected_fams[c(5, 6)]
 selected_fams_df <- selected_fams_df %>% filter(case == "Case 2017-11-15 " | case == "Case 2017-11-16 ")
 data_hailpads <- data_hailpads[5:6,]
@@ -50,14 +51,14 @@ selected_latlon <- modify_depth(selected_clusters, 2, mutate,
 #                         ~map2(..1, ..2, ~mutate(.x, date = as_datetime(.y))))
 
 
-# Reading/processing lightning data
+# Reading/processing lightning data (strokes) ----------------------------------
 data_linet <- read_table("Lightning_Processing/filenames_linet", col_names = F) %>% unlist() %>%
   # data_linet <- read_table("Lightning_Processing/filenames_linet_less", col_names = F) %>% unlist() %>% # For less plots 
   purrr::map(~read_table2(.x, col_names = F)) %>% map_df(rbind) %>% 
   set_colnames(c("small_date", "time", "lat", "lon", "z", "class", "peak_curr", "none")) %>% 
   mutate(date = paste(small_date, time)) %>% 
-  mutate(date = as.POSIXct(strptime(date, format = "%Y%m%d %H:%M:%S", "GMT")))
-data_linet <- split(data_linet, data_linet$small_date) %>% 
+  mutate(date = as.POSIXct(strptime(date, format = "%Y%m%d %H:%M:%S", "GMT"))) %>% 
+  split(., .$small_date) %>% 
   purrr::map(~mutate(.x, class = ifelse(class == 1, "CG", "IC")) %>% # Giving "IC/CG" names
                mutate(period = floor_date(date, "10 minutes"))) %>% # Making with the same timestep as the radar data
   map2(
@@ -70,6 +71,23 @@ data_linet <- split(data_linet, data_linet$small_date) %>%
 selected_latlon <- map2(selected_latlon, data_linet, ~.x[names(.y)]) # Selecting matching dates between clusters and lightning data
 data_linet <- map2(
   data_linet, selected_latlon, # Matching with lat, lon with 0.02 degree "uncertainty"
+  ~map2_df(..1, ..2, ~filter(.x, round(lon, 2) %in% c(.y$row, .y$row_m1, .y$row_p1, .y$row_m2, .y$row_p2) &
+                               round(lat, 2) %in% c(.y$col, .y$col_m1, .y$col_p1, .y$col_m2, .y$col_p2)))
+)
+
+# Reading/processing lightning data (flashes) ----------------------------------
+flashes_linet <- flashes_linet %>% 
+  purrr::map(~mutate(.x, period = floor_date(date, "10 minutes"))) %>% # Making with the same timestep as the radar data
+  map2(
+    ., purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis)) %>% select(date) %>% unlist()),
+    ~filter(.x, period %in% .y)
+  ) %>% # Selecting the same times as the radar
+  purrr::map(., ~group_by(.x, period) %>% nest()) %>% # Separating into a nested list (as selected_latlon)
+  purrr::map(., ~set_names(.x$data, .x$period))
+# modify_depth(., 2, mutate, period = floor_date(date, "10 minutes")) # and recreating "period" column
+selected_latlon <- map2(selected_latlon, flashes_linet, ~.x[names(.y)]) # Selecting matching dates between clusters and lightning data
+flashes_linet <- map2(
+  flashes_linet, selected_latlon, # Matching with lat, lon with 0.02 degree "uncertainty"
   ~map2_df(..1, ..2, ~filter(.x, round(lon, 2) %in% c(.y$row, .y$row_m1, .y$row_p1, .y$row_m2, .y$row_p2) &
                                round(lat, 2) %in% c(.y$col, .y$col_m1, .y$col_p1, .y$col_m2, .y$col_p2)))
 )
@@ -93,11 +111,32 @@ qte_total <- totais %>%
   select(case, class)
 rcount <- select(data_linet_df, case, hour, class, date_hailpad) %>%
   mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
-height_rcount_linet <- select(data_linet_df, hour, class, case, z, date_hailpad) %>% 
+height_rcount <- select(data_linet_df, hour, class, case, z, date_hailpad) %>% 
   filter(class == "IC") %>% 
   mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
 
-# Plotting spatial distribution
+flashes_linet_df <- map2(flashes_linet, opt, ~mutate(.x, case = paste("Case", lubridate::date(date), .y))) %>%
+  map2(., data_hailpads$lon, ~mutate(.x, lon_hailpad = .y)) %>%
+  map2(., data_hailpads$lat, ~mutate(.x, lat_hailpad = .y)) %>%
+  map2(., data_hailpads$date, ~mutate(.x, date_hailpad = .y)) %>%
+  map_df(rbind) %>%
+  mutate(hour = date)
+lubridate::date(flashes_linet_df$hour) <- lubridate::date(flashes_linet_df$date_hailpad) <- "2017-01-01"
+
+flashes_totais <- select(flashes_linet_df, lat, lon, date, class, case)
+flashes_qte_total <- flashes_totais %>%
+  group_by(case, class) %>%
+  count() %>%
+  ungroup() %>%
+  mutate(class = paste("Total", class, "=", n)) %>%
+  select(case, class)
+flashes_rcount <- select(flashes_linet_df, case, hour, class, date_hailpad) %>%
+  mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
+flashes_height_rcount <- select(flashes_linet_df, hour, class, case, z, date_hailpad) %>% 
+  filter(class == "IC") %>% 
+  mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
+
+# Plotting spatial distribution ------------------------------------------------
 theme_set(theme_grey())
 grid <- data.frame("lon" = rep(c(-47.5, -46.5), 2), "lat" = rep(-22, 4)) # Label positions
 
@@ -107,9 +146,10 @@ ggplot(data = data_linet_df) +
   geom_point(aes(x = lon_hailpad, y = lat_hailpad), pch = 17, size = 2) +
   geom_path(data = fortify(cities), aes(long, lat, group = group), inherit.aes = F, colour = "gray50", size = 0.2) +
   geom_label(data = qte_total, aes(x = grid$lon, y = grid$lat, label = class), size = 3) +
-  scale_color_distiller(palette = "Set1", breaks = pretty_breaks(n = 5), trans = time_trans()) +
+  scale_color_gradientn(colours = cpt(pal = "gmt_GMT_seis"), breaks = pretty_breaks(n = 5), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
-  labs(x = "Longitude", y = "Latitude", color = "Time (UTC)", shape = "Type") +
+  labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
+       color = "Time (UTC)", shape = "Stroke\nType") +
   theme(
     legend.position = "bottom",
     plot.background = element_rect(fill = "transparent"),
@@ -119,7 +159,25 @@ ggplot(data = data_linet_df) +
   facet_wrap(~case)
 ggsave("Lightning_Processing/figures/linet_location.png", width = 5.5, height = 3.25)
 
-# Plotting temporal distribution
+ggplot(data = flashes_linet_df) +
+  scale_x_continuous(limits = lims_in_plot$lon) + scale_y_continuous(limits = lims_in_plot$lat) +
+  geom_point(aes(x = lon, y = lat, shape = class, color = hour)) +
+  geom_point(aes(x = lon_hailpad, y = lat_hailpad), pch = 17, size = 2) +
+  geom_path(data = fortify(cities), aes(long, lat, group = group), inherit.aes = F, colour = "gray50", size = 0.2) +
+  geom_label(data = flashes_qte_total, aes(x = grid$lon, y = grid$lat, label = class), size = 3) +
+  scale_color_gradientn(colours = cpt(pal = "gmt_GMT_seis"), breaks = pretty_breaks(n = 5), trans = time_trans()) +
+  scale_shape_manual(values = c(4, 1)) +
+  labs(x = "Longitude", y = "Latitude", color = "Time (UTC)", shape = "Flash\nType") +
+  theme(
+    legend.position = "bottom",
+    plot.background = element_rect(fill = "transparent"),
+    legend.background = element_rect(fill = "transparent")
+  ) +
+  guides(color = guide_colorbar(barwidth = 10)) +
+  facet_wrap(~case)
+ggsave("Lightning_Processing/figures/linet_flash_location.png", width = 5.5, height = 3.25)
+
+# Plotting temporal distribution -----------------------------------------------
 plt_linet <- ggplot(rcount) +
   geom_histogram(binwidth = 60, aes(x = hour, ..count.., fill = forcats::fct_rev(class))) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
@@ -129,9 +187,9 @@ plt_linet <- ggplot(rcount) +
     legend.background = element_rect(fill = "transparent")
   ) +
   labs(x = "Hour (UTC)", y = "Strokes/min") +
-  facet_grid(case ~ ., scales = "free")
+  facet_wrap(case ~ ., scales = "free", ncol = 1, strip.position = 'right')
 
-plt_linet_height <- ggplot(height_rcount_linet) +
+plt_linet_height <- ggplot(height_rcount) +
   geom_bin2d(aes(x = hour, y = z), binwidth = c(60, 1)) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
   scale_fill_distiller(palette = "YlGnBu", breaks = pretty_breaks(n = 5), name = "Strokes/min/km") +
@@ -141,7 +199,30 @@ plt_linet_height <- ggplot(height_rcount_linet) +
     legend.background = element_rect(fill = "transparent")
   ) +
   labs(x = "Hour (UTC)", y = "Height (km)") +
-  facet_grid(case ~ ., scales = "free_x")
+  facet_wrap(case ~ ., scales = "free_x", ncol = 1, strip.position = 'right')
+
+plt_flash_linet <- ggplot(flashes_rcount) +
+  geom_histogram(binwidth = 60, aes(x = hour, ..count.., fill = forcats::fct_rev(class))) +
+  geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
+  scale_fill_manual(name = "Type", values = c("darkgoldenrod1", "darkorchid")) +
+  theme(
+    plot.background = element_rect(fill = "transparent"),
+    legend.background = element_rect(fill = "transparent")
+  ) +
+  labs(x = "Hour (UTC)", y = "Flashes/min") +
+  facet_wrap(case ~ ., scales = "free", ncol = 1, strip.position = 'right')
+
+plt_flash_linet_height <- ggplot(flashes_height_rcount) +
+  geom_bin2d(aes(x = hour, y = z), binwidth = c(60, 1)) +
+  geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
+  scale_fill_distiller(palette = "YlGnBu", breaks = pretty_breaks(n = 5), name = "Flashes/min/km") +
+  guides(fill = guide_colorbar(barheight = 10)) +
+  theme(
+    plot.background = element_rect(fill = "transparent"),
+    legend.background = element_rect(fill = "transparent")
+  ) +
+  labs(x = "Hour (UTC)", y = "Height (km)") +
+  facet_wrap(case ~ ., scales = "free_x", ncol = 1, strip.position = 'right')
 
 # Saving variables
-save.image("General_Processing/lifecycle_data.RData")
+# save.image("General_Processing/lifecycle_data.RData")

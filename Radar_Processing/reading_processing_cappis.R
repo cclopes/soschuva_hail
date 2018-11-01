@@ -35,6 +35,7 @@ for(c in listas_arqs){
   nomes_arqs <- read.table(c) %>% unlist() %>% as.vector()
   
   pmap(list(map(nomes_arqs, ~le_cappi(.x, lins, cols)),                 #-- Lendo os dados que vão ser plotados
+            lat_vetor, lon_vetor,                                       #-- Vetores de latitude e longitude
             str_extract(nomes_arqs, "201\\d\\d\\d\\d\\d_\\d\\d\\d\\d"), #-- Data que aparecerá no título e nome do arquivo
             str_extract(c, "[0-1][1-9]"),                               #-- Altura que aparecerá no título e nome do arquivo
             str_extract(nomes_arqs, "(?<!RADAR)\\w{2,3}(?=/level)")),   #-- Nome do radar

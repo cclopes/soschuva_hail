@@ -17,7 +17,7 @@ le_cappi <- function(arquivo, linhas, colunas){
 }
 
 #-- PLOT CAPPI IN A TIMESTEP
-plota_cappi <- function(cappi, data, altura, radar){
+plota_cappi <- function(cappi, lat_vetor, lon_vetor, data, altura, radar){
   row.names(cappi) <- sort(lat_vetor, decreasing = T); colnames(cappi) <- lon_vetor
   cappi <- melt(cappi) %>% na.omit()
   
