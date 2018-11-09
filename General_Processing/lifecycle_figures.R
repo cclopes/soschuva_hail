@@ -1,11 +1,11 @@
-#---------------------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 #-- Importing ForTraCC and lightning entries with "lifecycle_data.RData"
 #-- Adding hailpads data
 #-- Generating table with overall information about the cases
 #-- Plotting ForTraCC and lightning during life cycle
-#---------------------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 
-#-- Loading necessary scripts and packages
+# Loading necessary scripts and packages ---------------------------------------
 require(fields)
 require(maptools)
 require(reshape2)
@@ -16,10 +16,9 @@ require(scales)
 require(cowplot)
 load("General_Processing/lifecycle_data.RData")
 source("Hailpads_Processing/processing_hailpads.R")
-theme_set(theme_grey())
-#---------------------------------------------------------------------------------------------------------------------------------
+theme_set(theme_bw())
 
-#-- Table with overall information
+# Table with overall information -----------------------------------------------
 hailpads_summary <- hailpads %>%
   separate(plate, into = c("case", "plate"), sep = "\n") %>%
   group_by(case) %>%
@@ -44,11 +43,11 @@ fams_summary <- selected_fams_df %>%
 # write.csv2(hailpads_summary, file = "General_Processing/cases_hailpads", row.names = F, dec = ",")
 # write.csv2(brasildat_summary, file = "General_Processing/cases_brasildat", row.names = F, dec = ",")
 # write.csv2(fams_summary, file = "General_Processing/cases_fams", row.names = F, dec = ",")
-#---------------------------------------------------------------------------------------------------------------------------------
 
-#-- Joining dBZ, size and lightning
-plt <- plot_grid(plt_dbz, plt_size, plt_brasildat, labels = c("a", "b", "c"), ncol = 3, rel_widths = c(0.4, 0.4, 0.55))
+# Joining dBZ, size and lightning ----------------------------------------------
+plt <- plot_grid(plt_dbz, plt_size, plt_brasildat, labels = c("a", "b", "c"), 
+                 ncol = 3, rel_widths = c(0.4, 0.4, 0.55))
 save_plot("General_Processing/figures/cases_dbz_size_lightning.png",
-          plot = plt, ncol = 3, base_width = 3, base_height = 7)
+          plot = plt, ncol = 3, base_width = 3, base_height = 7, bg = "transparent")
 # save_plot("General_Processing/figures/cases_dbz_size_lightning_less.png",
   # plot = plt, ncol = 3, base_width = 3, base_height = 3) #-- For less plots

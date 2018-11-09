@@ -13,6 +13,7 @@ require(magrittr)
 require(lubridate)
 require(scales)
 require(cowplot)
+require(cptcity)
 load("ForTraCC_Processing/fortracc_data.RData") # Loading data from ForTraCC
 source("Lightning_Processing/strokes_to_flashes.R")
 
@@ -53,7 +54,8 @@ selected_latlon <- modify_depth(selected_clusters, 2, mutate,
 
 # Reading/processing lightning data (strokes) ----------------------------------
 data_linet <- read_table("Lightning_Processing/filenames_linet", col_names = F) %>% unlist() %>%
-  # data_linet <- read_table("Lightning_Processing/filenames_linet_less", col_names = F) %>% unlist() %>% # For less plots 
+  # data_linet <- read_table("Lightning_Processing/filenames_linet_less", col_names = F) %>%  # For less plots
+  # unlist() %>% # For less plots 
   purrr::map(~read_table2(.x, col_names = F)) %>% map_df(rbind) %>% 
   set_colnames(c("small_date", "time", "lat", "lon", "z", "class", "peak_curr", "none")) %>% 
   mutate(date = paste(small_date, time)) %>% 
@@ -62,7 +64,8 @@ data_linet <- read_table("Lightning_Processing/filenames_linet", col_names = F) 
   purrr::map(~mutate(.x, class = ifelse(class == 1, "CG", "IC")) %>% # Giving "IC/CG" names
                mutate(period = floor_date(date, "10 minutes"))) %>% # Making with the same timestep as the radar data
   map2(
-    ., purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis)) %>% select(date) %>% unlist()),
+    ., purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis)) %>%
+                    select(date) %>% unlist()),
     ~filter(.x, period %in% .y)
   ) %>% # Selecting the same times as the radar
   purrr::map(., ~group_by(.x, period) %>% nest()) %>% # Separating into a nested list (as selected_latlon)
@@ -79,7 +82,8 @@ data_linet <- map2(
 flashes_linet <- flashes_linet %>% 
   purrr::map(~mutate(.x, period = floor_date(date, "10 minutes"))) %>% # Making with the same timestep as the radar data
   map2(
-    ., purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis)) %>% select(date) %>% unlist()),
+    ., purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis)) %>%
+                    select(date) %>% unlist()),
     ~filter(.x, period %in% .y)
   ) %>% # Selecting the same times as the radar
   purrr::map(., ~group_by(.x, period) %>% nest()) %>% # Separating into a nested list (as selected_latlon)
@@ -137,7 +141,7 @@ flashes_height_rcount <- select(flashes_linet_df, hour, class, case, z, date_hai
   mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
 
 # Plotting spatial distribution ------------------------------------------------
-theme_set(theme_grey())
+theme_set(theme_bw())
 grid <- data.frame("lon" = rep(c(-47.5, -46.5), 2), "lat" = rep(-22, 4)) # Label positions
 
 ggplot(data = data_linet_df) +
@@ -157,7 +161,8 @@ ggplot(data = data_linet_df) +
   ) +
   guides(color = guide_colorbar(barwidth = 10)) +
   facet_wrap(~case)
-ggsave("Lightning_Processing/figures/linet_location.png", width = 5.5, height = 3.25)
+ggsave("Lightning_Processing/figures/linet_location.png", bg = "transparent",
+       width = 5.5, height = 3.25)
 
 ggplot(data = flashes_linet_df) +
   scale_x_continuous(limits = lims_in_plot$lon) + scale_y_continuous(limits = lims_in_plot$lat) +
@@ -175,7 +180,8 @@ ggplot(data = flashes_linet_df) +
   ) +
   guides(color = guide_colorbar(barwidth = 10)) +
   facet_wrap(~case)
-ggsave("Lightning_Processing/figures/linet_flash_location.png", width = 5.5, height = 3.25)
+ggsave("Lightning_Processing/figures/linet_flash_location.png", bg = "transparent",
+       width = 5.5, height = 3.25)
 
 # Plotting temporal distribution -----------------------------------------------
 plt_linet <- ggplot(rcount) +

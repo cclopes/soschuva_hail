@@ -129,7 +129,7 @@ flashes_rcount <- select(flashes_brasildat_df, case, hour, class, date_hailpad) 
   mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
 
 # Plotting spatial distribution ------------------------------------------------
-theme_set(theme_grey())
+theme_set(theme_bw())
 grid <- data.frame("lon" = rep(c(-47.5, -46.5), 6), "lat" = rep(-22, 12)) # Label positions
 # grid <- data.frame("lon" = rep(c(-47.5, -46.5), 3), "lat" = rep(-22, 6)) # Label positions for less plots
 
@@ -144,14 +144,15 @@ ggplot(data = data_brasildat_df) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
        color = "Time (UTC)", shape = "Stroke\nType") +
   guides(size = "none", color = guide_colorbar(barheight = 12)) +
-  # theme(
-  #   legend.position = "bottom",
-  #   plot.background = element_rect(fill = "transparent"),
-  #   legend.background = element_rect(fill = "transparent")
-  # ) + # For less plots
+  theme(
+    plot.background = element_rect(fill = "transparent"),
+    legend.background = element_rect(fill = "transparent")
+  ) +
+  # theme(legend.position = "bottom") + # For less plots
   # guides(size = "none", color = guide_colorbar(barwidth = 15)) + # For less plots
   facet_wrap(~case)
-ggsave("Lightning_Processing/figures/brasildat_location.png", width = 8.5, height = 4.25)
+ggsave("Lightning_Processing/figures/brasildat_location.png", bg = "transparent",
+       width = 8.5, height = 4.25)
 # ggsave("Lightning_Processing/figures/brasildat_location_less.png", width = 7.5, height = 3.25, bg = "transparent") # For less plots
 
 ggplot(data = flashes_brasildat_df) +
@@ -165,14 +166,15 @@ ggplot(data = flashes_brasildat_df) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
        color = "Time (UTC)", shape = "Flash\nType") +
   guides(size = "none", color = guide_colorbar(barheight = 12)) +
-  # theme(
-  #   legend.position = "bottom",
-  #   plot.background = element_rect(fill = "transparent"),
-  #   legend.background = element_rect(fill = "transparent")
-  # ) + # For less plots
+  theme(
+    plot.background = element_rect(fill = "transparent"),
+    legend.background = element_rect(fill = "transparent")
+  ) +
+  # theme(legend.position = "bottom") + # For less plots
   # guides(size = "none", color = guide_colorbar(barwidth = 15)) + # For less plots
   facet_wrap(~case)
-ggsave("Lightning_Processing/figures/brasildat_flash_location.png", width = 8.5, height = 4.25)
+ggsave("Lightning_Processing/figures/brasildat_flash_location.png", bg = "transparent",
+       width = 8.5, height = 4.25)
 # ggsave("Lightning_Processing/figures/brasildat_flash_location_less.png", width = 7.5, height = 3.25, bg = "transparent") # For less plots
 
 # Plotting temporal distribution

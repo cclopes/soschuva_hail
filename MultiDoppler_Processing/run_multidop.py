@@ -80,7 +80,7 @@ params['z'][1] = cv.grid_spacing
 params['grid'] = [grid_1.origin_longitude['data'][0],
                   grid_1.origin_latitude['data'][0], 0.0]
 params['radar_names'] = ['SR', 'FCTH']
-params['sseq_trip'] = [0.5, 1.0]
+params['sseq_trip'] = [1.0, 1.0]
 
 pf = multidop.parameters.ParamFile(params, 'sr-fcth.dda')
 pf = multidop.parameters.CalcParamFile(params, 'calculations.dda')
@@ -110,7 +110,7 @@ params['grid'] = [grid_1.origin_longitude['data'][0],
                   grid_1.origin_latitude['data'][0], 0.0]
 params['files'] = ['radar_1.nc', 'radar_3.nc']
 params['radar_names'] = ['SR', 'XPOL']
-params['sseq_trip'] = [0.5, 1.0]
+params['sseq_trip'] = [1.0, 1.0]
 
 pf = multidop.parameters.ParamFile(params, 'sr-xpol.dda')
 pf = multidop.parameters.CalcParamFile(params, 'calculations.dda')
@@ -168,7 +168,7 @@ params['grid'] = [grid_1.origin_longitude['data'][0],
                   grid_1.origin_latitude['data'][0], 0.0]
 params['files'] = ['radar_1.nc', 'radar_2.nc', 'radar_3.nc']
 params['radar_names'] = ['SR', 'FCTH', 'XPOL']
-params['sseq_trip'] = [0.5, 1.0, 1.0]
+params['sseq_trip'] = [1.0, 1.0, 1.0]
 
 pf = multidop.parameters.ParamFile(params, 'sr-fcth-xpol.dda')
 pf = multidop.parameters.CalcParamFile(params, 'calculations.dda')

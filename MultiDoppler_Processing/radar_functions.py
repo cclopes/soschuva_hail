@@ -673,7 +673,8 @@ def plot_gridded_wind_dbz_panel(
     ax2.set_ylabel('Distance above Ground (km)')
     ax2.grid(linestyle='-', linewidth=0.25)
     plt.savefig('figures/' + name_multi.split(' ')[0].replace('/', '-') + ' ' +
-                date + '.png', dpi=300, bbox_inches='tight', transparent=True)
+                date + '.png', dpi=300, bbox_inches='tight',
+                facecolor='none', edgecolor='w')
 
 
 def adjust_fhc_colorbar_for_pyart(cb):
@@ -820,4 +821,5 @@ def plot_field_panel(
     ax2.grid(linestyle='-', linewidth=0.25)
     plt.savefig(save_path + name_multi + ' ' +
                 grid.fields[field]['standard_name'].title() + ' ' +
-                date + '.png', dpi=300, bbox_inches='tight', transparent=True)
+                date + '.png', dpi=300, bbox_inches='tight',
+                facecolor='none', edgecolor='w')

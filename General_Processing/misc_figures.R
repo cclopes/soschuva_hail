@@ -11,7 +11,7 @@ library(reshape2)
 library(directlabels)
 library(scales)
 library(colorspace)
-theme_set(theme_grey())
+theme_set(theme_bw())
 source("General_Processing/color_palette.R")
 
 # Conceptual model of hydrometeor classification - Straka et al. (2000) --------
@@ -20,35 +20,47 @@ hids <- read_csv("Data/GENERAL/hids")
 plt_a <- ggplot(hids %>% select(HID, Zh_low, Zh_high),
                 aes(x = Zh_low, xend = Zh_high, y = HID, group = HID)) +
   geom_dumbbell(color = "firebrick2", size = 1) +
+  theme(
+    plot.background = element_rect(fill = "transparent"),
+    legend.background = element_rect(fill = "transparent")
+  ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
   scale_x_continuous(name = "Reflectivity (dBZ)")
 
 plt_b <- ggplot(hids %>% select(HID, ZDR_low, ZDR_high), 
                 aes(x = ZDR_low, xend = ZDR_high, y = HID, group = HID)) +
   geom_dumbbell(color = "chartreuse3", size = 1) +
+  theme(
+    plot.background = element_rect(fill = "transparent"),
+    legend.background = element_rect(fill = "transparent")
+  ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
-  scale_x_continuous(name = "ZDR (dBZ)")
+  scale_x_continuous(name = "Differential Reflectivity (dBZ)")
 
 plt_c <- ggplot(hids %>% select(HID, KDP_low, KDP_high),
                 aes(x = KDP_low, xend = KDP_high, y = HID, group = HID)) +
   geom_dumbbell(color = "darkgreen", size = 1) +
+  theme(
+    plot.background = element_rect(fill = "transparent"),
+    legend.background = element_rect(fill = "transparent")
+  ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
-  scale_x_continuous(name = "KDP (deg/km)")
+  scale_x_continuous(name = "Specific Differential Phase (deg/km)")
 
 plt_d <- ggplot(hids %>% select(HID, RHO_low, RHO_high), 
                 aes(x = RHO_low, xend = RHO_high, y = HID, group = HID)) +
   geom_dumbbell(color = "deeppink", size = 1) +
+  theme(
+    plot.background = element_rect(fill = "transparent"),
+    legend.background = element_rect(fill = "transparent")
+  ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
-  scale_x_continuous(name = "RHO (dimensionless)")
+  scale_x_continuous(name = "Cross Correlation Ratio (dimensionless)")
 
 plt <- plot_grid(plt_a, plt_b, plt_c, plt_d,
                  labels = c("a", "b", "c", "d"), ncol = 2)
-title <- ggdraw() + 
-  draw_label("Hydrometeor Classification - Straka et al. (2000)", 
-             size = 15, fontface = "bold")
-plg <- plot_grid(title, plt, ncol = 1, rel_heights = c(0.1, 1))
-save_plot("General_Processing/figures/hids_strakaetal.png", plot = plg,
-          ncol = 2, base_width = 5, base_height = 6)
+save_plot("General_Processing/figures/hids_strakaetal.png", plot = plt,
+          ncol = 2, base_width = 5, base_height = 6, bg = "transparent")
 
 # Reproducing Takahashi (1978) classical figure --------------------------------
 takahashi <- t(as.matrix(read_table2("Data/GENERAL/tkhash.q", col_names = FALSE)))
@@ -65,12 +77,14 @@ plt <- ggplot(tak_plot, aes(x = Var1, y = Var2)) +
   scale_fill_gradientn(colours = c("darkblue", "blue", "dodgerblue", "white", 
                                    "brown1", "firebrick2", "darkred"),
                        limits = c(-66, 66)) +
-  labs(title = "Takahashi (1978)", fill = "fC", x = "T (°C)", y = "LWC (g/m³)") +
-  theme_bw() + theme(panel.grid = element_blank(),
-                     plot.title = element_text(hjust = 0.5),
-                     legend.key.height = unit(x = 15, units = "mm"))
+  labs(fill = "fC", x = "T (°C)", y = "LWC (g/m³)") +
+  theme(panel.grid = element_blank(),
+        plot.title = element_text(hjust = 0.5),
+        legend.key.height = unit(x = 15, units = "mm"),
+        plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent"))
 ggsave("General_Processing/figures/takahashi.png", plot = plt,
-       width = 4, height = 4)
+       width = 4, height = 4, bg = "transparent")
 
 # Data available per case ------------------------------------------------------
 files_sr <- c(
@@ -102,22 +116,39 @@ files_cth <- c(
   mutate(hour = date) %>%
   mutate(date = as.character(lubridate::date(date))) %>%
   mutate(Radar = "FCTH")
-lubridate::date(files_sr$hour) <- lubridate::date(files_cth$hour) <- "2017-01-01"
 
-files <- rbind(files_sr, files_cth)
+files_xpol <- c(
+  dir(path = "Data/RADAR/UNICAMP/level_0/2017-11-15/", pattern = "*.HDF5", full.names = T),
+  dir(path = "Data/RADAR/UNICAMP/level_0/2017-11-16/", pattern = "*.HDF5", full.names = T)
+) %>%
+  as.data.frame() %>%
+  `colnames<-`("date") %>%
+  mutate(date = str_extract(date, "201\\d\\d\\d\\d\\d\\d\\d\\d\\d")) %>%
+  mutate(date = lubridate::ymd_hm(date)) %>%
+  mutate(hour = date) %>%
+  mutate(date = as.character(lubridate::date(date))) %>%
+  mutate(Radar = "XPOL")
+
+lubridate::date(files_sr$hour) <- lubridate::date(files_cth$hour) <-
+  lubridate::date(files_xpol$hour) <- "2017-01-01"
+
+files <- rbind(files_sr, files_cth, files_xpol)
 
 plt <- ggplot(files) +
   geom_tile(aes(y = hour, x = date, fill = Radar),
             position = position_dodge(width = 0.5)) +
-  scale_fill_manual(values = c("slateblue", "peru")) +
+  scale_fill_manual(values = c("slateblue", "peru", "forestgreen")) +
   labs(title = "'level_0' Weather Radar Data Availability",
        x = "Case", y = "Hour UTC") +
   scale_y_datetime(labels = date_format("%H:%M")) +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom",
-        axis.text.y = element_text(angle = 90, hjust = 0.5)) +
+        axis.text.y = element_text(angle = 90, hjust = 0.5),
+        plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")
+  ) +
   coord_flip()
 ggsave("General_Processing/figures/data_availability.png", plot = plt,
-       width = 8, height = 5.5)
+       width = 8, height = 5.5, bg = "transparent")
 
 # Radar strategies -------------------------------------------------------------
 

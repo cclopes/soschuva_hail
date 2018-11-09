@@ -130,6 +130,7 @@ circles <- list(
   mutate(combination = toupper(combination) %>% str_replace("_", "/"))
 
 # - Plotting
+theme_set(theme_bw())
 ggplot() +
   coord_cartesian(xlim = xlim, ylim = ylim) +
   geom_path(data = fortify(STATES), aes(long, lat, group = group), inherit.aes = F, colour = "gray30", size = 0.3) +
@@ -142,7 +143,9 @@ ggplot() +
   geom_label_repel(data = radars, aes(x, y, label = radar), point.padding = 0.25, force = 100, size = 3, alpha = 0.7, min.segment.length = 0) +
   geom_line(data = radars, aes(x, y), linetype = "dashed") +
   geom_label_repel(data = radars_dist, aes(midlon, midlat, label = distance), point.padding = 0.1, size = 2, alpha = 0.7, min.segment.length = 0) +
-  theme(legend.position = "bottom") +
+  theme(legend.position = "bottom",
+        plot.background = element_rect(fill = "transparent"),
+        legend.background = element_rect(fill = "transparent")) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")")) +
   facet_grid(combination ~ .)
-# ggsave("General_Processing/figures/dual_doppler_lobes.png", width = 3.1, height = 6)
+# ggsave("General_Processing/figures/dual_doppler_lobes.png", width = 3.1, height = 6, bg = "transparent")
