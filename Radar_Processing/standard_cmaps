@@ -1,0 +1,17 @@
+    grid, 'MW', level=level, fmin=0, fmax=20,
+    cmap=cv.cptpath + 'twilight.cpt', reverse_cmap=True,
+
+    grid, 'MI', level=level, fmin=0, fmax=30,
+    cmap=cv.cptpath + 'twilight.cpt', reverse_cmap=True,
+
+    grid, 'corrected_reflectivity', level=level, fmin=0, fmax=80,
+    cmap=cv.cptpath + 'radar_dbz_nws.cpt',
+
+    grid, 'differential_reflectivity', level=level, fmin=-3, fmax=8,
+    cmap=cv.cptpath + 'WhViBlGrYeOrReWh.cpt',
+
+    grid, 'specific_differential_phase', level=level, fmin=-1, fmax=7,
+    cmap=cv.cptpath + 'cbcSpectral.cpt', reverse_cmap=True,
+
+    grid, 'cross_correlation_ratio', level=level, fmin=0.51, fmax=1.09,
+    cmap=cv.cptpath + 'sst.cpt', norm=PowerNorm(1.5, vmin=0.51, vmax=1.09),

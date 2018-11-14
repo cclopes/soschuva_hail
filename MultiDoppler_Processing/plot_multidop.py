@@ -24,6 +24,7 @@ for filename in cv.filenames_pkl:
     grid = misc.open_object(filename)
     plot_gridded_wind_dbz_panel(
         grid, level=0, lat_index=cv.cs_lat, lon_index=cv.cs_lon,
+        cmap=cv.cptpath + 'radar_dbz_nws.cpt',
         date=cv.date_name, name_multi=name + ' Multi-Doppler at ',
         shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
         zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,

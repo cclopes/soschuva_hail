@@ -13,6 +13,8 @@ import numpy.ma as ma
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
 from mpl_toolkits.basemap import cm
+from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.cm import revcmap
 
 import pyart
 try:
@@ -25,6 +27,7 @@ try:
 except ModuleNotFoundError:
     pass
 
+from cpt_convert import loadCPT
 from read_brazil_radar_py3 import read_rainbow_hdf5
 from misc_functions import check_sounding_for_montonic
 
@@ -586,7 +589,8 @@ def calc_plot_gridded_wind_dbz(
 def plot_gridded_wind_dbz_panel(
         grid, level, lat_index=None, lon_index=None, date='', name_multi='',
         shp_name='', hailpad_pos=None, zero_height=3., minusforty_height=10.,
-        grid_spc=.25, xlim=(-48, -46), ylim=(-24, -22)):
+        grid_spc=.25, cmap=None, reverse_cmap=False,
+        xlim=(-48, -46), ylim=(-24, -22)):
     """
     Using gridded multidoppler processed data, plot horizontal and vertical
     views:
@@ -607,6 +611,9 @@ def plot_gridded_wind_dbz_panel(
     hailpad_pos: tuple of hailpad position
         (lon, lat)
     zero_height: 0 degrees height
+    cmap: define colorbar. None will use Py-ART defauts
+    reverse_cmap: If cmap is defined and this is True, the colormap will be
+        reversed
     grid_spc: grid spacing for horizontal plot
     xlim, ylim: plot limits in lon, lat for horizontal view
         (min, max) in degrees
@@ -615,6 +622,14 @@ def plot_gridded_wind_dbz_panel(
     # Getting lat-lon-z points
     lons, lats = grid.get_point_longitude_latitude(level)
     xz, z = np.meshgrid(grid.get_point_longitude_latitude()[0], grid.z['data'])
+
+    # Opening colortables
+    if cmap:
+        cpt = loadCPT(cmap)
+        if reverse_cmap:
+            cmap = LinearSegmentedColormap('cpt_r', revcmap(cpt))
+        else:
+            cmap = LinearSegmentedColormap('cpt', cpt)
 
     # Main figure
     display = pyart.graph.GridMapDisplay(grid)
@@ -631,8 +646,8 @@ def plot_gridded_wind_dbz_panel(
                          auto_range=False)
     display.basemap.readshapefile(shp_name, 'sao_paulo', color='gray')
     # -- Reflectivity (shaded)
-    display.plot_grid('reflectivity', level, vmin=10, vmax=70,
-                      colorbar_flag=False)
+    display.plot_grid('reflectivity', level, vmin=0, vmax=70,
+                      colorbar_flag=False, cmap=cmap)
     # -- Updraft (contour)
     x, y = display.basemap(lons, lats)
     w = np.amax(grid.fields['upward_air_velocity']['data'], axis=0)
@@ -651,8 +666,9 @@ def plot_gridded_wind_dbz_panel(
     display.plot_latlon_slice('reflectivity',
                               coord1=(lon_index[0], lat_index[0]),
                               coord2=(lon_index[1], lat_index[1]),
-                              vmin=10, vmax=70, zerodeg_height=zero_height,
-                              minusfortydeg_height=minusforty_height)
+                              vmin=0, vmax=70, zerodeg_height=zero_height,
+                              minusfortydeg_height=minusforty_height,
+                              cmap=cmap)
     # -- Updraft (contour)
     display.plot_latlon_slice('upward_air_velocity',
                               coord1=(lon_index[0], lat_index[0]),
@@ -673,8 +689,7 @@ def plot_gridded_wind_dbz_panel(
     ax2.set_ylabel('Distance above Ground (km)')
     ax2.grid(linestyle='-', linewidth=0.25)
     plt.savefig('figures/' + name_multi.split(' ')[0].replace('/', '-') + ' ' +
-                date + '.png', dpi=300, bbox_inches='tight',
-                facecolor='none', edgecolor='w')
+                date + '.png', dpi=300, bbox_inches='tight', transparent=True)
 
 
 def adjust_fhc_colorbar_for_pyart(cb):
@@ -729,8 +744,8 @@ def adjust_meth_colorbar_for_pyart(cb, tropical=False):
 def plot_field_panel(
         grid, field, level, fmin, fmax, lat_index=None, lon_index=None,
         date='', name_multi='', shp_name='', hailpad_pos=None, zero_height=3.,
-        minusforty_height=10., grid_spc=.25, cmap=None,
-        xlim=(-48, -46), ylim=(-24, -22), save_path='./'):
+        minusforty_height=10., grid_spc=.25, cmap=None, reverse_cmap=False,
+        norm=None, xlim=(-48, -46), ylim=(-24, -22), save_path='./'):
     """
     Using gridded multidoppler processed data, plot horizontal and vertical
     views:
@@ -755,6 +770,9 @@ def plot_field_panel(
     zero_height: 0 degrees height
     grid_spc: grid spacing for horizontal plot
     cmap: define colorbar. None will use Py-ART defauts
+    reverse_cmap: If cmap is defined and this is True, the colormap will be
+        reversed
+    norm: normalization of the colormap
     xlim, ylim: plot limits in lon, lat for horizontal view
         (min, max) in degrees
     save_path: path to save the figures
@@ -763,6 +781,15 @@ def plot_field_panel(
     # Getting lat-lon-z points
     lons, lats = grid.get_point_longitude_latitude(level)
     xz, z = np.meshgrid(grid.get_point_longitude_latitude()[0], grid.z['data'])
+
+    # Opening colortables
+    if field != 'FH':
+        if cmap:
+            cpt = loadCPT(cmap)
+            if reverse_cmap:
+                cmap = LinearSegmentedColormap('cpt_r', revcmap(cpt))
+            else:
+                cmap = LinearSegmentedColormap('cpt', cpt)
 
     # Main figure
     display = pyart.graph.GridMapDisplay(grid)
@@ -783,7 +810,7 @@ def plot_field_panel(
     display.basemap.readshapefile(shp_name, 'sao_paulo', color='gray')
     # -- Reflectivity (shaded)
     display.plot_grid(field, level, vmin=fmin, vmax=fmax, cmap=cmap,
-                      colorbar_flag=False)
+                      colorbar_flag=False, norm=norm)
 
     # -- Hailpad position
     display.basemap.plot(hailpad_pos[0], hailpad_pos[1], 'kX', markersize=15,
@@ -801,11 +828,10 @@ def plot_field_panel(
                               zerodeg_height=zero_height,
                               minusfortydeg_height=minusforty_height,
                               zdh_col='k', cmap=cmap,
-                              colorbar_flag=False)
+                              colorbar_flag=False, norm=norm)
     cb = display.plot_colorbar(
             orientation='vertical',
-            label=(grid.fields[field]['standard_name'].title() + ' (' +
-                   grid.fields[field]['units'] + ')'))
+            label=grid.fields[field]['units'])
     if field == 'FH':
         cb = adjust_fhc_colorbar_for_pyart(cb)
 
@@ -821,5 +847,4 @@ def plot_field_panel(
     ax2.grid(linestyle='-', linewidth=0.25)
     plt.savefig(save_path + name_multi + ' ' +
                 grid.fields[field]['standard_name'].title() + ' ' +
-                date + '.png', dpi=300, bbox_inches='tight',
-                facecolor='none', edgecolor='w')
+                date + '.png', dpi=300, bbox_inches='tight', transparent=True)

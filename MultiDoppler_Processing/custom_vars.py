@@ -80,3 +80,4 @@ dda_path = '/home/camila/Documentos/MultiDop-master/src/DDA'
 date_name = path[6:-1].replace('_', ' ') + 'Z'
 filenames_pkl = glob(path + '*.pkl')
 shp_path = "../Data/GENERAL/shapefiles/sao_paulo"
+cptpath = "../Data/GENERAL/colortables/"

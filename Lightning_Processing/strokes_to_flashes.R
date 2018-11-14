@@ -15,7 +15,7 @@ require(scales)
 
 # Defining main function -------------------------------------------------------
 strokes_to_flashes <- function(lightning_df, min_pts = 1,
-                               eps_location = 0.05, eps_time = 0.5){
+                               eps_location = 0.025, eps_time = 0.5){
   
   # Clusters strokes data into flashes using DBSCAN
   

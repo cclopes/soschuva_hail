@@ -26,6 +26,8 @@ Based on CSU_RadarTools Demonstration Notebook by Timothy Lang.
 @author: Camila Lopes (camila.lopes@iag.usp.br)
 """
 
+from matplotlib.colors import PowerNorm
+
 import radar_functions as rf
 import custom_vars as cv
 
@@ -53,7 +55,8 @@ rf.plot_field_panel(
     save_path=cv.save_path)
 
 rf.plot_field_panel(
-    grid, 'MW', level=level, fmin=0, fmax=10, cmap='YlGnBu',
+    grid, 'MW', level=level, fmin=0, fmax=15,
+    cmap=cv.cptpath + 'twilight.cpt', reverse_cmap=True,
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
@@ -61,7 +64,8 @@ rf.plot_field_panel(
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
-    grid, 'MI', level=level, fmin=0, fmax=20, cmap='YlGnBu',
+    grid, 'MI', level=level, fmin=0, fmax=30,
+    cmap=cv.cptpath + 'twilight.cpt', reverse_cmap=True,
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
@@ -69,7 +73,8 @@ rf.plot_field_panel(
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
-    grid, 'corrected_reflectivity', level=level, fmin=10, fmax=70,
+    grid, 'corrected_reflectivity', level=level, fmin=0, fmax=70,
+    cmap=cv.cptpath + 'radar_dbz_nws.cpt',
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
@@ -77,7 +82,8 @@ rf.plot_field_panel(
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
-    grid, 'differential_reflectivity', level=level, fmin=-2, fmax=3,
+    grid, 'differential_reflectivity', level=level, fmin=-2, fmax=4,
+    cmap=cv.cptpath + 'WhViBlGrYeOrReWh.cpt',
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
@@ -85,7 +91,8 @@ rf.plot_field_panel(
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
-    grid, 'specific_differential_phase', level=level, fmin=-1, fmax=2,
+    grid, 'specific_differential_phase', level=level, fmin=-2, fmax=3,
+    cmap=cv.cptpath + 'cbcSpectral.cpt', reverse_cmap=True,
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
@@ -93,7 +100,7 @@ rf.plot_field_panel(
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
-    grid, 'cross_correlation_ratio', level=level, fmin=0.9, fmax=1,
+    grid, 'cross_correlation_ratio', level=level, fmin=0.7, fmax=1.1,
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
