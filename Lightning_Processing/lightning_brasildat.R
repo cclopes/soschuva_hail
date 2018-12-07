@@ -47,7 +47,8 @@ selected_latlon <- modify_depth(selected_clusters, 2, mutate,
 
 
 # Reading/processing lightning data (strokes) ----------------------------------
-data_brasildat <- read_table("Lightning_Processing/filenames_brasildat", col_names = F) %>% unlist() %>%
+data_brasildat <- read_table("Lightning_Processing/filenames_brasildat", col_names = F) %>% 
+  distinct() %>% unlist() %>%
 # data_brasildat <- read_table("Lightning_Processing/filenames_brasildat_less", col_names = F) %>%
   # unlist() %>% # For less plots 
   purrr::map(read_csv) %>%
@@ -90,7 +91,7 @@ flashes_brasildat <- map2(
                                round(lat, 2) %in% c(.y$col, .y$col_m1, .y$col_p1, .y$col_m2, .y$col_p2)))
 )
 
-opt <- c("", "", "", " ", "", "")
+opt <- c("", "", "", "", "")
 # opt <- c("", " ", "") # For less plots
 data_brasildat_df <- map2(data_brasildat, opt, ~mutate(.x, case = paste("Case", lubridate::date(date), .y))) %>%
   map2(., data_hailpads$lon, ~mutate(.x, lon_hailpad = .y)) %>%
@@ -99,6 +100,9 @@ data_brasildat_df <- map2(data_brasildat, opt, ~mutate(.x, case = paste("Case", 
   map_df(rbind) %>%
   mutate(hour = date)
 lubridate::date(data_brasildat_df$hour) <- lubridate::date(data_brasildat_df$date_hailpad) <- "2017-01-01"
+data_brasildat_df$lon_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lon_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
+data_brasildat_df$lat_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lat_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
+data_brasildat_df$date_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- "2017-01-01 18:00:00"
 
 totais <- select(data_brasildat_df, lat, lon, date, class, case)
 qte_total <- totais %>%
@@ -117,6 +121,9 @@ flashes_brasildat_df <- map2(flashes_brasildat, opt, ~mutate(.x, case = paste("C
   map_df(rbind) %>%
   mutate(hour = date)
 lubridate::date(flashes_brasildat_df$hour) <- lubridate::date(flashes_brasildat_df$date_hailpad) <- "2017-01-01"
+flashes_brasildat_df$lon_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lon_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
+flashes_brasildat_df$lat_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lat_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
+flashes_brasildat_df$date_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- "2017-01-01 18:00:00"
 
 flashes_totais <- select(flashes_brasildat_df, lat, lon, date, class, case)
 flashes_qte_total <- flashes_totais %>%
@@ -130,7 +137,7 @@ flashes_rcount <- select(flashes_brasildat_df, case, hour, class, date_hailpad) 
 
 # Plotting spatial distribution ------------------------------------------------
 theme_set(theme_bw())
-grid <- data.frame("lon" = rep(c(-47.5, -46.5), 6), "lat" = rep(-22, 12)) # Label positions
+grid <- data.frame("lon" = rep(c(-47.5, -46.5), 5), "lat" = rep(-22, 10)) # Label positions
 # grid <- data.frame("lon" = rep(c(-47.5, -46.5), 3), "lat" = rep(-22, 6)) # Label positions for less plots
 
 ggplot(data = data_brasildat_df) +
@@ -138,8 +145,8 @@ ggplot(data = data_brasildat_df) +
   geom_point(aes(x = lon, y = lat, shape = class, color = hour)) +
   geom_point(aes(x = lon_hailpad, y = lat_hailpad), pch = 17, size = 2) +
   geom_path(data = fortify(cities), aes(long, lat, group = group), inherit.aes = F, colour = "gray50", size = 0.2) +
-  geom_label(data = qte_total, aes(x = grid$lon, y = grid$lat, label = class), size = 3) +
-  scale_color_gradientn(colours = cpt(pal = "gmt_GMT_seis"), breaks = pretty_breaks(n = 10), trans = time_trans()) +
+  geom_label(data = qte_total, aes(x = grid$lon, y = grid$lat, label = class), size = 3, inherit.aes = F) +
+  scale_color_gradientn(colours = cpt(pal = "oc_zeu"), breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
        color = "Time (UTC)", shape = "Stroke\nType") +
@@ -161,7 +168,7 @@ ggplot(data = flashes_brasildat_df) +
   geom_point(aes(x = lon_hailpad, y = lat_hailpad), pch = 17, size = 2) +
   geom_path(data = fortify(cities), aes(long, lat, group = group), inherit.aes = F, colour = "gray50", size = 0.2) +
   geom_label(data = flashes_qte_total, aes(x = grid$lon, y = grid$lat, label = class), size = 3) +
-  scale_color_gradientn(colours = cpt(pal = "gmt_GMT_seis"), breaks = pretty_breaks(n = 10), trans = time_trans()) +
+  scale_color_gradientn(colours = cpt(pal = "oc_zeu"), breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
        color = "Time (UTC)", shape = "Flash\nType") +

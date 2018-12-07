@@ -783,13 +783,13 @@ def plot_field_panel(
     xz, z = np.meshgrid(grid.get_point_longitude_latitude()[0], grid.z['data'])
 
     # Opening colortables
-    if field != 'FH':
-        if cmap:
-            cpt = loadCPT(cmap)
-            if reverse_cmap:
-                cmap = LinearSegmentedColormap('cpt_r', revcmap(cpt))
-            else:
-                cmap = LinearSegmentedColormap('cpt', cpt)
+    # if field != 'FH':
+    #     if cmap:
+    #         cpt = loadCPT(cmap)
+    #         if reverse_cmap:
+    #             cmap = LinearSegmentedColormap('cpt_r', revcmap(cpt))
+    #         else:
+    #             cmap = LinearSegmentedColormap('cpt', cpt)
 
     # Main figure
     display = pyart.graph.GridMapDisplay(grid)

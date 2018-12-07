@@ -12,12 +12,13 @@ from datetime import datetime
 # - 21h40
 path = "cases/2017-11-15_21h40/"
 # -- plot_multidop
-cs_lat, cs_lon = (-23.03, -23.03), (-47.33, -47.14)
+cs_lat, cs_lon = (-23.01, -23.04), (-47.38, -47.13)
+# (-23.02, -23.03), (-47.4, -47.1)
 # (-23.07, -22.93), (-47.19, -47.32)
 # - 21h50
 # path = "cases/2017-11-15_21h50/"
-# -- plot_multidop
-# cs_lat, cs_lon = (-23.03, -23.03), (-47.15, -47.33)
+# # -- plot_multidop
+# cs_lat, cs_lon = (-23.03, -23.03), (-47.33, -47.12)
 # # (-23.09, -22.99), (-47.28, -47.16)
 # - for both scripts
 date = datetime(2017, 11, 15, 12)
@@ -37,26 +38,26 @@ plotgrid_spc = .07
 # - 18h20
 # path = "cases/2017-03-14_18h20/"
 # # -- plot_multidop
-# cs_lat, cs_lon = (-22.82, -22.58), (-47.26, -47.02)
+# cs_lat, cs_lon = (-22.84, -22.55), (-47.29, -46.98)
 # xlim, ylim = (-47.4, -46.8), (-23, -22.55)
 # hailpad = (-47.13110, -22.69160)
 # - 18h30
 # path = "cases/2017-03-14_18h30/"
 # # -- plot_multidop
-# cs_lat, cs_lon = (-22.85, -22.57), (-47.25, -47.02)
+# cs_lat, cs_lon = (-22.85, -22.56), (-47.3, -46.99)
 # xlim, ylim = (-47.45, -46.8), (-23, -22.5)
 # hailpad = (-47.13110, -22.69160)
 # - 19h50
 # path = "cases/2017-03-14_19h50/"
 # # -- plot_multidop
-# cs_lat, cs_lon = (-23.14, -22.8), (-47.17, -47.29)
+# cs_lat, cs_lon = (-22.8, -23.15), (-47.23, -47.19)
 # # (-23.06, -23.01), (-47.07, -47.28)
 # xlim, ylim = (-47.7, -47), (-23.2, -22.65)
 # hailpad = (-47.20541, -23.02940)
 # - 20h
 # path = "cases/2017-03-14_20h00/"
-# -- plot_multidop
-# cs_lat, cs_lon = (-23.15, -22.78), (-47.15, -47.32)
+# # -- plot_multidop
+# cs_lat, cs_lon = (-22.8, -23.17), (-47.23, -47.19)
 # xlim, ylim = (-47.7, -47), (-23.25, -22.7)
 # hailpad = (-47.20541, -23.02940)
 # - for both scripts
@@ -70,7 +71,7 @@ plotgrid_spc = .07
 # zerodeg_height = 5.1
 # fortydeg_height = 10.6
 # plotgrid_spc = .15
-
+#
 # General
 # -- run_multidop
 filenames_uf = open(path + "filenames_uf.txt").read().split('\n')

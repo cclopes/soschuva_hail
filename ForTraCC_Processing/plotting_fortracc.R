@@ -10,6 +10,15 @@ require(cptcity)
 # Other necessary packages are called in this script
 source("ForTraCC_Processing/processing_fortracc.R")
 
+# REMOVING SECOND 2017-03-14 FAMILY --------------------------------------------
+selected_fams <- selected_fams[-4]
+selected_fams_df$lon_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1] <- data_hailpads[4,3]
+selected_fams_df$lat_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1] <- data_hailpads[4,2]
+selected_fams_df$date_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1] <- "2017-01-01 18:00:00"
+selected_fams_df <- selected_fams_df %>%
+  filter(case != "Case 2017-03-14  ")
+data_hailpads <- data_hailpads[-4,]
+
 # Selecting part of the families -----------------------------------------------
 # selected_fams <- selected_fams[c(3,4,5)]
 # selected_fams_df <- selected_fams_df %>%
@@ -53,7 +62,7 @@ ggplot(data = selected_fams_df) +
   geom_path(data = fortify(cities), aes(long, lat, group = group), inherit.aes = F, 
             colour = "gray50", size = 0.2) +
   # scale_size_continuous(range = c(0, 20)) +
-  scale_color_gradientn(colours = cpt(pal = "gmt_GMT_seis"), 
+  scale_color_gradientn(colours = cpt(pal = "oc_zeu"), 
                         breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(20, 15, 18, 0), 
                      labels = c("Continuity", "Merge", "New", "Split")) +

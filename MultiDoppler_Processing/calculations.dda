@@ -28,11 +28,11 @@ max_dist:  10.0
 
 # Optional height below which to omit observations from analysis
 # (e.g., data-denial experiments).
-cutoff:  1000.0
+cutoff:  0.0
 
 # Prescribed storm motion (spatiotemporally constant)
-UT:  10.0
-VT:  10.0
+UT:  -10.0
+VT:  -10.0
 
 # If = 1, output verification stats after each iteration
 # (see bottom of CalcCost)
@@ -45,7 +45,7 @@ output_error:  0
 weak_height:  -1
 
 # Impose upper BC w=0 if 1, ignore if -1
-upper_bc:  -1
+upper_bc:  1
 
 # Number of iterations in frprmn before and after the filtering round
 itmax_frprmn:  200  10  
@@ -145,6 +145,6 @@ cvg_fil:  FCTH  0
 cvg_fil:  XPOL  0
 
 # Data weight multiplier when all 3 radar pairs have good beam crossing angles
-sseq_trip:  SR  1.0
+sseq_trip:  SR  0.001
 sseq_trip:  FCTH  1.0
 sseq_trip:  XPOL  1.0

@@ -623,13 +623,24 @@ def plot_gridded_wind_dbz_panel(
     lons, lats = grid.get_point_longitude_latitude(level)
     xz, z = np.meshgrid(grid.get_point_longitude_latitude()[0], grid.z['data'])
 
+    # Calculating horizontal component of cross section
+    # Based on http://mst.nerc.ac.uk/dbs_wind_deriv.html
+    north = (0, 1, 0) / np.linalg.norm((0, 1, 0))
+    cs = (lon_index[1] - lon_index[0], lat_index[1] - lat_index[0], 0)
+    cs = cs / np.linalg.norm(cs)
+    theta = np.arccos(np.clip(np.dot(north, cs), -1.0, 1.0))
+    cs_velocity = (grid.fields['eastward_wind']['data'] * np.sin(theta) +
+                   grid.fields['northward_wind']['data'] * np.cos(theta))
+    grid = add_field_to_grid_object(cs_velocity, grid,
+                                    field_name='cs_velocity')
+
     # Opening colortables
-    if cmap:
-        cpt = loadCPT(cmap)
-        if reverse_cmap:
-            cmap = LinearSegmentedColormap('cpt_r', revcmap(cpt))
-        else:
-            cmap = LinearSegmentedColormap('cpt', cpt)
+    # if cmap:
+    #     cpt = loadCPT(cmap)
+    #     if reverse_cmap:
+    #         cmap = LinearSegmentedColormap('cpt_r', revcmap(cpt))
+    #     else:
+    #         cmap = LinearSegmentedColormap('cpt', cpt)
 
     # Main figure
     display = pyart.graph.GridMapDisplay(grid)
@@ -651,8 +662,9 @@ def plot_gridded_wind_dbz_panel(
     # -- Updraft (contour)
     x, y = display.basemap(lons, lats)
     w = np.amax(grid.fields['upward_air_velocity']['data'], axis=0)
-    cl = display.basemap.contour(x, y, w, linewidths=0.5, colors='black')
-    plt.clabel(cl, inline=1, fontsize=10, fmt='%1.0f', inline_spacing=0.01)
+    cl = display.basemap.contour(x, y, w, levels=7, linewidths=0.5,
+                                 colors='black')
+    plt.clabel(cl, inline=1, fontsize=9, fmt='%1.0f', inline_spacing=2)
     # -- Hailpad position
     display.basemap.plot(hailpad_pos[0], hailpad_pos[1], 'kX', markersize=15,
                          markerfacecolor='None', latlon=True)
@@ -675,7 +687,7 @@ def plot_gridded_wind_dbz_panel(
                               coord2=(lon_index[1], lat_index[1]),
                               plot_type='contour', colorbar_flag=False)
     # -- Wind vectors
-    display.plot_latlon_slice('northward_wind', field_2='upward_air_velocity',
+    display.plot_latlon_slice('cs_velocity', field_2='upward_air_velocity',
                               coord1=(lon_index[0], lat_index[0]),
                               coord2=(lon_index[1], lat_index[1]),
                               plot_type='quiver', colorbar_flag=False)
