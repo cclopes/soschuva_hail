@@ -40,6 +40,7 @@ grid = rf.grid_radar(
                            'specific_differential_phase'],
             origin=(radar.latitude['data'][0], radar.longitude['data'][0]),
             xlim=cv.grid_xlim, ylim=cv.grid_ylim, grid_shape=cv.grid_shape)
+grid.fields['specific_differential_phase']['units'] = r'$\degree\  km^{-1}$'
 
 name = 'FCTH'
 level = 2
@@ -54,7 +55,7 @@ rf.plot_field_panel(
     save_path=cv.save_path)
 
 rf.plot_field_panel(
-    grid, 'MW', level=level, fmin=0, fmax=15, cmap='mass',
+    grid, 'MW', level=level, fmin=0, fmax=10, cmap='mass',
     lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
@@ -86,7 +87,7 @@ rf.plot_field_panel(
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
-    grid, 'specific_differential_phase', level=level, fmin=-2, fmax=3,
+    grid, 'specific_differential_phase', level=level, fmin=-2, fmax=3.2,
     cmap='kdp', lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
@@ -94,7 +95,7 @@ rf.plot_field_panel(
     xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
 
 rf.plot_field_panel(
-    grid, 'cross_correlation_ratio', level=level, fmin=0.8, fmax=1.025,
+    grid, 'cross_correlation_ratio', level=level, fmin=0.8, fmax=1.013,
     cmap='rho', lat_index=cv.cs_lat, lon_index=cv.cs_lon,
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,

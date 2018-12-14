@@ -72,7 +72,7 @@ def check_sounding_for_montonic(sounding):
     return snd_T, snd_z
 
 
-def make_colormap(seq, name):
+def make_colormap(seq, name, n=256):
     """
     Create a LinearSegmentedColormap from a sequence of colors
 
@@ -96,4 +96,4 @@ def make_colormap(seq, name):
             cdict['red'].append([item, r1, r2])
             cdict['green'].append([item, g1, g2])
             cdict['blue'].append([item, b1, b2])
-    return LinearSegmentedColormap(name, cdict)
+    return LinearSegmentedColormap(name, cdict, N=n)

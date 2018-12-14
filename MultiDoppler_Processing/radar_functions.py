@@ -590,7 +590,7 @@ def plot_gridded_wind_dbz_panel(
         grid, level, lat_index=None, lon_index=None, date='', name_multi='',
         shp_name='', hailpad_pos=None, zero_height=3., minusforty_height=10.,
         grid_spc=.25, cmap=None, reverse_cmap=False,
-        xlim=(-48, -46), ylim=(-24, -22)):
+        xlim=(-48, -46), ylim=(-24, -22), lg_spc=' '):
     """
     Using gridded multidoppler processed data, plot horizontal and vertical
     views:
@@ -659,17 +659,35 @@ def plot_gridded_wind_dbz_panel(
     # -- Reflectivity (shaded)
     display.plot_grid('reflectivity', level, vmin=0, vmax=70,
                       colorbar_flag=False, cmap=cmap)
-    # -- Updraft (contour)
+    # -- Updraft and downdraft (contour)
     x, y = display.basemap(lons, lats)
     w = np.amax(grid.fields['upward_air_velocity']['data'], axis=0)
-    cl = display.basemap.contour(x, y, w, levels=7, linewidths=0.5,
+    wd = np.amin(grid.fields['upward_air_velocity']['data'], axis=0)
+    cl = display.basemap.contour(x, y, w, levels=np.arange(5, 45, 10),
+                                 linewidths=0.9,
                                  colors='black')
     plt.clabel(cl, inline=1, fontsize=9, fmt='%1.0f', inline_spacing=2)
+    cld = display.basemap.contour(x, y, wd, levels=np.arange(-45, 0, 10),
+                                  linewidths=0.9, linestyles='-.',
+                                  colors='black')
+    plt.clabel(cld, inline=1, fontsize=9, fmt='%1.0f', inline_spacing=2)
+
     # -- Hailpad position
     display.basemap.plot(hailpad_pos[0], hailpad_pos[1], 'kX', markersize=15,
-                         markerfacecolor='None', latlon=True)
+                         markerfacecolor='w', alpha=0.75, latlon=True)
     # -- Cross section position
     display.basemap.plot(lon_index, lat_index, 'k--', latlon=True)
+    bmap = display.get_basemap()
+    x, y = bmap(lon_index[0], lat_index[0])
+    ax1.annotate(
+        'A', (x, y), fontsize=11,
+        fontweight='bold', fontstretch='condensed', ha='center',
+        bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
+    x, y = bmap(lon_index[1], lat_index[1])
+    ax1.annotate(
+        'B', (x, y), fontsize=11,
+        fontweight='bold', fontstretch='condensed', ha='center',
+        bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
 
     # - Vertical view
     print('-- Plotting vertical view --')
@@ -680,28 +698,36 @@ def plot_gridded_wind_dbz_panel(
                               coord2=(lon_index[1], lat_index[1]),
                               vmin=0, vmax=70, zerodeg_height=zero_height,
                               minusfortydeg_height=minusforty_height,
-                              cmap=cmap)
+                              cmap=cmap, dot_pos=hailpad_pos,
+                              zdh_col='w')
     # -- Updraft (contour)
-    display.plot_latlon_slice('upward_air_velocity',
-                              coord1=(lon_index[0], lat_index[0]),
-                              coord2=(lon_index[1], lat_index[1]),
-                              plot_type='contour', colorbar_flag=False)
+    # display.plot_latlon_slice('upward_air_velocity',
+    #                           coord1=(lon_index[0], lat_index[0]),
+    #                           coord2=(lon_index[1], lat_index[1]),
+    #                           plot_type='contour', colorbar_flag=False)
     # -- Wind vectors
     display.plot_latlon_slice('cs_velocity', field_2='upward_air_velocity',
                               coord1=(lon_index[0], lat_index[0]),
                               coord2=(lon_index[1], lat_index[1]),
-                              plot_type='quiver', colorbar_flag=False)
+                              plot_type='quiver', colorbar_flag=False,
+                              lg_spc=lg_spc)
 
     # - General aspects
     plt.suptitle(name_multi + date, weight='bold',
                  stretch='condensed', size='x-large')
-    ax1.set_title(str(level+1) + ' km ' 'Reflectivity, Max Updrafts (m/s)')
-    ax2.set_title('Cross Section Reflectivity, Updrafts (m/s)')
+    ax1.set_title((
+        str(level+1) + ' km ' 'Reflectivity, Min/Max Vertical Velocity (' +
+        r'$ms^{-1}$' + ')'
+    ))
+    ax2.set_title((
+        'Cross Section Reflectivity, Vertical Velocity (' + r'$ms^{-1}$' + ')'
+        ))
     ax2.set_xlabel('')
     ax2.set_ylabel('Distance above Ground (km)')
     ax2.grid(linestyle='-', linewidth=0.25)
     plt.savefig('figures/' + name_multi.split(' ')[0].replace('/', '-') + ' ' +
-                date + '.png', dpi=300, bbox_inches='tight', transparent=True)
+                date + '.png', dpi=300, bbox_inches='tight',
+                facecolor='none', edgecolor='w')
 
 
 def adjust_fhc_colorbar_for_pyart(cb):
@@ -839,7 +865,7 @@ def plot_field_panel(
                               coord2=(lon_index[1], lat_index[1]),
                               zerodeg_height=zero_height,
                               minusfortydeg_height=minusforty_height,
-                              zdh_col='k', cmap=cmap,
+                              zdh_col='k', cmap=cmap, dot_pos=hailpad_pos,
                               colorbar_flag=False, norm=norm)
     cb = display.plot_colorbar(
             orientation='vertical',

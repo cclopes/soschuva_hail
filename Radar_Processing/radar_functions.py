@@ -13,7 +13,7 @@ import numpy.ma as ma
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
 from mpl_toolkits.basemap import cm
-from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.colors import LinearSegmentedColormap, BoundaryNorm
 from matplotlib.cm import revcmap
 
 import pyart
@@ -92,7 +92,8 @@ def calculate_radar_hid(radar, sounding_names, radar_band="S"):
                                     band=radar_band)
     fh = np.argmax(scores, axis=0) + 1
     # - Adding to radar file
-    radar = add_field_to_radar_object(fh, radar)
+    radar = add_field_to_radar_object(fh, radar,
+                                      standard_name='Hydrometeor ID')
 
     # - Calculating liquid and ice mass
     mw, mi = csu_liquid_ice_mass.calc_liquid_ice_mass(
@@ -100,11 +101,11 @@ def calculate_radar_hid(radar, sounding_names, radar_band="S"):
 
     # - Adding to radar file
     file = add_field_to_radar_object(
-                mw, radar, field_name='MW', units='g m-3',
+                mw, radar, field_name='MW', units=r'$g\  m^{-3}$',
                 long_name='Liquid Water Mass',
                 standard_name='Liquid Water Mass')
     file = add_field_to_radar_object(
-                mi, file, field_name='MI', units='g m-3',
+                mi, file, field_name='MI', units=r'$g\  m^{-3}$',
                 long_name='Ice Water Mass',
                 standard_name='Ice Water Mass')
 
@@ -801,22 +802,33 @@ def plot_field_panel(
 
     # - Horizontal view
     print('-- Plotting horizontal view --')
-    ax1 = fig.add_subplot(gs[0, :3])
+    ax1 = fig.add_subplot(gs[0, :3], facecolor='w')
     display.plot_basemap(min_lon=xlim[0], max_lon=xlim[1],
                          min_lat=ylim[0], max_lat=ylim[1],
                          lon_lines=np.arange(xlim[0], xlim[1], grid_spc),
                          lat_lines=np.arange(ylim[0], ylim[1], grid_spc),
-                         auto_range=False)
+                         auto_range=False, ax=ax1)
     display.basemap.readshapefile(shp_name, 'sao_paulo', color='gray')
     # -- Reflectivity (shaded)
     display.plot_grid(field, level, vmin=fmin, vmax=fmax, cmap=cmap,
-                      colorbar_flag=False, norm=norm)
+                      colorbar_flag=False, norm=norm, ax=ax1)
 
     # -- Hailpad position
     display.basemap.plot(hailpad_pos[0], hailpad_pos[1], 'kX', markersize=15,
-                         markerfacecolor='None', latlon=True)
+                         markerfacecolor='w', alpha=0.75, latlon=True)
     # -- Cross section position
     display.basemap.plot(lon_index, lat_index, 'k--', latlon=True)
+    bmap = display.get_basemap()
+    x, y = bmap(lon_index[0], lat_index[0])
+    ax1.annotate(
+        'A', (x, y), fontsize=11,
+        fontweight='bold', fontstretch='condensed', ha='center',
+        bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
+    x, y = bmap(lon_index[1], lat_index[1])
+    ax1.annotate(
+        'B', (x, y), fontsize=11,
+        fontweight='bold', fontstretch='condensed', ha='center',
+        bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
 
     # - Vertical view
     print('-- Plotting vertical view --')
@@ -827,24 +839,25 @@ def plot_field_panel(
                               coord2=(lon_index[1], lat_index[1]),
                               zerodeg_height=zero_height,
                               minusfortydeg_height=minusforty_height,
-                              zdh_col='k', cmap=cmap,
-                              colorbar_flag=False, norm=norm)
-    cb = display.plot_colorbar(
-            orientation='vertical',
-            label=grid.fields[field]['units'])
+                              zdh_col='k', cmap=cmap, colorbar_flag=False,
+                              norm=norm, dot_pos=hailpad_pos)
+    cb = display.plot_colorbar(orientation='vertical', ax=ax2,
+                               label=grid.fields[field]['units'])
     if field == 'FH':
         cb = adjust_fhc_colorbar_for_pyart(cb)
 
     # - General aspects
     plt.suptitle(name_multi + ' ' + date, weight='bold',
                  stretch='condensed', size='x-large')
-    ax1.set_title(str(level+1) + ' km ' +
-                  grid.fields[field]['standard_name'].title())
-    ax2.set_title('Cross Section ' +
-                  grid.fields[field]['standard_name'].title())
+    if field == 'FH':
+        field_name = grid.fields[field]['standard_name']
+    else:
+        field_name = grid.fields[field]['standard_name'].title()
+    ax1.set_title(str(level+1) + ' km ' + field_name)
+    ax2.set_title('Cross Section ' + field_name)
     ax2.set_xlabel('')
     ax2.set_ylabel('Distance above Ground (km)')
     ax2.grid(linestyle='-', linewidth=0.25)
-    plt.savefig(save_path + name_multi + ' ' +
-                grid.fields[field]['standard_name'].title() + ' ' +
-                date + '.png', dpi=300, bbox_inches='tight', transparent=True)
+    plt.savefig(save_path + name_multi + ' ' + field_name + ' ' +
+                date + '.png', dpi=300, bbox_inches='tight',
+                facecolor='none', edgecolor='w')

@@ -35,6 +35,8 @@ strokes_to_flashes <- function(lightning_df, min_pts = 1,
   # --------
   # lightning_df: dataframe with date, lat, lon, peak_curr, class and
   #   number of strokes
+  # strokes_df: dataframe with date, delta_stroke, delta_y, delta_x and
+  #   delta_z for flash statistics
   
   # Step 1: Clustering according to time only
   time_df <- (hour(lightning_df$date)*3600 + minute(lightning_df$date)*60 + 

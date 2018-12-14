@@ -40,7 +40,7 @@ vt:  VT
 
 # Names of output file
 frprmn_out:  frprmn_out.nc
-writeout:  /tmp/tmpuq9p79_8
+writeout:  /tmp/tmpeoi1fdwz
 
 # Minimum beam crossing angle for optimal coverage
 min_cba:  20.0

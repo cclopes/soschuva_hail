@@ -25,11 +25,11 @@ for filename in cv.filenames_pkl:
     name = filename.split('/')[2].split('_')[0].replace('-', '/').upper()
     grid = misc.open_object(filename)
     plot_gridded_wind_dbz_panel(
-        grid, level=0, lat_index=cv.cs_lat, lon_index=cv.cs_lon, cmap='dbz',
+        grid, level=2, lat_index=cv.cs_lat, lon_index=cv.cs_lon, cmap='dbz',
         date=cv.date_name, name_multi=name + ' Multi-Doppler at ',
         shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
         zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
-        grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim)
+        grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim, lg_spc=cv.lg_spc)
 
 # Reading results
 # grid_2rad = misc.open_object('2017-11-15_21h50/20171115_fcth-xpol_cf.pkl')
