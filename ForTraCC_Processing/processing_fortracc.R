@@ -80,7 +80,7 @@ rm(filenames_fams)
 
 #--- ... so use this instead.
 data_clusters <- list()
-for(i in 1:length(filenames_clusters)){
+  for(i in 1:length(filenames_clusters)){
   data_clusters[[i]] <- file(filenames_clusters[i], "rb") %>%
     readBin(., integer(), size = 2, n = lins*cols) %>%
     matrix(., nrow = lins, ncol = cols)

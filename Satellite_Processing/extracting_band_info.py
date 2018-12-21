@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+"""
+
 from cpt_convert import loadCPT
+
 
 def extract_band_info(Band):
     '''

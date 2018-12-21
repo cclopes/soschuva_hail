@@ -644,7 +644,7 @@ def plot_gridded_wind_dbz_panel(
 
     # Main figure
     display = pyart.graph.GridMapDisplay(grid)
-    fig = plt.figure(figsize=(10, 3.25), constrained_layout=True)
+    fig = plt.figure(figsize=(10, 3.75), constrained_layout=True)
     gs = GridSpec(nrows=1, ncols=7, figure=fig)
 
     # - Horizontal view
@@ -664,13 +664,13 @@ def plot_gridded_wind_dbz_panel(
     w = np.amax(grid.fields['upward_air_velocity']['data'], axis=0)
     wd = np.amin(grid.fields['upward_air_velocity']['data'], axis=0)
     cl = display.basemap.contour(x, y, w, levels=np.arange(5, 45, 10),
-                                 linewidths=0.9,
+                                 linewidths=1.2,
                                  colors='black')
-    plt.clabel(cl, inline=1, fontsize=9, fmt='%1.0f', inline_spacing=2)
+    plt.clabel(cl, inline=1, fontsize=10, fmt='%1.0f', inline_spacing=2)
     cld = display.basemap.contour(x, y, wd, levels=np.arange(-45, 0, 10),
-                                  linewidths=0.9, linestyles='-.',
+                                  linewidths=1.2, linestyles='dotted',
                                   colors='black')
-    plt.clabel(cld, inline=1, fontsize=9, fmt='%1.0f', inline_spacing=2)
+    plt.clabel(cld, inline=1, fontsize=10, fmt='%1.0f', inline_spacing=2)
 
     # -- Hailpad position
     display.basemap.plot(hailpad_pos[0], hailpad_pos[1], 'kX', markersize=15,
@@ -716,11 +716,11 @@ def plot_gridded_wind_dbz_panel(
     plt.suptitle(name_multi + date, weight='bold',
                  stretch='condensed', size='x-large')
     ax1.set_title((
-        str(level+1) + ' km ' 'Reflectivity, Min/Max Vertical Velocity (' +
+        str(level+1) + ' km ' 'Reflectivity\nMin/Max Vertical Velocity (' +
         r'$ms^{-1}$' + ')'
     ))
     ax2.set_title((
-        'Cross Section Reflectivity, Vertical Velocity (' + r'$ms^{-1}$' + ')'
+        'Cross Section Reflectivity\nVertical Velocity (' + r'$ms^{-1}$' + ')'
         ))
     ax2.set_xlabel('')
     ax2.set_ylabel('Distance above Ground (km)')

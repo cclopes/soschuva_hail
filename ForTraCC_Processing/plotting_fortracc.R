@@ -62,7 +62,7 @@ ggplot(data = selected_fams_df) +
   geom_path(data = fortify(cities), aes(long, lat, group = group), inherit.aes = F, 
             colour = "gray50", size = 0.2) +
   # scale_size_continuous(range = c(0, 20)) +
-  scale_color_gradientn(colours = cpt(pal = "oc_zeu"), 
+  scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                         breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(20, 15, 18, 0), 
                      labels = c("Continuity", "Merge", "New", "Split")) +
@@ -81,6 +81,7 @@ ggsave("ForTraCC_Processing/figures/trajectories_cases.png", width = 8.5, height
 
 # Generating plots of life cycle of dBZ max and area for future plot -----------
 plt_dbz <- ggplot(data = selected_fams_df) +
+  scale_x_datetime(labels = date_format("%H%M")) +
   geom_path(aes(x = hour, y = pmax), color = "tomato") +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
   theme(
@@ -92,6 +93,7 @@ plt_dbz <- ggplot(data = selected_fams_df) +
   theme(strip.text = element_blank())
 
 plt_size <- ggplot(data = selected_fams_df) +
+  scale_x_datetime(labels = date_format("%H%M")) +
   geom_path(aes(x = hour, y = size), color = "navyblue") +
   theme(
     plot.background = element_rect(fill = "transparent"),

@@ -146,7 +146,8 @@ ggplot(data = data_brasildat_df) +
   geom_point(aes(x = lon_hailpad, y = lat_hailpad), pch = 17, size = 2) +
   geom_path(data = fortify(cities), aes(long, lat, group = group), inherit.aes = F, colour = "gray50", size = 0.2) +
   geom_label(data = qte_total, aes(x = grid$lon, y = grid$lat, label = class), size = 3, inherit.aes = F) +
-  scale_color_gradientn(colours = cpt(pal = "oc_zeu"), breaks = pretty_breaks(n = 10), trans = time_trans()) +
+  scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
+                        breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
        color = "Time (UTC)", shape = "Stroke\nType") +
@@ -168,7 +169,8 @@ ggplot(data = flashes_brasildat_df) +
   geom_point(aes(x = lon_hailpad, y = lat_hailpad), pch = 17, size = 2) +
   geom_path(data = fortify(cities), aes(long, lat, group = group), inherit.aes = F, colour = "gray50", size = 0.2) +
   geom_label(data = flashes_qte_total, aes(x = grid$lon, y = grid$lat, label = class), size = 3) +
-  scale_color_gradientn(colours = cpt(pal = "oc_zeu"), breaks = pretty_breaks(n = 10), trans = time_trans()) +
+  scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
+                        breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
        color = "Time (UTC)", shape = "Flash\nType") +
@@ -186,6 +188,7 @@ ggsave("Lightning_Processing/figures/brasildat_flash_location.png", bg = "transp
 
 # Plotting temporal distribution
 plt_brasildat <- ggplot(rcount) +
+  scale_x_datetime(labels = date_format("%H%M")) +
   geom_histogram(binwidth = 60, aes(x = hour, ..count.., fill = forcats::fct_rev(class))) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
   scale_fill_manual(name = "Type", values = c("darkgoldenrod1", "darkorchid")) +
@@ -197,6 +200,7 @@ plt_brasildat <- ggplot(rcount) +
   facet_wrap(case ~ ., scales = "free", ncol = 1, strip.position = 'right')
 
 plt_flash_brasildat <- ggplot(flashes_rcount) +
+  scale_x_datetime(labels = date_format("%H%M")) +
   geom_histogram(binwidth = 60, aes(x = hour, ..count.., fill = forcats::fct_rev(class))) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
   scale_fill_manual(name = "Type", values = c("darkgoldenrod1", "darkorchid")) +

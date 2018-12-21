@@ -4,8 +4,8 @@
 
 from glob import glob
 
-filenames_plevs = (glob('../Data/REANALYSIS/ERA5/era5_plevs_*'))[11:13]
-filenames_sfc = (glob('../Data/REANALYSIS/ERA5/era5_sfc_*'))[11:13]
+filenames_plevs = sorted(glob('../Data/REANALYSIS/ERA5/era5_plevs_*'))
+filenames_sfc = sorted(glob('../Data/REANALYSIS/ERA5/era5_sfc_*'))
 
 # South America maps
 params_sa = {

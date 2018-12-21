@@ -122,7 +122,7 @@ def plot_cape_shear(data, fig_asp, **kwargs):
         data.lon, data.lat, data.cape, levels=np.arange(0, 5500, 500),
         zorder=1, transform=trans, cmap='cape')
     fig.colorbar(cape_shaded, spacing='uniform',
-                 label='CAPE (' + r'$J kg^{-1}' + ')',
+                 label='CAPE (' + r'$J kg^{-1}$' + ')',
                  aspect=fig_asp['cbar_aspect'], shrink=fig_asp['cbar_shrink'],
                  pad=0.025)
 

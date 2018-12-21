@@ -30,7 +30,7 @@ def get_main_data(data):
     """
 
     lat = data['latitude']
-    lon = data['longitude'] - 180
+    lon = data['longitude']  # - 180
     date_full = data['time'].values
     date = np.datetime_as_string(date_full, unit='s').partition('T')[0]
     time = np.datetime_as_string(date_full, unit='s').partition('T')[2]
