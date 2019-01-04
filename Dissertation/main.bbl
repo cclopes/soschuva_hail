@@ -1,0 +1,71 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.6 }
+
+\bibitem[Dessens, Berthet e Sanchez 2007]{Dessens2007}
+\abntrefinfo{Dessens, Berthet e Sanchez}{DESSENS; BERTHET; SANCHEZ}{2007}
+{DESSENS, J.; BERTHET, C.; SANCHEZ, J.~L. {A point hailfall classification
+  based on hailpad measurements: The ANELFA scale}.
+\emph{Atmospheric Research}, Elsevier, v.~83, n. 2-4 SPEC. ISS., p. 132--139,
+  feb 2007.
+ISSN 01698095.
+Dispon{\'\i}vel em:
+  \url{https://www.sciencedirect.com/science/article/pii/S0169809506001281}.}
+
+\bibitem[Helmus e Collis 2016]{Helmus2016}
+\abntrefinfo{Helmus e Collis}{HELMUS; COLLIS}{2016}
+{HELMUS, J.~J.; COLLIS, S.~M. {The Python ARM Radar Toolkit ( Py-ART ), a
+  Library for Working with Weather Radar Data in the Python Programming
+  Language}.
+\emph{Journal of Open Research Software}, Ubiquity Press, v.~4, n.~1, p.~e25,
+  jul 2016.
+ISSN 2049-9647.
+Dispon{\'\i}vel em:
+  \url{http://openresearchsoftware.metajnl.com/articles/10.5334/jors.119/}.}
+
+\bibitem[Mezeix e Doras 1981]{Mezeix1981}
+\abntrefinfo{Mezeix e Doras}{MEZEIX; DORAS}{1981}
+{MEZEIX, J.~F.; DORAS, N. {Various Kinetic Energy Characteristics of
+  Hailpatterns in the Grossversuch IV Experiment}.
+\emph{Journal of Applied Meteorology}, v.~20, n.~4, p. 377--385, apr 1981.
+ISSN 0021-8952.}
+
+\bibitem[Rauber e Nesbitt 2018]{Rauber2018}
+\abntrefinfo{Rauber e Nesbitt}{RAUBER; NESBITT}{2018}
+{RAUBER, R.~M.; NESBITT, S.~W. \emph{{Radar Meteorology: A First Course}}. 1.
+  ed. Hoboken, NJ: Wiley-Blackwell, 2018. 488~p.
+ISBN 978-1-118-43262-4.}
+
+\bibitem[Straka, Zrni{\'{c}} e Ryzhkov 2000]{Straka2000}
+\abntrefinfo{Straka, Zrni{\'{c}} e Ryzhkov}{STRAKA; ZRNI{\'{C}}; RYZHKOV}{2000}
+{STRAKA, J.~M.; ZRNI{\'{C}}, D.~S.; RYZHKOV, A.~V. {Bulk Hydrometeor
+  Classification and Quantification Using Polarimetric Radar Data: Synthesis of
+  Relations}.
+\emph{Journal of Applied Meteorology}, v.~39, n.~8, p. 1341--1372, aug 2000.
+ISSN 0894-8763.}
+
+\bibitem[{Thomaz J{\'{u}}nior} et al. 2015]{ThomazJunior2015a}
+\abntrefinfo{{Thomaz J{\'{u}}nior} et al.}{{Thomaz J{\'{u}}nior} et al.}{2015}
+{{Thomaz J{\'{u}}nior}, J.~C. et al. \emph{{Desenvolvimento de uma Metodologia
+  para Medidas de Eventos de Granizo (Concep{\c{c}}{\~{a}}o, Materiais,
+  Correspond{\^{e}}ncia dos Dados e Refer{\^{e}}ncia) no Laborat{\'{o}}rio de
+  Instrumenta{\c{c}}{\~{a}}o Meteorol{\'{o}}gica (LIM)}}.
+[S.l.], 2015. 14~p.}
+
+\bibitem[Vila et al. 2008]{Vila2008}
+\abntrefinfo{Vila et al.}{VILA et al.}{2008}
+{VILA, D.~A. et al. {Forecast and Tracking the Evolution of Cloud Clusters
+  (ForTraCC) Using Satellite Infrared Imagery: Methodology and Validation}.
+\emph{Weather and Forecasting}, v.~23, n.~2, p. 233--245, apr 2008.
+ISSN 0882-8156.}
+
+\bibitem[Webb, Elsom e Meaden 1986]{webb1986}
+\abntrefinfo{Webb, Elsom e Meaden}{WEBB; ELSOM; MEADEN}{1986}
+{WEBB, J. D.~C.; ELSOM, D.~M.; MEADEN, G.~T. {The TORRO hailstorm intensity
+  scale}.
+\emph{J Meteorol}, v.~11, p. 337--339, 1986.}
+
+\end{thebibliography}

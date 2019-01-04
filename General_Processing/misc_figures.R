@@ -21,7 +21,7 @@ plt_a <- ggplot(hids %>% select(HID, Zh_low, Zh_high),
                 aes(x = Zh_low, xend = Zh_high, y = HID, group = HID)) +
   geom_dumbbell(color = "firebrick2", size = 1) +
   theme(
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
@@ -31,7 +31,7 @@ plt_b <- ggplot(hids %>% select(HID, ZDR_low, ZDR_high),
                 aes(x = ZDR_low, xend = ZDR_high, y = HID, group = HID)) +
   geom_dumbbell(color = "chartreuse3", size = 1) +
   theme(
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
@@ -41,7 +41,7 @@ plt_c <- ggplot(hids %>% select(HID, KDP_low, KDP_high),
                 aes(x = KDP_low, xend = KDP_high, y = HID, group = HID)) +
   geom_dumbbell(color = "darkgreen", size = 1) +
   theme(
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
@@ -51,7 +51,7 @@ plt_d <- ggplot(hids %>% select(HID, RHO_low, RHO_high),
                 aes(x = RHO_low, xend = RHO_high, y = HID, group = HID)) +
   geom_dumbbell(color = "deeppink", size = 1) +
   theme(
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
@@ -81,7 +81,7 @@ plt <- ggplot(tak_plot, aes(x = Var1, y = Var2)) +
   theme(panel.grid = element_blank(),
         plot.title = element_text(hjust = 0.5),
         legend.key.height = unit(x = 15, units = "mm"),
-        plot.background = element_rect(fill = "transparent"),
+        plot.background = element_rect(fill = "transparent", color = "transparent"),
         legend.background = element_rect(fill = "transparent"))
 ggsave("General_Processing/figures/takahashi.png", plot = plt,
        width = 4, height = 4, bg = "transparent")
@@ -143,7 +143,7 @@ plt <- ggplot(files) +
   scale_y_datetime(labels = date_format("%H:%M")) +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom",
         axis.text.y = element_text(angle = 90, hjust = 0.5),
-        plot.background = element_rect(fill = "transparent"),
+        plot.background = element_rect(fill = "transparent", color = "transparent"),
         legend.background = element_rect(fill = "transparent")
   ) +
   coord_flip()
@@ -200,11 +200,10 @@ ggplot(cth_scan, aes(x = r)) +
   scale_color_manual(values = pal_scan(length(cth_elevs))) +
   coord_cartesian(ylim = c(0, 20), xlim = c(0, 250)) +
   theme(
-    plot.title = element_text(hjust = 0.5), legend.position = "bottom",
-    plot.background = element_rect(fill = "transparent"),
+    plot.title = element_text(hjust = 0.5),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
-  ) +
-  guides(fill = guide_legend(nrow = 1), color = guide_legend(nrow = 1))
+  )
 ggsave("General_Processing/figures/scan_strategy_cth.png",
        width = 6, height = 4, bg = "transparent")
 
@@ -221,14 +220,14 @@ ggplot(sr_scan, aes(x = r)) +
   scale_color_manual(values = pal_scan(length(sr_elevs))) +
   coord_cartesian(ylim = c(0, 20), xlim = c(0, 250)) +
   theme(
-    plot.title = element_text(hjust = 0.5), legend.position = "bottom",
-    plot.background = element_rect(fill = "transparent"),
+    plot.title = element_text(hjust = 0.5),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
-  guides(fill = guide_legend(nrow = 2, byrow = T),
-         color = guide_legend(nrow = 2, byrow = T))
+  guides(fill = guide_legend(ncol = 2),
+         color = guide_legend(ncol = 2))
 ggsave("General_Processing/figures/scan_strategy_sr.png",
-       width = 6, height = 4.2, bg = "transparent")
+       width = 6, height = 4, bg = "transparent")
 
 ggplot(xpol_scan, aes(x = r)) +
   geom_ribbon(aes(ymax = h_up, ymin = h_down, fill = elev, color = elev),
@@ -243,11 +242,11 @@ ggplot(xpol_scan, aes(x = r)) +
   scale_color_manual(values = pal_scan(length(xpol_elevs))) +
   coord_cartesian(ylim = c(0, 20), xlim = c(0, 80)) +
   theme(
-    plot.title = element_text(hjust = 0.5), legend.position = "bottom",
-    plot.background = element_rect(fill = "transparent"),
+    plot.title = element_text(hjust = 0.5),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
-  guides(fill = guide_legend(nrow = 3, byrow = T),
-         color = guide_legend(nrow = 3, byrow = T))
+  guides(fill = guide_legend(ncol = 2),
+         color = guide_legend(ncol = 2))
 ggsave("General_Processing/figures/scan_strategy_xpol.png",
-       width = 5.5, height = 5, bg = "transparent")
+       width = 6, height = 4, bg = "transparent")

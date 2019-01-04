@@ -144,7 +144,7 @@ ggplot() +
   geom_line(data = radars, aes(x, y), linetype = "dashed") +
   geom_label_repel(data = radars_dist, aes(midlon, midlat, label = distance), point.padding = 0.1, size = 2, alpha = 0.7, min.segment.length = 0) +
   theme(legend.position = "bottom",
-        plot.background = element_rect(fill = "transparent"),
+        plot.background = element_rect(fill = "transparent", color = "transparent"),
         legend.background = element_rect(fill = "transparent")) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")")) +
   facet_grid(combination ~ .)

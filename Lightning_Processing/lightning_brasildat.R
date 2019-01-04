@@ -153,7 +153,7 @@ ggplot(data = data_brasildat_df) +
        color = "Time (UTC)", shape = "Stroke\nType") +
   guides(size = "none", color = guide_colorbar(barheight = 12)) +
   theme(
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   # theme(legend.position = "bottom") + # For less plots
@@ -176,7 +176,7 @@ ggplot(data = flashes_brasildat_df) +
        color = "Time (UTC)", shape = "Flash\nType") +
   guides(size = "none", color = guide_colorbar(barheight = 12)) +
   theme(
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   # theme(legend.position = "bottom") + # For less plots
@@ -193,7 +193,7 @@ plt_brasildat <- ggplot(rcount) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
   scale_fill_manual(name = "Type", values = c("darkgoldenrod1", "darkorchid")) +
   theme(
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   labs(x = "Hour (UTC)", y = "Strokes/min") +
@@ -205,7 +205,7 @@ plt_flash_brasildat <- ggplot(flashes_rcount) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
   scale_fill_manual(name = "Type", values = c("darkgoldenrod1", "darkorchid")) +
   theme(
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   labs(x = "Hour (UTC)", y = "Flashes/min") +

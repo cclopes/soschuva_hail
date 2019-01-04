@@ -71,11 +71,16 @@ ggplot(data = selected_fams_df) +
     color = "Time (UTC)", shape = "Classification"
   ) +
   guides(size = "none", color = guide_colorbar(barheight = 12)) +
+  theme(
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
+    legend.background = element_rect(fill = "transparent")
+  ) +
   # theme(legend.position = "bottom") + #-- For less plots
   # guides(size = "none", color = guide_colorbar(barwidth = 15), 
   #   shape = guide_legend(nrow = 2, byrow = T)) + #-- For less plots
   facet_wrap(~case)
-ggsave("ForTraCC_Processing/figures/trajectories_cases.png", width = 8.5, height = 4.3)
+ggsave("ForTraCC_Processing/figures/trajectories_cases.png",
+       width = 8.5, height = 4.3, bg = "transparent")
 # ggsave("ForTraCC_Processing/figures/trajectories_cases_less.png", 
 #   width = 7.5, height = 3.25,  bg = "transparent") #-- For less plots
 
@@ -85,7 +90,7 @@ plt_dbz <- ggplot(data = selected_fams_df) +
   geom_path(aes(x = hour, y = pmax), color = "tomato") +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
   theme(
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   labs(x = "Hour (UTC)", y = "Max 3km Reflectivity (dBZ)") +
@@ -96,7 +101,7 @@ plt_size <- ggplot(data = selected_fams_df) +
   scale_x_datetime(labels = date_format("%H%M")) +
   geom_path(aes(x = hour, y = size), color = "navyblue") +
   theme(
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +

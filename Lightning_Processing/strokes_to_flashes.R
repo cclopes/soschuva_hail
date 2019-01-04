@@ -98,7 +98,7 @@ flashes_brasildat <- purrr::map(data_brasildat, ~strokes_to_flashes(.x)[[1]])
 # For statistics ---------------------------------------------------------------
 # strokes_brasildat <- purrr::map(data_brasildat, ~strokes_to_flashes(.x)[[2]]) %>%
 #   map_df(rbind) %>%
-#   mutate(delta_stroke = as.numeric(delta_stroke)) %>% 
+#   mutate(delta_stroke = as.numeric(delta_stroke)) %>%
 #   na_if(0)
 # 
 # flashes_brasildat_df <- flashes_brasildat %>%
@@ -119,49 +119,49 @@ flashes_brasildat <- purrr::map(data_brasildat, ~strokes_to_flashes(.x)[[1]])
 #                      labels = c("Interstroke", "Interflash")) +
 #   theme(legend.position = "bottom", legend.box.margin = margin(-10, 0, 0, 0),
 #         plot.margin = unit(c(2, 2, 0.5, 2), "mm"),
-#         plot.background = element_rect(fill = "transparent"),
+#         plot.background = element_rect(fill = "transparent", color = "transparent"),
 #         legend.background = element_rect(fill = "transparent")) +
 #   labs(x = "Time (s)", y = expression("Counts ("*10^4*")"), color = "")
 # 
 # plt_dist <- ggplot(strokes_brasildat, aes(x = delta_x, y = delta_y)) +
 #   coord_cartesian(xlim = c(-6, 6), ylim = c(-6, 6)) +
 #   geom_bin2d(binwidth = 0.1) +
-#   scale_fill_gradientn(name = "Counts", 
+#   scale_fill_gradientn(name = "Counts",
 #                        colors = heat_hcl(n = 1000, h = c(0, -100), l = c(95, 40),
 #                                          c = c(40, 80), power = 4),
 #                        breaks = pretty_breaks(n = 4)) +
 #   theme(legend.position = "bottom",
-#         plot.background = element_rect(fill = "transparent"),
+#         plot.background = element_rect(fill = "transparent", color = "transparent"),
 #         legend.background = element_rect(fill = "transparent")) +
 #   guides(fill = guide_colorbar(barwidth = 7)) +
 #   labs(x = "Longitudinal Distance (km)", y = "Latitudinal Distance (km)")
-
+# 
 # ggplot(strokes_brasildat, aes(x = delta_x, y = delta_y)) +
 #   coord_cartesian(xlim = c(-6, 6), ylim = c(-6, 6)) +
 #   geom_bin2d(binwidth = 0.1) +
-#   scale_fill_distiller(name = "Counts", 
-#                        palette = "Set1", 
+#   scale_fill_distiller(name = "Counts",
+#                        palette = "Set1",
 #                        breaks = pretty_breaks(n = 20),
 #                        direction = 1,
 #                        limits = c(1, 40),
 #                        oob = squish) +
 #   theme(legend.position = "bottom",
-#         plot.background = element_rect(fill = "transparent"),
+#         plot.background = element_rect(fill = "transparent", color = "transparent"),
 #         legend.background = element_rect(fill = "transparent")) +
 #   guides(fill = guide_colorbar(barwidth = 25)) +
 #   labs(x = "Longitudinal Distance (km)", y = "Latitudinal Distance (km)")
-
-# plt_strperflash <- ggplot(data = flashes_brasildat_df, 
+# 
+# plt_strperflash <- ggplot(data = flashes_brasildat_df,
 #                           aes(x = strokes, y = ..count..)) +
 #   scale_x_continuous(limits = c(0, 21)) +
 #   scale_y_log10(limits = c(1, 1e5)) +
 #   stat_bin(binwidth = 1, color = "white") +
 #   labs(x = "Number of Strokes per Flash", y = "Counts") +
-#   theme(plot.background = element_rect(fill = "transparent"),
+#   theme(plot.background = element_rect(fill = "transparent", color = "transparent"),
 #         legend.background = element_rect(fill = "transparent"))
-
-# plg <- plot_grid(plot_grid(plt_inter, plt_strperflash, labels = c("a", "b"), 
-#                     nrow = 2, rel_heights = c(0.55, 0.45), label_y = c(0.2, 0.2)), 
+# 
+# plg <- plot_grid(plot_grid(plt_inter, plt_strperflash, labels = c("a", "b"),
+#                     nrow = 2, rel_heights = c(0.55, 0.45), label_y = c(0.2, 0.2)),
 #           plt_dist, ncol = 2,
 #           rel_widths = c(0.6, 0.4), labels = c("", "c"), label_y = c(0, 0.1))
 # save_plot("Lightning_Processing/figures/brasildat_flash_stats.png", plg,
