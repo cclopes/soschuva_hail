@@ -42,8 +42,6 @@
 	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
 	% -- opções do pacote babel --
 	english,			% idioma adicional para hifenização
-	french,				% idioma adicional para hifenização
-	spanish,			% idioma adicional para hifenização
 	brazil				% o último idioma é o principal do documento
 	]{abntex2}
 
@@ -61,10 +59,13 @@
 \usepackage{graphicx}
 \usepackage{subfig}
 \captionsetup[subfigure]{position=b}
-\usepackage{textcomp}
+\usepackage[locale=FR]{siunitx}
+\sisetup{detect-all, math-rm = \ensuremath, math-micro = \symup{μ}}
 \usepackage{tabularx}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \usepackage{float}
+\usepackage{amstext}
+\usepackage[space]{grffile}
 % ---
 		
 % ---
@@ -78,7 +79,8 @@
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
-
+%\usepackage[style=abnt, backref=true]{biblatex}
+%\addbibresource{library.bib}        
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
@@ -100,6 +102,8 @@
 	\fi}%
 % ---
 
+\newcommand{\refanexo}[1]{\hyperref[#1]{Anexo~\ref{#1}}}
+
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
@@ -107,7 +111,7 @@
 \autor{Camila da Cunha Lopes}
 \local{São Paulo}
 \data{2019}
-\orientador{Profª Drª Rachel Ifanger Albrecht}
+\orientador{Prof\textordfeminine\:Dr\textordfeminine\:Rachel Ifanger Albrecht}
 \instituicao{%
   Universidade de São Paulo
   \par
@@ -272,7 +276,7 @@
 % Inserir errata, folha de aprovação, dedicatória, agradecimentos, epígrafe
 % ---
 
-%\input{tex/extras.tex}
+\input{tex/extras.tex}
 
 % ---
 % RESUMOS
@@ -313,12 +317,12 @@
 % ---
 % inserir lista de símbolos
 % ---
-\begin{simbolos}
-  \item[$ \Gamma $] Letra grega Gama
-  \item[$ \Lambda $] Lambda
-  \item[$ \zeta $] Letra grega minúscula zeta
-  \item[$ \in $] Pertence
-\end{simbolos}
+%\begin{simbolos}
+%  \item[$ \Gamma $] Letra grega Gama
+%  \item[$ \Lambda $] Lambda
+%  \item[$ \zeta $] Letra grega minúscula zeta
+%  \item[$ \in $] Pertence
+%\end{simbolos}
 % ---
 
 % ---
@@ -362,6 +366,7 @@
 % Referências bibliográficas
 % ----------------------------------------------------------
 \bibliography{library}
+%\printbibliography
 
 % ----------------------------------------------------------
 % Glossário

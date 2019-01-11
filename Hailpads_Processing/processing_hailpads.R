@@ -80,7 +80,7 @@ plt <- ggplot(data = hailpads, aes(x = plate, y = value, color = measured_by)) +
   scale_fill_brewer(name = NA, palette = "Set1") +
   theme(
     legend.position = "bottom",
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   facet_grid(. ~ case, scales = "free_x", space = "free")
@@ -119,7 +119,7 @@ ggplot(data = hailpads_perplate, aes(x = diams, y = encin, color = plate_full)) 
                               nrow = 1, byrow = T)) + #-- Without this for less cases
   theme(
     legend.position = "bottom",
-    plot.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
   labs(x = "Diameter [mm]", y = "Kinetic Energy [J/m²]", color = "Hailpad") +

@@ -1,18 +1,54 @@
-\backcite {NBR6028:2003}{{2}{(document)}{Doc-Start}}
-\backcite {abntex2classe}{{15}{1}{chapter.1}}
-\backcite {abntex2-wiki-como-customizar}{{15}{1}{chapter.1}}
-\backcite {abntex2classe,abntex2cite,abntex2cite-alf}{{15}{1}{chapter.1}}
-\backcite {abntex2classe,abntex2cite,abntex2cite-alf}{{15}{1}{chapter.1}}
-\backcite {abntex2classe,abntex2cite,abntex2cite-alf}{{15}{1}{chapter.1}}
-\backcite {memoir}{{15}{1}{chapter.1}}
-\backcite {ThomazJunior2015a}{{21}{3}{figure.caption.12}}
-\backcite {Mezeix1981}{{21}{3.1}{figure.caption.12}}
-\backcite {Dessens2007}{{22}{3.1}{equation.3.1.1}}
-\backcite {Dessens2007}{{22}{3.1}{equation.3.1.1}}
-\backcite {webb1986}{{22}{3.1}{equation.3.1.1}}
-\backcite {Helmus2016}{{22}{3.2}{figure.caption.14}}
-\backcite {Straka2000}{{23}{3.2}{figure.caption.14}}
-\backcite {Rauber2018}{{23}{{{c)}}}{Item.3}}
-\backcite {Vila2008}{{24}{3.2}{Item.3}}
-\backcite {Dessens2007}{{25}{3}{table.caption.13}}
-\backcite {Straka2000}{{27}{6}{figure.caption.16}}
+\backcite {abntex2classe}{{19}{1}{chapter.1}}
+\backcite {abntex2-wiki-como-customizar}{{19}{1}{chapter.1}}
+\backcite {abntex2classe,abntex2cite,abntex2cite-alf}{{19}{1}{chapter.1}}
+\backcite {abntex2classe,abntex2cite,abntex2cite-alf}{{19}{1}{chapter.1}}
+\backcite {abntex2classe,abntex2cite,abntex2cite-alf}{{19}{1}{chapter.1}}
+\backcite {memoir}{{19}{1}{chapter.1}}
+\backcite {ThomazJunior2015a}{{25}{3}{figure.caption.12}}
+\backcite {Mezeix1981}{{25}{3.1}{figure.caption.12}}
+\backcite {Dessens2007}{{26}{3.1}{equation.3.1.1}}
+\backcite {Dessens2007}{{26}{3.1}{equation.3.1.1}}
+\backcite {webb1986}{{26}{3.1}{equation.3.1.1}}
+\backcite {Helmus2016}{{26}{3.2}{figure.caption.14}}
+\backcite {Dessens2007}{{27}{3}{table.caption.13}}
+\backcite {Straka2000}{{28}{3.2}{figure.caption.14}}
+\backcite {Rauber2018}{{28}{{{c)}}}{Item.3}}
+\backcite {Vila2008}{{29}{3.2}{Item.3}}
+\backcite {Vila2008}{{29}{5}{figure.caption.15}}
+\backcite {Lang2017a}{{30}{3.2.1}{subsection.3.2.1}}
+\backcite {Liu2000a}{{30}{{{c)}}}{Item.6}}
+\backcite {siphon}{{32}{3.2.1}{Item.16}}
+\backcite {Straka2000}{{32}{3.2.1}{Item.16}}
+\backcite {Straka2000}{{32}{7}{figure.caption.17}}
+\backcite {Carey2000, Cifelli2002b}{{33}{3.2.1}{figure.caption.17}}
+\backcite {Carey2000, Cifelli2002b}{{33}{3.2.1}{figure.caption.17}}
+\backcite {Armijo1969}{{33}{3.2.2}{table.caption.18}}
+\backcite {Rinehart1997}{{33}{3.2.2}{table.caption.18}}
+\backcite {Doviak1993}{{34}{8}{figure.caption.19}}
+\backcite {Dolan2007}{{34}{3.2.2}{equation.3.2.5}}
+\backcite {Davies-Jones1979}{{34}{3.2.2}{equation.3.2.5}}
+\backcite {Doviak1976, Davies-Jones1979, Doviak1993}{{34}{3.2.2}{equation.3.2.6}}
+\backcite {Doviak1976, Davies-Jones1979, Doviak1993}{{34}{3.2.2}{equation.3.2.6}}
+\backcite {Doviak1976, Davies-Jones1979, Doviak1993}{{35}{3.2.2}{equation.3.2.6}}
+\backcite {Shapiro2009}{{37}{3.2.2}{figure.caption.21}}
+\backcite {Potvin2012b}{{37}{3.2.2}{figure.caption.21}}
+\backcite {Helmus2016}{{37}{3.2.2}{figure.caption.21}}
+\backcite {Potvin2012b}{{37}{3.2.2}{equation.3.2.7}}
+\backcite {Potvin2012b}{{37}{3.2.2}{equation.3.2.7}}
+\backcite {James2001}{{37}{3.2.2}{table.caption.22}}
+\backcite {Naccarato2014}{{37}{3.3}{section.3.3}}
+\backcite {Lewis1960}{{37}{3.3}{section.3.3}}
+\backcite {Rauber2018}{{39}{11}{figure.caption.23}}
+\backcite {MacGorman1998b}{{39}{3.3.1}{subsection.3.3.1}}
+\backcite {Cummins1998}{{39}{3.3.1}{subsection.3.3.1}}
+\backcite {Murphy2015}{{39}{3.3.1}{subsection.3.3.1}}
+\backcite {Ester1996, Kriegel2011}{{39}{3.3.1}{Item.19}}
+\backcite {Ester1996, Kriegel2011}{{39}{3.3.1}{Item.19}}
+\backcite {Hutchins2014}{{39}{3.3.1}{Item.19}}
+\backcite {Hutchins2014a}{{39}{3.3.1}{Item.19}}
+\backcite {Cummins1998}{{40}{3.3.1}{Item.19}}
+\backcite {Murphy2015}{{40}{3.3.1}{Item.19}}
+\backcite {Cummins1998}{{40}{3.3.1}{Item.19}}
+\backcite {Murphy2015}{{40}{3.3.1}{Item.19}}
+\backcite {Cummins1998}{{40}{3.3.1}{Item.19}}
+\backcite {Copernicus2017}{{41}{3.4.1}{subsection.3.4.1}}

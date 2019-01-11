@@ -1,0 +1,54 @@
+\begin{table}[htb]
+	\IBGEtab{%
+		\caption{Parâmetros de configuração do MultiDop para cálculos de Dual e Multi-Doppler}%
+		\label{tabela_multidop}
+	}{%
+		\begin{tabularx}{\textwidth}{YY}
+			\toprule
+			Resolução da grade & $1\:x\:1\:x\:1\:km$ \\
+			\midrule
+			Restrição da conservação de massa & Aproximação anelástica \\
+			\midrule 
+			Restrição de suavização & Derivadas de segunda ordem \\
+			\midrule 
+			Pesos na restrição de dados & Pesos iguais para todas as observações \\
+			\midrule 
+			Condição inicial da tempestade (deslocamento constante) & $U_t = V_t = -10\:ms^-1$ \\
+			\midrule 
+			Impor $w=0$ no topo & Sim \\
+			\midrule
+			Coeficiente da restrição dos dados & $1$ \\
+			\midrule 
+			Coeficiente da restrição da equação de continuidade de massa & $30$ \\
+			\midrule 
+			Coeficiente da restrição da equação de vorticidade & $1e^{-3}$ \\
+			\midrule 
+			Coeficiente de suavização horizontal & $1e^{-2}$ \\
+			\midrule 
+			Coeficiente de suavização vertical & $1e^{-2}$ \\
+			\midrule
+			Coeficiente da restrição da sondagem & $0$ \\
+			\midrule 
+			Todos os pesos constantes & Sim \\
+			\midrule 
+			Filtros & Nenhum \\
+			\midrule 
+			Estatísticas de verificação computadas apenas dentro do domínio de 2+ radares Doppler & Sim \\
+			\midrule 
+			Critério do domínio & 10 pontos \\
+			\midrule
+			Altura de corte & $0\:km$ \\
+			\midrule 
+			Matrizes de cobertura de fundo para ângulos de cruzamento de feixe ótimos para dois radares & Sim para todas as combinações \\
+			\midrule 
+			Matrizes de cobertura de fundo para ângulos de cruzamento de feixe aceitáveis para dois radares & Sim para todas as combinações \\
+			\midrule 
+			Matrizes de cobertura de fundo para um radar individual & Não para todos \\
+			\midrule 
+			Multiplicador do peso dos dados quando todos os radares tem bons ângulos de cruzamento do feixe & $SR=1e^{-3}$, $FCTH=XPOL=1$\\
+			\bottomrule
+		\end{tabularx}%
+	}{%
+		\fonte{Produzido pela autora.}%
+	}
+\end{table}

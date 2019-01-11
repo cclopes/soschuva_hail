@@ -1,5 +1,8 @@
 \select@language {brazil}
 \select@language {brazil}
-\contentsline {table}{\numberline {1}{\ignorespaces Descri\IeC {\c c}\IeC {\~a}o dos casos selecionados para an\IeC {\'a}lise.\relax }}{19}{table.caption.8}
-\contentsline {table}{\numberline {2}{\ignorespaces Descri\IeC {\c c}\IeC {\~a}o dos hailpads coletados para cada caso.\relax }}{20}{table.caption.10}
-\contentsline {table}{\numberline {3}{\ignorespaces Descri\IeC {\c c}\IeC {\~a}o das escalas ANELFA e TORRO, com compara\IeC {\c c}\IeC {\~a}o entre o dano t\IeC {\'\i }pico de cada escala.\relax }}{25}{table.caption.13}
+\contentsline {table}{\numberline {1}{\ignorespaces Descrição dos casos selecionados para análise\relax }}{23}{table.caption.8}
+\contentsline {table}{\numberline {2}{\ignorespaces Descrição dos hailpads coletados para cada caso\relax }}{24}{table.caption.10}
+\contentsline {table}{\numberline {3}{\ignorespaces Descrição das escalas ANELFA e TORRO, com comparação entre o dano típico de cada escala\relax }}{27}{table.caption.13}
+\contentsline {table}{\numberline {4}{\ignorespaces Configuração dos radares nos casos em que a recuperação de vento por Multi-Doppler foi utilizada\relax }}{33}{table.caption.18}
+\contentsline {table}{\numberline {5}{\ignorespaces Parâmetros de configuração do MultiDop para cálculos de Dual e Multi-Doppler\relax }}{38}{table.caption.22}
+\contentsline {table}{\numberline {6}{\ignorespaces Resumo das principais características físicas e elétricas dos casos analisados\relax }}{44}{table.caption.28}

@@ -5,6 +5,58 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.6 }
 
+\bibitem[Armijo 1969]{Armijo1969}
+\abntrefinfo{Armijo}{ARMIJO}{1969}
+{ARMIJO, L. {A theory for the Determination of Wind and precipitation
+  velocities with Doppler Radars}.
+\emph{Journal of the Atmospheric Sciences}, v.~26, n.~3, p. 570--573, may 1969.
+ISSN 0022-4928.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0469\%281969\%29026\%3C0570\%3AATFTDO\%3E2.0.CO\%3B2}.}
+
+\bibitem[Carey e Rutledge 2000]{Carey2000}
+\abntrefinfo{Carey e Rutledge}{CAREY; RUTLEDGE}{2000}
+{CAREY, L.~D.; RUTLEDGE, S.~A. {The Relationship between Precipitation and
+  Lightning in Tropical Island Convection: A C-Band Polarimetric Radar Study}.
+\emph{Monthly Weather Review}, v.~128, n.~8, p. 2687--2710, aug 2000.
+ISSN 0027-0644.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/pdf/10.1175/1520-0493\%282000\%29128\%3C2687\%3ATRBPAL\%3E2.0.CO\%3B2}.}
+
+\bibitem[Cifelli et al. 2002]{Cifelli2002b}
+\abntrefinfo{Cifelli et al.}{CIFELLI et al.}{2002}
+{CIFELLI, R. et al. {Radar observations of the kinematic, microphysical, and
+  precipitation characteristics of two MCSs in TRMM LBA}.
+\emph{Journal of Geophysical Research D: Atmospheres}, v.~107, n.~20, p.~8077,
+  2002.
+ISSN 01480227.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/2000JD000264}.}
+
+\bibitem[{Copernicus Climate Change Service} 2017]{Copernicus2017}
+\abntrefinfo{{Copernicus Climate Change Service}}{{Copernicus Climate Change
+  Service}}{2017}
+{{Copernicus Climate Change Service}. \emph{{ERA5: Fifth generation of ECMWF
+  atmospheric reanalyses of the global climate}}. Copernicus Climate Change
+  Service Climate Data Store (CDS), 2017.
+Dispon{\'\i}vel em: \url{https://cds.climate.copernicus.eu/cdsapp\#!/home}.}
+
+\bibitem[Cummins et al. 1998]{Cummins1998}
+\abntrefinfo{Cummins et al.}{CUMMINS et al.}{1998}
+{CUMMINS, K.~L. et al. {A combined TOA/MDF Technology Upgrade of the US
+  National Lightning Detection Network}.
+\emph{Journal of Geophysical Research - Atmospheres}, v.~103, n.~D8, p.
+  9035--9044, 1998.}
+
+\bibitem[Davies-Jones 1979]{Davies-Jones1979}
+\abntrefinfo{Davies-Jones}{DAVIES-JONES}{1979}
+{DAVIES-JONES, R.~P. {Dual-Doppler Radar Coverage Area as a Function of
+  Measurement Accuracy and Spatial Resolution}.
+\emph{Journal of Applied Meteorology and Climatology}, v.~18, n.~9, p.
+  1229--1233, sep 1979.
+ISSN 0021-8952.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450-18.9.1229}.}
+
 \bibitem[Dessens, Berthet e Sanchez 2007]{Dessens2007}
 \abntrefinfo{Dessens, Berthet e Sanchez}{DESSENS; BERTHET; SANCHEZ}{2007}
 {DESSENS, J.; BERTHET, C.; SANCHEZ, J.~L. {A point hailfall classification
@@ -14,6 +66,42 @@
 ISSN 01698095.
 Dispon{\'\i}vel em:
   \url{https://www.sciencedirect.com/science/article/pii/S0169809506001281}.}
+
+\bibitem[Dolan e Rutledge 2007]{Dolan2007}
+\abntrefinfo{Dolan e Rutledge}{DOLAN; RUTLEDGE}{2007}
+{DOLAN, B.~A.; RUTLEDGE, S.~A. {An integrated display and analysis methodology
+  for multivariable radar data}.
+\emph{Journal of Applied Meteorology and Climatology}, v.~46, n.~8, p.
+  1196--1213, aug 2007.
+ISSN 15588424.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/JAM2524.1}.}
+
+\bibitem[Doviak et al. 1976]{Doviak1976}
+\abntrefinfo{Doviak et al.}{DOVIAK et al.}{1976}
+{DOVIAK, R.~J. et al. {Error Estimation in Wind Fields Derived from
+  Dual-Doppler Radar Measurement}.
+\emph{Journal of Applied Meteorology}, v.~15, n.~8, p. 868--878, aug 1976.
+ISSN 0021-8952.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450\%281976\%29015\%3C0868\%3AEEIWFD\%3E2.0.CO\%3B2
+  http://journals.ametsoc.org/doi/abs/10.1175/1520-0450(1976)015\%3C0868:EEIWFD\%3E2.0.CO;2}.}
+
+\bibitem[Doviak e Zrnić 1993]{Doviak1993}
+\abntrefinfo{Doviak e Zrnić}{DOVIAK; ZRNIĆ}{1993}
+{DOVIAK, R.~J.; ZRNIĆ, D.~S. \emph{{Doppler Radar and Weather Observations}}.
+  2. ed. Elsevier, 1993. 562~p.
+ISBN 9780122214226. Dispon{\'\i}vel em:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/C20090223580}.}
+
+\bibitem[Ester et al. 1996]{Ester1996}
+\abntrefinfo{Ester et al.}{ESTER et al.}{1996}
+{ESTER, M. et al. {A Density-Based Algorithm for Discovering Clusters in Large
+  Spatial Databases with Noise}. In:  \emph{2nd International Conference on
+  Knowledge Discovery and Data Mining (KDD-96)}. [s.n.], 1996. v.~96, n.~34, p.
+  226--231.
+ISBN 1577350049.
+ISSN 09758887. Dispon{\'\i}vel em: \url{www.aaai.org}.}
 
 \bibitem[Helmus e Collis 2016]{Helmus2016}
 \abntrefinfo{Helmus e Collis}{HELMUS; COLLIS}{2016}
@@ -26,12 +114,112 @@ ISSN 2049-9647.
 Dispon{\'\i}vel em:
   \url{http://openresearchsoftware.metajnl.com/articles/10.5334/jors.119/}.}
 
+\bibitem[Hutchins e Holzworth 2014]{Hutchins2014a}
+\abntrefinfo{Hutchins e Holzworth}{HUTCHINS; HOLZWORTH}{2014}
+{HUTCHINS, M.~L.; HOLZWORTH, R.~H. {Thunderstorm characteristics from cluster
+  analysis of lightning}. In:  \emph{XV International Conference on Atmospheric
+  Electricity}. [s.n.], 2014. p.~1--3. Dispon{\'\i}vel em:
+  \url{http://wwlln.net
+  http://www.nssl.noaa.gov/users/mansell/icae2014/preprints/Hutchins\_110.pdf}.}
+
+\bibitem[Hutchins, Holzworth e Brundell 2014]{Hutchins2014}
+\abntrefinfo{Hutchins, Holzworth e Brundell}{HUTCHINS; HOLZWORTH;
+  BRUNDELL}{2014}
+{HUTCHINS, M.~L.; HOLZWORTH, R.~H.; BRUNDELL, J.~B. {Diurnal variation of the
+  global electric circuit from clustered thunderstorms}.
+\emph{Journal of Geophysical Research: Space Physics}, Wiley-Blackwell, v.~119,
+  n.~1, p. 620--629, jan 2014.
+ISSN 21699402.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1002/2013JA019593}.}
+
+\bibitem[James e Houze 2001]{James2001}
+\abntrefinfo{James e Houze}{JAMES; HOUZE}{2001}
+{JAMES, C.~N.; HOUZE, J. {A real-time four-dimensional Doppler dealiasing
+  scheme}.
+\emph{Journal of Atmospheric and Oceanic Technology}, v.~18, n.~10, p.
+  1674--1683, 2001.
+ISSN 07390572.
+Dispon{\'\i}vel em: \url{www.map.ethz.ch;}.}
+
+\bibitem[Kriegel et al. 2011]{Kriegel2011}
+\abntrefinfo{Kriegel et al.}{KRIEGEL et al.}{2011}
+{KRIEGEL, H.~P. et al. {Density-based clustering}.
+\emph{Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery},
+  John Wiley \& Sons, Ltd, v.~1, n.~3, p. 231--240, may 2011.
+ISSN 19424787.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1002/widm.30}.}
+
+\bibitem[Lang, Dolan e Guy 2017]{Lang2017a}
+\abntrefinfo{Lang, Dolan e Guy}{LANG; DOLAN; GUY}{2017}
+{LANG, T.; DOLAN, B.; GUY, N. \emph{{CSU-Radarmet/CSU\_RadarTools:
+  CSU\_RadarTools v1.2}}. 2017.
+Dispon{\'\i}vel em: \url{https://zenodo.org/record/1035908}.}
+
+\bibitem[Lewis, Harvey e Rasmussen 1960]{Lewis1960}
+\abntrefinfo{Lewis, Harvey e Rasmussen}{LEWIS; HARVEY; RASMUSSEN}{1960}
+{LEWIS, E.~A.; HARVEY, R.~B.; RASMUSSEN, J.~E. {Hyperbolic direction finding
+  with sferics of transatlantic origin}.
+\emph{Journal of Geophysical Research}, v.~65, n.~7, p.~1879, jul 1960.
+ISSN 0148-0227.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/JZ065i007p01879
+  http://www.agu.org/pubs/crossref/1960/JZ065i007p01879.shtml}.}
+
+\bibitem[Liu e Chandrasekar 2000]{Liu2000a}
+\abntrefinfo{Liu e Chandrasekar}{LIU; CHANDRASEKAR}{2000}
+{LIU, H.; CHANDRASEKAR, V. {Classification of Hydrometeors Based on
+  Polarimetric Radar Measurements: Development of Fuzzy Logic and Neuro-Fuzzy
+  Systems, and In Situ Verification}.
+\emph{Journal of Atmospheric and Oceanic Technology}, v.~17, n.~2, p. 140--164,
+  feb 2000.
+ISSN 0739-0572.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0426\%282000\%29017\%3C0140\%3ACOHBOP\%3E2.0.CO\%3B2}.}
+
+\bibitem[MacGorman e Rust 1998]{MacGorman1998b}
+\abntrefinfo{MacGorman e Rust}{MACGORMAN; RUST}{1998}
+{MACGORMAN, D.~R.; RUST, W.~D. \emph{{The Electrical Nature of Storms}}.
+  [S.l.]: Oxford University Press, 1998. 422~p.
+ISBN 0195073371.}
+
+\bibitem[May et al. 2017]{siphon}
+\abntrefinfo{May et al.}{MAY et al.}{2017}
+{MAY, R. et al. \emph{{Siphon: A collection of Python Utilities for Accessing
+  Remote Atmospheric and Oceanic Datasets}}. Boulder, Colorado: [s.n.], 2017.
+Dispon{\'\i}vel em: \url{https://github.com/Unidata/siphon}.}
+
 \bibitem[Mezeix e Doras 1981]{Mezeix1981}
 \abntrefinfo{Mezeix e Doras}{MEZEIX; DORAS}{1981}
 {MEZEIX, J.~F.; DORAS, N. {Various Kinetic Energy Characteristics of
   Hailpatterns in the Grossversuch IV Experiment}.
 \emph{Journal of Applied Meteorology}, v.~20, n.~4, p. 377--385, apr 1981.
-ISSN 0021-8952.}
+ISSN 0021-8952.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450\%281981\%29020\%3C0377\%3AVKECOH\%3E2.0.CO\%3B2}.}
+
+\bibitem[Murphy e Nag 2015]{Murphy2015}
+\abntrefinfo{Murphy e Nag}{MURPHY; NAG}{2015}
+{MURPHY, M.~J.; NAG, A. {Cloud lightning performance and climatology of the
+  U.S. based on the upgraded U.S. National Lightning Detection Network}. In:
+  \emph{Seventh Conference on the Meteorological Applications of Lightning
+  Data}. Phoenix, AZ: [s.n.], 2015. Dispon{\'\i}vel em:
+  \url{https://ams.confex.com/ams/95Annual/webprogram/Paper262391.html}.}
+
+\bibitem[Naccarato et al. 2014]{Naccarato2014}
+\abntrefinfo{Naccarato et al.}{NACCARATO et al.}{2014}
+{NACCARATO, K.~P. et al. {Evaluation of BrasilDAT relative detection efficiency
+  based on LIS observations and a numeric model}. In:  \emph{2014 International
+  Conference on Lightning Protection (ICLP)}. Shanghai: [s.n.], 2014.
+  Dispon{\'\i}vel em:
+  \url{http://mtc-m21b.sid.inpe.br/col/sid.inpe.br/mtc-m21b/2014/12.17.16.43/doc/Naccarato\_ILDC\_2014\_final.pdf?metadatarepository=&mirror=iconet.com.br/banon/2006/11.26.21.31}.}
+
+\bibitem[Potvin, Shapiro e Xue 2012]{Potvin2012b}
+\abntrefinfo{Potvin, Shapiro e Xue}{POTVIN; SHAPIRO; XUE}{2012}
+{POTVIN, C.~K.; SHAPIRO, A.; XUE, M. {Impact of a vertical vorticity constraint
+  in variational dual-doppler wind analysis: Tests with real and simulated
+  supercell data}.
+\emph{Journal of Atmospheric and Oceanic Technology}, v.~29, n.~1, p. 32--49,
+  2012.
+ISSN 07390572.}
 
 \bibitem[Rauber e Nesbitt 2018]{Rauber2018}
 \abntrefinfo{Rauber e Nesbitt}{RAUBER; NESBITT}{2018}
@@ -39,13 +227,28 @@ ISSN 0021-8952.}
   ed. Hoboken, NJ: Wiley-Blackwell, 2018. 488~p.
 ISBN 978-1-118-43262-4.}
 
+\bibitem[Rinehart 1997]{Rinehart1997}
+\abntrefinfo{Rinehart}{RINEHART}{1997}
+{RINEHART, R.~E. \emph{{Radar for Meteorologists}}. [S.l.]: Rinehart
+  Publications, 1997. 428~p.
+ISBN 9780965800211 (pbk.)\r0965800210 (pbk.).}
+
+\bibitem[Shapiro, Potvin e Gao 2009]{Shapiro2009}
+\abntrefinfo{Shapiro, Potvin e Gao}{SHAPIRO; POTVIN; GAO}{2009}
+{SHAPIRO, A.; POTVIN, C.~K.; GAO, J. {Use of a vertical vorticity equation in
+  variational dual-doppler wind analysis}.
+\emph{Journal of Atmospheric and Oceanic Technology}, 2009.
+ISSN 07390572.}
+
 \bibitem[Straka, Zrni{\'{c}} e Ryzhkov 2000]{Straka2000}
 \abntrefinfo{Straka, Zrni{\'{c}} e Ryzhkov}{STRAKA; ZRNI{\'{C}}; RYZHKOV}{2000}
 {STRAKA, J.~M.; ZRNI{\'{C}}, D.~S.; RYZHKOV, A.~V. {Bulk Hydrometeor
   Classification and Quantification Using Polarimetric Radar Data: Synthesis of
   Relations}.
 \emph{Journal of Applied Meteorology}, v.~39, n.~8, p. 1341--1372, aug 2000.
-ISSN 0894-8763.}
+ISSN 0894-8763.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450\%282000\%29039\%3C1341\%3ABHCAQU\%3E2.0.CO\%3B2}.}
 
 \bibitem[{Thomaz J{\'{u}}nior} et al. 2015]{ThomazJunior2015a}
 \abntrefinfo{{Thomaz J{\'{u}}nior} et al.}{{Thomaz J{\'{u}}nior} et al.}{2015}
@@ -60,7 +263,9 @@ ISSN 0894-8763.}
 {VILA, D.~A. et al. {Forecast and Tracking the Evolution of Cloud Clusters
   (ForTraCC) Using Satellite Infrared Imagery: Methodology and Validation}.
 \emph{Weather and Forecasting}, v.~23, n.~2, p. 233--245, apr 2008.
-ISSN 0882-8156.}
+ISSN 0882-8156.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/2007WAF2006121.1}.}
 
 \bibitem[Webb, Elsom e Meaden 1986]{webb1986}
 \abntrefinfo{Webb, Elsom e Meaden}{WEBB; ELSOM; MEADEN}{1986}

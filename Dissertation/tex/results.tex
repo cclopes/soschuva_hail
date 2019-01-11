@@ -1,1 +1,336 @@
 \chapter{Resultados}\label{resultados}
+
+Os resultados deste trabalho estão organizados da seguinte forma: uma visão geral de cada caso é apresentada através da intensidade da queda de granizo, ciclo de vida e atividade elétrica; dois casos são analisados mais profundamente, incluindo a microfísica e cinemática do sistema convectivo que gerou a queda de granizo.
+
+\section{Intensidade das Tempestades que geraram Granizo}\label{ciclo_vida}
+
+A \autoref{distribuicao_tamanho} mostra as diferentes distribuições de tamanho de granizo medidas pelo IAG e LIM para cada placa separados por caso. As plotagens violino (úteis para comparar também os formatos das distribuições) mostram diferenças significativas entre medidas para uma mesma placa além das diferenças entre placas, possivelmente causadas pela subjetividade envolvida na forma em que as cavidades do hailpad foram medidas: não houve consenso em relação à definição do diâmetro (eixo maior ou menor, aproximação para um formato esférico, entre outros). Comparando os casos, é possível observar que o caso de 2017-03-14 mostrou menor diversidade de tamanhos de granizo, enquanto que o caso de 2017-11-15 mostrou a maior diversidade considerando os extremos (este caso teve o maior diâmetro máximo, $22,4\:mm$).
+
+Para os casos com medidas dos dois grupos (2016-12-25 e 2017-01-31), o IAG tende a medir diâmetros maiores que o LIM, que mede mais valores extremos principalmente no caso de 2016-12-25 (os diâmetros máximos de IAG 1, LIM 1 e LIM 2 são aproximadamente iguais). Já comparando as placas para um mesmo caso (2017-01-31 e 2017-03-14), não há diferenças significativas entre as distribuições, o que indica que o sistema convectivo que gerou a queda de granizo em um ponto não sofreu mudanças significativas quando gerou a queda de granizo no outro ponto. 
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Plotagem violino com caixa das distribuições de diâmetro do granizo de diferentes medidas feitas por IAG e LIM separados por caso} 
+		\label{distribuicao_tamanho}
+		%		\setcaptionmargin{1cm}
+		\includegraphics[width=\columnwidth]{../Hailpads_Processing/figures/measures_distribution.png}
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Energia cinética do hailpad em função do diâmetro do granizo considerando as escalas ANELFA e TORRO, com os índices de A0 a A2 e de H0 a H2 (\autoref{tabela_escalas}) indicados} 
+		\label{intensidade_anelfatorro}
+		%		\setcaptionmargin{1cm}
+		\includegraphics[width=\columnwidth]{../Hailpads_Processing/figures/data_anelfa_torro.png}
+		\legend{Fonte: Produzido pela autora.}
+		\nota{A escala ANELFA leva em conta o diâmetro máximo medido no hailpad, enquanto que a escala TORRO leva em conta o diâmetro típico da distribuição medida no hailpad.}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Evolução temporal da refletividade máxima em $3\:km$ (a), tamanho do sistema (b) e taxa de flashes CG e IC (c). As linhas pontilhadas indicam o momento aproximado em que houve a queda de granizo medida no hailpad} 
+		\label{painel_ciclo}
+		%		\setcaptionmargin{1cm}
+		\includegraphics[width=\columnwidth]{../General_Processing/figures/cases_dbz_size_lightning.png}
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+\input{tex/table_summary_cases.tex}
+
+\section{Estudos de Caso}\label{estudo_casos}
+
+\subsection{2017-03-14}
+
+\subsubsection{Ambiente Sinótico}\label{sinotica_201703014}
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Campos da reanálise do ERA5 em 2017-03-14: Pressão ao nível médio do mar, espessura entre $1000$ e $500\:Pa$ e velocidade do vento em $250\:hPa$ às 1200 (a) e 1800 UTC (c); altura geopotencial em $850\:hPa$, cisalhamento do vento entre $1000$ e $500\:hPa$ e CAPE em superfície às 1200 (b) e 1800 UTC (d)} 
+		\label{era5_20170314_main}
+		\subfloat[]{\includegraphics[width=0.5\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200.png}
+			\label{era5_2017031412_jets}}
+		\subfloat[]{\includegraphics[width=0.5\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017031412.png}
+			\label{era5_2017031412_cape}} \\
+		\subfloat[]{\includegraphics[width=0.5\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141800.png}
+			\label{era5_2017031418_jets}}
+		\subfloat[]{\includegraphics[width=0.5\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017031418.png}
+			\label{era5_2017031418_cape}} \\
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Plotagem Skew-T Log-P da radiossondagem do Campo de Marte (SP) com hodógrafa do vento em 2017-03-14 1200 UTC.} 
+		\label{sondagem_20170314}
+		%		\setcaptionmargin{1cm}
+		\includegraphics[width=0.9\columnwidth]{../Sounding_Processing/figures/sounding_SBMT2017031412UTC.png}
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Imagem de satélite do canal 13 do GOES-16 mostrando a temperatura de brilho do topo das nuvens na América do Sul em 2017-03-14 1751 UTC.} 
+		\label{goes16_sa_20170314}
+		%		\setcaptionmargin{1cm}
+		\includegraphics[width=0.75\columnwidth]{../Satellite_Processing/figures/Band_13/GOES16_B13_SA_SD201703141751.png}
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Imagem de satélite do canal 13 do GOES-16 mostrando a temperatura de brilho do topo das nuvens no estado de São Paulo em 2017-03-14 1751 (a) e 1951 UTC (b).} 
+		\label{goes16_sp_20170314}
+		\subfloat[]{\includegraphics[width=0.75\columnwidth]{../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141751.png}
+			\label{goes16_sp_20170314_1}} \\
+		\subfloat[]{\includegraphics[width=0.75\columnwidth]{../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141951.png}
+			\label{goes16_sp_20170314_2}} \\
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+\subsubsection{Eletrificação}\label{elec_201703014}
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Rastreamento (a) e localização dos flashes IC e CG (b) do sistema convectivo responsável pelas quedas de granizo em Cosmópolis e Indaiatuba em 2017-03-14. Os triângulos pretos indicam a localização dos hailpads.} 
+		\label{track_flashes_20170314}
+		%		\setcaptionmargin{1cm}
+		\includegraphics[width=\columnwidth]{../General_Processing/figures/track_flashes_20170314.png}
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+\subsubsection{Microfísica}\label{micro_201703014}
+
+\begin{figure}[hp]
+	\centering
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos do radar da FCTH em 2017-03-14 1827 UTC, quando houve queda de granizo em Cosmópolis: Refletividade corrigida (a) e diferencial (b), fase diferencial específica (c) e coeficiente de correlação (d). O 'x' indica a localização do hailpad e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT}
+	\label{radar_20170314_1}
+	\vspace{-5pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivity 2017-03-14 1827 UTC.png}
+		\label{z_20170314_1} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Differential Reflectivity 2017-03-14 1827 UTC.png}
+		\label{zdr_20170314_1} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Specific Differential Phase 2017-03-14 1827 UTC.png}
+		\label{kdp_20170314_1} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation Ratio 2017-03-14 1827 UTC.png}
+		\label{rho_20170314_1} \\
+	\vspace{-5pt}
+	\legend{Fonte: Produzido pela autora.}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos derivados do radar da FCTH em 2017-03-14 1827 UTC, quando houve queda de granizo em Cosmópolis: Identificação de hidrometeoros (a) e massas de água líquida (b) e gelo (c). O 'x' indica a localização do hailpad e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\label{radar_derived_20170314_1}
+	\vspace{-5pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-03-14 1827 UTC.png}
+		\label{hid_20170314_1} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Liquid Water Mass 2017-03-14 1827 UTC.png}
+		\label{ml_20170314_1} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017-03-14 1827 UTC.png}
+		\label{mi_20170314_1} \\
+	\vspace{-5pt}
+	\legend{Fonte: Produzido pela autora.}
+\end{figure}
+
+
+\begin{figure}[hp]
+	\centering
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos do radar da FCTH em 2017-03-14 1957 UTC, quando houve queda de granizo em Indaiatuba: Refletividade corrigida (a) e diferencial (b), fase diferencial específica (c) e coeficiente de correlação (d). O 'x' indica a localização do hailpad e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT}
+	\label{radar_20170314_2}
+	\vspace{-5pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivity 2017-03-14 1957 UTC.png}
+	\label{z_20170314_2} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Differential Reflectivity 2017-03-14 1957 UTC.png}
+	\label{zdr_20170314_2} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Specific Differential Phase 2017-03-14 1957 UTC.png}
+	\label{kdp_20170314_2} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation Ratio 2017-03-14 1957 UTC.png}
+	\label{rho_20170314_2} \\
+	\vspace{-5pt}
+	\legend{Fonte: Produzido pela autora.}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos derivados do radar da FCTH em 2017-03-14 1957 UTC, quando houve queda de granizo em Indaiatuba: Identificação de hidrometeoros (a) e massas de água líquida (b) e gelo (c). O 'x' indica a localização do hailpad e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\label{radar_derived_20170314_2}
+	\vspace{-5pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-03-14 1957 UTC.png}
+	\label{hid_20170314_2} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Liquid Water Mass 2017-03-14 1957 UTC.png}
+	\label{ml_20170314_2} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017-03-14 1957 UTC.png}
+	\label{mi_20170314_2} \\
+	\vspace{-5pt}
+	\legend{Fonte: Produzido pela autora.}
+\end{figure}
+
+\subsubsection{Cinemática}\label{cinematica_201703014}
+
+\begin{figure}[htb]
+	\centering
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de refletividade e velocidade do vento (correntes ascendentes e descendentes máximas no painel da esquerda, escoamento no painel da direita) derivado por Multi-Doppler em 2017-03-14 às 1820 (a) e 1830 UTC (b), quando houve queda de granizo em Cosmópolis. O 'x' indica a localização do hailpad e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\label{doppler_20170314_1}
+	\vspace{-5pt}
+	\includegraphics[width=\columnwidth]{../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1820 UTC.png}
+		\label{dopplera_20170314_1} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1830 UTC.png}
+		\label{dopplerb_20170314_1} \\
+	\vspace{-5pt}
+	\legend{Fonte: Produzido pela autora.}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de refletividade e velocidade do vento (correntes ascendentes e descendentes máximas no painel da esquerda, escoamento no painel da direita) derivado por Multi-Doppler em 2017-03-14 às 1950 (a) e 2000 UTC (b), quando houve queda de granizo em Indaiatuba. O 'x' indica a localização do hailpad e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\label{doppler_20170314_2}
+	\vspace{-5pt}
+	\includegraphics[width=\columnwidth]{../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC.png}
+	\label{dopplera_20170314_2} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 2000 UTC.png}
+	\label{dopplerb_20170314_2} \\
+	\vspace{-5pt}
+	\legend{Fonte: Produzido pela autora.}
+\end{figure}
+
+\subsection{2017-11-15}
+
+\subsubsection{Ambiente Sinótico}\label{sinotica_20171115}
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Campos da reanálise do ERA5 em 2017-11-15: Pressão ao nível médio do mar, espessura entre $1000$ e $500\:Pa$ e velocidade do vento em $250\:hPa$ às 1200 (a) e 1800 UTC (c); altura geopotencial em $850\:hPa$, cisalhamento do vento entre $1000$ e $500\:hPa$ e CAPE em superfície às 1200 (b) e 1800 UTC (d)} 
+		\label{era5_20171115_main}
+		\subfloat[]{\includegraphics[width=0.5\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200.png}
+			\label{era5_2017111512_jets}}
+		\subfloat[]{\includegraphics[width=0.5\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017111512.png}
+			\label{era5_2017111512_cape}} \\
+		\subfloat[]{\includegraphics[width=0.5\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151800.png}
+			\label{era5_2017111518_jets}}
+		\subfloat[]{\includegraphics[width=0.5\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017111518.png}
+			\label{era5_2017111518_cape}} \\
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Plotagem Skew-T Log-P da radiossondagem do Campo de Marte (SP) com hodógrafa do vento em 2017-11-15 1200 UTC.} 
+		\label{sondagem_20171115}
+		%		\setcaptionmargin{1cm}
+		\includegraphics[width=0.9\columnwidth]{../Sounding_Processing/figures/sounding_SBMT2017111512UTC.png}
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Imagem de satélite do canal 13 do GOES-16 mostrando a temperatura de brilho do topo das nuvens na América do Sul em 2017-11-15 1800 UTC.} 
+		\label{goes16_sa_20171115}
+		%		\setcaptionmargin{1cm}
+		\includegraphics[width=0.75\columnwidth]{../Satellite_Processing/figures/Band_13/GOES16_B13_SA_SD201711151800.png}
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Imagem de satélite do canal 13 do GOES-16 mostrando a temperatura de brilho do topo das nuvens no estado de São Paulo em 2017-11-15 2100 (a) e 2200 UTC (b).} 
+		\label{goes16_sp_20171115}
+		\subfloat[]{\includegraphics[width=0.75\columnwidth]{../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711152100.png}
+			\label{goes16_sp_20171115_1}} \\
+		\subfloat[]{\includegraphics[width=0.75\columnwidth]{../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711152200.png}
+			\label{goes16_sp_20171115_2}} \\
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+\subsubsection{Eletrificação}\label{elec_20171115}
+
+\begin{figure}[htb]
+	\begin{center}
+		\caption{Rastreamento (a) e localização dos flashes IC e CG (b) do sistema convectivo responsável pela queda de granizo em Indaiatuba em 2017-11-15. Os triângulos pretos indicam a localização dos hailpads.} 
+		\label{track_flashes_20171115}
+		%		\setcaptionmargin{1cm}
+		\includegraphics[width=\columnwidth]{../General_Processing/figures/track_flashes_20171115.png}
+		\legend{Fonte: Produzido pela autora.}
+	\end{center}
+\end{figure}
+
+\subsubsection{Microfísica}\label{micro_20171115}
+
+\begin{figure}[hp]
+	\centering
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos do radar da FCTH em 2017-11-15 2150 UTC, quando houve queda de granizo em Indaiatuba: Refletividade corrigida (a) e diferencial (b), fase diferencial específica (c) e coeficiente de correlação (d). O 'x' indica a localização do hailpad e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT}
+	\label{radar_20171115}
+	\vspace{-5pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivity 2017-11-15 2150 UTC.png}
+	\label{z_20171115} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Differential Reflectivity 2017-11-15 2150 UTC.png}
+	\label{zdr_20171115} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Specific Differential Phase 2017-11-15 2150 UTC.png}
+	\label{kdp_20171115} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation Ratio 2017-11-15 2150 UTC.png}
+	\label{rho_20171115} \\
+	\vspace{-5pt}
+	\legend{Fonte: Produzido pela autora.}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos derivados do radar da FCTH em 2017-11-15 2150 UTC, quando houve queda de granizo em Indaiatuba: Identificação de hidrometeoros (a) e massas de água líquida (b) e gelo (c). O 'x' indica a localização do hailpad e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\label{radar_derived_20171115}
+	\vspace{-5pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-11-15 2150 UTC.png}
+	\label{hid_20171115} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Liquid Water Mass 2017-11-15 2150 UTC.png}
+	\label{ml_20171115} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017-11-15 2150 UTC.png}
+	\label{mi_20171115} \\
+	\vspace{-5pt}
+	\legend{Fonte: Produzido pela autora.}
+\end{figure}
+
+\subsubsection{Cinemática}\label{cinematica_20171115}
+
+\begin{figure}[htb]
+	\centering
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de refletividade e velocidade do vento (correntes ascendentes e descendentes máximas no painel da esquerda, escoamento no painel da direita) derivado por Multi-Doppler em 2017-11-15 às 2140 (a) e 2150 UTC (b), quando houve queda de granizo em Cosmópolis. O 'x' indica a localização do hailpad e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\label{doppler_20171115}
+	\vspace{-5pt}
+	\includegraphics[width=\columnwidth]{../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC.png}
+	\label{dopplera_20171115} \\
+	\vspace{-15pt}
+	\includegraphics[width=\columnwidth]{../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC.png}
+	\label{dopplerb_20171115} \\
+	\vspace{-5pt}
+	\legend{Fonte: Produzido pela autora.}
+\end{figure}

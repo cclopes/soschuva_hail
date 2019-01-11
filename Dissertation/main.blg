@@ -13,7 +13,9 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: library.bib
-Warning--I didn't find a database entry for "NBR6028:2003"
+Warning--entry type for "siphon" isn't style-file defined
+--line 1632 of file library.bib
+Warning--I didn't find a database entry for "NBR14724:2011"
 Warning--I didn't find a database entry for "abntex2classe"
 Warning--I didn't find a database entry for "abntex2-wiki-como-customizar"
 Warning--I didn't find a database entry for "abntex2cite"
@@ -28,45 +30,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 9 entries,
+You've used 33 entries,
             6714 wiz_defined-function locations,
-            1276 strings with 11442 characters,
-and the built_in function-call counts, 10966 in all, are:
-= -- 1169
-> -- 338
-< -- 159
-+ -- 306
-- -- 99
-* -- 782
-:= -- 1421
-add.period$ -- 35
-call.type$ -- 9
-change.case$ -- 108
-chr.to.int$ -- 30
-cite$ -- 8
-duplicate$ -- 773
-empty$ -- 505
-format.name$ -- 473
-if$ -- 2386
+            1480 strings with 17963 characters,
+and the built_in function-call counts, 63135 in all, are:
+= -- 7687
+> -- 1211
+< -- 1814
++ -- 2226
+- -- 358
+* -- 4085
+:= -- 7528
+add.period$ -- 157
+call.type$ -- 33
+change.case$ -- 392
+chr.to.int$ -- 99
+cite$ -- 32
+duplicate$ -- 6572
+empty$ -- 2026
+format.name$ -- 1718
+if$ -- 12441
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 157
-newline$ -- 55
-num.names$ -- 40
-pop$ -- 206
+missing$ -- 594
+newline$ -- 200
+num.names$ -- 160
+pop$ -- 799
 preamble$ -- 1
-purify$ -- 40
+purify$ -- 144
 quote$ -- 0
-skip$ -- 846
+skip$ -- 6613
 stack$ -- 1
-substring$ -- 442
-swap$ -- 345
-text.length$ -- 19
+substring$ -- 2817
+swap$ -- 2500
+text.length$ -- 84
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 4
 warning$ -- 0
-while$ -- 63
+while$ -- 261
 width$ -- 0
-write$ -- 150
-(There were 6 warnings)
+write$ -- 578
+(There were 7 warnings)

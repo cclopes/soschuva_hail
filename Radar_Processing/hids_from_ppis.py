@@ -52,7 +52,7 @@ rf.plot_field_panel(
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
     grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim,
-    save_path=cv.save_path)
+    save_path=cv.save_path, index="a")
 
 rf.plot_field_panel(
     grid, 'MW', level=level, fmin=0, fmax=10, cmap='mass',
@@ -60,7 +60,7 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="b")
 
 rf.plot_field_panel(
     grid, 'MI', level=level, fmin=0, fmax=30, cmap='mass',
@@ -68,7 +68,7 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="c")
 
 rf.plot_field_panel(
     grid, 'corrected_reflectivity', level=level, fmin=0, fmax=70, cmap='dbz',
@@ -76,7 +76,7 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="a")
 
 rf.plot_field_panel(
     grid, 'differential_reflectivity', level=level, fmin=-2, fmax=4,
@@ -84,7 +84,7 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="b")
 
 rf.plot_field_panel(
     grid, 'specific_differential_phase', level=level, fmin=-2, fmax=3.2,
@@ -92,7 +92,7 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="c")
 
 rf.plot_field_panel(
     grid, 'cross_correlation_ratio', level=level, fmin=0.8, fmax=1.013,
@@ -100,4 +100,4 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path)
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="d")

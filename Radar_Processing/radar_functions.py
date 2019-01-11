@@ -746,7 +746,7 @@ def plot_field_panel(
         grid, field, level, fmin, fmax, lat_index=None, lon_index=None,
         date='', name_multi='', shp_name='', hailpad_pos=None, zero_height=3.,
         minusforty_height=10., grid_spc=.25, cmap=None, reverse_cmap=False,
-        norm=None, xlim=(-48, -46), ylim=(-24, -22), save_path='./'):
+        norm=None, xlim=(-48, -46), ylim=(-24, -22), save_path='./', index=''):
     """
     Using gridded multidoppler processed data, plot horizontal and vertical
     views:
@@ -829,6 +829,11 @@ def plot_field_panel(
         'B', (x, y), fontsize=11,
         fontweight='bold', fontstretch='condensed', ha='center',
         bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
+
+    # -- Index
+    plt.gcf().text(
+        0.025, 0.9, index, fontsize=20,
+        fontweight='bold', fontstretch='condensed', ha='center')
 
     # - Vertical view
     print('-- Plotting vertical view --')

@@ -205,7 +205,7 @@ ggplot(cth_scan, aes(x = r)) +
     legend.background = element_rect(fill = "transparent")
   )
 ggsave("General_Processing/figures/scan_strategy_cth.png",
-       width = 6, height = 4, bg = "transparent")
+       width = 6, height = 3, bg = "transparent")
 
 ggplot(sr_scan, aes(x = r)) +
   geom_ribbon(aes(ymax = h_up, ymin = h_down, fill = elev, color = elev),
@@ -227,14 +227,14 @@ ggplot(sr_scan, aes(x = r)) +
   guides(fill = guide_legend(ncol = 2),
          color = guide_legend(ncol = 2))
 ggsave("General_Processing/figures/scan_strategy_sr.png",
-       width = 6, height = 4, bg = "transparent")
+       width = 6, height = 3, bg = "transparent")
 
 ggplot(xpol_scan, aes(x = r)) +
   geom_ribbon(aes(ymax = h_up, ymin = h_down, fill = elev, color = elev),
               alpha = 0.6, size = 0.1) +
   geom_line(aes(y = h, color = elev), size = 1, linetype = "dotted") +
   labs(
-    title = "UNICAMP XPOL Scan Strategy", x = "Range (km)", y = "Height (km)",
+    title = "XPOL Scan Strategy", x = "Range (km)", y = "Height (km)",
     fill = expression("Elevation ("*degree*")"),
     color = expression("Elevation ("*degree*")")
   ) +
@@ -249,4 +249,4 @@ ggplot(xpol_scan, aes(x = r)) +
   guides(fill = guide_legend(ncol = 2),
          color = guide_legend(ncol = 2))
 ggsave("General_Processing/figures/scan_strategy_xpol.png",
-       width = 6, height = 4, bg = "transparent")
+       width = 6, height = 3, bg = "transparent")

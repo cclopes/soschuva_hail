@@ -194,7 +194,8 @@ plt_brasildat <- ggplot(rcount) +
   scale_fill_manual(name = "Type", values = c("darkgoldenrod1", "darkorchid")) +
   theme(
     plot.background = element_rect(fill = "transparent", color = "transparent"),
-    legend.background = element_rect(fill = "transparent")
+    legend.background = element_rect(fill = "transparent"),
+    legend.position = "bottom"
   ) +
   labs(x = "Hour (UTC)", y = "Strokes/min") +
   facet_wrap(case ~ ., scales = "free", ncol = 1, strip.position = 'right')
@@ -206,7 +207,8 @@ plt_flash_brasildat <- ggplot(flashes_rcount) +
   scale_fill_manual(name = "Type", values = c("darkgoldenrod1", "darkorchid")) +
   theme(
     plot.background = element_rect(fill = "transparent", color = "transparent"),
-    legend.background = element_rect(fill = "transparent")
+    legend.background = element_rect(fill = "transparent"),
+    legend.position = "bottom"
   ) +
   labs(x = "Hour (UTC)", y = "Flashes/min") +
   facet_wrap(case ~ ., scales = "free", ncol = 1, strip.position = 'right')
