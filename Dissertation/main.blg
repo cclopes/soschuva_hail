@@ -14,8 +14,7 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: library.bib
 Warning--entry type for "siphon" isn't style-file defined
---line 1632 of file library.bib
-Warning--I didn't find a database entry for "NBR14724:2011"
+--line 4993 of file library.bib
 Warning--I didn't find a database entry for "abntex2classe"
 Warning--I didn't find a database entry for "abntex2-wiki-como-customizar"
 Warning--I didn't find a database entry for "abntex2cite"
@@ -32,7 +31,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 33 entries,
             6714 wiz_defined-function locations,
-            1480 strings with 17963 characters,
+            1478 strings with 17937 characters,
 and the built_in function-call counts, 63135 in all, are:
 = -- 7687
 > -- 1211
@@ -71,4 +70,4 @@ warning$ -- 0
 while$ -- 261
 width$ -- 0
 write$ -- 578
-(There were 7 warnings)
+(There were 6 warnings)

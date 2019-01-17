@@ -77,7 +77,7 @@ A partir de um hailpad é possível derivar diversas grandezas relacionadas à t
 
 Como houve no máximo 2 placas sensibilizadas em todos os casos, calculou-se a energia cinética do hailpad $E_t\:(Jm^{-2})$, definida por \citeonline{Mezeix1981} como:
 
-\begin{equation}
+\begin{equation} \label{mezeix}
 	E_t = 4,58\:e^{-6} \sum_{i=1}^{k} n_i d_i^4
 \end{equation}
 
@@ -241,7 +241,7 @@ Para calcular a componente vertical da velocidade, a equação de continuidade d
 \noindent
 onde $\rho$ é a densidade do ar atmosférico e $w_T$ é a velocidade vertical total. Quando três radares são usados, é possível calcular o campo tridimensional sem usar a \autoref{continuidade_massa}.
 
-Ao combinar radares Doppler para a recuperação do vento, a área de cobertura e erros característicos (altura do feixe e resolução espacial) devem ser considerados \cite{Dolan2007}. Se a distância base entre os dois radares é longa, a área de cobertura será maior mas a resolução espacial será prejudicada. Além disso, se o ângulo de cruzamento do feixe é pequeno (mais paralelo), as duas medidas serão mais similares e as variâncias dos erros de velocidade nas estimativas Dual-Doppler - $\sigma_u^2$ e $\sigma_v^2$ - serão menores. De acordo com \citeonline{Davies-Jones1979}, $\sigma_u^2$ e $\sigma_v^2$ estão relacionadas com as variâncias dos erros de velocidade Doppler de cada radar, $\sigma_1^2$ e $\sigma_2^2$, da seguinte forma:
+Ao combinar radares Doppler para a recuperação do vento, a área de cobertura e erros característicos (altura do feixe e resolução espacial) devem ser considerados \cite{Dolan2007}. Se a distância da linha de base entre os dois radares for longa, a área de cobertura será maior mas a resolução espacial será prejudicada. Além disso, se o ângulo de cruzamento do feixe é pequeno (mais paralelo), as duas medidas serão mais similares e as variâncias dos erros de velocidade nas estimativas Dual-Doppler - $\sigma_u^2$ e $\sigma_v^2$ - serão menores. De acordo com \citeonline{Davies-Jones1979}, $\sigma_u^2$ e $\sigma_v^2$ estão relacionadas com as variâncias dos erros de velocidade Doppler de cada radar, $\sigma_1^2$ e $\sigma_2^2$, da seguinte forma:
 
 \begin{equation}
 	\frac{\sigma_u^2+ \sigma_v^2}{\sigma_1^2 + \sigma_2^2}=\csc^2{\beta}

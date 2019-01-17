@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.9.22)  11 JAN 2019 17:25
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.9.22)  17 JAN 2019 19:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1385,11 +1385,11 @@ Underfull \vbox (badness 1237) has occurred while \output is active []
 File: ../Hailpads_Processing/figures/measures_distribution.png Graphic file (ty
 pe QTm)
 
-<use  "../Hailpads_Processing/figures/measures_distribution.png" >
+<use  "../Hailpads_Processing/figures/measures_distribution.png" > [43]
 File: ../Hailpads_Processing/figures/data_anelfa_torro.png Graphic file (type Q
 Tm)
 
-<use  "../Hailpads_Processing/figures/data_anelfa_torro.png" >
+<use  "../Hailpads_Processing/figures/data_anelfa_torro.png" > [44]
 File: ../General_Processing/figures/cases_dbz_size_lightning.png Graphic file (
 type QTm)
 
@@ -1435,36 +1435,31 @@ Overfull \hbox (4.52272pt too wide) in paragraph at lines 25--25
  []
 
 )
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [46]
 File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200.png Graphi
 c file (type QTm)
- <use  "../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200.png" >
+
+<use  "../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200.png" >
 File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017031412.png Graphi
 c file (type QTm)
 
 <use  "../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017031412.png" >
-Overfull \hbox (7.83322pt too wide) in paragraph at lines 55--57
+Overfull \hbox (7.83322pt too wide) in paragraph at lines 70--72
  [][][] 
  []
 
-File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141800.png Graphi
-c file (type QTm)
-<use  "../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141800.png" >
-File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017031418.png Graphi
-c file (type QTm)
+File: ../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_2017031415.png Gra
+phic file (type QTm)
 
-<use  "../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017031418.png" >
-Overfull \hbox (7.83322pt too wide) in paragraph at lines 59--61
- [][][][] 
- []
-
+<use  "../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_2017031415.png" >
 File: ../Sounding_Processing/figures/sounding_SBMT2017031412UTC.png Graphic fil
 e (type QTm)
 <use  "../Sounding_Processing/figures/sounding_SBMT2017031412UTC.png" >
-File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SA_SD201703141751.png 
-Graphic file (type QTm)
-
-<use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SA_SD201703141751.png
-" >
 File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141751.p
 ng Graphic file (type QTm)
 
@@ -1475,9 +1470,13 @@ ng Graphic file (type QTm)
 
 <use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141951.
 png" >
+Overfull \hbox (7.83322pt too wide) in paragraph at lines 104--106
+ [][][] 
+ []
+
 File: ../General_Processing/figures/track_flashes_20170314.png Graphic file (ty
 pe QTm)
- <use  "../General_Processing/figures/track_flashes_20170314.png" >
+<use  "../General_Processing/figures/track_flashes_20170314.png" >
 File: ../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivi
 ty 2017-03-14 1827 UTC.png Graphic file (type QTm)
 
@@ -1499,7 +1498,7 @@ tio 2017-03-14 1827 UTC.png Graphic file (type QTm)
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation R
 atio 2017-03-14 1827 UTC.png" >
 
-LaTeX Warning: Float too large for page by 27.51784pt on input line 131.
+LaTeX Warning: Float too large for page by 27.51784pt on input line 143.
 
 File: ../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-
 03-14 1827 UTC.png Graphic file (type QTm)
@@ -1537,7 +1536,7 @@ tio 2017-03-14 1957 UTC.png Graphic file (type QTm)
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation R
 atio 2017-03-14 1957 UTC.png" >
 
-LaTeX Warning: Float too large for page by 27.26367pt on input line 169.
+LaTeX Warning: Float too large for page by 27.26367pt on input line 181.
 
 File: ../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-
 03-14 1957 UTC.png Graphic file (type QTm)
@@ -1578,7 +1577,7 @@ File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017111512.png Graphi
 c file (type QTm)
 
 <use  "../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017111512.png" >
-Overfull \hbox (7.83322pt too wide) in paragraph at lines 227--229
+Overfull \hbox (7.83322pt too wide) in paragraph at lines 239--241
  [][][] 
  []
 
@@ -1589,20 +1588,12 @@ File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017111518.png Graphi
 c file (type QTm)
 
 <use  "../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017111518.png" >
-Overfull \hbox (7.83322pt too wide) in paragraph at lines 231--233
+Overfull \hbox (7.83322pt too wide) in paragraph at lines 243--245
  [][][][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [43]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [44]
 File: ../Sounding_Processing/figures/sounding_SBMT2017111512UTC.png Graphic fil
 e (type QTm)
-
 <use  "../Sounding_Processing/figures/sounding_SBMT2017111512UTC.png" >
 File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SA_SD201711151800.png 
 Graphic file (type QTm)
@@ -1643,8 +1634,16 @@ tio 2017-11-15 2150 UTC.png Graphic file (type QTm)
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation R
 atio 2017-11-15 2150 UTC.png" >
 
-LaTeX Warning: Float too large for page by 28.80696pt on input line 303.
+LaTeX Warning: Float too large for page by 28.80696pt on input line 315.
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [48]
+[49]
 File: ../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-
 11-15 2150 UTC.png Graphic file (type QTm)
 
@@ -1669,27 +1668,27 @@ File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC.png G
 raphic file (type QTm)
 
 <use  "../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC.png"
- >) (./tex/conclusions.tex [45] [46] [47] [48] [49] [50] [51]
+ >) (./tex/conclusions.tex [50]
 Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
- [52]
-[53]
+ [51]
+[52]
 Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
- [54]
-[55] [56] [57] [58] [59] [60] [61] [62]
+ [53]
+[54] [55] [56] [57] [58] [59] [60] [61]
 Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
- [63]
-[64] [65] [66
+ [62]
+[63] [64] [65
 
-] [67] [68
+] [66
 
 ]) (./main.bbl (./main.brf)
 \tf@brf=\write5
 \openout5 = `main.brf'.
 
- [69] [70
+ [67] [68
 
 ]
 
@@ -1698,15 +1697,15 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 bibitemlist
 Missing character: There is no ́ in font ec-lmr12!
-[71] [72] [73]) (./tex/appendices.tex) (./tex/annexes.tex [74]
+[69] [70] [71]) (./tex/appendices.tex) (./tex/annexes.tex [72]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\uppercase' on input line 8.
 
-[75
+[73
 
 
-] [76]
+] [74]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <24.88> on input line 10.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1732,7 +1731,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 )
 No file main.ind.
-[77
+[75
 
 ]
 \tf@lof=\write6
@@ -1759,12 +1758,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 396.
  ) 
 Here is how much of TeX's memory you used:
- 26783 strings out of 493068
- 480750 string characters out of 6137720
- 761584 words of memory out of 5000000
- 30320 multiletter control sequences out of 15000+600000
+ 26777 strings out of 493068
+ 480493 string characters out of 6137720
+ 751070 words of memory out of 5000000
+ 30316 multiletter control sequences out of 15000+600000
  140330 words of font info for 95 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  47i,14n,49p,10422b,1005s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (79 pages).
+Output written on main.pdf (77 pages).
