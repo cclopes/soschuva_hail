@@ -15,11 +15,11 @@
 \contentsline {section}{\numberline {3.1}Rede de Detecção de Granizo}{23}{section.3.1}
 \contentsline {section}{\numberline {3.2}Radares Meteorológicos}{26}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Identificação de Hidrometeoros}{30}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Recuperação de Vento por Multi-Doppler}{33}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Rede de Detecção de Raios}{37}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Conversão Strokes-Flashes}{38}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.2.2}Recuperação de Vento por Multi-Doppler}{32}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Rede de Detecção de Raios}{38}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Conversão Strokes-Flashes}{39}{subsection.3.3.1}
 \contentsline {section}{\numberline {3.4}Outras Bases de Dados}{40}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Reanálise}{41}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.1}Reanálise}{40}{subsection.3.4.1}
 \contentsline {subsection}{\numberline {3.4.2}Satélite}{41}{subsection.3.4.2}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Resultados}}{43}{chapter.4}
@@ -27,7 +27,7 @@
 \contentsline {section}{\numberline {4.2}Estudos de Caso}{47}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}2017-03-14}{47}{subsection.4.2.1}
 \contentsline {subsubsection}{\numberline {4.2.1.1}Ambiente Sinótico}{47}{subsubsection.4.2.1.1}
-\contentsline {subsubsection}{\numberline {4.2.1.2}Eletrificação}{50}{subsubsection.4.2.1.2}
+\contentsline {subsubsection}{\numberline {4.2.1.2}Eletrificação}{47}{subsubsection.4.2.1.2}
 \contentsline {subsubsection}{\numberline {4.2.1.3}Microfísica}{50}{subsubsection.4.2.1.3}
 \contentsline {subsubsection}{\numberline {4.2.1.4}Cinemática}{50}{subsubsection.4.2.1.4}
 \contentsline {subsection}{\numberline {4.2.2}2017-11-15}{50}{subsection.4.2.2}
@@ -36,19 +36,19 @@
 \contentsline {subsubsection}{\numberline {4.2.2.3}Microfísica}{50}{subsubsection.4.2.2.3}
 \contentsline {subsubsection}{\numberline {4.2.2.4}Cinemática}{50}{subsubsection.4.2.2.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Conclusões}}{65}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Conclusões}}{63}{chapter.5}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Sugestões para Trabalhos Futuros}}{67}{chapter.6}
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Sugestões para Trabalhos Futuros}}{65}{chapter.6}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{69}{section*.49}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{67}{section*.48}
 \cftinsert {AAA}
 \renewcommand *{\cftappendixname }{ANEXO \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Anexos}}{73}{section*.50}
+\contentsline {part}{\uppercase {Anexos}}{71}{section*.49}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Conversão Strokes-Flashes: Teste de Sensibilidade de $\epsilon _{spc}$}}{75}{appendix.anexochapback.1}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Conversão Strokes-Flashes: Teste de Sensibilidade de $\epsilon _{spc}$}}{73}{appendix.anexochapback.1}
 \vspace {\cftbeforechapterskip }
