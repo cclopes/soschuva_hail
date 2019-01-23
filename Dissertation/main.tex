@@ -105,23 +105,58 @@
 \newcommand{\refanexo}[1]{\hyperref[#1]{Anexo~\ref{#1}}}
 
 % ---
+% Mudando a capa
+\renewcommand{\imprimircapa}{
+	\begin{capa}
+		\center
+		Universidade de São Paulo
+		\par
+		Instituto de Astronomia, Geofísica e Ciências Atmosféricas
+		\par
+		Departamento de Ciências Atmosféricas
+		
+		\vspace*{3cm}
+		
+		{\ABNTEXchapterfont\large\imprimirautor}
+		
+		\vspace*{4cm}
+		\begin{center}
+			\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+		\end{center}
+		\vfill
+		
+		\large\imprimirlocal
+		
+		\large\imprimirdata
+		
+		\vspace*{1cm}
+	\end{capa}
+}
+
+% ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
 \titulo{Microfísica, Cinemática e Eletrificação em Tempestades Tropicais que geram Granizo durante o Projeto SOS-CHUVA}
 \autor{Camila da Cunha Lopes}
 \local{São Paulo}
 \data{2019}
-\orientador{Prof\textordfeminine\:Dr\textordfeminine\:Rachel Ifanger Albrecht}
-\instituicao{%
-  Universidade de São Paulo
-  \par
-  Instituto de Astronomia, Geofísica e Ciências Atmosféricas
-  \par
-  Departamento de Ciências Atmosféricas}
+%\orientador{Prof\textordfeminine\:Dr\textordfeminine\:Rachel Ifanger Albrecht}
+%\instituicao{%
+%  Universidade de São Paulo
+%  \par
+%  Instituto de Astronomia, Geofísica e Ciências Atmosféricas
+%  \par
+%  Departamento de Ciências Atmosféricas}
 \tipotrabalho{Dissertação (Mestrado)}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
-\preambulo{Dissertação apresentada ao Departamento de Ciências Atmosféricas do Instituto de Astronomia, Geofísica e Ciências Atmosféricas da Universidade de São Paulo como requisito parcial para a obtenção do título de Mestre em Ciências.}
+\preambulo{%
+	Dissertação apresentada ao Departamento de Ciências Atmosféricas do Instituto de Astronomia, Geofísica e Ciências Atmosféricas da Universidade de São Paulo como requisito parcial para a obtenção do título de Mestre em Ciências.
+	\par \vspace{1cm}
+	Área de Concentração: Meteorologia
+	\par
+	\mbox{Orientadora: Prof\textordfeminine\:Dr\textordfeminine\:Rachel Ifanger Albrecht}
+}
 % ---
 
 
@@ -137,7 +172,7 @@
      	%pagebackref=true,
 		pdftitle={\@title}, 
 		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
+%    	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
 		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
 		colorlinks=true,       		% false: boxed links; true: colored links
@@ -215,13 +250,14 @@
 % Capa
 % ---
 \imprimircapa
+
 % ---
 
 % ---
 % Folha de rosto
 % (o * indica que haverá a ficha bibliográfica)
 % ---
-\imprimirfolhaderosto*
+\imprimirfolhaderosto
 % ---
 
 % ---
@@ -239,37 +275,37 @@
 %     \includepdf{fig_ficha_catalografica.pdf}
 % \end{fichacatalografica}
 
-\begin{fichacatalografica}
-	\sffamily
-	\vspace*{\fill}					% Posição vertical
-	\begin{center}					% Minipage Centralizado
-	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
-	\small
-	\imprimirautor
-	%Sobrenome, Nome do autor
-	
-	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-	\imprimirlocal, \imprimirdata-
-	
-	\hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
-	
-	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
-	
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-	\imprimirdata.}\\
-	
-	\hspace{0.5cm}
-		1. Palavra-chave1.
-		2. Palavra-chave2.
-		2. Palavra-chave3.
-		I. Orientador.
-		II. Universidade xxx.
-		III. Faculdade de xxx.
-		IV. Título 			
-	\end{minipage}}
-	\end{center}
-\end{fichacatalografica}
+%\begin{fichacatalografica}
+%	\sffamily
+%	\vspace*{\fill}					% Posição vertical
+%	\begin{center}					% Minipage Centralizado
+%	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+%	\small
+%	\imprimirautor
+%	%Sobrenome, Nome do autor
+%	
+%	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+%	\imprimirlocal, \imprimirdata-
+%	
+%	\hspace{0.5cm} \thelastpage p. : il. (...) ; 30 cm.\\
+%	
+%	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+%	
+%	\hspace{0.5cm}
+%	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+%	\imprimirdata.}\\
+%	
+%	\hspace{0.5cm}
+%		1. Palavra-chave1.
+%		2. Palavra-chave2.
+%		2. Palavra-chave3.
+%		I. Orientador.
+%		II. Universidade xxx.
+%		III. Faculdade de xxx.
+%		IV. Título 			
+%	\end{minipage}}
+%	\end{center}
+%\end{fichacatalografica}
 % ---
 
 % ---

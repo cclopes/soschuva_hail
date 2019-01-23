@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.9.22)  18 JAN 2019 17:55
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.9.22)  23 JAN 2019 16:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1069,13 +1069,13 @@ LaTeX Info: Redefining \newblock on input line 591.
 LaTeX Info: Redefining \cite on input line 618.
 \ABCItoken=\toks31
 )
-Package color Info: Redefining color blue on input line 132.
+Package color Info: Redefining color blue on input line 167.
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 149.
+Package hyperref Info: Option `colorlinks' set `true' on input line 184.
 \main@idxfile=\write4
 \openout4 = `main.idx'.
 
@@ -1084,26 +1084,26 @@ Writing index file main.idx
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 235.
+LaTeX Font Info:    ... okay on input line 235.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 235.
+LaTeX Font Info:    ... okay on input line 235.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 235.
+LaTeX Font Info:    ... okay on input line 235.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 235.
+LaTeX Font Info:    ... okay on input line 235.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 235.
+LaTeX Font Info:    ... okay on input line 235.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 235.
+LaTeX Font Info:    ... okay on input line 235.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 235.
+LaTeX Font Info:    ... okay on input line 235.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 235.
+LaTeX Font Info:    ... okay on input line 235.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 235.
+LaTeX Font Info:    ... okay on input line 235.
 \AtBeginShipoutBox=\box60
-Package hyperref Info: Link coloring ON on input line 200.
+Package hyperref Info: Link coloring ON on input line 235.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1114,13 +1114,13 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 200.
-LaTeX Info: Redefining \ref on input line 200.
-LaTeX Info: Redefining \pageref on input line 200.
-LaTeX Info: Redefining \nameref on input line 200.
+LaTeX Info: Redefining \nameref on input line 235.
+LaTeX Info: Redefining \ref on input line 235.
+LaTeX Info: Redefining \pageref on input line 235.
+LaTeX Info: Redefining \nameref on input line 235.
 \myptabbox=\box61
 \myptabboxwidth=\skip279
-LaTeX Info: Redefining \microtypecontext on input line 200.
+LaTeX Info: Redefining \microtypecontext on input line 235.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -1147,37 +1147,37 @@ Dictionary: translator-basic-dictionary, Language: portuguese
 File: siunitx-abbreviations.cfg 2017/01/01 v2.7a siunitx: Abbreviated units
 )
 \c__siunitx_mathsf_int=\count297
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 200.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 235.
 
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 200.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 235.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 200
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 235
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 200
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 235
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 200.
+(Font)              <12> on input line 235.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 200.
+(Font)              <8> on input line 235.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 200.
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 200
+(Font)              <6> on input line 235.
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 235
 .
 
 (/usr/share/texmf/tex/latex/lm/ot1lmss.fd
@@ -1188,7 +1188,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 \c__siunitx_mathtt_int=\count298
-LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 200
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 235
 .
 
 (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
@@ -1198,7 +1198,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 217.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 252.
 
 
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
@@ -1213,40 +1213,16 @@ Package microtype Info: Loading generic settings for font family
 ] [2
 
 ]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 226.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 226.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 226.
- [1
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 270--270
-
+Overfull \hbox (13.56625pt too wide) in paragraph at lines 262--262
+[][] 
  []
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 270.
-
-Underfull \hbox (badness 10000) in paragraph at lines 270--270
-
- []
+[1
 
 
-Overfull \hbox (16.6597pt too wide) in paragraph at lines 270--270
-[]  [] 
- []
+] [2
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 270--270
-
- []
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 270.
-(./tex/extras.tex [2] [3
+] (./tex/extras.tex [3
 
 ] [4
 
@@ -1254,7 +1230,8 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 ] [7] [8
 
-]) (./main.lof [9]
+])
+(./main.lof [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
@@ -1267,47 +1244,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ] (./tex/acronyms.tex [15
 
-] [16]) (./main.toc
-Overfull \hbox (7.61986pt too wide) in paragraph at lines 53--53
+] [16]) (./main.toc [17
+
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 52.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 52.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 52.
+
+Overfull \hbox (7.61986pt too wide) in paragraph at lines 56--56
  [][] [][][]\T1/lmss/bx/n/12 CONVERSÃO STROKES-FLASHES: TESTE DE SEN- 
  []
 
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17
-
-]
-[18] (./tex/introduction.tex
-
-LaTeX Warning: Citation `abntex2classe' on page 19 undefined on input line 16.
-
-
-LaTeX Warning: Citation `abntex2-wiki-como-customizar' on page 19 undefined on 
-input line 31.
-
-
-LaTeX Warning: Citation `abntex2classe' on page 19 undefined on input line 34.
-
-
-LaTeX Warning: Citation `abntex2cite' on page 19 undefined on input line 34.
-
-
-LaTeX Warning: Citation `abntex2cite-alf' on page 19 undefined on input line 34
-.
-
-
-LaTeX Warning: Citation `memoir' on page 19 undefined on input line 35.
-
-) (./tex/theories.tex [19
+) [18] (./tex/introduction.tex) (./tex/theories.tex [19
 
 
 ] [20
 
-]) (./tex/methods.tex [21] [22
+])
+(./tex/methods.tex [21] [22
 
-]
-(./tex/table_cases.tex
+] (./tex/table_cases.tex
 Underfull \hbox (badness 10000) in paragraph at lines 23--23
 [][]|\T1/lmr/m/n/10 Adap-tado de [][]$<[]https : / / topicssoschuva . blogspot 
 . com . br / 2017 / 03 / summary -[] of -[] case -[] studies .
@@ -1481,6 +1440,10 @@ Overfull \hbox (7.83322pt too wide) in paragraph at lines 106--108
 File: ../General_Processing/figures/track_flashes_20170314.png Graphic file (ty
 pe QTm)
  <use  "../General_Processing/figures/track_flashes_20170314.png" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [48]
+[49] [50]
 File: ../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivi
 ty 2017-03-14 1827 UTC.png Graphic file (type QTm)
 
@@ -1502,13 +1465,8 @@ tio 2017-03-14 1827 UTC.png Graphic file (type QTm)
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation R
 atio 2017-03-14 1827 UTC.png" >
 
-LaTeX Warning: Float too large for page by 27.51784pt on input line 149.
+LaTeX Warning: Float too large for page by 4.51784pt on input line 146.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [48]
-[49]
 File: ../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-
 03-14 1827 UTC.png Graphic file (type QTm)
 
@@ -1545,7 +1503,7 @@ tio 2017-03-14 1957 UTC.png Graphic file (type QTm)
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation R
 atio 2017-03-14 1957 UTC.png" >
 
-LaTeX Warning: Float too large for page by 27.26367pt on input line 187.
+LaTeX Warning: Float too large for page by 4.26367pt on input line 178.
 
 File: ../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-
 03-14 1957 UTC.png Graphic file (type QTm)
@@ -1562,6 +1520,19 @@ File: ../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017-
 
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017
 -03-14 1957 UTC.png" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [51]
+Overfull \vbox (5.0pt too high) has occurred while \output is active []
+
+ [52]
+[53]
+Overfull \vbox (5.0pt too high) has occurred while \output is active []
+
+ [54]
+Underfull \vbox (badness 3657) has occurred while \output is active []
+
+ [55]
 File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1820 UTC.png Graphi
 c file (type QTm)
 
@@ -1570,6 +1541,9 @@ File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1830 UTC.png Graphi
 c file (type QTm)
 
 <use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1830 UTC.png" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [56]
 File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC.png Graphi
 c file (type QTm)
 
@@ -1586,7 +1560,7 @@ File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017111512.png Graphi
 c file (type QTm)
 
 <use  "../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017111512.png" >
-Overfull \hbox (7.83322pt too wide) in paragraph at lines 247--249
+Overfull \hbox (7.83322pt too wide) in paragraph at lines 234--236
  [][][] 
  []
 
@@ -1607,13 +1581,22 @@ ng Graphic file (type QTm)
 
 <use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711152100.
 png" >
-Overfull \hbox (7.83322pt too wide) in paragraph at lines 282--284
+Overfull \hbox (7.83322pt too wide) in paragraph at lines 269--271
  [][][] 
  []
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [57]
 File: ../General_Processing/figures/track_flashes_20171115.png Graphic file (ty
 pe QTm)
+
 <use  "../General_Processing/figures/track_flashes_20171115.png" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58]
+[59] [60]
 File: ../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivi
 ty 2017-11-15 2150 UTC.png Graphic file (type QTm)
 
@@ -1635,7 +1618,7 @@ tio 2017-11-15 2150 UTC.png Graphic file (type QTm)
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation R
 atio 2017-11-15 2150 UTC.png" >
 
-LaTeX Warning: Float too large for page by 28.80696pt on input line 323.
+LaTeX Warning: Float too large for page by 5.80696pt on input line 307.
 
 File: ../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-
 11-15 2150 UTC.png Graphic file (type QTm)
@@ -1651,7 +1634,13 @@ File: ../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017-
 11-15 2150 UTC.png Graphic file (type QTm)
 
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017
--11-15 2150 UTC.png" >
+-11-15 2150 UTC.png" > [61]
+Overfull \vbox (5.0pt too high) has occurred while \output is active []
+
+ [62]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [63]
 File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC.png G
 raphic file (type QTm)
 
@@ -1661,27 +1650,14 @@ File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC.png G
 raphic file (type QTm)
 
 <use  "../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC.png"
- >) (./tex/conclusions.tex [50]
-Overfull \vbox (5.0pt too high) has occurred while \output is active []
-
- [51]
-[52]
-Overfull \vbox (5.0pt too high) has occurred while \output is active []
-
- [53]
-[54] [55] [56] [57] [58] [59]
-Overfull \vbox (5.0pt too high) has occurred while \output is active []
-
- [60]
-[61] [62] [63
-
-] [64
+ >) (./tex/conclusions.tex [64] [65] [66
 
 ]) (./main.bbl (./main.brf)
 \tf@brf=\write5
 \openout5 = `main.brf'.
 
- [65] [66
+ [67]
+[68
 
 ]
 
@@ -1690,15 +1666,15 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 bibitemlist
 Missing character: There is no ́ in font ec-lmr12!
-[67] [68] [69]) (./tex/appendices.tex) (./tex/annexes.tex [70]
+[69] [70] [71]) (./tex/appendices.tex) (./tex/annexes.tex [72]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\uppercase' on input line 8.
 
-[71
+[73
 
 
-] [72]
+] [74]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <24.88> on input line 10.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1724,7 +1700,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 )
 No file main.ind.
-[73
+[75
 
 ]
 \tf@lof=\write6
@@ -1736,27 +1712,24 @@ No file main.ind.
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 396.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 396.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 432.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 432.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 396.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 396.
-
-
-LaTeX Warning: There were undefined references.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 432.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 432.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 396.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 432.
  ) 
 Here is how much of TeX's memory you used:
- 26770 strings out of 493068
- 480228 string characters out of 6137720
- 743915 words of memory out of 5000000
- 30311 multiletter control sequences out of 15000+600000
- 140330 words of font info for 95 fonts, out of 8000000 for 9000
+ 26690 strings out of 493068
+ 478707 string characters out of 6137720
+ 681387 words of memory out of 5000000
+ 30233 multiletter control sequences out of 15000+600000
+ 125161 words of font info for 87 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 47i,14n,49p,10422b,1005s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,14n,49p,10422b,1007s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (75 pages).
+Output written on main.pdf (77 pages).
