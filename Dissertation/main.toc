@@ -8,6 +8,7 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{19}{chapter.1}
+\contentsline {section}{\numberline {1.1}Objetivos}{19}{section.1.1}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Referencial Teórico}}{21}{chapter.2}
 \contentsline {section}{\numberline {2.1}Processos de Formação do Granizo}{21}{section.2.1}
