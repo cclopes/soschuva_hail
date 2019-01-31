@@ -1,16 +1,16 @@
 \chapter{Material e Métodos}\label{database}
 
-A partir da base de dados do Projeto SOS-CHUVA, cinco casos foram selecionados, onde houve queda de granizo medida pela rede de hailpads (\autoref{hailpads}). A \autoref{tabela_casos} mostra uma breve descrição de cada caso.
+A partir da base de dados do Projeto SOS-CHUVA, cinco casos foram selecionados, onde houve queda de granizo medida pela rede de \textit{hailpads} (\autoref{hailpads}). A \autoref{tabela_casos} mostra uma breve descrição de cada caso.
 
 \input{tex/table_cases.tex}
 
 \section{Rede de Detecção de Granizo}\label{hailpads}
 
-Dentro do Projeto SOS-CHUVA, uma rede de detecção de granizo foi instalada na Região Metropolitana de Campinas, dentro da cobertura do radar meteorológico Banda-X instalado na UNICAMP (XPOL). Como mostrado na Figura\autoref{rede_hailpads}, a rede foi composta por 24 localidades, com maior densidade de pontos nas cidades de Campinas e Indaiatuba. O instrumento, chamado de hailpad, é composto por uma placa de isopor usado para isolamento coberta por uma folha de alumínio e fixada em um suporte de ferro aproximadamente 1,5 m acima da superfície. Na Figura\autoref{hailpad_indaiatuba} é possível observar uma placa instalada em Indaiatuba.
+Dentro do Projeto SOS-CHUVA, uma rede de detecção de granizo foi instalada na Região Metropolitana de Campinas, dentro da cobertura do radar meteorológico Banda-X instalado na UNICAMP (XPOL). Como mostrado na Figura\autoref{rede_hailpads}, a rede foi composta por 24 localidades, com maior densidade de pontos nas cidades de Campinas e Indaiatuba. O instrumento, chamado de \textit{hailpad}, é composto por uma placa de isopor usado para isolamento coberta por uma folha de alumínio e fixada em um suporte de ferro aproximadamente 1,5 m acima da superfície. A primeira versão desse instrumento foi desenvolvida por \citeonline{Schleusener1960a} e \citeonline{ Decker1961}. Na Figura\autoref{hailpad_indaiatuba} é possível observar uma placa instalada em Indaiatuba.
 
 \begin{figure}[htb]
 	\begin{center}
-		\caption{(a) Rede de hailpads instalada na Região Metropolitana de Campinas com a localização e cobertura de 80 km do radar XPOL. (b) Hailpad instalado na cidade de Indaiatuba, na localização indicada com a seta em (a)} 
+		\caption{(a) Rede de \textit{hailpads} instalada na Região Metropolitana de Campinas com a localização e cobertura de 80 km do radar XPOL. (b) Hailpad instalado na cidade de Indaiatuba, na localização indicada com a seta em (a)} 
 		\label{overview_hailpads}
 		\subfloat[]{\includegraphics[width=0.75\columnwidth]{figs/hailpad_network.png}
 			\label{rede_hailpads}}
@@ -21,16 +21,16 @@ Dentro do Projeto SOS-CHUVA, uma rede de detecção de granizo foi instalada na 
 	\end{center}
 \end{figure}
 
-Os casos descritos na \autoref{tabela_casos} foram selecionados com base nos registros dos hailpads dentro da rede. A \autoref{tabela_hailpads} mostra a localização das placas e os grupos que mediram a distribuição de tamanho de granizo, sendo eles: Departamento de Ciências Atmosféricas (DCA/IAG-USP) e Laboratório de Instrumentação Meteorológica (LIM/CPTEC-INPE). Não houve registro da localização exata da placa C004. 
+Os casos descritos na \autoref{tabela_casos} foram selecionados com base nos registros dos \textit{hailpads} dentro da rede. A \autoref{tabela_hailpads} mostra a localização das placas e os grupos que mediram a distribuição de tamanho de granizo, sendo eles: Departamento de Ciências Atmosféricas (DCA/IAG-USP) e Laboratório de Instrumentação Meteorológica (LIM/CPTEC-INPE). Não houve registro da localização exata da placa C004. 
 
 \begin{table}[htb]
 	\IBGEtab{%
-		\caption{Descrição dos hailpads coletados para cada caso}%
+		\caption{Descrição dos \textit{hailpads} coletados para cada caso}%
 		\label{tabela_hailpads}
 	}{%
 		\begin{tabularx}{\textwidth}{YYYY}
 			\toprule
-			Data do evento & Código do hailpad coletado & Localização & Medido por \\
+			Data do evento & Código do \textit{hailpad} coletado & Localização & Medido por \\
 			\midrule 
 			2016-12-25 & C002 & Campinas & IAG, LIM \\
 			\midrule 
@@ -50,7 +50,7 @@ Os casos descritos na \autoref{tabela_casos} foram selecionados com base nos reg
 	}
 \end{table}
 
-A partir de um hailpad é possível derivar diversas grandezas relacionadas à tempestade que gerou a queda de granizo. A principal delas é a distribuição de tamanho de granizo, medindo as cavidades na placa sensibilizada (\autoref{hailpad_exemplo}). Essa grandeza foi obtida através de uma série de medições manuais dos diâmetros das cavidades com um paquímetro e ajustando os dados com a curva de calibração desse tipo de isopor, realizada pelo LIM e exibida na \autoref{calibracao_hailpad}. Com essa distribuição, pode-se calcular a energia cinética do granizo (quando diversas placas mediram um mesmo evento) ou do hailpad (quando poucas ou uma única placa mediram um evento). Ambas grandezas são equivalentes ao trabalho mecânico sofrido pela superfície onde caiu o granizo, indicando então o dano causado por ele na superfície.
+A partir de um \textit{hailpad} é possível derivar diversas grandezas relacionadas à tempestade que gerou a queda de granizo. A principal delas é a distribuição de tamanho de granizo, medindo as cavidades na placa sensibilizada (\autoref{hailpad_exemplo}). Essa grandeza foi obtida através de uma série de medições manuais dos diâmetros das cavidades com um paquímetro e ajustando os dados com a curva de calibração desse tipo de isopor, realizada pelo LIM e exibida na \autoref{calibracao_hailpad}. Com essa distribuição, pode-se calcular a energia cinética do granizo (quando diversas placas mediram um mesmo evento) ou do \textit{hailpad} (quando poucas ou uma única placa mediram um evento). Ambas grandezas são equivalentes ao trabalho mecânico sofrido pela superfície onde caiu o granizo, indicando então o dano causado por ele na superfície.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -67,7 +67,7 @@ A partir de um hailpad é possível derivar diversas grandezas relacionadas à t
 
 \begin{figure}[htb]
 	\begin{center}
-		\caption{Curva de calibração do hailpad obtida pelo LIM/CPTEC-INPE} 
+		\caption{Curva de calibração do \textit{hailpad} obtida pelo LIM/CPTEC-INPE} 
 		\label{calibracao_hailpad}
 %		\setcaptionmargin{1cm}
 		\includegraphics[width=0.7\columnwidth]{figs/calibracao_hailpad.png}
@@ -75,7 +75,7 @@ A partir de um hailpad é possível derivar diversas grandezas relacionadas à t
 	\end{center}
 \end{figure}
 
-Como houve no máximo 2 placas sensibilizadas em todos os casos, calculou-se a energia cinética do hailpad $E_t\:(Jm^{-2})$, definida por \citeonline{Mezeix1981} como:
+Como houve no máximo 2 placas sensibilizadas em todos os casos, calculou-se a energia cinética do \textit{hailpad} $E_t\:(Jm^{-2})$, definida por \citeonline{Mezeix1981} como:
 
 \begin{equation} \label{mezeix}
 	E_t = 4,58\:e^{-6} \sum_{i=1}^{k} n_i d_i^4
@@ -84,7 +84,7 @@ Como houve no máximo 2 placas sensibilizadas em todos os casos, calculou-se a e
 \noindent
 sendo $n_i$ a quantidade de pontos por $m^2$ em um dado diâmetro médio $d_i\:(mm)$ de um intervalo $\Delta d$. $k$ é o numero de intervalos, igual a 9 nesse caso já que $\Delta d$ variou entre $2$ e $22\:\:mm$ com espaçamento de $1\:mm$. Foram consideradas incertezas nas medidas propagando o desvio-padrão da distribuição média entre as diferentes medidas de uma mesma placa.
 
-Com os valores de diâmetro do granizo e energia cinética do hailpad, duas escalas que definem a intensidade de tempestades de granizo foram comparadas entre si. A \autoref{tabela_escalas} descreve as escalas ANELFA e TORRO, comparando-as de acordo com o descrito por \citeonline{Dessens2007}. A escala ANELFA, referente à organização que a desenvolveu (\textit{Association Nationale d'Etude et de Lutte contre les Fléaux Atmosphériques}, Associação para Suprimir Pragas Atmosféricas), foi desenvolvida na França usando uma série de 16 anos de dados de hailpads e compara o diâmetro máximo do granizo com a energia cinética do hailpad, indicando possíveis danos (principalmente a plantações) que um evento com dado tamanho de granizo pode causar \cite{Dessens2007}. O índice varia entre A0 (onde ocorre danos à folhas de árvores) e A5 (onde o evento é extremamente perigoso e pode causar mortes). A escala TORRO de intensidade de queda de granizo, também referente à organização que a desenvolveu (\textit{Tornado and Storm Research Organisation}, Organização de Pesquisa em Tornado e Tempestade), foi desenvolvida na Grã-Bretanha e compara o diâmetro típico (interpretado aqui como a mediana da distribuição) do granizo com a energia cinética e também indica possíveis danos que o evento pode causar \cite{webb1986}. Este índice varia entre H0 (onde não há danos) e H10 (onde há extensivos danos estruturais).
+Com os valores de diâmetro do granizo e energia cinética do \textit{hailpad}, duas escalas que definem a intensidade de tempestades de granizo foram comparadas entre si. A \autoref{tabela_escalas} descreve as escalas ANELFA e TORRO, comparando-as de acordo com o descrito por \citeonline{Dessens2007}. A escala ANELFA, referente à organização que a desenvolveu (\textit{Association Nationale d'Etude et de Lutte contre les Fléaux Atmosphériques}, Associação para Suprimir Pragas Atmosféricas), foi desenvolvida na França usando uma série de 16 anos de dados de \textit{hailpads} e compara o diâmetro máximo do granizo com a energia cinética do \textit{hailpad}, indicando possíveis danos (principalmente a plantações) que um evento com dado tamanho de granizo pode causar \cite{Dessens2007}. O índice varia entre A0 (onde ocorre danos à folhas de árvores) e A5 (onde o evento é extremamente perigoso e pode causar mortes). A escala TORRO de intensidade de queda de granizo, também referente à organização que a desenvolveu (\textit{Tornado and Storm Research Organisation}, Organização de Pesquisa em Tornado e Tempestade), foi desenvolvida na Grã-Bretanha e compara o diâmetro típico (interpretado aqui como a mediana da distribuição) do granizo com a energia cinética e também indica possíveis danos que o evento pode causar \cite{webb1986}. Este índice varia entre H0 (onde não há danos) e H10 (onde há extensivos danos estruturais).
 
 \input{tex/table_scales.tex}
 
@@ -121,7 +121,7 @@ O radar Doppler Banda-S operado pelo DECEA (Departamento de Controle do Espaço 
 	\end{center}
 \end{figure}
 
-O ciclo de vida da tempestade associada a cada caso foi definido a partir do sistema convectivo com maior intensidade na posição do hailpad, considerando o horário aproximado da queda de granizo. A partir desse sistema, a família - definição do algoritmo para um conjunto de sistemas próximos uns aos outros com mesmo deslocamento - associada a ele foi extraída e corrigida caso houvesse necessidade. A partir de cada rastreamento, variáveis como refletividade máxima e tamanho do sistema foram analisadas, além de servirem como base para a seleção de descargas elétricas associadas aos sistemas.
+O ciclo de vida da tempestade associada a cada caso foi definido a partir do sistema convectivo com maior intensidade na posição do \textit{hailpad}, considerando o horário aproximado da queda de granizo. A partir desse sistema, a família - definição do algoritmo para um conjunto de sistemas próximos uns aos outros com mesmo deslocamento - associada a ele foi extraída e corrigida caso houvesse necessidade. A partir de cada rastreamento, variáveis como refletividade máxima e tamanho do sistema foram analisadas, além de servirem como base para a seleção de descargas elétricas associadas aos sistemas.
 
 O radar Doppler Banda-X de dupla polarização XPOL foi operado pelo Projeto SOS-CHUVA na UNICAMP, cidade de Campinas (\ang{22;48;50}\:S, \ang{47;3;22}\:W, $680\:m$ de altitude). Ele fez varreduras volumétricas a cada 10 minutos em uma cobertura de até $80\:km$, com 17 elevações (\ang{0,5}, \ang{1,8}, \ang{3,1}, \ang{4,4}, \ang{5,7}, \ang{7}, \ang{8,3}, \ang{9,6}, \ang{10,9}, \ang{13}, \ang{15}, \ang{18}, \ang{22}, \ang{26}, \ang{32}, \ang{40} e \ang{55}) de \ang{1,3} de abertura do feixe, como mostra a Figura\autoref{estrategia_xpol}. Por ser de uma banda de frequência mais alta, a velocidade de Nyquist deste radar é menor do que a dos radares Banda-S: $9,6\:ms^{-1}$. Os dados volumétricos também foram convertidos em uma grade de $1\:x\:1\:x\:1\:km$ e as variáveis refletividade do radar e velocidade radial foram utilizadas. Devido à falta de dados em muitos dos casos selecionados, este radar foi usado apenas como entrada no algoritmo de recuperação de vento por Multi-Doppler (\autoref{multidoppler}) juntamente com os demais radares.
 
@@ -161,7 +161,7 @@ Esta função é aplicada em tempestades de verão e diferencia 10 tipos de hidr
 	\item Gotas Grandes (\textit{Big Drops})
 \end{alineas}
 
-A função utiliza como entrada os campos de refletividade, refletividade diferencial, fase diferencial específica e coeficiente de correlação, além de um perfil de temperatura obtido a partir de uma radiossondagem. As radiossondagens aplicadas foram coletadas no Campo de Marte (Estação SBMT, São Paulo) em datas próximas aos eventos e os dados foram processados usando o pacote Siphon \cite{siphon}.
+A função utiliza como entrada os campos de refletividade, refletividade diferencial, fase diferencial específica e coeficiente de correlação, além de um perfil de temperatura obtido a partir de uma radiossondagem. O método de cálculo utilizado (chamado de híbrido) não usa pesos fixos para a refletividade e perfil de temperatura, apenas para as variáveis polarimétricas: os pesos foram de 0,8 (refletividade diferencial), 1 (fase diferencial específica) e 0,8 (coeficiente de correlação). As radiossondagens aplicadas foram coletadas no Campo de Marte (Estação SBMT, São Paulo) em datas próximas aos eventos e os dados foram processados usando o pacote Siphon \cite{siphon}.
 
 Para verificar subjetivamente a performance do método de classificação de hidrometeoros, os campos de variáveis polarimétricas foram analisados e relacionados com os mesmos tipos de hidrometeoros do método a partir da classificação de \citeonline{Straka2000}. A \autoref{hid_straka} mostra os intervalos de valores de cada variável correspondente a cada tipo de hidrometeoro, incluindo também a mistura de chuva com granizo (\textit{rain + hail}).
 
@@ -204,64 +204,6 @@ A área de estudo possui cobertura de pelo menos dois radares - três se conside
 	}
 \end{table}
 
-A base teórica do método de recuperação de vento tridimensional foi estabelecida por \citeonline{Armijo1969}. Ela consiste em determinar 4 componentes da velocidade do vento em coordenadas cartesianas: $u$, $v$, $w$ e $w_t$, onde as três primeiras são as componentes da velocidade nas coordenadas $x$, $y$ e $z$ e $w_t$ é a velocidade terminal da precipitação \cite{Rinehart1997}. Dois radares Doppler vendo a mesma tempestade de ângulos diferentes fornecem duas medidas distintas de velocidade radial ($v_{r_1}$ e $v_{r_2}$), como mostra a \autoref{doviak_sistema}, e $w_t$ pode ser estimada em função da refletividade (usando uma distribuição de Marshall-Palmer, por exemplo). Assim, $u$ e $v$ podem ser descritos como:
-
-\begin{figure}[htb]
-	\begin{center}
-		\caption{Sistema de coordenadas cilíndricas usado para análise Dual-Doppler de dados de radar. Os radares estão localizados nos pontos 1 e 2 e $a_r$, $a_s$ e $a_\alpha$ são as normais unitárias definindo a direção das três componentes ortogonais da velocidade. O eixo cilíndrico está ao longo da linha conectando os radares (separados por uma distância $2d$) e $r$ é a distância do eixo ao dado pontual} 
-		\label{doviak_sistema}
-		%		\setcaptionmargin{1cm}
-		\includegraphics[width=0.8\columnwidth]{figs/system_doviak.png}
-		\legend{Fonte: \citeonline{Doviak1993}}
-	\end{center}
-\end{figure}
-
-\begin{equation}
-	u=\frac{1}{\sin{(\theta_1 - \theta_2)}}\left(\frac{v_{r_1}\cos{\theta_2}}{\sin{\alpha_1}}-\frac{v_{r_2}\cos{\theta_2}}{\sin{\alpha_2}}\right)
-\end{equation}
-
-\begin{equation}
-	v=\frac{1}{\sin{(\theta_1 - \theta_2)}}\left(\frac{v_{r_2}\cos{\theta_1}}{\sin{\alpha_2}}-\frac{v_{r_1}\cos{\theta_1}}{\sin{\alpha_1}}\right)
-\end{equation}
-
-\noindent
-onde $\theta_1$ e $\theta_2$ são os ângulos azimutais dos radares $1$ e $2$, respectivamente, e $\alpha_1$ e $\alpha_2$ são os ângulos de elevação dos mesmos.
-
-Para calcular a componente vertical da velocidade, a equação de continuidade de massa é usada, assumindo como condições de contorno que a velocidade na superfície e no topo da tempestade são nulas, ou seja:
-
-\begin{equation} 
-	\label{continuidade_massa}
-	\frac{\partial(\rho w)}{\partial z}=-\rho\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}\right)
-\end{equation}
-
-\begin{equation}
-	w=w_T-w_t
-\end{equation}
-
-\noindent
-onde $\rho$ é a densidade do ar atmosférico e $w_T$ é a velocidade vertical total. Quando três radares são usados, é possível calcular o campo tridimensional sem usar a \autoref{continuidade_massa}.
-
-Ao combinar radares Doppler para a recuperação do vento, a área de cobertura e erros característicos (altura do feixe e resolução espacial) devem ser considerados \cite{Dolan2007}. Se a distância da linha de base entre os dois radares for longa, a área de cobertura será maior mas a resolução espacial será prejudicada. Além disso, se o ângulo de cruzamento do feixe é pequeno (mais paralelo), as duas medidas serão mais similares e as variâncias dos erros de velocidade nas estimativas Dual-Doppler - $\sigma_u^2$ e $\sigma_v^2$ - serão menores. De acordo com \citeonline{Davies-Jones1979}, $\sigma_u^2$ e $\sigma_v^2$ estão relacionadas com as variâncias dos erros de velocidade Doppler de cada radar, $\sigma_1^2$ e $\sigma_2^2$, da seguinte forma:
-
-\begin{equation}
-	\frac{\sigma_u^2+ \sigma_v^2}{\sigma_1^2 + \sigma_2^2}=\csc^2{\beta}
-\end{equation}
-
-\noindent
-onde $\beta$ é o ângulo de cruzamento do feixe entre os dois radares. Para $\beta\:<\:\ang{30}$, $\sigma_u^2$ e $\sigma_v^2$ crescem rapidamente \cite{Doviak1976, Davies-Jones1979, Doviak1993}.
-
-A \autoref{doppler_theory_lobes} mostra teoricamente as áreas aceitáveis para estimativa de velocidade do vento considerando dois valores de $\beta$: $\ang{30}$ e $\ang{45}$. Quanto maior o valor de $\beta$, melhor é a estimativa Dual-Doppler, mas menor será a área de cobertura dessa estimativa.
-
-\begin{figure}[htb]
-	\begin{center}
-		\caption{Ângulos teóricos de cruzamento do feixe com Dual-Doppler de \ang{45} (melhores dados de vento) e \ang{30} (dados de vento aceitáveis) para um par de radares Doppler} 
-		\label{doppler_theory_lobes}
-		%		\setcaptionmargin{1cm}
-		\includegraphics[width=\columnwidth]{figs/lobes_eastin.png}
-		\legend{Fonte: Dr. Matthew D. Eastin, UNC.}
-	\end{center}
-\end{figure}
-
 A \autoref{doppler_lobes} mostra o mesmo da \autoref{doppler_theory_lobes}, mas para combinações entre os três radares usados neste trabalho. Considerando a combinação FCTH/XPOL (painel superior), a distância entre os radares e a localização do XPOL dentro da cidade de Campinas limita as estimativas boas ou aceitáveis em boa parte da região de estudo, com exceção da cidade de Indaiatuba e à oeste dela. Considerando a combinação SR/FCTH (painel central), a estimativa Dual-Doppler tem erros menores (ou seja, $\beta=\ang{45}$) em Campinas e Indaiatuba (cidades com mais casos de queda de granizo, \autoref{tabela_casos}) e à leste, mas estimativas aceitáveis (ou seja, $\beta=\ang{30}$) estão disponíveis para toda a RMC. Considerando a combinação SR/XPOL (painel inferior), os ventos à nordeste e sudeste da RMC não podem ser estimados pois esses radares estão praticamente alinhados na direção norte-sul. A partir dessas considerações e da disponibilidade de dados para cada caso (\autoref{tabela_radares_md}), definiu-se que as combinações SR/FCTH e SR/FCTH/XPOL serão usadas para os casos 2017-03-14 e 2017-11-15, respectivamente.
 
 \begin{figure}[hp]
@@ -295,6 +237,8 @@ Como mostrado na \autoref{tabela_multidop}, os dados de radar foram convertidos 
 		\legend{Fonte: \citeonline{Rauber2018}.}
 	\end{center}
 \end{figure}
+
+\newpage
 
 \section{Rede de Detecção de Raios}\label{raios}
 

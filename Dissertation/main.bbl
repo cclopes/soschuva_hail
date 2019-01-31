@@ -5,6 +5,15 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.6 }
 
+\bibitem[Albrecht et al. 2016]{Albrecht2016}
+\abntrefinfo{Albrecht et al.}{ALBRECHT et al.}{2016}
+{ALBRECHT, R.~I. et al. {Where are the lightning hotspots on Earth?}
+\emph{Bulletin of the American Meteorological Society}, v.~97, n.~11, p.
+  BAMS--D--14--00193.1, nov 2016.
+ISSN 0003-0007.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/10.1175/BAMS-D-14-00193.1}.}
+
 \bibitem[Armijo 1969]{Armijo1969}
 \abntrefinfo{Armijo}{ARMIJO}{1969}
 {ARMIJO, L. {A theory for the Determination of Wind and precipitation
@@ -14,6 +23,42 @@ ISSN 0022-4928.
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0469\%281969\%29026\%3C0570\%3AATFTDO\%3E2.0.CO\%3B2}.}
 
+\bibitem[Baker et al. 1987]{Baker1987}
+\abntrefinfo{Baker et al.}{BAKER et al.}{1987}
+{BAKER, B. et al. {The Influence of Diffusional Growth Rates On the Charge
+  Transfer Accompanying Rebounding Collisions Between Ice Crystals and Soft
+  Hailstones}.
+\emph{Quarterly Journal of the Royal Meteorological Society}, John Wiley and
+  Sons, Ltd, v.~113, n.~478, p. 1193--1215, jul 1987.
+ISSN 1477870X.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1002/qj.49711347807}.}
+
+\bibitem[Baker e Dash 1994]{Baker1994b}
+\abntrefinfo{Baker e Dash}{BAKER; DASH}{1994}
+{BAKER, M.~B.; DASH, J.~G. {Mechanism of charge transfer between colliding ice
+  particles in thunderstorms}.
+\emph{Journal of Geophysical Research}, John Wiley and Sons, Ltd, v.~99, n.~D5,
+  p. 10621, may 1994.
+ISSN 0148-0227.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/93JD01633}.}
+
+\bibitem[Barnes 2001]{Barnes2001}
+\abntrefinfo{Barnes}{BARNES}{2001}
+{BARNES, G. {Severe Local Storms in the Tropics}. In:  DOSWELL, C.~A. (Ed.).
+  \emph{Severe Convective Storms}. Boston, MA: American Meteorological Society,
+  2001. p. 359--432.
+ISBN 978-1-935704-06-5.
+Dispon{\'\i}vel em: \url{https://doi.org/10.1007/978-1-935704-06-5\_10}.}
+
+\bibitem[Carey e Buffalo 2007]{Carey2007}
+\abntrefinfo{Carey e Buffalo}{CAREY; BUFFALO}{2007}
+{CAREY, L.~D.; BUFFALO, K.~M. {Environmental Control of Cloud-to-Ground
+  Lightning Polarity in Severe Storms}.
+\emph{Monthly Weather Review}, v.~135, n.~4, p. 1327--1353, apr 2007.
+ISSN 0027-0644.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/MWR3361.1}.}
+
 \bibitem[Carey e Rutledge 2000]{Carey2000}
 \abntrefinfo{Carey e Rutledge}{CAREY; RUTLEDGE}{2000}
 {CAREY, L.~D.; RUTLEDGE, S.~A. {The Relationship between Precipitation and
@@ -22,6 +67,13 @@ Dispon{\'\i}vel em:
 ISSN 0027-0644.
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/pdf/10.1175/1520-0493\%282000\%29128\%3C2687\%3ATRBPAL\%3E2.0.CO\%3B2}.}
+
+\bibitem[Cecil e Blankenship 2012]{Cecil2012a}
+\abntrefinfo{Cecil e Blankenship}{CECIL; BLANKENSHIP}{2012}
+{CECIL, D.~J.; BLANKENSHIP, C.~B. {Toward a global climatology of severe
+  hailstorms as estimated by satellite passive microwave imagers}.
+\emph{Journal of Climate}, v.~25, n.~2, p. 687--703, 2012.
+ISSN 08948755.}
 
 \bibitem[Cifelli et al. 2002]{Cifelli2002b}
 \abntrefinfo{Cifelli et al.}{CIFELLI et al.}{2002}
@@ -40,6 +92,13 @@ Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/2000JD000264}.}
   Service Climate Data Store (CDS), 2017.
 Dispon{\'\i}vel em: \url{https://cds.climate.copernicus.eu/cdsapp\#!/home}.}
 
+\bibitem[Court e Griffiths 1982]{Court1982}
+\abntrefinfo{Court e Griffiths}{COURT; GRIFFITHS}{1982}
+{COURT, A.; GRIFFITHS, J.~F. {Thunderstorm Climatology}. In:  KESSLER, E.
+  (Ed.). \emph{Thunderstorm Morphology and Dynamics of Thunderstorms: A Social,
+  Scientific, and Technological Documentary}. 2nd. ed. Norman: University of
+  Oklahoma Press, 1982. cap.~2, p. 11--52.}
+
 \bibitem[Cummins et al. 1998]{Cummins1998}
 \abntrefinfo{Cummins et al.}{CUMMINS et al.}{1998}
 {CUMMINS, K.~L. et al. {A combined TOA/MDF Technology Upgrade of the US
@@ -56,6 +115,16 @@ Dispon{\'\i}vel em: \url{https://cds.climate.copernicus.eu/cdsapp\#!/home}.}
 ISSN 0021-8952.
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450-18.9.1229}.}
+
+\bibitem[Decker e Calvin 1961]{Decker1961}
+\abntrefinfo{Decker e Calvin}{DECKER; CALVIN}{1961}
+{DECKER, F.~W.; CALVIN, L.~D. {Hailfall of 10 September 1959 Near Medford,
+  Oregon}.
+\emph{Bulletin of the American Meteorological Society}, American Meteorological
+  Society, v.~42, n.~7, p. 475--480, 1961.
+ISSN 00030007, 15200477.
+Dispon{\'\i}vel em: \url{https://www.jstor.org/stable/26246366
+  http://www.jstor.org/stable/26246366}.}
 
 \bibitem[Dessens, Berthet e Sanchez 2007]{Dessens2007}
 \abntrefinfo{Dessens, Berthet e Sanchez}{DESSENS; BERTHET; SANCHEZ}{2007}
@@ -103,6 +172,36 @@ ISBN 9780122214226. Dispon{\'\i}vel em:
 ISBN 1577350049.
 ISSN 09758887. Dispon{\'\i}vel em: \url{www.aaai.org}.}
 
+\bibitem[Gatlin e Goodman 2010]{Gatlin2010}
+\abntrefinfo{Gatlin e Goodman}{GATLIN; GOODMAN}{2010}
+{GATLIN, P.~N.; GOODMAN, S.~J. {A total lightning trending algorithm to
+  identify severe thunderstorms}.
+\emph{Journal of Atmospheric and Oceanic Technology}, v.~27, n.~1, p. 3--22,
+  jan 2010.
+ISSN 07390572.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/2009JTECHA1286.1
+  http://journals.ametsoc.org/doi/pdf/10.1175/2009JTECHA1286.1}.}
+
+\bibitem[Goodman et al. 1988]{Goodman1988}
+\abntrefinfo{Goodman et al.}{GOODMAN et al.}{1988}
+{GOODMAN, S.~J. et al. {Lightning and precipitation history of a
+  microburst-producing storm}.
+\emph{Geophysical Research Letters}, v.~15, n.~11, p. 1185--1188, oct 1988.
+ISSN 1944-8007.
+Dispon{\'\i}vel em:
+  \url{http://onlinelibrary.wiley.com/doi/10.1029/GL015i011p01185/abstract
+  http://onlinelibrary.wiley.com/store/10.1029/GL015i011p01185/asset/grl4105.pdf?v=1&t=inswx4us&s=9d958910f9d5fab99c1b1ced674e5f9b68b6d9f8
+  http://onlinelibrary.wiley.com/doi/10.1029/GL015i0}.}
+
+\bibitem[Hand e Cappelluti 2011]{Hand2011}
+\abntrefinfo{Hand e Cappelluti}{HAND; CAPPELLUTI}{2011}
+{HAND, W.~H.; CAPPELLUTI, G. {A global hail climatology using the UK Met Office
+  convection diagnosis procedure (CDP) and model analyses}.
+\emph{Meteorological Applications}, v.~18, n.~4, p. 446--458, dec 2011.
+ISSN 13504827.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1002/met.236}.}
+
 \bibitem[Helmus e Collis 2016]{Helmus2016}
 \abntrefinfo{Helmus e Collis}{HELMUS; COLLIS}{2016}
 {HELMUS, J.~J.; COLLIS, S.~M. {The Python ARM Radar Toolkit ( Py-ART ), a
@@ -141,6 +240,50 @@ Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1002/2013JA019593}.}
 ISSN 07390572.
 Dispon{\'\i}vel em: \url{www.map.ethz.ch;}.}
 
+\bibitem[Jayaratne, Saunders e Hallett 1983]{Jayaratne1983}
+\abntrefinfo{Jayaratne, Saunders e Hallett}{JAYARATNE; SAUNDERS; HALLETT}{1983}
+{JAYARATNE, E.~R.; SAUNDERS, C. P.~R.; HALLETT, J. {Laboratory studies of the
+  charging of soft hail during ice crystal interactions}.
+\emph{Quarterly Journal of the Royal Meteorological Society}, v.~109, n.~461,
+  p. 609--630, jul 1983.
+ISSN 00359009.
+Dispon{\'\i}vel em:
+  \url{http://onlinelibrary.wiley.com/doi/10.1002/qj.49710946111/abstract
+  http://onlinelibrary.wiley.com/store/10.1002/qj.49710946111/asset/49710946111\_ftp.pdf?v=1&t=inswg7g8&s=28b5d88ce0b4b0a239826690afeac78b0bdc6416}.}
+
+\bibitem[Knight e Knight 1970]{Knight1970}
+\abntrefinfo{Knight e Knight}{KNIGHT; KNIGHT}{1970}
+{KNIGHT, C.~A.; KNIGHT, N.~C. {The Falling Behavior of Hailstones}.
+\emph{Journal of the Atmospheric Sciences}, v.~27, n.~4, p. 672--681, jul 1970.
+ISSN 0022-4928.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0469\%281970\%29027\%3C0672\%3ATFBOH\%3E2.0.CO\%3B2}.}
+
+\bibitem[Knight e Knight 2001]{Knight2001}
+\abntrefinfo{Knight e Knight}{KNIGHT; KNIGHT}{2001a}
+{KNIGHT, C.~A.; KNIGHT, N.~C. {Hailstorms}. In:  DOSWELL, C.~A. (Ed.).
+  \emph{Severe Convective Storms}. Boston, MA: American Meteorological Society,
+  2001. p. 223--254.
+ISBN 978-1-935704-06-5.
+Dispon{\'\i}vel em: \url{https://doi.org/10.1007/978-1-935704-06-5\_6}.}
+
+\bibitem[Knight e Knight 2001]{Knight2001c}
+\abntrefinfo{Knight e Knight}{KNIGHT; KNIGHT}{2001b}
+{KNIGHT, C.~A.; KNIGHT, N.~C. {Hailstorms}. In:  \emph{Severe Convective
+  Storms}. Boston, MA: American Meteorological Society, 2001. v.~28, n.~50, p.
+  223--254.
+Dispon{\'\i}vel em: \url{http://link.springer.com/10.1007/978-1-935704-06-5\_6
+  http://journals.ametsoc.org/page/0065-9401-28.50.223}.}
+
+\bibitem[Knight e Knight 2005]{Knight2005}
+\abntrefinfo{Knight e Knight}{KNIGHT; KNIGHT}{2005}
+{KNIGHT, C.~A.; KNIGHT, N.~C. {Very large hailstones from Aurora, Nebraska}.
+\emph{Bulletin of the American Meteorological Society}, American Meteorological
+  Society, v.~86, n.~12, p. 1773--1781, dec 2005.
+ISSN 00030007.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/10.1175/BAMS-86-12-1773}.}
+
 \bibitem[Kriegel et al. 2011]{Kriegel2011}
 \abntrefinfo{Kriegel et al.}{KRIEGEL et al.}{2011}
 {KRIEGEL, H.~P. et al. {Density-based clustering}.
@@ -175,11 +318,28 @@ ISSN 0739-0572.
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0426\%282000\%29017\%3C0140\%3ACOHBOP\%3E2.0.CO\%3B2}.}
 
+\bibitem[MacGorman e Burgess 1994]{Macgorman1994}
+\abntrefinfo{MacGorman e Burgess}{MACGORMAN; BURGESS}{1994}
+{MACGORMAN, D.~R.; BURGESS, D.~W. {Positive Cloud-to-Ground Lightning in
+  Tornadic Storms and Hailstorms}.
+\emph{Monthly Weather Review}, v.~122, n.~8, p. 1671--1697, aug 1994.
+ISSN 0027-0644.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0493\%281994\%29122\%3C1671\%3APCTGLI\%3E2.0.CO\%3B2}.}
+
 \bibitem[MacGorman e Rust 1998]{MacGorman1998b}
 \abntrefinfo{MacGorman e Rust}{MACGORMAN; RUST}{1998}
 {MACGORMAN, D.~R.; RUST, W.~D. \emph{{The Electrical Nature of Storms}}.
   [S.l.]: Oxford University Press, 1998. 422~p.
 ISBN 0195073371.}
+
+\bibitem[Martins et al. 2017]{Martins2017}
+\abntrefinfo{Martins et al.}{MARTINS et al.}{2017}
+{MARTINS, J.~A. et al. {Climatology of destructive hailstorms in Brazil}.
+\emph{Atmospheric Research}, v.~184, p. 126--138, feb 2017.
+ISSN 01698095.
+Dispon{\'\i}vel em:
+  \url{http://linkinghub.elsevier.com/retrieve/pii/S016980951630480X}.}
 
 \bibitem[May et al. 2017]{siphon}
 \abntrefinfo{May et al.}{MAY et al.}{2017}
@@ -218,6 +378,14 @@ Dispon{\'\i}vel em:
   Dispon{\'\i}vel em:
   \url{http://mtc-m21b.sid.inpe.br/col/sid.inpe.br/mtc-m21b/2014/12.17.16.43/doc/Naccarato\_ILDC\_2014\_final.pdf?metadatarepository=&mirror=iconet.com.br/banon/2006/11.26.21.31}.}
 
+\bibitem[Pereyra et al. 2000]{Pereyra2000}
+\abntrefinfo{Pereyra et al.}{PEREYRA et al.}{2000}
+{PEREYRA, R.~G. et al. {A laboratory study of graupel charging}.
+\emph{Journal of Geophysical Research Atmospheres}, John Wiley and Sons, Ltd,
+  v.~105, n.~D16, p. 20803--20812, aug 2000.
+ISSN 01480227.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/2000JD900244}.}
+
 \bibitem[Potvin, Shapiro e Xue 2012]{Potvin2012b}
 \abntrefinfo{Potvin, Shapiro e Xue}{POTVIN; SHAPIRO; XUE}{2012}
 {POTVIN, C.~K.; SHAPIRO, A.; XUE, M. {Impact of a vertical vorticity constraint
@@ -227,11 +395,27 @@ Dispon{\'\i}vel em:
   2012.
 ISSN 07390572.}
 
+\bibitem[Puig 2017]{Puig2017}
+\abntrefinfo{Puig}{PUIG}{2017}
+{PUIG, R.
+\emph{{Caracter{\'{i}}sticas da precipita{\c{c}}{\~{a}}o e atividade
+  el{\'{e}}trica de tempestades severas da Regi{\~{a}}o Metropolitana de
+  S{\~{a}}o Paulo}}.
+Tese (Doutorado) --- Universidade de S{\~{a}}o Paulo, 2017.}
+
 \bibitem[Rauber e Nesbitt 2018]{Rauber2018}
 \abntrefinfo{Rauber e Nesbitt}{RAUBER; NESBITT}{2018}
 {RAUBER, R.~M.; NESBITT, S.~W. \emph{{Radar Meteorology: A First Course}}. 1.
   ed. Hoboken, NJ: Wiley-Blackwell, 2018. 488~p.
 ISBN 978-1-118-43262-4.}
+
+\bibitem[Reinking 1975]{Reinking1975}
+\abntrefinfo{Reinking}{REINKING}{1975}
+{REINKING, R.~F. {Formation of graupel}.
+\emph{Journal of Applied Meteorology}, v.~14, n.~5, p. 745--754, aug 1975.
+ISSN 0021-8952.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450\%281975\%29014\%3C0745\%3AFOG\%3E2.0.CO\%3B2}.}
 
 \bibitem[Rinehart 1997]{Rinehart1997}
 \abntrefinfo{Rinehart}{RINEHART}{1997}
@@ -239,12 +423,73 @@ ISBN 978-1-118-43262-4.}
   Publications, 1997. 428~p.
 ISBN 9780965800211 (pbk.)\r0965800210 (pbk.).}
 
+\bibitem[Saunders 2008]{Saunders2008}
+\abntrefinfo{Saunders}{SAUNDERS}{2008}
+{SAUNDERS, C. P.~R. {Charge separation mechanisms in clouds}.
+\emph{Space Science Reviews}, Springer New York, v.~137, n.~1-4, p. 335--353,
+  2008.
+ISSN 00386308.
+Dispon{\'\i}vel em:
+  \url{http://link.springer.com/chapter/10.1007/978-0-387-87664-1\_22
+  http://link.springer.com/chapter/10.1007/978-0-387-87664-1\_22\#page-1}.}
+
+\bibitem[Saunders et al. 2006]{Saunders2006}
+\abntrefinfo{Saunders et al.}{SAUNDERS et al.}{2006}
+{SAUNDERS, C. P.~R. et al. {Laboratory studies of the effect of cloud
+  conditions on graupel/crystal charge transfer in thunderstorm
+  electrification}.
+\emph{Quarterly Journal of the Royal Meteorological Society}, v.~132, n.~621,
+  p. 2653--2673, oct 2006.
+ISSN 00359009, 1477870X.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1256/qj.05.218
+  http://www.atmo.arizona.edu/students/courselinks/spring07/atmo589/articles/Saunders\_et\_al\_2006.pdf
+  http://doi.wiley.com/10.1256/qj.05.218\%5Cnhttp://www.atmo.arizona.edu/students/courselinks/spring07/atmo589/articles/}.}
+
+\bibitem[Schleusener e Jennings 1960]{Schleusener1960a}
+\abntrefinfo{Schleusener e Jennings}{SCHLEUSENER; JENNINGS}{1960}
+{SCHLEUSENER, R. A.~.; JENNINGS, P. C.~. {An Energy Method for Relative
+  Estimates of Hail Intensity}.
+\emph{Bulletin of the American Meteorological Society}, v.~41, n.~7, p.
+  372--376, 1960.
+Dispon{\'\i}vel em:
+  \url{https://mountainscholar.org/bitstream/handle/10217/37628/0001\_Bluebook.pdf?sequence=1
+  https://dspace.library.colostate.edu/bitstream/handle/10217/37628/0001\_Bluebook.pdf?sequence=1}.}
+
+\bibitem[Schultz, Petersen e Carey 2009]{Schultz2009a}
+\abntrefinfo{Schultz, Petersen e Carey}{SCHULTZ; PETERSEN; CAREY}{2009}
+{SCHULTZ, C.~J.; PETERSEN, W.~A.; CAREY, L.~D. {Preliminary development and
+  evaluation of lightning jump algorithms for the real-time detection of severe
+  weather}.
+\emph{Journal of Applied Meteorology and Climatology}, v.~48, n.~12, p.
+  2543--2563, dec 2009.
+ISSN 15588424.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/2009JAMC2237.1}.}
+
+\bibitem[Schultz, Petersen e Carey 2011]{Schultz2011}
+\abntrefinfo{Schultz, Petersen e Carey}{SCHULTZ; PETERSEN; CAREY}{2011}
+{SCHULTZ, C.~J.; PETERSEN, W.~A.; CAREY, L.~D. {Lightning and Severe Weather: A
+  Comparison between Total and Cloud-to-Ground Lightning Trends}.
+\emph{Weather and Forecasting}, v.~26, n.~5, p. 744--755, oct 2011.
+ISSN 0882-8156.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/WAF-D-10-05026.1
+  http://journals.ametsoc.org/doi/pdf/10.1175/WAF-D-10-05026.1}.}
+
 \bibitem[Shapiro, Potvin e Gao 2009]{Shapiro2009}
 \abntrefinfo{Shapiro, Potvin e Gao}{SHAPIRO; POTVIN; GAO}{2009}
 {SHAPIRO, A.; POTVIN, C.~K.; GAO, J. {Use of a vertical vorticity equation in
   variational dual-doppler wind analysis}.
 \emph{Journal of Atmospheric and Oceanic Technology}, 2009.
 ISSN 07390572.}
+
+\bibitem[Sperling 2018]{Sperling2018}
+\abntrefinfo{Sperling}{SPERLING}{2018}
+{SPERLING, V.~B.
+\emph{{Processos f{\'{i}}sicos e el{\'{e}}tricos das tempestades de granizo na
+  regi{\~{a}}o sul do Brasil}}.
+277~p. Tese (Doutorado) --- Instituto Nacional de Pesquisas Espaciais, 2018.
+Dispon{\'\i}vel em: \url{http://urlib.net/8JMKD3MGP3W34P/3QE4KB5}.}
 
 \bibitem[Straka, Zrni{\'{c}} e Ryzhkov 2000]{Straka2000}
 \abntrefinfo{Straka, Zrni{\'{c}} e Ryzhkov}{STRAKA; ZRNI{\'{C}}; RYZHKOV}{2000}
@@ -255,6 +500,17 @@ ISSN 07390572.}
 ISSN 0894-8763.
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450\%282000\%29039\%3C1341\%3ABHCAQU\%3E2.0.CO\%3B2}.}
+
+\bibitem[Takahashi 1978]{Takahashi1978}
+\abntrefinfo{Takahashi}{TAKAHASHI}{1978}
+{TAKAHASHI, T. {Riming Electrification as a Charge Generation Mechanism in
+  Thunderstorms}.
+\emph{Journal of the Atmospheric Sciences}, v.~35, n.~8, p. 1536--1548, aug
+  1978.
+ISSN 0022-4928.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0469(1978)035\%3C1536:REAACG\%3E2.0.CO;2
+  http://journals.ametsoc.org/doi/pdf/10.1175/1520-0469(1978)035\%3C1536:REAACG\%3E2.0.CO;2}.}
 
 \bibitem[{Thomaz J{\'{u}}nior} et al. 2015]{ThomazJunior2015a}
 \abntrefinfo{{Thomaz J{\'{u}}nior} et al.}{{Thomaz J{\'{u}}nior} et al.}{2015}
@@ -278,5 +534,23 @@ Dispon{\'\i}vel em:
 {WEBB, J. D.~C.; ELSOM, D.~M.; MEADEN, G.~T. {The TORRO hailstorm intensity
   scale}.
 \emph{J Meteorol}, v.~11, p. 337--339, 1986.}
+
+\bibitem[Williams et al. 1999]{Williams1999}
+\abntrefinfo{Williams et al.}{WILLIAMS et al.}{1999}
+{WILLIAMS, E.~R. et al. {The behavior of total lightning activity in severe
+  Florida thunderstorms}.
+\emph{Atmospheric Research}, v.~51, n.~3, p. 245--265, jul 1999.
+ISSN 01698095.
+Dispon{\'\i}vel em:
+  \url{http://www.sciencedirect.com/science/article/pii/S0169809599000113
+  http://www.sciencedirect.com/science/article/pii/S0169809599000113/pdfft?md5=89f3411e000bda6c019b13cde2dd8fca&pid=1-s2.0-S0169809599000113-main.pdf}.}
+
+\bibitem[Williams, Zhang e Rydock 1991]{Williams1991}
+\abntrefinfo{Williams, Zhang e Rydock}{WILLIAMS; ZHANG; RYDOCK}{1991}
+{WILLIAMS, E.~R.; ZHANG, R.; RYDOCK, J. \emph{{Mixed-Phase Microphysics and
+  Cloud Electrification}}. 1991. 2195--2203~p.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0469\%281991\%29048\%3C2195\%3AMPMACE\%3E2.0.CO\%3B2
+  http://journals.ametsoc.org/doi/abs/10.1175/1520-0469(1991)048\%3C2195:MPMACE\%3E2.0.CO;2}.}
 
 \end{thebibliography}

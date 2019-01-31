@@ -41,6 +41,7 @@ grid = rf.grid_radar(
             origin=(radar.latitude['data'][0], radar.longitude['data'][0]),
             xlim=cv.grid_xlim, ylim=cv.grid_ylim, grid_shape=cv.grid_shape)
 grid.fields['specific_differential_phase']['units'] = r'$\degree\  km^{-1}$'
+grid.fields['differential_reflectivity']['units'] = 'dB'
 
 name = 'FCTH'
 level = 2

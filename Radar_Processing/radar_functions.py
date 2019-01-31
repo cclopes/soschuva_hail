@@ -89,7 +89,7 @@ def calculate_radar_hid(radar, sounding_names, radar_band="S"):
     # Classifying
     scores = csu_fhc.csu_fhc_summer(dz=z_corrected, zdr=zdr, kdp=kdp,
                                     rho=rho_hv, use_temp=True, T=radar_T,
-                                    band=radar_band)
+                                    band=radar_band, verbose=True)
     fh = np.argmax(scores, axis=0) + 1
     # - Adding to radar file
     radar = add_field_to_radar_object(fh, radar,
