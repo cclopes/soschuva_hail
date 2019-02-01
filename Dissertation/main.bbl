@@ -3,7 +3,7 @@
 \setlength{\labelsep}{0pt}\begin{thebibliography}{}
 \providecommand{\abntrefinfo}[3]{}
 \providecommand{\abntbstabout}[1]{}
-\abntbstabout{v-1.9.6 }
+\abntbstabout{v-1.9.7 }
 
 \bibitem[Albrecht et al. 2016]{Albrecht2016}
 \abntrefinfo{Albrecht et al.}{ALBRECHT et al.}{2016}
@@ -402,6 +402,12 @@ ISSN 07390572.}
   el{\'{e}}trica de tempestades severas da Regi{\~{a}}o Metropolitana de
   S{\~{a}}o Paulo}}.
 Tese (Doutorado) --- Universidade de S{\~{a}}o Paulo, 2017.}
+
+\bibitem[{R Core Team} 2018]{RCoreTeam2018a}
+\abntrefinfo{{R Core Team}}{{R Core Team}}{2018}
+{{R Core Team}. \emph{{R: A Language and Environment for Statistical
+  Computing}}.
+Vienna, Austria, 2018. Dispon{\'\i}vel em: \url{https://www.r-project.org}.}
 
 \bibitem[Rauber e Nesbitt 2018]{Rauber2018}
 \abntrefinfo{Rauber e Nesbitt}{RAUBER; NESBITT}{2018}

@@ -57,8 +57,9 @@
 \backcite {Rauber2018}{{39}{{{c)}}}{Item.3}}
 \backcite {Vila2008}{{39}{3.2}{Item.3}}
 \backcite {Vila2008}{{39}{12}{figure.caption.22}}
+\backcite {Helmus2016}{{40}{3.2}{figure.caption.22}}
 \backcite {Lang2017a}{{40}{3.2.1}{subsection.3.2.1}}
-\backcite {Liu2000a}{{40}{{{c)}}}{Item.6}}
+\backcite {Liu2000a}{{40}{3.2.1}{subsection.3.2.1}}
 \backcite {siphon}{{42}{3.2.1}{Item.16}}
 \backcite {Straka2000}{{42}{3.2.1}{Item.16}}
 \backcite {Carey2000, Cifelli2002b}{{42}{3.2.1}{figure.caption.24}}
@@ -70,9 +71,9 @@
 \backcite {Potvin2012b}{{44}{3.2.2}{equation.3.2.2}}
 \backcite {Potvin2012b}{{44}{3.2.2}{equation.3.2.2}}
 \backcite {James2001}{{44}{3.2.2}{table.caption.27}}
-\backcite {Naccarato2014}{{46}{3.3}{section.3.3}}
-\backcite {Lewis1960}{{46}{3.3}{section.3.3}}
 \backcite {Rauber2018}{{47}{16}{figure.caption.28}}
+\backcite {Naccarato2014}{{47}{3.3}{section.3.3}}
+\backcite {Lewis1960}{{47}{3.3}{section.3.3}}
 \backcite {MacGorman1998b}{{47}{3.3.1}{subsection.3.3.1}}
 \backcite {Cummins1998}{{47}{3.3.1}{subsection.3.3.1}}
 \backcite {Murphy2015}{{47}{3.3.1}{subsection.3.3.1}}
@@ -82,7 +83,10 @@
 \backcite {Hutchins2014a}{{48}{3.3.1}{Item.19}}
 \backcite {Cummins1998}{{48}{3.3.1}{Item.19}}
 \backcite {Murphy2015}{{48}{3.3.1}{Item.19}}
+\backcite {RCoreTeam2018a}{{48}{3.3.1}{Item.19}}
 \backcite {Cummins1998}{{48}{3.3.1}{Item.19}}
 \backcite {Murphy2015}{{48}{3.3.1}{Item.19}}
 \backcite {Cummins1998}{{48}{3.3.1}{Item.19}}
-\backcite {Copernicus2017}{{48}{3.4.1}{subsection.3.4.1}}
+\backcite {Copernicus2017}{{49}{3.4}{section.3.4}}
+\backcite {Python2018}{{49}{3.4}{section.3.4}}
+\backcite {Python2018}{{50}{3.5}{section.3.5}}

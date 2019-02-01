@@ -1,68 +1,13 @@
-This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: main.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
 The style file: abntex2-alf.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: library.bib
 Warning--entry type for "siphon" isn't style-file defined
 --line 3597 of file library.bib
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=20001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--I didn't find a database entry for "Python2018"
 +---------------------------------------------------------+
-| Estilo bibliográfico abntex2-alf.bst versão v-1.9.6           |
+| Estilo bibliográfico abntex2-alf.bst versão v-1.9.7           |
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 64 entries,
-            6714 wiz_defined-function locations,
-            1730 strings with 26566 characters,
-and the built_in function-call counts, 147135 in all, are:
-= -- 18728
-> -- 2274
-< -- 4814
-+ -- 5515
-- -- 675
-* -- 9246
-:= -- 17154
-add.period$ -- 315
-call.type$ -- 64
-change.case$ -- 747
-chr.to.int$ -- 204
-cite$ -- 63
-duplicate$ -- 16675
-empty$ -- 3975
-format.name$ -- 3242
-if$ -- 28045
-int.to.chr$ -- 1
-int.to.str$ -- 0
-missing$ -- 1149
-newline$ -- 403
-num.names$ -- 318
-pop$ -- 1478
-preamble$ -- 1
-purify$ -- 273
-quote$ -- 0
-skip$ -- 16623
-stack$ -- 1
-substring$ -- 7017
-swap$ -- 6238
-text.length$ -- 187
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 12
-warning$ -- 0
-while$ -- 542
-width$ -- 0
-write$ -- 1156
-(There was 1 warning)
+(There were 2 warnings)
