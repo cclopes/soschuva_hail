@@ -1,3 +1,4 @@
+\backcite {ThomazJunior2016}{{9}{(document)}{Doc-Start}}
 \backcite {Reinking1975}{{23}{2.1}{section.2.1}}
 \backcite {Knight2001}{{23}{1}{figure.caption.8}}
 \backcite {Baker1987, Baker1994b}{{24}{2.1}{figure.caption.8}}
@@ -8,8 +9,16 @@
 \backcite {Jayaratne1983, Pereyra2000, Saunders2006}{{24}{2.1}{figure.caption.8}}
 \backcite {Jayaratne1983, Pereyra2000, Saunders2006}{{24}{2.1}{figure.caption.8}}
 \backcite {Jayaratne1983, Pereyra2000, Saunders2006}{{24}{2.1}{figure.caption.8}}
-\backcite {Macgorman1994, Carey2007}{{25}{2.1}{figure.caption.9}}
-\backcite {Macgorman1994, Carey2007}{{25}{2.1}{figure.caption.9}}
+\backcite {Wilson1921}{{24}{2.1}{figure.caption.9}}
+\backcite {Simpson1937}{{24}{2.1}{figure.caption.9}}
+\backcite {Simpson1941}{{24}{2.1}{figure.caption.9}}
+\backcite {Williams1989}{{24}{2.1}{figure.caption.9}}
+\backcite {Macgorman1994, Carey1995a, Lyons1998, Carey2003e, Carey2007, Pineda2016}{{25}{2.1}{figure.caption.9}}
+\backcite {Macgorman1994, Carey1995a, Lyons1998, Carey2003e, Carey2007, Pineda2016}{{25}{2.1}{figure.caption.9}}
+\backcite {Macgorman1994, Carey1995a, Lyons1998, Carey2003e, Carey2007, Pineda2016}{{25}{2.1}{figure.caption.9}}
+\backcite {Macgorman1994, Carey1995a, Lyons1998, Carey2003e, Carey2007, Pineda2016}{{25}{2.1}{figure.caption.9}}
+\backcite {Macgorman1994, Carey1995a, Lyons1998, Carey2003e, Carey2007, Pineda2016}{{25}{2.1}{figure.caption.9}}
+\backcite {Macgorman1994, Carey1995a, Lyons1998, Carey2003e, Carey2007, Pineda2016}{{25}{2.1}{figure.caption.9}}
 \backcite {Knight1970, Knight2001c, Knight2005}{{25}{2.1}{figure.caption.9}}
 \backcite {Knight1970, Knight2001c, Knight2005}{{25}{2.1}{figure.caption.9}}
 \backcite {Knight1970, Knight2001c, Knight2005}{{25}{2.1}{figure.caption.9}}
@@ -18,35 +27,55 @@
 \backcite {Goodman1988, Williams1999, Schultz2009a, Gatlin2010, Schultz2011}{{25}{2.1}{figure.caption.9}}
 \backcite {Goodman1988, Williams1999, Schultz2009a, Gatlin2010, Schultz2011}{{25}{2.1}{figure.caption.9}}
 \backcite {Goodman1988, Williams1999, Schultz2009a, Gatlin2010, Schultz2011}{{25}{2.1}{figure.caption.9}}
-\backcite {Court1982, Hand2011, Cecil2012a}{{25}{2.2}{section.2.2}}
-\backcite {Court1982, Hand2011, Cecil2012a}{{25}{2.2}{section.2.2}}
-\backcite {Court1982, Hand2011, Cecil2012a}{{25}{2.2}{section.2.2}}
-\backcite {Court1982, Martins2017}{{25}{2.2}{section.2.2}}
-\backcite {Court1982, Martins2017}{{25}{2.2}{section.2.2}}
-\backcite {Hand2011, Cecil2012a, Albrecht2016}{{25}{2.2}{section.2.2}}
-\backcite {Hand2011, Cecil2012a, Albrecht2016}{{25}{2.2}{section.2.2}}
-\backcite {Hand2011, Cecil2012a, Albrecht2016}{{25}{2.2}{section.2.2}}
-\backcite {Cecil2012a}{{25}{2.2}{subfigure.4.2}}
-\backcite {Barnes2001}{{25}{2.2}{subfigure.4.2}}
-\backcite {Sperling2018}{{25}{2.2}{subfigure.4.2}}
+\backcite {Court1982, Hand2011, Cecil2012a}{{25}{2.3}{section.2.3}}
+\backcite {Court1982, Hand2011, Cecil2012a}{{25}{2.3}{section.2.3}}
+\backcite {Court1982, Hand2011, Cecil2012a}{{25}{2.3}{section.2.3}}
 \backcite {Takahashi1978}{{26}{2}{figure.caption.9}}
 \backcite {Williams1991}{{26}{2}{figure.caption.9}}
+\backcite {Court1982, Martins2017}{{27}{2.3}{section.2.3}}
+\backcite {Court1982, Martins2017}{{27}{2.3}{section.2.3}}
+\backcite {Hand2011, Cecil2012a, Albrecht2016}{{27}{2.3}{section.2.3}}
+\backcite {Hand2011, Cecil2012a, Albrecht2016}{{27}{2.3}{section.2.3}}
+\backcite {Hand2011, Cecil2012a, Albrecht2016}{{27}{2.3}{section.2.3}}
 \backcite {Barnes2001}{{27}{4}{subfigure.4.2}}
-\backcite {Puig2017}{{27}{2.2}{subfigure.4.2}}
+\backcite {Cecil2012a}{{28}{2.3}{subfigure.4.2}}
+\backcite {Barnes2001}{{28}{2.3}{subfigure.4.2}}
+\backcite {Sperling2018}{{28}{2.3}{subfigure.4.2}}
+\backcite {Puig2017}{{28}{2.3}{subfigure.4.2}}
 \backcite {Cecil2012a}{{28}{5}{figure.caption.12}}
-\backcite {Rauber2018}{{28}{2.3}{section.2.3}}
-\backcite {morgan1986thunderstorm}{{28}{2.3}{section.2.3}}
-\backcite {Armijo1969}{{28}{2.3}{section.2.3}}
-\backcite {Rinehart1997}{{29}{2.3}{section.2.3}}
-\backcite {Doviak1993}{{29}{6}{figure.caption.13}}
-\backcite {Dolan2007}{{30}{2.3}{equation.2.3.4}}
-\backcite {Davies-Jones1979}{{30}{2.3}{equation.2.3.4}}
-\backcite {Doviak1976, Davies-Jones1979, Doviak1993}{{30}{2.3}{equation.2.3.5}}
-\backcite {Doviak1976, Davies-Jones1979, Doviak1993}{{30}{2.3}{equation.2.3.5}}
-\backcite {Doviak1976, Davies-Jones1979, Doviak1993}{{30}{2.3}{equation.2.3.5}}
+\backcite {Rauber2018}{{29}{2.4}{section.2.4}}
+\backcite {morgan1986thunderstorm}{{29}{2.4}{section.2.4}}
+\backcite {Armijo1969}{{29}{2.4}{section.2.4}}
+\backcite {Brandes1977, Ray1980}{{29}{2.4}{section.2.4}}
+\backcite {Brandes1977, Ray1980}{{29}{2.4}{section.2.4}}
+\backcite {Weaver1982}{{29}{2.4}{section.2.4}}
+\backcite {Ray1978}{{29}{2.4}{section.2.4}}
+\backcite {Wilson1984}{{29}{2.4}{section.2.4}}
+\backcite {Chong1987}{{29}{2.4}{section.2.4}}
+\backcite {Petersen1999a, Calhoun2013}{{29}{2.4}{section.2.4}}
+\backcite {Petersen1999a, Calhoun2013}{{29}{2.4}{section.2.4}}
+\backcite {Potvin2012a, Potvin2012b}{{29}{2.4}{section.2.4}}
+\backcite {Potvin2012a, Potvin2012b}{{29}{2.4}{section.2.4}}
+\backcite {Wurman2007}{{29}{2.4}{section.2.4}}
+\backcite {Hubbert1998a}{{29}{2.4}{section.2.4}}
+\backcite {Lang2002, Deierling2008}{{29}{2.4}{section.2.4}}
+\backcite {Lang2002, Deierling2008}{{29}{2.4}{section.2.4}}
+\backcite {Rutledge2000, Cifelli2002b, Cifelli2004a}{{29}{2.4}{section.2.4}}
+\backcite {Rutledge2000, Cifelli2002b, Cifelli2004a}{{29}{2.4}{section.2.4}}
+\backcite {Rutledge2000, Cifelli2002b, Cifelli2004a}{{29}{2.4}{section.2.4}}
+\backcite {Rinehart1997}{{30}{2.4}{section.2.4}}
+\backcite {Doviak1993}{{30}{6}{figure.caption.13}}
+\backcite {Dolan2007}{{31}{2.4}{equation.2.4.4}}
+\backcite {Davies-Jones1979}{{31}{2.4}{equation.2.4.4}}
+\backcite {Doviak1976, Davies-Jones1979, Doviak1993}{{31}{2.4}{equation.2.4.5}}
+\backcite {Doviak1976, Davies-Jones1979, Doviak1993}{{31}{2.4}{equation.2.4.5}}
+\backcite {Doviak1976, Davies-Jones1979, Doviak1993}{{31}{2.4}{equation.2.4.5}}
+\backcite {ThomazJunior2016}{{34}{3.1}{section.3.1}}
 \backcite {Schleusener1960a}{{34}{3.1}{section.3.1}}
 \backcite { Decker1961}{{34}{3.1}{section.3.1}}
+\backcite {ThomazJunior2016}{{35}{3.1}{table.caption.17}}
 \backcite {Mezeix1981}{{35}{3.1}{figure.caption.19}}
+\backcite {ThomazJunior2016}{{36}{10}{figure.caption.19}}
 \backcite {ThomazJunior2015a}{{36}{10}{figure.caption.19}}
 \backcite {Dessens2007}{{36}{3.1}{equation.3.1.1}}
 \backcite {Dessens2007}{{36}{3.1}{equation.3.1.1}}
@@ -56,7 +85,7 @@
 \backcite {Straka2000}{{38}{3.2}{figure.caption.21}}
 \backcite {Rauber2018}{{39}{{{c)}}}{Item.3}}
 \backcite {Vila2008}{{39}{3.2}{Item.3}}
-\backcite {Vila2008}{{39}{12}{figure.caption.22}}
+\backcite {Vila2008}{{40}{12}{figure.caption.22}}
 \backcite {Helmus2016}{{40}{3.2}{figure.caption.22}}
 \backcite {Lang2017a}{{40}{3.2.1}{subsection.3.2.1}}
 \backcite {Liu2000a}{{40}{3.2.1}{subsection.3.2.1}}
@@ -70,7 +99,7 @@
 \backcite {Helmus2016}{{44}{3.2.2}{figure.caption.26}}
 \backcite {Potvin2012b}{{44}{3.2.2}{equation.3.2.2}}
 \backcite {Potvin2012b}{{44}{3.2.2}{equation.3.2.2}}
-\backcite {James2001}{{44}{3.2.2}{table.caption.27}}
+\backcite {James2001}{{46}{3.2.2}{table.caption.27}}
 \backcite {Rauber2018}{{47}{16}{figure.caption.28}}
 \backcite {Naccarato2014}{{47}{3.3}{section.3.3}}
 \backcite {Lewis1960}{{47}{3.3}{section.3.3}}
@@ -87,6 +116,6 @@
 \backcite {Cummins1998}{{48}{3.3.1}{Item.19}}
 \backcite {Murphy2015}{{48}{3.3.1}{Item.19}}
 \backcite {Cummins1998}{{48}{3.3.1}{Item.19}}
-\backcite {Copernicus2017}{{49}{3.4}{section.3.4}}
-\backcite {Python2018}{{49}{3.4}{section.3.4}}
-\backcite {Python2018}{{50}{3.5}{section.3.5}}
+\backcite {Copernicus2017}{{48}{3.4}{section.3.4}}
+\backcite {PythonCoreTeam2018}{{49}{3.4}{section.3.4}}
+\backcite {PythonCoreTeam2018}{{50}{3.5}{section.3.5}}

@@ -3,7 +3,7 @@
 \setlength{\labelsep}{0pt}\begin{thebibliography}{}
 \providecommand{\abntrefinfo}[3]{}
 \providecommand{\abntbstabout}[1]{}
-\abntbstabout{v-1.9.7 }
+\abntbstabout{v-1.9.6 }
 
 \bibitem[Albrecht et al. 2016]{Albrecht2016}
 \abntrefinfo{Albrecht et al.}{ALBRECHT et al.}{2016}
@@ -38,9 +38,11 @@ Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1002/qj.49711347807}.}
 {BAKER, M.~B.; DASH, J.~G. {Mechanism of charge transfer between colliding ice
   particles in thunderstorms}.
 \emph{Journal of Geophysical Research}, John Wiley and Sons, Ltd, v.~99, n.~D5,
-  p. 10621, may 1994.
+  p. 10621--10626, may 1994.
 ISSN 0148-0227.
-Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/93JD01633}.}
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/93JD01633
+  http://onlinelibrary.wiley.com/doi/10.1029/93JD01633/abstract
+  http://onlinelibrary.wiley.com/store/10.1029/93JD01633/asset/jgrd2863.pdf?v=1&t=insy0wat&s=721cc6ff8760d7aea7f98eadf068d7a2f8d6df73}.}
 
 \bibitem[Barnes 2001]{Barnes2001}
 \abntrefinfo{Barnes}{BARNES}{2001}
@@ -49,6 +51,25 @@ Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/93JD01633}.}
   2001. p. 359--432.
 ISBN 978-1-935704-06-5.
 Dispon{\'\i}vel em: \url{https://doi.org/10.1007/978-1-935704-06-5\_10}.}
+
+\bibitem[Brandes 1977]{Brandes1977}
+\abntrefinfo{Brandes}{BRANDES}{1977}
+{BRANDES, E.~A. {Flow in Severe Thunderstorms Observed bu Dual-Doppler Radar}.
+\emph{Monthly Weather Review}, v.~105, n.~1, p. 113--120, jan 1977.
+ISSN 0027-0644.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0493\%281977\%29105\%3C0113\%3AFISTOB\%3E2.0.CO\%3B2
+  http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(1977)105\%3C0113:FISTOB\%3E2.0.CO;2}.}
+
+\bibitem[Calhoun et al. 2013]{Calhoun2013}
+\abntrefinfo{Calhoun et al.}{CALHOUN et al.}{2013}
+{CALHOUN, K.~M. et al. {Evolution of Lightning Activity and Storm Charge
+  Relative to Dual-Doppler Analysis of a High-Precipitation Supercell Storm}.
+\emph{Monthly Weather Review}, v.~141, n.~7, p. 2199--2223, jul 2013.
+ISSN 0027-0644.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/pdf/10.1175/MWR-D-12-00258.1
+  http://journals.ametsoc.org/doi/abs/10.1175/MWR-D-12-00258.1}.}
 
 \bibitem[Carey e Buffalo 2007]{Carey2007}
 \abntrefinfo{Carey e Buffalo}{CAREY; BUFFALO}{2007}
@@ -59,6 +80,12 @@ ISSN 0027-0644.
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/MWR3361.1}.}
 
+\bibitem[Carey e Rutledge 1995]{Carey1995a}
+\abntrefinfo{Carey e Rutledge}{CAREY; RUTLEDGE}{1995}
+{CAREY, L.~D.; RUTLEDGE, S.~A. {Positive cloud-to-ground lightning in severe
+  hailstorms: a multiparameter radar study}. In:  \emph{International
+  Conference on Radar Meteorology}. [S.l.: s.n.], 1995. p. 629--632.}
+
 \bibitem[Carey e Rutledge 2000]{Carey2000}
 \abntrefinfo{Carey e Rutledge}{CAREY; RUTLEDGE}{2000}
 {CAREY, L.~D.; RUTLEDGE, S.~A. {The Relationship between Precipitation and
@@ -68,12 +95,39 @@ ISSN 0027-0644.
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/pdf/10.1175/1520-0493\%282000\%29128\%3C2687\%3ATRBPAL\%3E2.0.CO\%3B2}.}
 
+\bibitem[Carey e Rutledge 2003]{Carey2003e}
+\abntrefinfo{Carey e Rutledge}{CAREY; RUTLEDGE}{2003}
+{CAREY, L.~D.; RUTLEDGE, S.~A. {Characteristics of cloud-to-ground lightning in
+  severe and nonsevere storms over the central United States from 1989–1998}.
+\emph{Journal of Geophysical Research}, v.~108, n.~D15, p.~4483, 2003.
+ISSN 0148-0227.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/2002JD002951}.}
+
 \bibitem[Cecil e Blankenship 2012]{Cecil2012a}
 \abntrefinfo{Cecil e Blankenship}{CECIL; BLANKENSHIP}{2012}
 {CECIL, D.~J.; BLANKENSHIP, C.~B. {Toward a global climatology of severe
   hailstorms as estimated by satellite passive microwave imagers}.
 \emph{Journal of Climate}, v.~25, n.~2, p. 687--703, 2012.
 ISSN 08948755.}
+
+\bibitem[Chong et al. 1987]{Chong1987}
+\abntrefinfo{Chong et al.}{CHONG et al.}{1987}
+{CHONG, M. et al. {A Tropical Squall Line Observed during the COPT 81
+  Experiment in West Africa. Part 1: Kinematic Structure Inferred from
+  Dual-Doppler Radar Data}.
+\emph{Monthly Weather Review}, v.~115, n.~3, p. 670--694, mar 1987.
+ISSN 0027-0644.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0493\%281987\%29115\%3C0670\%3AATSLOD\%3E2.0.CO\%3B2}.}
+
+\bibitem[Cifelli et al. 2004]{Cifelli2004a}
+\abntrefinfo{Cifelli et al.}{CIFELLI et al.}{2004}
+{CIFELLI, R. et al. {An Ensemble Study of Wet Season Convection in Southwest
+  Amazonia: Kinematics and Implications for Diabatic Heating}.
+\emph{Journal of Climate}, v.~17, n.~24, p. 4692--4707, dec 2004.
+ISSN 0894-8755.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/JCLI-3236.1}.}
 
 \bibitem[Cifelli et al. 2002]{Cifelli2002b}
 \abntrefinfo{Cifelli et al.}{CIFELLI et al.}{2002}
@@ -125,6 +179,14 @@ Dispon{\'\i}vel em:
 ISSN 00030007, 15200477.
 Dispon{\'\i}vel em: \url{https://www.jstor.org/stable/26246366
   http://www.jstor.org/stable/26246366}.}
+
+\bibitem[Deierling et al. 2008]{Deierling2008}
+\abntrefinfo{Deierling et al.}{DEIERLING et al.}{2008}
+{DEIERLING, W. et al. {The relationship between lightning activity and ice
+  fluxes in thunderstorms}.
+\emph{Journal of Geophysical Research Atmospheres}, v.~113, n.~15, p. 1--20,
+  2008.
+ISSN 01480227.}
 
 \bibitem[Dessens, Berthet e Sanchez 2007]{Dessens2007}
 \abntrefinfo{Dessens, Berthet e Sanchez}{DESSENS; BERTHET; SANCHEZ}{2007}
@@ -213,6 +275,15 @@ ISSN 2049-9647.
 Dispon{\'\i}vel em:
   \url{http://openresearchsoftware.metajnl.com/articles/10.5334/jors.119/}.}
 
+\bibitem[Hubbert et al. 1998]{Hubbert1998a}
+\abntrefinfo{Hubbert et al.}{HUBBERT et al.}{1998}
+{HUBBERT, J. et al. {CSU-CHILL Polarimetric Radar Measurements from a Severe
+  Hail Storm in Eastern Colorado}.
+\emph{Journal of Applied Meteorology}, v.~37, n.~8, p. 749--775, aug 1998.
+ISSN 0894-8763.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450\%281998\%29037\%3C0749\%3ACCPRMF\%3E2.0.CO\%3B2}.}
+
 \bibitem[Hutchins e Holzworth 2014]{Hutchins2014a}
 \abntrefinfo{Hutchins e Holzworth}{HUTCHINS; HOLZWORTH}{2014}
 {HUTCHINS, M.~L.; HOLZWORTH, R.~H. {Thunderstorm characteristics from cluster
@@ -298,6 +369,15 @@ Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1002/widm.30}.}
   CSU\_RadarTools v1.2}}. 2017.
 Dispon{\'\i}vel em: \url{https://zenodo.org/record/1035908}.}
 
+\bibitem[Lang e Rutledge 2002]{Lang2002}
+\abntrefinfo{Lang e Rutledge}{LANG; RUTLEDGE}{2002}
+{LANG, T.~J.; RUTLEDGE, S.~A. {Relationships between Convective Storm
+  Kinematics, Precipitation, and Lightning}.
+\emph{Monthly Weather Review}, v.~130, n.~10, p. 2492--2506, oct 2002.
+ISSN 0027-0644.
+Dispon{\'\i}vel em: \url{http://radarmet.atmos.colostate.edu/steps/
+  http://journals.ametsoc.org/doi/abs/10.1175/1520-0493\%282002\%29130\%3C2492\%3ARBCSKP\%3E2.0.CO\%3B2}.}
+
 \bibitem[Lewis, Harvey e Rasmussen 1960]{Lewis1960}
 \abntrefinfo{Lewis, Harvey e Rasmussen}{LEWIS; HARVEY; RASMUSSEN}{1960}
 {LEWIS, E.~A.; HARVEY, R.~B.; RASMUSSEN, J.~E. {Hyperbolic direction finding
@@ -317,6 +397,16 @@ Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/JZ065i007p01879
 ISSN 0739-0572.
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0426\%282000\%29017\%3C0140\%3ACOHBOP\%3E2.0.CO\%3B2}.}
+
+\bibitem[Lyons et al. 1998]{Lyons1998}
+\abntrefinfo{Lyons et al.}{LYONS et al.}{1998}
+{LYONS, W.~A. et al. {Enhanced Positive Cloud-to-Ground Lightning in
+  Thunderstorms Ingesting Smoke from Fires}.
+\emph{Science}, v.~282, n.~5386, p. 77--80, 1998.
+ISSN 1095-9203.
+Dispon{\'\i}vel em:
+  \url{http://science.sciencemag.org/content/282/5386/77.short
+  http://science.sciencemag.org/content/sci/282/5386/77.full.pdf}.}
 
 \bibitem[MacGorman e Burgess 1994]{Macgorman1994}
 \abntrefinfo{MacGorman e Burgess}{MACGORMAN; BURGESS}{1994}
@@ -386,6 +476,33 @@ Dispon{\'\i}vel em:
 ISSN 01480227.
 Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/2000JD900244}.}
 
+\bibitem[Petersen et al. 1999]{Petersen1999a}
+\abntrefinfo{Petersen et al.}{PETERSEN et al.}{1999}
+{PETERSEN, W.~A. et al. {Mesoscale and Radar Observations of the Fort Collins
+  Flash Flood of 28 July 1997}.
+\emph{Bulletin of the American Meteorological Society}, v.~80, n.~2, p.
+  191--216, feb 1999.
+ISSN 0003-0007.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0477\%281999\%29080\%3C0191\%3AMAROOT\%3E2.0.CO\%3B2}.}
+
+\bibitem[Pineda et al. 2016]{Pineda2016}
+\abntrefinfo{Pineda et al.}{PINEDA et al.}{2016}
+{PINEDA, N. et al. {Charge structure analysis of a severe hailstorm with
+  predominantly positive cloud-to-ground lightning}.
+\emph{Atmospheric Research}, Elsevier, v. 178-179, p. 31--44, sep 2016.
+ISSN 01698095.
+Dispon{\'\i}vel em:
+  \url{http://www.sciencedirect.com/science/article/pii/S0169809516300606?\_rdoc=1&\_fmt=high&\_origin=gateway&\_docanchor=&md5=b8429449ccfc9c30159a5f9aeaa92ffb&dgcid=raven\_sd\_recommender\_email
+  https://www.sciencedirect.com/science/article/pii/S0169809516300606?via\%25}.}
+
+\bibitem[Potvin et al. 2012]{Potvin2012a}
+\abntrefinfo{Potvin et al.}{POTVIN et al.}{2012}
+{POTVIN, C.~K. et al. {3DVAR versus Traditional Dual-Doppler Wind Retrievals of
+  a Simulated Supercell Thunderstorm}.
+\emph{Monthly Weather Review}, 2012.
+ISSN 0027-0644.}
+
 \bibitem[Potvin, Shapiro e Xue 2012]{Potvin2012b}
 \abntrefinfo{Potvin, Shapiro e Xue}{POTVIN; SHAPIRO; XUE}{2012}
 {POTVIN, C.~K.; SHAPIRO, A.; XUE, M. {Impact of a vertical vorticity constraint
@@ -403,6 +520,11 @@ ISSN 07390572.}
   S{\~{a}}o Paulo}}.
 Tese (Doutorado) --- Universidade de S{\~{a}}o Paulo, 2017.}
 
+\bibitem[{Python Core Team} 2018]{PythonCoreTeam2018}
+\abntrefinfo{{Python Core Team}}{{Python Core Team}}{2018}
+{{Python Core Team}. \emph{{Python: A dynamic, open source programming
+  language}}. [S.l.]: Python Software Foundation, 2018.}
+
 \bibitem[{R Core Team} 2018]{RCoreTeam2018a}
 \abntrefinfo{{R Core Team}}{{R Core Team}}{2018}
 {{R Core Team}. \emph{{R: A Language and Environment for Statistical
@@ -414,6 +536,23 @@ Vienna, Austria, 2018. Dispon{\'\i}vel em: \url{https://www.r-project.org}.}
 {RAUBER, R.~M.; NESBITT, S.~W. \emph{{Radar Meteorology: A First Course}}. 1.
   ed. Hoboken, NJ: Wiley-Blackwell, 2018. 488~p.
 ISBN 978-1-118-43262-4.}
+
+\bibitem[Ray et al. 1978]{Ray1978}
+\abntrefinfo{Ray et al.}{RAY et al.}{1978}
+{RAY, P.~S. et al. \emph{{Triple-Doppler Observations of a Convective Storm}}.
+  1978. 1201--1212~p.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450\%281978\%29017\%3C1201\%3ATDOOAC\%3E2.0.CO\%3B2
+  http://journals.ametsoc.org/doi/abs/10.1175/1520-0450(1978)017\%3C1201:TDOOAC\%3E2.0.CO;2}.}
+
+\bibitem[Ray et al. 1980]{Ray1980}
+\abntrefinfo{Ray et al.}{RAY et al.}{1980}
+{RAY, P.~S. et al. {Single- and Multiple-Doppler Radar Observations of Tornadic
+  Storms}.
+\emph{Monthly Weather Review}, v.~108, n.~10, p. 1607--1625, oct 1980.
+ISSN 0027-0644.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0493\%281980\%29108\%3C1607\%3ASAMDRO\%3E2.0.CO\%3B2}.}
 
 \bibitem[Reinking 1975]{Reinking1975}
 \abntrefinfo{Reinking}{REINKING}{1975}
@@ -428,6 +567,17 @@ Dispon{\'\i}vel em:
 {RINEHART, R.~E. \emph{{Radar for Meteorologists}}. [S.l.]: Rinehart
   Publications, 1997. 428~p.
 ISBN 9780965800211 (pbk.)\r0965800210 (pbk.).}
+
+\bibitem[Rutledge et al. 2000]{Rutledge2000}
+\abntrefinfo{Rutledge et al.}{RUTLEDGE et al.}{2000}
+{RUTLEDGE, S. et al. {Early results from TRMM-LBA: kinematic and microphysical
+  characteristics of convection in distinct meteorological regimes}. In:
+  \emph{IGARSS 2000. IEEE 2000 International Geoscience and Remote Sensing
+  Symposium. Taking the Pulse of the Planet: The Role of Remote Sensing in
+  Managing the Environment. Proceedings (Cat. No.00CH37120)}. IEEE, 2000. v.~3,
+  p. 1358--1360.
+ISBN 0-7803-6359-0. Dispon{\'\i}vel em:
+  \url{http://ieeexplore.ieee.org/document/858118/}.}
 
 \bibitem[Saunders 2008]{Saunders2008}
 \abntrefinfo{Saunders}{SAUNDERS}{2008}
@@ -458,8 +608,8 @@ Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1256/qj.05.218
 \emph{Bulletin of the American Meteorological Society}, v.~41, n.~7, p.
   372--376, 1960.
 Dispon{\'\i}vel em:
-  \url{https://mountainscholar.org/bitstream/handle/10217/37628/0001\_Bluebook.pdf?sequence=1
-  https://dspace.library.colostate.edu/bitstream/handle/10217/37628/0001\_Bluebook.pdf?sequence=1}.}
+  \url{https://dspace.library.colostate.edu/bitstream/handle/10217/37628/0001\_Bluebook.pdf?sequence=1
+  https://mountainscholar.org/bitstream/handle/10217/37628/0001\_Bluebook.pdf?sequence=1}.}
 
 \bibitem[Schultz, Petersen e Carey 2009]{Schultz2009a}
 \abntrefinfo{Schultz, Petersen e Carey}{SCHULTZ; PETERSEN; CAREY}{2009}
@@ -488,6 +638,24 @@ Dispon{\'\i}vel em:
   variational dual-doppler wind analysis}.
 \emph{Journal of Atmospheric and Oceanic Technology}, 2009.
 ISSN 07390572.}
+
+\bibitem[Simpson e Robinson 1941]{Simpson1941}
+\abntrefinfo{Simpson e Robinson}{SIMPSON; ROBINSON}{1941}
+{SIMPSON, G.; ROBINSON, G.~D. {The Distribution of Electricity in
+  Thunderclouds, II}.
+\emph{Proceedings of the Royal Society A: Mathematical, Physical and
+  Engineering Sciences}, v.~177, n.~970, p. 281--329, 1941.
+ISSN 1364-5021.
+Dispon{\'\i}vel em:
+  \url{http://rspa.royalsocietypublishing.org/cgi/doi/10.1098/rspa.1941.0013}.}
+
+\bibitem[Simpson e Scrase 1937]{Simpson1937}
+\abntrefinfo{Simpson e Scrase}{SIMPSON; SCRASE}{1937}
+{SIMPSON, G.; SCRASE, F.~J. {The Distribution of Electricity in Thunderclouds}.
+\emph{Proceedings of the Royal Society A: Mathematical and Physical Sciences},
+  v.~161, n.~906, p. 309--352, 1937.
+Dispon{\'\i}vel em:
+  \url{http://www-jstor-org.ez67.periodicos.capes.gov.br/stable/96788?seq=1\#page\_scan\_tab\_contents}.}
 
 \bibitem[Sperling 2018]{Sperling2018}
 \abntrefinfo{Sperling}{SPERLING}{2018}
@@ -518,6 +686,13 @@ Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0469(1978)035\%3C1536:REAACG\%3E2.0.CO;2
   http://journals.ametsoc.org/doi/pdf/10.1175/1520-0469(1978)035\%3C1536:REAACG\%3E2.0.CO;2}.}
 
+\bibitem[{Thomaz J{\'{u}}nior} 2016]{ThomazJunior2016}
+\abntrefinfo{{Thomaz J{\'{u}}nior}}{{Thomaz J{\'{u}}nior}}{2016}
+{{Thomaz J{\'{u}}nior}, J.~C. \emph{{S{\'{i}}tios Experimentais do Hailpad}}.
+  Campinas: [s.n.], 2016. 10~p.
+Dispon{\'\i}vel em:
+  \url{http://soschuva.cptec.inpe.br/soschuva/pdf/reunioes/17-05/CelsoThomaz-ApresentacaoHailpad\_mai2016.pdf}.}
+
 \bibitem[{Thomaz J{\'{u}}nior} et al. 2015]{ThomazJunior2015a}
 \abntrefinfo{{Thomaz J{\'{u}}nior} et al.}{{Thomaz J{\'{u}}nior} et al.}{2015}
 {{Thomaz J{\'{u}}nior}, J.~C. et al. \emph{{Desenvolvimento de uma Metodologia
@@ -535,11 +710,31 @@ ISSN 0882-8156.
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/2007WAF2006121.1}.}
 
+\bibitem[Weaver e Nelson 1982]{Weaver1982}
+\abntrefinfo{Weaver e Nelson}{WEAVER; NELSON}{1982}
+{WEAVER, J.~F.; NELSON, S.~P. {Multiscale Aspects of Thunderstorm Gust Fronts
+  ant Their Effects on Subsequent Storm Development}.
+\emph{Monthly Weather Review}, v.~110, n.~7, p. 707--718, jul 1982.
+ISSN 0027-0644.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0493\%281982\%29110\%3C0707\%3AMAOTGF\%3E2.0.CO\%3B2}.}
+
 \bibitem[Webb, Elsom e Meaden 1986]{webb1986}
 \abntrefinfo{Webb, Elsom e Meaden}{WEBB; ELSOM; MEADEN}{1986}
 {WEBB, J. D.~C.; ELSOM, D.~M.; MEADEN, G.~T. {The TORRO hailstorm intensity
   scale}.
 \emph{J Meteorol}, v.~11, p. 337--339, 1986.}
+
+\bibitem[Williams 1989]{Williams1989}
+\abntrefinfo{Williams}{WILLIAMS}{1989}
+{WILLIAMS, E.~R. {The tripole structure of thunderstorms}.
+\emph{Journal of Geophysical Research: Atmospheres}, v.~94, n.~D11, p.
+  13151--13167, sep 1989.
+ISSN 2156-2202.
+Dispon{\'\i}vel em:
+  \url{http://onlinelibrary.wiley.com/doi/10.1029/JD094iD11p13151/abstract
+  http://onlinelibrary.wiley.com/doi/10.1029/JD094iD11p13151/abstract;jsessionid=1E8A23A85D1BD6C9640C9F4A0A3CDCDB.f04t01
+  http://onlinelibrary.wiley.com/doi/10.1029/JD094iD11p13151/abstract\%25}.}
 
 \bibitem[Williams et al. 1999]{Williams1999}
 \abntrefinfo{Williams et al.}{WILLIAMS et al.}{1999}
@@ -558,5 +753,36 @@ Dispon{\'\i}vel em:
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0469\%281991\%29048\%3C2195\%3AMPMACE\%3E2.0.CO\%3B2
   http://journals.ametsoc.org/doi/abs/10.1175/1520-0469(1991)048\%3C2195:MPMACE\%3E2.0.CO;2}.}
+
+\bibitem[Wilson 1921]{Wilson1921}
+\abntrefinfo{Wilson}{WILSON}{1921}
+{WILSON, C. T.~R. {Investigations on Lightning Discharges and on the Electric
+  Field of Thunderstorms}.
+\emph{Philosophical Transactions of the Royal Society of London. Series A,
+  Containing Papers of a Mathematical or Physical Character}, v.~221, p.
+  73--115, 1921.
+ISSN 0264-3952.
+Dispon{\'\i}vel em:
+  \url{http://www-jstor-org.ez67.periodicos.capes.gov.br/stable/91189?seq=1\#page\_scan\_tab\_contents
+  http://www.jstor.org/stable/91189\%5Cnhttp://www.jstor.org/stable/pdfplus/91189.pdf?acceptTC=true}.}
+
+\bibitem[Wilson et al. 1984]{Wilson1984}
+\abntrefinfo{Wilson et al.}{WILSON et al.}{1984}
+{WILSON, J.~W. et al. {Microburst Wind Structure and Evaluation of Doppler
+  Radar for Airport Wind Shear Detection}.
+\emph{Journal of Climate and Applied Meteorology}, v.~23, n.~6, p. 898--915,
+  jun 1984.
+ISSN 0733-3021.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450\%281984\%29023\%3C0898\%3AMWSAEO\%3E2.0.CO\%3B2}.}
+
+\bibitem[Wurman et al. 2007]{Wurman2007}
+\abntrefinfo{Wurman et al.}{WURMAN et al.}{2007}
+{WURMAN, J. et al. {Dual-Doppler and Single-Doppler Analysis of a Tornadic
+  Storm Undergoing Mergers and Repeated Tornadogenesis}.
+\emph{Monthly Weather Review}, v.~135, n.~3, p. 736--758, mar 2007.
+ISSN 0027-0644.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/MWR3276.1}.}
 
 \end{thebibliography}

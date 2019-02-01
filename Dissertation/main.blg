@@ -1,13 +1,69 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
 The style file: abntex2-alf.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated field_info (elt_size=4) to 11210 items from 5000.
 Database file #1: abntex2-options.bib
 Database file #2: library.bib
 Warning--entry type for "siphon" isn't style-file defined
---line 3597 of file library.bib
-Warning--I didn't find a database entry for "Python2018"
+--line 5365 of file library.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
-| Estilo bibliográfico abntex2-alf.bst versão v-1.9.7           |
+| Estilo bibliográfico abntex2-alf.bst versão v-1.9.6           |
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-(There were 2 warnings)
+You've used 90 entries,
+            6714 wiz_defined-function locations,
+            1928 strings with 35030 characters,
+and the built_in function-call counts, 222077 in all, are:
+= -- 28684
+> -- 3150
+< -- 7601
++ -- 8550
+- -- 933
+* -- 13784
+:= -- 25741
+add.period$ -- 441
+call.type$ -- 90
+change.case$ -- 1047
+chr.to.int$ -- 290
+cite$ -- 89
+duplicate$ -- 25908
+empty$ -- 5571
+format.name$ -- 4516
+if$ -- 41786
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 1607
+newline$ -- 568
+num.names$ -- 448
+pop$ -- 2083
+preamble$ -- 1
+purify$ -- 385
+quote$ -- 0
+skip$ -- 25800
+stack$ -- 1
+substring$ -- 10741
+swap$ -- 9586
+text.length$ -- 267
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 14
+warning$ -- 0
+while$ -- 770
+width$ -- 0
+write$ -- 1624
+(There was 1 warning)
