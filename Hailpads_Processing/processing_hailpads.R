@@ -23,7 +23,8 @@ hailpads <- read.csv2(file = "Data/HAILPADS/Medidas_Hailpads.csv", dec = ",") %>
   mutate(plate_full = ifelse(plate == "R002", paste("2017-03-14", plate, sep = "\n"), plate_full)) %>%
   mutate(plate_full = ifelse(plate == "R004", paste("2017-11-15", plate, sep = "\n"), plate_full)) %>%
   mutate(plate_full = ifelse(plate == "R038", paste("2017-11-16", plate, sep = "\n"), plate_full)) %>%
-  mutate(case = paste("Case", str_extract(plate_full, "\\d\\d\\d\\d-\\d\\d-\\d\\d"), sep = "\n")) %>% 
+  # mutate(case = paste("Case", str_extract(plate_full, "\\d\\d\\d\\d-\\d\\d-\\d\\d"), sep = "\n")) %>% 
+  mutate(case = paste("Caso de", str_extract(plate_full, "\\d\\d\\d\\d-\\d\\d-\\d\\d"), sep = "\n")) %>%  # pt-br
   unite(measured_by, "#", col = "measured_by", sep = " ") # %>%
   # filter(plate == "2017-03-14\nC001" | plate == "2017-03-14\nR002" | 
   #        plate == "2017-11-15\nR004") #-- For less cases
@@ -75,8 +76,10 @@ plt <- ggplot(data = hailpads, aes(x = plate, y = value, color = measured_by)) +
   geom_violin(position = position_dodge(width = 1), fill = NA, size = 0.3) +
   geom_boxplot(width = 0.25, position = position_dodge(width = 1),
                size = 0.3, outlier.size = 0.5) +
-  labs(x = "Hailpad", y = "Diameter [mm]") +
-  scale_color_brewer(name = "Measured by", palette = "Set1") +
+  # labs(x = "Hailpad", y = "Diameter (mm)") +
+  labs(x = "Hailpad", y = "Diâmetro (mm)") +  # pt-br
+  # scale_color_brewer(name = "Measured by", palette = "Set1") +
+  scale_color_brewer(name = "Medido por", palette = "Set1") +  # pt-br
   scale_fill_brewer(name = NA, palette = "Set1") +
   theme(
     legend.position = "bottom",
@@ -93,8 +96,10 @@ g$widths[[11]] <- unit(0.9, "null")
 g$widths[[13]] <- unit(1, "null")
 grid.draw(g)
 # -- Saving
-ggsave("Hailpads_Processing/figures/measures_distribution.png", g,
-       width = 7.5, height = 3.5,  bg = "transparent")
+# ggsave("Hailpads_Processing/figures/measures_distribution.png", g,
+#        width = 7.5, height = 3.5,  bg = "transparent")
+ggsave("Hailpads_Processing/figures/measures_distribution_ptbr.png", g,
+       width = 7.5, height = 3.5,  bg = "transparent")  # pt-br
 # ggsave("Hailpads_Processing/figures/measures_distribution_less.png",
 #        width = 4.5, height = 4, bg = "transparent") #-- For less cases
 
@@ -122,7 +127,10 @@ ggplot(data = hailpads_perplate, aes(x = diams, y = encin, color = plate_full)) 
     plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   ) +
-  labs(x = "Diameter [mm]", y = "Kinetic Energy [J/m²]", color = "Hailpad") +
+  # labs(x = "Diameter (mm)", y = expression("Kinetic Energy (J"*m^-2*")"), color = "Hailpad") +
+  labs(x = "Diâmetro (mm)", y = expression("Energia Cinética (J"*m^-2*")"), color = "Hailpad") +  # pt-br
   facet_grid(. ~ scale, scales = "free_x")
-ggsave("Hailpads_Processing/figures/data_anelfa_torro.png",
-       width = 7.5, height = 3.5, bg = "transparent")
+# ggsave("Hailpads_Processing/figures/data_anelfa_torro.png",
+#        width = 7.5, height = 3.5, bg = "transparent")
+ggsave("Hailpads_Processing/figures/data_anelfa_torro_ptbr.png",
+       width = 7.5, height = 3.5, bg = "transparent")  # pt-br

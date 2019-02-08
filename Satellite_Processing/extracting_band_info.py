@@ -52,10 +52,12 @@ def extract_band_info(Band):
         Center_WL = '(13.30 µm)'
 
     if int(Band) <= 6:
-        Unit = "Reflectance"
+        # Unit = "Reflectance"
+        Unit = "Refletância"  # pt-br
         Conversion = 0.
     else:
-        Unit = "Brightness Temperature [°C]"
+        # Unit = "Brightness Temperature (°C)"
+        Unit = "Temperatura de Brilho (°C)"  # pt-br
         Conversion = -273.15
 
     if int(Band) <= 6:

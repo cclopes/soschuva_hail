@@ -11,39 +11,39 @@ from radar_functions import plot_dbz_vel_grid
 import multidop_functions as mf
 
 # Reading filenames
-case = open("cases/2017-03-14_18h20/filenames.txt").read().split('\n')
+case = open("cases/2017-11-15_21h30/filenames.txt").read().split('\n')
 # Other necessary variables
-date = datetime(2017, 3, 14, 12)
+date = datetime(2017, 11, 15, 12)
 
-radar1 = mf.read_dealise_region(case[0])
-# radar1 = mf.read_dealise_4dd(case[0], date, "SBMT")
+# radar1 = mf.read_dealise_region(case[0])
+radar1 = mf.read_dealise_4dd(case[0], date, "SBMT")
 # radar1 = mf.read_uf(case[0])
 for n in range(20):
     try:
-        plot_dbz_vel_grid(radar1, sweep=n, xlim=[-47.5, -46.75],
-                          ylim=[-23, -22.4],
+        plot_dbz_vel_grid(radar1, sweep=n, xlim=[-47.5, -47],
+                          ylim=[-23.2, -22.8],
                           name_fig=('figures/corrections/sr_ncorr_sweep' +
-                          str(n) + '_20170314_v3.png'))
-        plot_dbz_vel_grid(radar1, sweep=n, xlim=[-47.5, -46.75],
-                          ylim=[-23, -22.4], vel_field='corrected_velocity',
+                          str(n) + '_20171115_v3.png'))
+        plot_dbz_vel_grid(radar1, sweep=n, xlim=[-47.5, -47],
+                          ylim=[-23.2, -22.8], vel_field='corrected_velocity',
                           name_fig=('figures/corrections/sr_corr_sweep' +
-                          str(n) + '_20170314_v3.png'))
+                          str(n) + '_20171115_v3.png'))
     except IndexError:
         pass
 
-radar2 = mf.read_dealise_region(case[1], vel_field='velocity')
-# radar2 = mf.read_dealise_4dd(case[1], date, "SBMT", vel_field='velocity')
+# radar2 = mf.read_dealise_region(case[1], vel_field='velocity')
+radar2 = mf.read_dealise_4dd(case[1], date, "SBMT", vel_field='velocity')
 # radar2 = mf.read_uf(case[1])
 for n in range(20):
     try:
-        plot_dbz_vel_grid(radar2, sweep=n, xlim=[-47.5, -46.75],
-                          ylim=[-23, -22.4],
+        plot_dbz_vel_grid(radar2, sweep=n, xlim=[-47.5, -47],
+                          ylim=[-23.2, -22.8],
                           name_fig=('figures/corrections/cth_ncorr_sweep' +
-                          str(n) + '_20170314_v3.png'))
-        plot_dbz_vel_grid(radar2, sweep=n, xlim=[-47.5, -46.75],
-                          ylim=[-23, -22.4], vel_field='corrected_velocity',
+                          str(n) + '_20171115_v3.png'))
+        plot_dbz_vel_grid(radar2, sweep=n, xlim=[-47.5, -47],
+                          ylim=[-23.2, -22.8], vel_field='corrected_velocity',
                           name_fig=('figures/corrections/cth_corr_sweep' +
-                          str(n) + '_20170314_v3.png'))
+                          str(n) + '_20171115_v3.png'))
     except IndexError:
         pass
 

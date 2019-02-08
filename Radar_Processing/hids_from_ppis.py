@@ -30,6 +30,7 @@ import radar_functions as rf
 import custom_vars as cv
 import custom_cbars
 
+
 radar = rf.read_radar(cv.filename)
 # radar = pyart.io.read_uf(cv.filename)
 radar = rf.calculate_radar_hid(radar, cv.sounding_name, "S")
@@ -53,7 +54,7 @@ rf.plot_field_panel(
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
     grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim,
-    save_path=cv.save_path, index="a")
+    save_path=cv.save_path, index="a", hailpad_cs_flag=cv.hail_flag)
 
 rf.plot_field_panel(
     grid, 'MW', level=level, fmin=0, fmax=10, cmap='mass',

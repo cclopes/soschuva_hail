@@ -115,48 +115,42 @@ flashes_brasildat <- purrr::map(data_brasildat, ~strokes_to_flashes(.x)[[1]])
 #                aes(x = delta_stroke, y = ..count../1e4, color = "black")) +
 #   stat_density(data = flashes_brasildat_df, geom = "line",
 #                aes(x = delta_time, y = ..count../1e4, color = "blue")) +
+#   # scale_color_manual(values = c("black", "blue"),
+#   #                    labels = c("Interstroke", "Interflash")) +
 #   scale_color_manual(values = c("black", "blue"),
-#                      labels = c("Interstroke", "Interflash")) +
+#                      labels = c("Entre strokes", "Entre flashes")) +  # pt-br
 #   theme(legend.position = "bottom", legend.box.margin = margin(-10, 0, 0, 0),
 #         plot.margin = unit(c(2, 2, 0.5, 2), "mm"),
 #         plot.background = element_rect(fill = "transparent", color = "transparent"),
 #         legend.background = element_rect(fill = "transparent")) +
-#   labs(x = "Time (s)", y = expression("Counts ("*10^4*")"), color = "")
+#   # labs(x = "Time (s)", y = expression("Counts ("*10^4*")"), color = "")
+#   labs(x = "Tempo (s)", y = expression("Contagem ("*10^4*")"), color = "")  # pt-br
 # 
 # plt_dist <- ggplot(strokes_brasildat, aes(x = delta_x, y = delta_y)) +
 #   coord_cartesian(xlim = c(-6, 6), ylim = c(-6, 6)) +
 #   geom_bin2d(binwidth = 0.1) +
-#   scale_fill_gradientn(name = "Counts",
+#   # scale_fill_gradientn(name = "Counts",
+#   #                      colors = heat_hcl(n = 1000, h = c(0, -100), l = c(95, 40),
+#   #                                        c = c(40, 80), power = 4),
+#   #                      breaks = pretty_breaks(n = 4)) +
+#   scale_fill_gradientn(name = "Contagem",
 #                        colors = heat_hcl(n = 1000, h = c(0, -100), l = c(95, 40),
 #                                          c = c(40, 80), power = 4),
-#                        breaks = pretty_breaks(n = 4)) +
+#                        breaks = pretty_breaks(n = 4)) +  # pt-br
 #   theme(legend.position = "bottom",
 #         plot.background = element_rect(fill = "transparent", color = "transparent"),
 #         legend.background = element_rect(fill = "transparent")) +
 #   guides(fill = guide_colorbar(barwidth = 7)) +
-#   labs(x = "Longitudinal Distance (km)", y = "Latitudinal Distance (km)")
-# 
-# ggplot(strokes_brasildat, aes(x = delta_x, y = delta_y)) +
-#   coord_cartesian(xlim = c(-6, 6), ylim = c(-6, 6)) +
-#   geom_bin2d(binwidth = 0.1) +
-#   scale_fill_distiller(name = "Counts",
-#                        palette = "Set1",
-#                        breaks = pretty_breaks(n = 20),
-#                        direction = 1,
-#                        limits = c(1, 40),
-#                        oob = squish) +
-#   theme(legend.position = "bottom",
-#         plot.background = element_rect(fill = "transparent", color = "transparent"),
-#         legend.background = element_rect(fill = "transparent")) +
-#   guides(fill = guide_colorbar(barwidth = 25)) +
-#   labs(x = "Longitudinal Distance (km)", y = "Latitudinal Distance (km)")
+#   # labs(x = "Longitudinal Distance (km)", y = "Latitudinal Distance (km)")
+#   labs(x = "Distância Longitudinal (km)", y = "Distância Latitudinal (km)")  # pt-br
 # 
 # plt_strperflash <- ggplot(data = flashes_brasildat_df,
 #                           aes(x = strokes, y = ..count..)) +
 #   scale_x_continuous(limits = c(0, 21)) +
 #   scale_y_log10(limits = c(1, 1e5)) +
 #   stat_bin(binwidth = 1, color = "white") +
-#   labs(x = "Number of Strokes per Flash", y = "Counts") +
+#   # labs(x = "Number of Strokes per Flash", y = "Counts") +
+#   labs(x = "Número de Strokes por Flash", y = "Contagem") +  # pt-br
 #   theme(plot.background = element_rect(fill = "transparent", color = "transparent"),
 #         legend.background = element_rect(fill = "transparent"))
 # 
@@ -164,8 +158,10 @@ flashes_brasildat <- purrr::map(data_brasildat, ~strokes_to_flashes(.x)[[1]])
 #                     nrow = 2, rel_heights = c(0.55, 0.45), label_y = c(0.2, 0.2)),
 #           plt_dist, ncol = 2,
 #           rel_widths = c(0.6, 0.4), labels = c("", "c"), label_y = c(0, 0.1))
-# save_plot("Lightning_Processing/figures/brasildat_flash_stats.png", plg,
-#           base_width = 6.5, base_height = 3.25, bg = "transparent")
+# # save_plot("Lightning_Processing/figures/brasildat_flash_stats.png", plg,
+# #           base_width = 6.5, base_height = 3.25, bg = "transparent")
+# save_plot("Lightning_Processing/figures/brasildat_flash_stats_ptbr.png", plg,
+#           base_width = 6.5, base_height = 3.25, bg = "transparent")  # pt-br
 
 # Applying function for LINET data ---------------------------------------------
 data_linet <- read_table("Lightning_Processing/filenames_linet", col_names = F) %>%

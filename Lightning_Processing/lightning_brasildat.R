@@ -103,6 +103,7 @@ lubridate::date(data_brasildat_df$hour) <- lubridate::date(data_brasildat_df$dat
 data_brasildat_df$lon_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lon_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
 data_brasildat_df$lat_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lat_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
 data_brasildat_df$date_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- "2017-01-01 18:00:00"
+data_brasildat_df$case <- str_replace(data_brasildat_df$case, "Case ", "Caso de ")  # pt-br
 
 totais <- select(data_brasildat_df, lat, lon, date, class, case)
 qte_total <- totais %>%
@@ -124,6 +125,7 @@ lubridate::date(flashes_brasildat_df$hour) <- lubridate::date(flashes_brasildat_
 flashes_brasildat_df$lon_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lon_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
 flashes_brasildat_df$lat_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lat_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
 flashes_brasildat_df$date_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- "2017-01-01 18:00:00"
+flashes_brasildat_df$case <- str_replace(flashes_brasildat_df$case, "Case ", "Caso de ")  # pt-br
 
 flashes_totais <- select(flashes_brasildat_df, lat, lon, date, class, case)
 flashes_qte_total <- flashes_totais %>%
@@ -133,7 +135,8 @@ flashes_qte_total <- flashes_totais %>%
   mutate(class = paste("Total", class, "=", n)) %>%
   select(case, class)
 flashes_rcount <- select(flashes_brasildat_df, case, hour, class, date_hailpad) %>%
-  mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
+  # mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
+  mutate(case = str_replace(string = case, pattern = "de ", replacement = "de\n"))  # pt-br
 
 # Plotting spatial distribution ------------------------------------------------
 theme_set(theme_bw())
@@ -149,8 +152,10 @@ ggplot(data = data_brasildat_df) +
   scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                         breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
+  # labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
+  #      color = "Time (UTC)", shape = "Stroke\nType") +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
-       color = "Time (UTC)", shape = "Stroke\nType") +
+       color = "Hora (UTC)", shape = "Tipo de\nStroke") +  # pt-br
   guides(size = "none", color = guide_colorbar(barheight = 12)) +
   theme(
     plot.background = element_rect(fill = "transparent", color = "transparent"),
@@ -159,8 +164,10 @@ ggplot(data = data_brasildat_df) +
   # theme(legend.position = "bottom") + # For less plots
   # guides(size = "none", color = guide_colorbar(barwidth = 15)) + # For less plots
   facet_wrap(~case)
-ggsave("Lightning_Processing/figures/brasildat_location.png", bg = "transparent",
-       width = 8.5, height = 4.25)
+# ggsave("Lightning_Processing/figures/brasildat_location.png", bg = "transparent",
+#        width = 8.5, height = 4.25)
+ggsave("Lightning_Processing/figures/brasildat_location_ptbr.png", bg = "transparent",
+       width = 8.5, height = 4.25)  # pt-br
 # ggsave("Lightning_Processing/figures/brasildat_location_less.png", width = 7.5, height = 3.25, bg = "transparent") # For less plots
 
 ggplot(data = flashes_brasildat_df) +
@@ -172,8 +179,10 @@ ggplot(data = flashes_brasildat_df) +
   scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                         breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
+  # labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
+  #      color = "Time (UTC)", shape = "Flash\nType") +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
-       color = "Time (UTC)", shape = "Flash\nType") +
+       color = "Hora (UTC)", shape = "Tipo de\nFlash") +  # pt-br
   guides(size = "none", color = guide_colorbar(barheight = 12)) +
   theme(
     plot.background = element_rect(fill = "transparent", color = "transparent"),
@@ -182,8 +191,10 @@ ggplot(data = flashes_brasildat_df) +
   # theme(legend.position = "bottom") + # For less plots
   # guides(size = "none", color = guide_colorbar(barwidth = 15)) + # For less plots
   facet_wrap(~case)
-ggsave("Lightning_Processing/figures/brasildat_flash_location.png", bg = "transparent",
-       width = 8.5, height = 4.25)
+# ggsave("Lightning_Processing/figures/brasildat_flash_location.png", bg = "transparent",
+#        width = 8.5, height = 4.25)
+ggsave("Lightning_Processing/figures/brasildat_flash_location_ptbr.png", bg = "transparent",
+       width = 8.5, height = 4.25)  # pt-br
 # ggsave("Lightning_Processing/figures/brasildat_flash_location_less.png", width = 7.5, height = 3.25, bg = "transparent") # For less plots
 
 # Plotting temporal distribution
@@ -191,26 +202,28 @@ plt_brasildat <- ggplot(rcount) +
   scale_x_datetime(labels = date_format("%H%M")) +
   geom_histogram(binwidth = 60, aes(x = hour, ..count.., fill = forcats::fct_rev(class))) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
-  scale_fill_manual(name = "Type", values = c("darkgoldenrod1", "darkorchid")) +
+  scale_fill_manual(values = c("darkgoldenrod1", "darkorchid")) +
   theme(
     plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent"),
     legend.position = "bottom"
   ) +
-  labs(x = "Hour (UTC)", y = "Strokes/min") +
+  # labs(x = "Time (UTC)", y = expression("Strokes"~min^-1), fill = "Type") +
+  labs(x = "Hora (UTC)", y = expression("Strokes"~min^-1), fill = "Tipo") +  # pt-br
   facet_wrap(case ~ ., scales = "free", ncol = 1, strip.position = 'right')
 
 plt_flash_brasildat <- ggplot(flashes_rcount) +
   scale_x_datetime(labels = date_format("%H%M")) +
   geom_histogram(binwidth = 60, aes(x = hour, ..count.., fill = forcats::fct_rev(class))) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
-  scale_fill_manual(name = "Type", values = c("darkgoldenrod1", "darkorchid")) +
+  scale_fill_manual(values = c("darkgoldenrod1", "darkorchid")) +
   theme(
     plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent"),
     legend.position = "bottom"
   ) +
-  labs(x = "Hour (UTC)", y = "Flashes/min") +
+  # labs(x = "Time (UTC)", y = expression("Flashes"~min^-1), fill = "Type") +
+  labs(x = "Hora (UTC)", y = expression("Flashes"~min^-1), fill = "Tipo") +  # pt-br
   facet_wrap(case ~ ., scales = "free", ncol = 1, strip.position = 'right')
 
 # Saving variables

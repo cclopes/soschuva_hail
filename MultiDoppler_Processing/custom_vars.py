@@ -9,6 +9,12 @@ from glob import glob
 from datetime import datetime
 
 # 2017-11-15
+# - 21h30
+path = "cases/2017-11-15_21h30/"
+date_name = '2017-11-15 2130 UTC'
+# -- plot_multidop
+cs_lat, cs_lon = (-22.89, -23.02), (-47.36, -47.2)
+index = "a"
 # - 21h40
 # path = "cases/2017-11-15_21h40/"
 # date_name = '2017-11-15 2140 UTC'
@@ -16,11 +22,11 @@ from datetime import datetime
 # cs_lat, cs_lon = (-23.01, -23.04), (-47.38, -47.13)
 # index = "a"
 # - 21h50
-path = "cases/2017-11-15_21h50/"
-date_name = '2017-11-15 2150 UTC'
-# -- plot_multidop
-cs_lat, cs_lon = (-23.03, -23.03), (-47.33, -47.12)
-index = "b"
+# path = "cases/2017-11-15_21h50/"
+# date_name = '2017-11-15 2150 UTC'
+# # -- plot_multidop
+# cs_lat, cs_lon = (-23.03, -23.03), (-47.33, -47.12)
+# index = "b"
 # - for both scripts
 date = datetime(2017, 11, 15, 12)
 station = "SBMT"

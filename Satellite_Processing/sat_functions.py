@@ -41,12 +41,19 @@ def get_info_file(filename, fig_type):
     start_timestamp = datetime.strptime(start_timestamp[:13], '%Y%j%H%M%S')
     end_timestamp = (filename[filename.find('_e') + 2:filename.find('_c')])
     end_timestamp = datetime.strptime(end_timestamp[:13], '%Y%j%H%M%S')
-    title = ('GOES-16 ABI Band ' + band + ' ' + band_cw +
-             '\n Scan from ' +
-             datetime.strftime(start_timestamp, '%Y-%m-%d %H%M%S') + ' to ' +
-             datetime.strftime(end_timestamp, '%H%M%S') + ' UTC')
+    # title = ('GOES-16 ABI Band ' + band + ' ' + band_cw +
+    #          '\n Scan from ' +
+    #          datetime.strftime(start_timestamp, '%Y-%m-%d %H%M%S') + ' to ' +
+    #          datetime.strftime(end_timestamp, '%H%M%S') + ' UTC')
+    title = ('GOES-16 ABI Banda ' + band + ' ' + band_cw +
+             '\n Varredura de ' +
+             datetime.strftime(start_timestamp, '%Y-%m-%d %H%M%S') + ' a ' +
+             datetime.strftime(end_timestamp, '%H%M%S') + ' UTC')  # pt-br
+    # name = ('Band_' + band + '/GOES16_B' + band + '_' + fig_type + '_SD' +
+    #         datetime.strftime(start_timestamp, '%Y%m%d%H%M') + '.png')
+    # pt-br
     name = ('Band_' + band + '/GOES16_B' + band + '_' + fig_type + '_SD' +
-            datetime.strftime(start_timestamp, '%Y%m%d%H%M') + '.png')
+            datetime.strftime(start_timestamp, '%Y%m%d%H%M') + '_ptbr.png')
 
     return (band_unit, band_conversion, band_cpt, band_minvalue,
             band_maxvalue, title, name)

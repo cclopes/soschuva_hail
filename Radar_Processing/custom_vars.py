@@ -7,6 +7,7 @@ CUSTOM VARIABLES FOR RADAR PROCESSING
 import matplotlib.colors as colors
 
 path = "../Data/RADAR/"
+hail_flag = True
 
 # 2017-03-14
 # - 18h00
@@ -62,6 +63,13 @@ path = "../Data/RADAR/"
 # plotgrid_spc = .15
 
 # 2017-11-15
+# - 21h30
+filename = path + "CTH/level_0_hdf5/2017-11-15/PNOVA2-20171115213004.HDF5"
+# filename = (path +
+#             "CTH/level_0_mod/2017-11-15/20171115_214004_XXXXXXXX_v001_PPI.uf")
+date_name = '2017-11-15 2130 UTC'
+cs_lat, cs_lon = (-22.89, -23.02), (-47.36, -47.27)
+hail_flag = False
 # - 21h40
 # filename = path + "CTH/level_0_hdf5/2017-11-15/PNOVA2-20171115214004.HDF5"
 # # filename = (path +
@@ -70,11 +78,11 @@ path = "../Data/RADAR/"
 # cs_lat, cs_lon = (-23.01, -23.04), (-47.38, -47.13)
 # (-23.07, -22.93), (-47.19, -47.32)
 # - 21h50
-filename = path + "CTH/level_0_hdf5/2017-11-15/PNOVA2-20171115215004.HDF5"
-# filename = (path +
-#             "CTH/level_0_mod/2017-11-15/20171115_215004_XXXXXXXX_v001_PPI.uf")
-date_name = '2017-11-15 2150 UTC'
-cs_lat, cs_lon = (-23.03, -23.03), (-47.33, -47.12)
+# filename = path + "CTH/level_0_hdf5/2017-11-15/PNOVA2-20171115215004.HDF5"
+# # filename = (path +
+# #             "CTH/level_0_mod/2017-11-15/20171115_215004_XXXXXXXX_v001_PPI.uf")
+# date_name = '2017-11-15 2150 UTC'
+# cs_lat, cs_lon = (-23.03, -23.03), (-47.33, -47.12)
 # (-23.09, -22.99), (-47.28, -47.16)
 # for both times
 grid_xlim, grid_ylim = (-200000.0, 10000.0), (-10000.0, 200000.0)

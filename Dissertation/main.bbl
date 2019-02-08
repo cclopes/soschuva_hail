@@ -61,6 +61,13 @@ Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0493\%281977\%29105\%3C0113\%3AFISTOB\%3E2.0.CO\%3B2
   http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(1977)105\%3C0113:FISTOB\%3E2.0.CO;2}.}
 
+\bibitem[Bringi e Chandrasekar 2001]{Bringi2001}
+\abntrefinfo{Bringi e Chandrasekar}{BRINGI; CHANDRASEKAR}{2001}
+{BRINGI, V.~N.; CHANDRASEKAR, V. \emph{{Polarimetric Doppler Radar: Principles
+  and applications}}. Cambridge University Press, 2001. 636~p.
+ISBN 9780521623841. Dispon{\'\i}vel em:
+  \url{https://books.google.com.br/books?hl=pt-BR&lr=&id=KvJvfP9t5Y8C&oi=fnd&pg=PR11&ots=XworR82NzS&sig=crq9heYQXXeQRqcton82nX3LFYY&redir\_esc=y\#v=onepage&q&f=false}.}
+
 \bibitem[Calhoun et al. 2013]{Calhoun2013}
 \abntrefinfo{Calhoun et al.}{CALHOUN et al.}{2013}
 {CALHOUN, K.~M. et al. {Evolution of Lightning Activity and Storm Charge
@@ -85,6 +92,15 @@ Dispon{\'\i}vel em:
 {CAREY, L.~D.; RUTLEDGE, S.~A. {Positive cloud-to-ground lightning in severe
   hailstorms: a multiparameter radar study}. In:  \emph{International
   Conference on Radar Meteorology}. [S.l.: s.n.], 1995. p. 629--632.}
+
+\bibitem[Carey e Rutledge 1998]{Carey1998a}
+\abntrefinfo{Carey e Rutledge}{CAREY; RUTLEDGE}{1998}
+{CAREY, L.~D.; RUTLEDGE, S.~A. {Electrical and multiparameter radar
+  observations of a severe hailstorm}.
+\emph{Journal of Geophysical Research: Atmospheres}, v.~103, n.~D12, p.
+  13979--14000, jun 1998.
+ISSN 01480227.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1029/97JD02626}.}
 
 \bibitem[Carey e Rutledge 2000]{Carey2000}
 \abntrefinfo{Carey e Rutledge}{CAREY; RUTLEDGE}{2000}
@@ -180,6 +196,14 @@ ISSN 00030007, 15200477.
 Dispon{\'\i}vel em: \url{https://www.jstor.org/stable/26246366
   http://www.jstor.org/stable/26246366}.}
 
+\bibitem[Deierling et al. 2005]{Deierling2005}
+\abntrefinfo{Deierling et al.}{DEIERLING et al.}{2005}
+{DEIERLING, W. et al. {Towards the Relationship between Total Lightning
+  Activity and Downward as well as Upward Ice Mass Fluxes in Thunderstorms}.
+  In:  \emph{Conference on Meteorological Applications of Lightning Data}. San
+  Diego, CA: [s.n.], 2005. p.~1--6. Dispon{\'\i}vel em:
+  \url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.572.251}.}
+
 \bibitem[Deierling et al. 2008]{Deierling2008}
 \abntrefinfo{Deierling et al.}{DEIERLING et al.}{2008}
 {DEIERLING, W. et al. {The relationship between lightning activity and ice
@@ -197,6 +221,16 @@ ISSN 01480227.}
 ISSN 01698095.
 Dispon{\'\i}vel em:
   \url{https://www.sciencedirect.com/science/article/pii/S0169809506001281}.}
+
+\bibitem[Dolan e Rutledge 2009]{Dolan2009}
+\abntrefinfo{Dolan e Rutledge}{DOLAN; RUTLEDGE}{2009}
+{DOLAN, B.; RUTLEDGE, S.~A. {A theory-based hydrometeor identification
+  algorithm for X-band polarimetric radars}.
+\emph{Journal of Atmospheric and Oceanic Technology}, v.~26, n.~10, p.
+  2071--2088, oct 2009.
+ISSN 07390572.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/2009JTECHA1208.1}.}
 
 \bibitem[Dolan e Rutledge 2007]{Dolan2007}
 \abntrefinfo{Dolan e Rutledge}{DOLAN; RUTLEDGE}{2007}
@@ -244,6 +278,14 @@ ISSN 07390572.
 Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/2009JTECHA1286.1
   http://journals.ametsoc.org/doi/pdf/10.1175/2009JTECHA1286.1}.}
+
+\bibitem[Golestani, Chandrasekar e Bringi 1989]{Golestani1989}
+\abntrefinfo{Golestani, Chandrasekar e Bringi}{GOLESTANI; CHANDRASEKAR;
+  BRINGI}{1989}
+{GOLESTANI, Y.; CHANDRASEKAR, V.; BRINGI, V.~N. {Intercomparison of
+  multiparameter radar measurements}. In:  \emph{24th Conference on Radar
+  Meteorology}. [s.n.], 1989. p. 309--314. Dispon{\'\i}vel em:
+  \url{https://scholar.google.com/scholar?q=Golestani\%2C+Y.\%2C+V.+Chandrasekar\%2C+and+V.+N.+Bringi\%2C+Intercomparison+of+multiparameter+radar+measurements+&btnG=&hl=pt-BR&as\_sdt=0\%2C5}.}
 
 \bibitem[Goodman et al. 1988]{Goodman1988}
 \abntrefinfo{Goodman et al.}{GOODMAN et al.}{1988}
@@ -578,6 +620,29 @@ ISBN 9780965800211 (pbk.)\r0965800210 (pbk.).}
   p. 1358--1360.
 ISBN 0-7803-6359-0. Dispon{\'\i}vel em:
   \url{http://ieeexplore.ieee.org/document/858118/}.}
+
+\bibitem[Ryzhkov e Zrnic 1995]{Ryzhkov1995}
+\abntrefinfo{Ryzhkov e Zrnic}{RYZHKOV; ZRNIC}{1995}
+{RYZHKOV, A.~V.; ZRNIC, D.~S. \emph{{Comparison of Dual-Polarization Radar
+  Estimators of Rain}}. 1995. 249--256~p.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0426\%281995\%29012\%3C0249\%3ACODPRE\%3E2.0.CO\%3B2}.}
+
+\bibitem[S{\'{a}}nchez et al. 2009]{Sanchez2009}
+\abntrefinfo{S{\'{a}}nchez et al.}{S{\'{A}}NCHEZ et al.}{2009}
+{S{\'{A}}NCHEZ, J.~L. et al. {Characterization of hailstone size spectra in
+  hailpad networks in France, Spain, and Argentina}.
+\emph{Atmospheric Research}, Elsevier B.V., v.~93, n.~1-3, p. 641--654, 2009.
+ISSN 01698095.
+Dispon{\'\i}vel em: \url{http://dx.doi.org/10.1016/j.atmosres.2008.09.033}.}
+
+\bibitem[Sassen 1987]{Sassen1987}
+\abntrefinfo{Sassen}{SASSEN}{1987}
+{SASSEN, K. \emph{{Ice Cloud Content from Radar Reflectivity}}. 1987.
+  1050--1053~p.
+Dispon{\'\i}vel em:
+  \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0450\%281987\%29026\%3C1050\%3AICCFRR\%3E2.0.CO\%3B2
+  http://journals.ametsoc.org/doi/abs/10.1175/1520-0450(1987)026\%3C1050:ICCFRR\%3E2.0.CO;2}.}
 
 \bibitem[Saunders 2008]{Saunders2008}
 \abntrefinfo{Saunders}{SAUNDERS}{2008}

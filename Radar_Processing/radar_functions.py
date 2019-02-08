@@ -87,9 +87,12 @@ def calculate_radar_hid(radar, sounding_names, radar_band="S"):
     rho_hv = radar.fields['cross_correlation_ratio']['data']
 
     # Classifying
-    scores = csu_fhc.csu_fhc_summer(dz=z_corrected, zdr=zdr, kdp=kdp,
+    scores = csu_fhc.csu_fhc_summer(weights={'DZ': 1, 'DR': 1, 'KD': 1,
+                                             'RH': 1, 'LD': 1, 'T': 1},
+                                    dz=z_corrected, zdr=zdr, kdp=kdp,
                                     rho=rho_hv, use_temp=True, T=radar_T,
-                                    band=radar_band, verbose=True)
+                                    band=radar_band, verbose=True,
+                                    method='hybrid')
     fh = np.argmax(scores, axis=0) + 1
     # - Adding to radar file
     radar = add_field_to_radar_object(fh, radar,
@@ -746,7 +749,8 @@ def plot_field_panel(
         grid, field, level, fmin, fmax, lat_index=None, lon_index=None,
         date='', name_multi='', shp_name='', hailpad_pos=None, zero_height=3.,
         minusforty_height=10., grid_spc=.25, cmap=None, reverse_cmap=False,
-        norm=None, xlim=(-48, -46), ylim=(-24, -22), save_path='./', index=''):
+        norm=None, xlim=(-48, -46), ylim=(-24, -22), save_path='./', index='',
+        hailpad_cs_flag=True):
     """
     Using gridded multidoppler processed data, plot horizontal and vertical
     views:
@@ -845,7 +849,8 @@ def plot_field_panel(
                               zerodeg_height=zero_height,
                               minusfortydeg_height=minusforty_height,
                               zdh_col='k', cmap=cmap, colorbar_flag=False,
-                              norm=norm, dot_pos=hailpad_pos)
+                              norm=norm, dot_pos=hailpad_pos,
+                              dot_flag=hailpad_cs_flag)
     cb = display.plot_colorbar(orientation='vertical', ax=ax2,
                                label=grid.fields[field]['units'])
     if field == 'FH':
@@ -863,6 +868,7 @@ def plot_field_panel(
     ax2.set_xlabel('')
     ax2.set_ylabel('Distance above Ground (km)')
     ax2.grid(linestyle='-', linewidth=0.25)
+    ax2.set_ylim(1, 20)
     plt.savefig(save_path + name_multi + ' ' + field_name + ' ' +
                 date + '.png', dpi=300, bbox_inches='tight',
                 facecolor='none', edgecolor='w')

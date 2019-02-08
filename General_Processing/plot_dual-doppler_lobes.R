@@ -139,13 +139,22 @@ ggplot() +
   geom_path(data = IND, aes(x, y), inherit.aes = F, colour = "gray30", size = 0.3) +
   geom_point(data = radars, aes(x, y)) +
   geom_path(data = circles, aes(x = lon, y = lat, color = angle, group = group)) +
-  scale_color_manual(name = expression("Beam Crossing Angle ("*degree*")"), values = c("red", "blue")) +
-  geom_label_repel(data = radars, aes(x, y, label = radar), point.padding = 0.25, force = 100, size = 3, alpha = 0.7, min.segment.length = 0) +
+  # scale_color_manual(name = expression("Beam Crossing Angle ("*degree*")"),
+  #                    values = c("red", "blue")) +
+  scale_color_manual(name = expression("Ângulo de Cruzamento do Feixe ("*degree*")"),
+                     values = c("red", "blue")) +  # pt-br
+  geom_label_repel(data = radars, aes(x, y, label = radar), point.padding = 0.25,
+                   force = 100, size = 3, alpha = 0.7, min.segment.length = 0) +
   geom_line(data = radars, aes(x, y), linetype = "dashed") +
-  geom_label_repel(data = radars_dist, aes(midlon, midlat, label = distance), point.padding = 0.1, size = 2, alpha = 0.7, min.segment.length = 0) +
-  theme(legend.position = "bottom",
+  geom_label_repel(data = radars_dist, aes(midlon, midlat, label = distance),
+                   point.padding = 0.1, size = 2, alpha = 0.7, min.segment.length = 0) +
+  theme(legend.position = "bottom", legend.title.align = 0.5, 
         plot.background = element_rect(fill = "transparent", color = "transparent"),
         legend.background = element_rect(fill = "transparent")) +
+  guides(color = guide_legend(nrow = 2)) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")")) +
   facet_grid(combination ~ .)
-# ggsave("General_Processing/figures/dual_doppler_lobes.png", width = 3.1, height = 6, bg = "transparent")
+# ggsave("General_Processing/figures/dual_doppler_lobes.png", width = 3.2,
+#        height = 6, bg = "transparent")
+ggsave("General_Processing/figures/dual_doppler_lobes_ptbr.png", width = 3.2,
+       height = 6, bg = "transparent")  # pt-br

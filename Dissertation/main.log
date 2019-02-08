@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.9.22)  1 FEB 2019 17:58
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.9.22)  8 FEB 2019 18:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1045,6 +1045,15 @@ Package grffile Info: Option `extendedchars' is set to `false'.
 Package grffile Info: Option `space' is set to `true'.
 Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 486.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/units/units.sty
+Package: units 1998/08/04 v0.9b Typesetting units
+
+(/usr/share/texlive/texmf-dist/tex/latex/units/nicefrac.sty
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip276
+\L@UnitsRaiseTextstyle=\skip277
+\L@UnitsRaiseScriptstyle=\skip278
+))
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count293
@@ -1056,26 +1065,26 @@ Package: backref 2016/05/21 v1.39 Bibliographical back referencing
 Package: abntex2cite 2016/02/26 v-1.9.6 abnTeX2
 
 (/usr/share/texlive/texmf-dist/tex/latex/abntex2/abntex2abrev.sty)
-\minimumbiblabelwidth=\skip276
-\ABCIauxlen=\skip277
+\minimumbiblabelwidth=\skip279
+\ABCIauxlen=\skip280
 \c@ABCIaux=\count294
 \c@ABCImax=\count295
 
 (/usr/share/texlive/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-\biblabelsep=\skip278
+\biblabelsep=\skip281
 LaTeX Info: Redefining \newblock on input line 591.
 LaTeX Info: Redefining \cite on input line 618.
 \ABCItoken=\toks31
 )
-Package color Info: Redefining color blue on input line 172.
+Package color Info: Redefining color blue on input line 173.
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 189.
+Package hyperref Info: Option `colorlinks' set `true' on input line 190.
 \main@idxfile=\write4
 \openout4 = `main.idx'.
 
@@ -1084,26 +1093,26 @@ Writing index file main.idx
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 241.
+LaTeX Font Info:    ... okay on input line 241.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 241.
+LaTeX Font Info:    ... okay on input line 241.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 241.
+LaTeX Font Info:    ... okay on input line 241.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 241.
+LaTeX Font Info:    ... okay on input line 241.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 241.
+LaTeX Font Info:    ... okay on input line 241.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 241.
+LaTeX Font Info:    ... okay on input line 241.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 241.
+LaTeX Font Info:    ... okay on input line 241.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 241.
+LaTeX Font Info:    ... okay on input line 241.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 241.
+LaTeX Font Info:    ... okay on input line 241.
 \AtBeginShipoutBox=\box60
-Package hyperref Info: Link coloring ON on input line 240.
+Package hyperref Info: Link coloring ON on input line 241.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1114,13 +1123,13 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 240.
-LaTeX Info: Redefining \ref on input line 240.
-LaTeX Info: Redefining \pageref on input line 240.
-LaTeX Info: Redefining \nameref on input line 240.
+LaTeX Info: Redefining \nameref on input line 241.
+LaTeX Info: Redefining \ref on input line 241.
+LaTeX Info: Redefining \pageref on input line 241.
+LaTeX Info: Redefining \nameref on input line 241.
 \myptabbox=\box61
-\myptabboxwidth=\skip279
-LaTeX Info: Redefining \microtypecontext on input line 240.
+\myptabboxwidth=\skip282
+LaTeX Info: Redefining \microtypecontext on input line 241.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -1147,37 +1156,37 @@ Dictionary: translator-basic-dictionary, Language: portuguese
 File: siunitx-abbreviations.cfg 2017/01/01 v2.7a siunitx: Abbreviated units
 )
 \c__siunitx_mathsf_int=\count297
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 240.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 241.
 
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 240.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 241.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 240
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 241
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 240
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 241
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 240.
+(Font)              <12> on input line 241.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 240.
+(Font)              <8> on input line 241.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 240.
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 240
+(Font)              <6> on input line 241.
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 241
 .
 
 (/usr/share/texmf/tex/latex/lm/ot1lmss.fd
@@ -1188,7 +1197,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 \c__siunitx_mathtt_int=\count298
-LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 240
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 241
 .
 
 (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
@@ -1198,7 +1207,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 257.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 258.
 
 
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
@@ -1213,7 +1222,7 @@ Package microtype Info: Loading generic settings for font family
 ] [2
 
 ]
-Overfull \hbox (13.56625pt too wide) in paragraph at lines 267--267
+Overfull \hbox (13.56625pt too wide) in paragraph at lines 268--268
 [][] 
  []
 
@@ -1237,10 +1246,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11])
+ [11]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12]
+ [12])
 [13] [14
 
 ] (./main.lot) [15] [16
@@ -1277,9 +1286,9 @@ Overfull \hbox (9.24742pt too wide) in paragraph at lines 56--56
 File: figs/growth_knight.png Graphic file (type QTm)
 
 <use  "figs/growth_knight.png" > [23]
-File: figs/takahashi_williams_notitle.png Graphic file (type QTm)
+File: figs/takahashi_williams_ptbr.png Graphic file (type QTm)
 
-<use  "figs/takahashi_williams_notitle.png" >
+<use  "figs/takahashi_williams_ptbr.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [24]
@@ -1288,45 +1297,44 @@ File: figs/tripole_normal.png Graphic file (type QTm)
 <use  "figs/tripole_normal.png" >
 File: figs/tripole_opposite.png Graphic file (type QTm)
  <use  "figs/tripole_opposite.png" > [25]
-[26]
 File: figs/barnes_synoptic_jan.png Graphic file (type QTm)
- <use  "figs/barnes_synoptic_jan.png" >
-File: figs/barnes_synoptic_jul.png Graphic file (type QTm)
 
-<use  "figs/barnes_synoptic_jul.png" > [27]
+<use  "figs/barnes_synoptic_jan.png" >
+File: figs/barnes_synoptic_jul.png Graphic file (type QTm)
+ <use  "figs/barnes_synoptic_jul.png" >
 File: figs/cecil_severehail.png Graphic file (type QTm)
 
 <use  "figs/cecil_severehail.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28]
+ [26]
 Missing character: There is no – in font ec-lmri12!
 
 Underfull \vbox (badness 2772) has occurred while \output is active []
 
- [29]
+ [27]
 File: figs/system_doviak.png Graphic file (type QTm)
 
 <use  "figs/system_doviak.png" >
 Missing character: There is no ́ in font ec-lmr12!
 Missing character: There is no ́ in font ec-lmr12!
- [30]
 Missing character: There is no ́ in font ec-lmr12!
+ [28]
 File: figs/lobes_eastin.png Graphic file (type QTm)
  <use  "figs/lobes_eastin.png" >)
-(./tex/methods.tex [31] [32] (./tex/table_cases.tex
+(./tex/methods.tex [29] [30] [31] [32] [33] [34] (./tex/table_cases.tex
 Underfull \hbox (badness 10000) in paragraph at lines 23--23
 [][]|\T1/lmr/m/n/10 Adap-tado de [][]$<[]https : / / topicssoschuva . blogspot 
 . com . br / 2017 / 03 / summary -[] of -[] case -[] studies .
  []
 
-) [33
+) [35
 
 ]
 File: figs/hailpad_network.png Graphic file (type QTm)
  <use  "figs/hailpad_network.png" >
 File: figs/hailpad.png Graphic file (type QTm)
- <use  "figs/hailpad.png" > [34]
+ <use  "figs/hailpad.png" > [36]
 File: figs/hailpad_site.jpg Graphic file (type QTm)
 
 <use  "figs/hailpad_site.jpg" >
@@ -1334,71 +1342,70 @@ File: figs/hailpad_used.JPG Graphic file (type QTm)
  <use  "figs/hailpad_used.JPG" >
 File: figs/calibracao_hailpad.png Graphic file (type QTm)
 
-<use  "figs/calibracao_hailpad.png" > [35] (./tex/table_scales.tex)
+<use  "figs/calibracao_hailpad.png" > [37] (./tex/table_scales.tex)
 File: figs/radar_coverages_hires2.jpg Graphic file (type QTm)
 
-<use  "figs/radar_coverages_hires2.jpg" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use  "figs/radar_coverages_hires2.jpg" > [38] [39]
+Underfull \vbox (badness 6876) has occurred while \output is active []
 
- [36]
-[37] [38]
+ [40]
 File: figs/fortracc_classes.png Graphic file (type QTm)
- <use  "figs/fortracc_classes.png" > [39]
-File: ../General_Processing/figures/scan_strategy_cth.png Graphic file (type QT
-m)
 
-<use  "../General_Processing/figures/scan_strategy_cth.png" >
-File: ../General_Processing/figures/scan_strategy_sr.png Graphic file (type QTm
-)
-
-<use  "../General_Processing/figures/scan_strategy_sr.png" >
-File: ../General_Processing/figures/scan_strategy_xpol.png Graphic file (type Q
-Tm)
-
-<use  "../General_Processing/figures/scan_strategy_xpol.png" > [40] [41]
-File: ../General_Processing/figures/hids_strakaetal.png Graphic file (type QTm)
-
-
-<use  "../General_Processing/figures/hids_strakaetal.png" > [42]
-Underfull \vbox (badness 1082) has occurred while \output is active []
-
- [43]
-File: ../General_Processing/figures/dual_doppler_lobes.png Graphic file (type Q
-Tm)
-
-<use  "../General_Processing/figures/dual_doppler_lobes.png" >
-
-LaTeX Warning: Float too large for page by 3.23682pt on input line 217.
-
-(./tex/table_multidop.tex) [44]
-Overfull \vbox (5.0pt too high) has occurred while \output is active []
-
- [45]
-File: figs/nyquist_rauber.png Graphic file (type QTm)
-
-<use  "figs/nyquist_rauber.png" > [46]
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 247.
- [47]
-File: ../Lightning_Processing/figures/brasildat_flash_stats.png Graphic file (t
-ype QTm)
-
-<use  "../Lightning_Processing/figures/brasildat_flash_stats.png" > [48])
-[49] (./tex/results.tex [50]
-File: ../Hailpads_Processing/figures/measures_distribution.png Graphic file (ty
+<use  "figs/fortracc_classes.png" > [41]
+File: ../General_Processing/figures/scan_strategy_cth_ptbr.png Graphic file (ty
 pe QTm)
 
-<use  "../Hailpads_Processing/figures/measures_distribution.png" > [51
+<use  "../General_Processing/figures/scan_strategy_cth_ptbr.png" >
+File: ../General_Processing/figures/scan_strategy_sr_ptbr.png Graphic file (typ
+e QTm)
+
+<use  "../General_Processing/figures/scan_strategy_sr_ptbr.png" >
+File: ../General_Processing/figures/scan_strategy_xpol_ptbr.png Graphic file (t
+ype QTm)
+
+<use  "../General_Processing/figures/scan_strategy_xpol_ptbr.png" > [42]
+[43]
+File: ../General_Processing/figures/hids_strakaetal_ptbr.png Graphic file (type
+ QTm)
+ <use  "../General_Processing/figures/hids_strakaetal_ptbr.png" > [44]
+[45] [46]
+File: ../General_Processing/figures/dual_doppler_lobes_ptbr.png Graphic file (t
+ype QTm)
+ <use  "../General_Processing/figures/dual_doppler_lobes_ptbr.png" >
+(./tex/table_multidop.tex) [47] [48]
+File: figs/nyquist_rauber.png Graphic file (type QTm)
+ <use  "figs/nyquist_rauber.png" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [49]
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 284.
+
+[50]
+File: ../Lightning_Processing/figures/brasildat_flash_stats_ptbr.png Graphic fi
+le (type QTm)
+ <use  "../Lightning_Processing/figures/brasildat_flash_stats_ptbr.png" >
+Underfull \vbox (badness 4713) has occurred while \output is active []
+
+ [51])
+[52] (./tex/results.tex [53] [54
 
 ]
-File: ../Hailpads_Processing/figures/data_anelfa_torro.png Graphic file (type Q
-Tm)
+File: ../Hailpads_Processing/figures/measures_distribution_ptbr.png Graphic fil
+e (type QTm)
 
-<use  "../Hailpads_Processing/figures/data_anelfa_torro.png" > [52]
-File: ../General_Processing/figures/cases_dbz_size_lightning.png Graphic file (
-type QTm)
+<use  "../Hailpads_Processing/figures/measures_distribution_ptbr.png" >
+[55]
+File: ../Hailpads_Processing/figures/data_anelfa_torro_ptbr.png Graphic file (t
+ype QTm)
+ <use  "../Hailpads_Processing/figures/data_anelfa_torro_ptbr.png" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<use  "../General_Processing/figures/cases_dbz_size_lightning.png" >
+ [56]
+File: ../General_Processing/figures/cases_dbz_size_lightning_ptbr.png Graphic f
+ile (type QTm)
+
+<use  "../General_Processing/figures/cases_dbz_size_lightning_ptbr.png" >
 (./tex/table_summary_cases.tex
 Overfull \hbox (2.6964pt too wide) in paragraph at lines 25--25
  []|\T1/lmr/m/n/10 Tempo 
@@ -1440,13 +1447,13 @@ Overfull \hbox (4.52272pt too wide) in paragraph at lines 25--25
  []
 
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1701) has occurred while \output is active []
 
- [53]
+ [57]
 Overfull \vbox (3.9222pt too high) has occurred while \output is active []
 
 
-[54]
+[58]
 File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200.png Graphi
 c file (type QTm)
 
@@ -1480,14 +1487,11 @@ Overfull \hbox (7.83322pt too wide) in paragraph at lines 106--108
  [][][] 
  []
 
-[55]
+[59] [60] [61]
 File: ../General_Processing/figures/track_flashes_20170314.png Graphic file (ty
 pe QTm)
- <use  "../General_Processing/figures/track_flashes_20170314.png" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56]
-[57] [58]
+<use  "../General_Processing/figures/track_flashes_20170314.png" > [62]
 File: ../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivi
 ty 2017-03-14 1827 UTC.png Graphic file (type QTm)
 
@@ -1566,17 +1570,17 @@ File: ../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017-
 -03-14 1957 UTC.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59]
+ [63]
 Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
- [60]
-[61]
+ [64]
+[65]
 Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
- [62]
+ [66]
 Underfull \vbox (badness 3657) has occurred while \output is active []
 
- [63]
+ [67]
 File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1820 UTC.png Graphi
 c file (type QTm)
 
@@ -1587,7 +1591,7 @@ c file (type QTm)
 <use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1830 UTC.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [64]
+ [68]
 File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC.png Graphi
 c file (type QTm)
 
@@ -1632,15 +1636,15 @@ Overfull \hbox (7.83322pt too wide) in paragraph at lines 269--271
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [65]
-File: ../General_Processing/figures/track_flashes_20171115.png Graphic file (ty
-pe QTm)
+ [69]
+File: ../General_Processing/figures/track_flashes_20171115_ptbr.png Graphic fil
+e (type QTm)
 
-<use  "../General_Processing/figures/track_flashes_20171115.png" >
+<use  "../General_Processing/figures/track_flashes_20171115_ptbr.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [66]
-[67] [68]
+ [70]
+[71] [72]
 File: ../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivi
 ty 2017-11-15 2150 UTC.png Graphic file (type QTm)
 
@@ -1678,13 +1682,13 @@ File: ../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017-
 11-15 2150 UTC.png Graphic file (type QTm)
 
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017
--11-15 2150 UTC.png" > [69]
+-11-15 2150 UTC.png" > [73]
 Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
- [70]
+ [74]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [71]
+ [75]
 File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC.png G
 raphic file (type QTm)
 
@@ -1694,14 +1698,14 @@ File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC.png G
 raphic file (type QTm)
 
 <use  "../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC.png"
- >) (./tex/conclusions.tex [72] [73] [74
+ >) (./tex/conclusions.tex [76] [77] [78
 
 ]) (./main.bbl (./main.brf)
 \tf@brf=\write5
 \openout5 = `main.brf'.
 
- [75]
-[76
+ [79]
+[80
 
 ]
 
@@ -1709,20 +1713,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\uppercase' on input line 3.
 
 bibitemlist
-[77]
+[81]
 Missing character: There is no – in font ec-lmr12!
- [78]
+ [82] [83]
 Missing character: There is no ́ in font ec-lmr12!
- [79] [80] [81] [82] [83] [84] [85]) (./tex/appendices.tex)
-(./tex/annexes.tex [86]
+ [84] [85] [86] [87] [88] [89] [90]) (./tex/appendices.tex)
+(./tex/annexes.tex [91] [92
+
+]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\uppercase' on input line 8.
 
-[87
+[93
 
-
-] [88]
+] [94]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <24.88> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 10.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1750,7 +1755,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 )
 No file main.ind.
-[89
+[95
 
 ]
 \tf@lof=\write6
@@ -1762,24 +1767,24 @@ No file main.ind.
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 438.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 438.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 439.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 439.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 438.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 438.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 439.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 439.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 438.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 439.
  ) 
 Here is how much of TeX's memory you used:
- 27300 strings out of 493068
- 489198 string characters out of 6137720
- 697107 words of memory out of 5000000
- 30833 multiletter control sequences out of 15000+600000
+ 27422 strings out of 493068
+ 491372 string characters out of 6137720
+ 701578 words of memory out of 5000000
+ 30948 multiletter control sequences out of 15000+600000
  136406 words of font info for 91 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 47i,14n,49p,10422b,1064s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,14n,49p,10422b,1073s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (91 pages).
+Output written on main.pdf (97 pages).

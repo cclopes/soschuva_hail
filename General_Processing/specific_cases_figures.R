@@ -36,12 +36,18 @@ plt_fortracc <- ggplot(data = fams_df) +
   # scale_size_continuous(range = c(0, 20)) +
   scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                         breaks = pretty_breaks(n = 10), trans = time_trans()) +
+  # scale_shape_manual(values = c(20, 15, 18, 0), 
+  #                    labels = c("Continuity", "Merge", "New", "Split")) +
   scale_shape_manual(values = c(20, 15, 18, 0), 
-                     labels = c("Continuity", "Merge", "New", "Split")) +
+                     labels = c("Continuidade", "Fusão", "Novo", "Separação")) +  # pt-br
+  # labs(
+  #   x = expression("Longitude (" * degree * ")"), y = expression("Latitude (" * degree * ")"),
+  #   color = "Time (UTC)", shape = "Classification"
+  # ) +
   labs(
     x = expression("Longitude (" * degree * ")"), y = expression("Latitude (" * degree * ")"),
-    color = "Time (UTC)", shape = "Classification"
-  ) +
+    color = "Hora (UTC)", shape = "Classificação"
+  ) +  # pt-br
   guides(size = "none", color = F,
          shape = guide_legend(title.position = "top", title.hjust = 0.5)) +
   theme(
@@ -63,8 +69,10 @@ plt_flashes <- ggplot(data = flashes_df) +
   scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                         breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
+  # labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
+  #      color = "Time (UTC)", shape = "Flash Type") +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
-       color = "Time (UTC)", shape = "Flash Type") +
+       color = "Hora (UTC)", shape = "Tipo de Flash") +  # pt-br
   guides(size = "none", color = F,
          shape = guide_legend(title.position = "top", title.hjust = 0.5)) +
   theme(
@@ -86,8 +94,10 @@ legend <- get_legend(
     scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                           breaks = pretty_breaks(n = 10), trans = time_trans()) +
     scale_shape_manual(values = c(4, 1)) +
+    # labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
+    #      color = "Time (UTC)", shape = "Flash\nType") +
     labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
-         color = "Time (UTC)", shape = "Flash\nType") +
+         color = "Hora (UTC)", shape = "Tipo de\nFlash") +  # pt-br
     guides(size = "none", shape = F, color = guide_colorbar(barheight = 12)) +
     theme(
       plot.background = element_rect(fill = "transparent", color = "transparent"),
@@ -97,8 +107,10 @@ legend <- get_legend(
 
 plt <- plot_grid(plt_fortracc, plt_flashes, legend, labels = c("a", "b"), 
                  ncol = 3, rel_widths = c(0.4, 0.4, 0.12))
-save_plot("General_Processing/figures/track_flashes_20170314.png",
-          plot = plt, ncol = 3, base_width = 2.5, base_height = 3.4, bg = "transparent")
+# save_plot("General_Processing/figures/track_flashes_20170314.png",
+#           plot = plt, ncol = 3, base_width = 2.5, base_height = 3.4, bg = "transparent")
+save_plot("General_Processing/figures/track_flashes_20170314_ptbr.png",
+          plot = plt, ncol = 3, base_width = 2.5, base_height = 3.4, bg = "transparent")  # pt-br
 
 # 2017-11-15 -------------------------------------------------------------------
 fams_df <- selected_fams_df %>% 
@@ -118,12 +130,18 @@ plt_fortracc <- ggplot(data = fams_df) +
   # scale_size_continuous(range = c(0, 20)) +
   scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                         breaks = pretty_breaks(n = 10), trans = time_trans()) +
+  # scale_shape_manual(values = c(20, 15, 18, 0), 
+  #                    labels = c("Continuity", "Merge", "New", "Split")) +
   scale_shape_manual(values = c(20, 15, 18, 0), 
-                     labels = c("Continuity", "Merge", "New", "Split")) +
+                     labels = c("Continuidade", "Fusão", "Novo", "Separação")) +  # pt-br
+  # labs(
+  #   x = expression("Longitude (" * degree * ")"), y = expression("Latitude (" * degree * ")"),
+  #   color = "Time (UTC)", shape = "Classification"
+  # ) +
   labs(
     x = expression("Longitude (" * degree * ")"), y = expression("Latitude (" * degree * ")"),
-    color = "Time (UTC)", shape = "Classification"
-  ) +
+    color = "Hora (UTC)", shape = "Classificação"
+  ) +  # pt-br
   guides(size = "none", color = F,
          shape = guide_legend(title.position = "top", title.hjust = 0.5)) +
   theme(
@@ -145,8 +163,10 @@ plt_flashes <- ggplot(data = flashes_df) +
   scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                         breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
+  # labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
+  #      color = "Time (UTC)", shape = "Flash Type") +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
-       color = "Time (UTC)", shape = "Flash Type") +
+       color = "Hora (UTC)", shape = "Tipo de Flash") +  # pt-br
   guides(size = "none", color = F,
          shape = guide_legend(title.position = "top", title.hjust = 0.5)) +
   theme(
@@ -168,8 +188,10 @@ legend <- get_legend(
     scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                           breaks = pretty_breaks(n = 6), trans = time_trans()) +
     scale_shape_manual(values = c(4, 1)) +
+    # labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
+    #      color = "Time (UTC)", shape = "Flash\nType") +
     labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
-         color = "Time (UTC)", shape = "Flash\nType") +
+         color = "Hora (UTC)", shape = "Tipo de\nFlash") +  # pt-br
     guides(size = "none", shape = F, color = guide_colorbar(barheight = 12)) +
     theme(
       plot.background = element_rect(fill = "transparent", color = "transparent"),
@@ -179,5 +201,7 @@ legend <- get_legend(
 
 plt <- plot_grid(plt_fortracc, plt_flashes, legend, labels = c("a", "b"), 
                  ncol = 3, rel_widths = c(0.4, 0.4, 0.12))
-save_plot("General_Processing/figures/track_flashes_20171115.png",
-          plot = plt, ncol = 3, base_width = 2.5, base_height = 3.4, bg = "transparent")
+# save_plot("General_Processing/figures/track_flashes_20171115.png",
+#           plot = plt, ncol = 3, base_width = 2.5, base_height = 3.4, bg = "transparent")
+save_plot("General_Processing/figures/track_flashes_20171115_ptbr.png",
+          plot = plt, ncol = 3, base_width = 2.5, base_height = 3.4, bg = "transparent")  # pt-br

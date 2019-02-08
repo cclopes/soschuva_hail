@@ -16,6 +16,9 @@ source("General_Processing/color_palette.R")
 
 # Conceptual model of hydrometeor classification - Straka et al. (2000) --------
 hids <- read_csv("Data/GENERAL/hids")
+hids$HID <- c("Chuvisco", "Chuva", "Cristais de Gelo", "Agregados", "Neve Molhada",
+              "Gelo Vertical", "Graupel de Densidade Baixa", "Graupel de Densidade Alta",
+              "Granizo", "Gotas Grandes", "Chuva + Granizo")  # pt-br
 
 plt_a <- ggplot(hids %>% select(HID, Zh_low, Zh_high),
                 aes(x = Zh_low, xend = Zh_high, y = HID, group = HID)) +
@@ -25,7 +28,8 @@ plt_a <- ggplot(hids %>% select(HID, Zh_low, Zh_high),
     legend.background = element_rect(fill = "transparent")
   ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
-  scale_x_continuous(name = "Reflectivity (dBZ)")
+  # scale_x_continuous(name = "Reflectivity (dBZ)")
+  scale_x_continuous(name = "Refletividade (dBZ)")  # pt-br
 
 plt_b <- ggplot(hids %>% select(HID, ZDR_low, ZDR_high), 
                 aes(x = ZDR_low, xend = ZDR_high, y = HID, group = HID)) +
@@ -35,7 +39,8 @@ plt_b <- ggplot(hids %>% select(HID, ZDR_low, ZDR_high),
     legend.background = element_rect(fill = "transparent")
   ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
-  scale_x_continuous(name = "Differential Reflectivity (dBZ)")
+  # scale_x_continuous(name = "Differential Reflectivity (dB)")
+  scale_x_continuous(name = "Refletividade Diferencial (dB)")  # pt-br
 
 plt_c <- ggplot(hids %>% select(HID, KDP_low, KDP_high),
                 aes(x = KDP_low, xend = KDP_high, y = HID, group = HID)) +
@@ -45,7 +50,8 @@ plt_c <- ggplot(hids %>% select(HID, KDP_low, KDP_high),
     legend.background = element_rect(fill = "transparent")
   ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
-  scale_x_continuous(name = "Specific Differential Phase (deg/km)")
+  # scale_x_continuous(name = expression("Specific Differential Phase ("*degree*km^-1*")"))
+  scale_x_continuous(name = expression("Fase Diferencial Específica ("*degree*km^-1*")"))  # pt-br
 
 plt_d <- ggplot(hids %>% select(HID, RHO_low, RHO_high), 
                 aes(x = RHO_low, xend = RHO_high, y = HID, group = HID)) +
@@ -55,12 +61,15 @@ plt_d <- ggplot(hids %>% select(HID, RHO_low, RHO_high),
     legend.background = element_rect(fill = "transparent")
   ) +
   scale_y_discrete(limits = rev(hids$HID), name = "") + 
-  scale_x_continuous(name = "Cross Correlation Ratio (dimensionless)")
+  # scale_x_continuous(name = "Cross Correlation Ratio (dimensionless)")
+  scale_x_continuous(name = "Razão de Correlação Cruzada (adimensional)") # pt-br
 
 plt <- plot_grid(plt_a, plt_b, plt_c, plt_d,
                  labels = c("a", "b", "c", "d"), ncol = 2)
-save_plot("General_Processing/figures/hids_strakaetal.png", plot = plt,
-          ncol = 2, base_width = 5, base_height = 6, bg = "transparent")
+# save_plot("General_Processing/figures/hids_strakaetal.png", plot = plt,
+#           ncol = 2, base_width = 5, base_height = 6, bg = "transparent")
+save_plot("General_Processing/figures/hids_strakaetal_ptbr.png", plot = plt,
+          ncol = 2, base_width = 5, base_height = 6, bg = "transparent")  # pt-br
 
 # Reproducing Takahashi (1978) classical figure --------------------------------
 takahashi <- t(as.matrix(read_table2("Data/GENERAL/tkhash.q", col_names = FALSE)))
@@ -77,14 +86,19 @@ plt <- ggplot(tak_plot, aes(x = Var1, y = Var2)) +
   scale_fill_gradientn(colours = c("darkblue", "blue", "dodgerblue", "white", 
                                    "brown1", "firebrick2", "darkred"),
                        limits = c(-66, 66)) +
-  labs(fill = "fC", x = "T (°C)", y = "LWC (g/m³)") +
+  # labs(fill = "fC", x = expression("Temperature ("*degree*"C)"),
+  #      y = expression("Liquid Water Content (g"*m^-3*")")) +
+  labs(fill = "fC", x = expression("Temperatura ("*degree*"C)"),
+       y = expression("Conteúdo de Água Líquida (g"*m^-3*")")) +  # pt-br
   theme(panel.grid = element_blank(),
         plot.title = element_text(hjust = 0.5),
         legend.key.height = unit(x = 15, units = "mm"),
         plot.background = element_rect(fill = "transparent", color = "transparent"),
         legend.background = element_rect(fill = "transparent"))
-ggsave("General_Processing/figures/takahashi.png", plot = plt,
-       width = 4, height = 4, bg = "transparent")
+# ggsave("General_Processing/figures/takahashi.png", plot = plt,
+#        width = 4, height = 4, bg = "transparent")
+ggsave("General_Processing/figures/takahashi_ptbr.png", plot = plt,
+       width = 4, height = 4, bg = "transparent")  # pt-br
 
 # Data available per case ------------------------------------------------------
 files_sr <- c(
@@ -188,14 +202,20 @@ xpol_scan <- merge(r, xpol_elevs) %>%
          elev = round(elev, 1) %>% as.factor(.))
 
 ggplot(cth_scan, aes(x = r)) +
+  geom_vline(aes(y = h), xintercept = c(61.4, 221), linetype = 'dashed') +
   geom_ribbon(aes(ymax = h_up, ymin = h_down, fill = elev, color = elev),
               alpha = 0.6, size = 0.1) +
   geom_line(aes(y = h, color = elev), size = 1, linetype = "dotted") +
+  # labs(
+  #   title = "FCTH Scan Strategy", x = "Range (km)", y = "Height (km)",
+  #   fill = expression("Elevation ("*degree*")"),
+  #   color = expression("Elevation ("*degree*")")
+  # ) +
   labs(
-    title = "FCTH Scan Strategy", x = "Range (km)", y = "Height (km)",
-    fill = expression("Elevation ("*degree*")"),
-    color = expression("Elevation ("*degree*")")
-  ) +
+    title = "Estratégia de Varredura - FCTH", x = "Alcance (km)", y = "Altura (km)",
+    fill = expression("Elevação ("*degree*")"),
+    color = expression("Elevação ("*degree*")")
+  ) +  # pt-br
   scale_fill_manual(values = pal_scan(length(cth_elevs))) +
   scale_color_manual(values = pal_scan(length(cth_elevs))) +
   coord_cartesian(ylim = c(0, 20), xlim = c(0, 250)) +
@@ -204,18 +224,26 @@ ggplot(cth_scan, aes(x = r)) +
     plot.background = element_rect(fill = "transparent", color = "transparent"),
     legend.background = element_rect(fill = "transparent")
   )
-ggsave("General_Processing/figures/scan_strategy_cth.png",
-       width = 6, height = 3, bg = "transparent")
+# ggsave("General_Processing/figures/scan_strategy_cth.png",
+#        width = 6, height = 3, bg = "transparent")
+ggsave("General_Processing/figures/scan_strategy_cth_ptbr.png",
+       width = 6, height = 3, bg = "transparent")  # pt-br
 
 ggplot(sr_scan, aes(x = r)) +
+  geom_vline(aes(y = h), xintercept = c(7.9, 168), linetype = 'dashed') +
   geom_ribbon(aes(ymax = h_up, ymin = h_down, fill = elev, color = elev),
               alpha = 0.6, size = 0.1) +
   geom_line(aes(y = h, color = elev), size = 1, linetype = "dotted") +
+  # labs(
+  #   title = "São Roque Scan Strategy", x = "Range (km)", y = "Height (km)",
+  #   fill = expression("Elevation ("*degree*")"),
+  #   color = expression("Elevation ("*degree*")")
+  # ) +
   labs(
-    title = "São Roque Scan Strategy", x = "Range (km)", y = "Height (km)",
-    fill = expression("Elevation ("*degree*")"),
-    color = expression("Elevation ("*degree*")")
-  ) +
+    title = "Estratégia de Varredura - São Roque", x = "Alcance (km)", y = "Altura (km)",
+    fill = expression("Elevação ("*degree*")"),
+    color = expression("Elevação ("*degree*")")
+  ) +  # pt-br
   scale_fill_manual(values = pal_scan(length(sr_elevs))) +
   scale_color_manual(values = pal_scan(length(sr_elevs))) +
   coord_cartesian(ylim = c(0, 20), xlim = c(0, 250)) +
@@ -226,21 +254,29 @@ ggplot(sr_scan, aes(x = r)) +
   ) +
   guides(fill = guide_legend(ncol = 2),
          color = guide_legend(ncol = 2))
-ggsave("General_Processing/figures/scan_strategy_sr.png",
-       width = 6, height = 3, bg = "transparent")
+# ggsave("General_Processing/figures/scan_strategy_sr.png",
+#        width = 6, height = 3, bg = "transparent")
+ggsave("General_Processing/figures/scan_strategy_sr_ptbr.png",
+       width = 6, height = 3, bg = "transparent")  # pt-br
 
 ggplot(xpol_scan, aes(x = r)) +
+  geom_vline(aes(y = h), xintercept = c(0, 80), linetype = 'dashed') +
   geom_ribbon(aes(ymax = h_up, ymin = h_down, fill = elev, color = elev),
               alpha = 0.6, size = 0.1) +
   geom_line(aes(y = h, color = elev), size = 1, linetype = "dotted") +
+  # labs(
+  #   title = "XPOL Scan Strategy", x = "Range (km)", y = "Height (km)",
+  #   fill = expression("Elevation ("*degree*")"),
+  #   color = expression("Elevation ("*degree*")")
+  # ) +
   labs(
-    title = "XPOL Scan Strategy", x = "Range (km)", y = "Height (km)",
-    fill = expression("Elevation ("*degree*")"),
-    color = expression("Elevation ("*degree*")")
-  ) +
+    title = "Estratégia de Varredura - XPOL", x = "Alcance (km)", y = "Altura (km)",
+    fill = expression("Elevação ("*degree*")"),
+    color = expression("Elevação ("*degree*")")
+  ) +  # pt-br
   scale_fill_manual(values = pal_scan(length(xpol_elevs))) +
   scale_color_manual(values = pal_scan(length(xpol_elevs))) +
-  coord_cartesian(ylim = c(0, 20), xlim = c(0, 80)) +
+  coord_cartesian(ylim = c(0, 20), xlim = c(0, 100)) +
   theme(
     plot.title = element_text(hjust = 0.5),
     plot.background = element_rect(fill = "transparent", color = "transparent"),
@@ -248,5 +284,7 @@ ggplot(xpol_scan, aes(x = r)) +
   ) +
   guides(fill = guide_legend(ncol = 2),
          color = guide_legend(ncol = 2))
-ggsave("General_Processing/figures/scan_strategy_xpol.png",
+# ggsave("General_Processing/figures/scan_strategy_xpol.png",
+#        width = 6, height = 3, bg = "transparent")
+ggsave("General_Processing/figures/scan_strategy_xpol_ptbr.png",
        width = 6, height = 3, bg = "transparent")
