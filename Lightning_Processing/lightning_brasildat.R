@@ -25,21 +25,21 @@ selected_clusters <-
     ~which(ymd_hm(dates_clusters_cappis) %in% .x, arr.ind = T) %>% data_clusters[.]
   ) %>%
   map2(
-    ., purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis))) %>%
-      purrr::map(., select, sys),
+    ., purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis)) %>% column_to_rownames(., "date")) %>%
+      purrr::map(., select, sys) %>% purrr::map(~split(.x, row.names(.x)) %>% flatten),
     ~map2(..1, ..2, ~which(.x == .y, arr.ind = T))
   ) %>%
   modify_depth(., 2, as.data.frame)
 selected_latlon <- modify_depth(selected_clusters, 2, mutate,
-  row = lon_vector[row] %>% round(digits = 2), col = lat_vector[col] %>% round(digits = 2)
+  lon_r = round(lon_vector[row]/0.1)*0.1, lat_r = round(lat_vector[col]/0.1)*0.1
 ) %>%
   map2(., purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis)) %>%
     select(date) %>%
-    unlist()), ~set_names(.x, as_datetime(.y))) %>%
-  modify_depth(., 2, mutate,
-    row_m1 = row - 0.01, row_p1 = row + 0.01, col_m1 = col - 0.01, col_p1 = col + 0.01,
-    row_m2 = row - 0.02, row_p2 = row + 0.02, col_m2 = col - 0.02, col_p2 = col + 0.02
-  )
+    unlist()), ~set_names(.x, as_datetime(.y))) #%>%
+  # modify_depth(., 2, mutate,
+  #   row_m1 = row - 0.01, row_p1 = row + 0.01, col_m1 = col - 0.01, col_p1 = col + 0.01,
+  #   row_m2 = row - 0.02, row_p2 = row + 0.02, col_m2 = col - 0.02, col_p2 = col + 0.02
+  # )
 #--- If necessary, put timestamps in the clusters coordinates data
 # selected_latlon <- map2(selected_latlon, purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis)) %>%
 #                                                select(date) %>% unlist),
@@ -56,7 +56,7 @@ data_brasildat <- read_table("Lightning_Processing/filenames_brasildat", col_nam
     "date", "lat", "lon", "z", "peak_curr", "class", "axis_bigger", # Reading files
     "axis_smaller", "angle", "nsp"
   ))) %>%
-  purrr::map(~mutate(.x, class = ifelse(class == 0, "CG", "IC")) %>% # Giving "IC/CG" names 
+  purrr::map(~mutate(.x, class = ifelse(class == 0, "CG", "IC"), lon_r = round(lon/0.1)*0.1, lat_r = round(lat/0.1)*0.1) %>% # Giving "IC/CG" names 
     mutate(period = floor_date(date, "10 minutes"))) %>% # Making with the same timestep as the radar data
   map2(
     ., purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis)) %>% select(date) %>% unlist()),
@@ -66,15 +66,17 @@ data_brasildat <- read_table("Lightning_Processing/filenames_brasildat", col_nam
   purrr::map(., ~set_names(.x$data, .x$period))
 # modify_depth(., 2, mutate, period = floor_date(date, "10 minutes")) # and recreating "period" column
 selected_latlon <- map2(selected_latlon, data_brasildat, ~.x[names(.y)]) # Selecting matching dates between clusters and
-# lightning data
+ # lightning data
 data_brasildat <- map2(
   data_brasildat, selected_latlon, # Matching with lat, lon with 0.02 degrees "uncertainty"
-  ~map2_df(..1, ..2, ~filter(.x, round(lon, 2) %in% c(.y$row, .y$row_m1, .y$row_p1, .y$row_m2, .y$row_p2) &
-    round(lat, 2) %in% c(.y$col, .y$col_m1, .y$col_p1, .y$col_m2, .y$col_p2)))
+  ~map2_df(..1, ..2, ~semi_join(.x, .y))
+  # ~map2_df(..1, ..2, ~filter(.x, round(lon, 2) %in% c(.y$row, .y$row_m1, .y$row_p1, .y$row_m2, .y$row_p2) &
+  #   round(lat, 2) %in% c(.y$col, .y$col_m1, .y$col_p1, .y$col_m2, .y$col_p2)))
 )
 
 # Reading/processing lightning data (flashes) ----------------------------------
 flashes_brasildat <- flashes_brasildat %>% 
+  purrr::map(~mutate(.x, lon_r = round(lon/0.1)*0.1, lat_r = round(lat/0.1)*0.1)) %>%
   purrr::map(~mutate(.x, period = floor_date(date, "10 minutes"))) %>% # Making with the same timestep as the radar data
   map2(
     ., purrr::map(selected_fams, ~filter(.x, date %in% ymd_hm(dates_clusters_cappis)) %>% select(date) %>% unlist()),
@@ -87,8 +89,9 @@ selected_latlon <- map2(selected_latlon, flashes_brasildat, ~.x[names(.y)]) # Se
 # lightning data
 flashes_brasildat <- map2(
   flashes_brasildat, selected_latlon, # Matching with lat, lon with 0.02 degrees "uncertainty"
-  ~map2_df(..1, ..2, ~filter(.x, round(lon, 2) %in% c(.y$row, .y$row_m1, .y$row_p1, .y$row_m2, .y$row_p2) &
-                               round(lat, 2) %in% c(.y$col, .y$col_m1, .y$col_p1, .y$col_m2, .y$col_p2)))
+  ~map2_df(..1, ..2, ~semi_join(.x, .y))
+  # ~map2_df(..1, ..2, ~filter(.x, round(lon, 2) %in% c(.y$row, .y$row_m1, .y$row_p1, .y$row_m2, .y$row_p2) &
+  #                              round(lat, 2) %in% c(.y$col, .y$col_m1, .y$col_p1, .y$col_m2, .y$col_p2)))
 )
 
 opt <- c("", "", "", "", "")

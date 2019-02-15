@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.9.22)  8 FEB 2019 18:40
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.9.22)  15 FEB 2019 19:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1283,75 +1283,79 @@ Overfull \hbox (9.24742pt too wide) in paragraph at lines 56--56
 ] [22
 
 ]
-File: figs/growth_knight.png Graphic file (type QTm)
+File: figs/growth_knight_ptbr.png Graphic file (type QTm)
 
-<use  "figs/growth_knight.png" > [23]
+<use  "figs/growth_knight_ptbr.png" > [23]
 File: figs/takahashi_williams_ptbr.png Graphic file (type QTm)
 
 <use  "figs/takahashi_williams_ptbr.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [24]
-File: figs/tripole_normal.png Graphic file (type QTm)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<use  "figs/tripole_normal.png" >
-File: figs/tripole_opposite.png Graphic file (type QTm)
- <use  "figs/tripole_opposite.png" > [25]
+ [25]
+File: figs/tripole_normal_ptbr.png Graphic file (type QTm)
+
+<use  "figs/tripole_normal_ptbr.png" >
+File: figs/tripole_opposite_ptbr.png Graphic file (type QTm)
+
+<use  "figs/tripole_opposite_ptbr.png" > [26]
 File: figs/barnes_synoptic_jan.png Graphic file (type QTm)
 
 <use  "figs/barnes_synoptic_jan.png" >
 File: figs/barnes_synoptic_jul.png Graphic file (type QTm)
  <use  "figs/barnes_synoptic_jul.png" >
-File: figs/cecil_severehail.png Graphic file (type QTm)
-
-<use  "figs/cecil_severehail.png" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26]
-Missing character: There is no – in font ec-lmri12!
-
-Underfull \vbox (badness 2772) has occurred while \output is active []
+Underfull \vbox (badness 1558) has occurred while \output is active []
 
  [27]
-File: figs/system_doviak.png Graphic file (type QTm)
+[28]
+File: figs/cecil_severehail_ptbr.png Graphic file (type QTm)
+ <use  "figs/cecil_severehail_ptbr.png" > [29]
+Missing character: There is no – in font ec-lmri12!
+File: figs/system_doviak_ptbr.png Graphic file (type QTm)
 
-<use  "figs/system_doviak.png" >
+<use  "figs/system_doviak_ptbr.png" >
 Missing character: There is no ́ in font ec-lmr12!
 Missing character: There is no ́ in font ec-lmr12!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30]
+[31]
 Missing character: There is no ́ in font ec-lmr12!
- [28]
-File: figs/lobes_eastin.png Graphic file (type QTm)
- <use  "figs/lobes_eastin.png" >)
-(./tex/methods.tex [29] [30] [31] [32] [33] [34] (./tex/table_cases.tex
+File: figs/lobes_eastin_ptbr.png Graphic file (type QTm)
+ <use  "figs/lobes_eastin_ptbr.png" >) (./tex/methods.tex [32]
+(./tex/table_cases.tex
 Underfull \hbox (badness 10000) in paragraph at lines 23--23
 [][]|\T1/lmr/m/n/10 Adap-tado de [][]$<[]https : / / topicssoschuva . blogspot 
 . com . br / 2017 / 03 / summary -[] of -[] case -[] studies .
  []
 
-) [35
+) [33
 
 ]
-File: figs/hailpad_network.png Graphic file (type QTm)
- <use  "figs/hailpad_network.png" >
+File: figs/hailpad_network_ptbr.png Graphic file (type QTm)
+ <use  "figs/hailpad_network_ptbr.png" >
 File: figs/hailpad.png Graphic file (type QTm)
- <use  "figs/hailpad.png" > [36]
+ <use  "figs/hailpad.png" >
+[34]
 File: figs/hailpad_site.jpg Graphic file (type QTm)
-
-<use  "figs/hailpad_site.jpg" >
+ <use  "figs/hailpad_site.jpg" >
 File: figs/hailpad_used.JPG Graphic file (type QTm)
  <use  "figs/hailpad_used.JPG" >
 File: figs/calibracao_hailpad.png Graphic file (type QTm)
 
-<use  "figs/calibracao_hailpad.png" > [37] (./tex/table_scales.tex)
-File: figs/radar_coverages_hires2.jpg Graphic file (type QTm)
+<use  "figs/calibracao_hailpad.png" > [35] (./tex/table_scales.tex)
+File: figs/radar_coverages_hires2_ptbr.png Graphic file (type QTm)
 
-<use  "figs/radar_coverages_hires2.jpg" > [38] [39]
+<use  "figs/radar_coverages_hires2_ptbr.png" > [36] [37]
 Underfull \vbox (badness 6876) has occurred while \output is active []
 
- [40]
+ [38]
 File: figs/fortracc_classes.png Graphic file (type QTm)
 
-<use  "figs/fortracc_classes.png" > [41]
+<use  "figs/fortracc_classes.png" > [39]
 File: ../General_Processing/figures/scan_strategy_cth_ptbr.png Graphic file (ty
 pe QTm)
 
@@ -1363,45 +1367,52 @@ e QTm)
 File: ../General_Processing/figures/scan_strategy_xpol_ptbr.png Graphic file (t
 ype QTm)
 
-<use  "../General_Processing/figures/scan_strategy_xpol_ptbr.png" > [42]
-[43]
+<use  "../General_Processing/figures/scan_strategy_xpol_ptbr.png" > [40]
+[41]
 File: ../General_Processing/figures/hids_strakaetal_ptbr.png Graphic file (type
  QTm)
- <use  "../General_Processing/figures/hids_strakaetal_ptbr.png" > [44]
-[45] [46]
+ <use  "../General_Processing/figures/hids_strakaetal_ptbr.png" > [42]
+[43] [44]
 File: ../General_Processing/figures/dual_doppler_lobes_ptbr.png Graphic file (t
 ype QTm)
  <use  "../General_Processing/figures/dual_doppler_lobes_ptbr.png" >
-(./tex/table_multidop.tex) [47] [48]
-File: figs/nyquist_rauber.png Graphic file (type QTm)
- <use  "figs/nyquist_rauber.png" >
+
+LaTeX Warning: Float too large for page by 31.57864pt on input line 254.
+
+(./tex/table_multidop.tex) [45]
+Overfull \vbox (5.0pt too high) has occurred while \output is active []
+
+ [46]
+File: figs/nyquist_rauber_ptbr.png Graphic file (type QTm)
+
+<use  "figs/nyquist_rauber_ptbr.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49]
+ [47]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 284.
 
-[50]
+[48]
 File: ../Lightning_Processing/figures/brasildat_flash_stats_ptbr.png Graphic fi
 le (type QTm)
  <use  "../Lightning_Processing/figures/brasildat_flash_stats_ptbr.png" >
 Underfull \vbox (badness 4713) has occurred while \output is active []
 
- [51])
-[52] (./tex/results.tex [53] [54
+ [49])
+[50] (./tex/results.tex [51] [52
 
 ]
 File: ../Hailpads_Processing/figures/measures_distribution_ptbr.png Graphic fil
 e (type QTm)
 
 <use  "../Hailpads_Processing/figures/measures_distribution_ptbr.png" >
-[55]
+[53]
 File: ../Hailpads_Processing/figures/data_anelfa_torro_ptbr.png Graphic file (t
 ype QTm)
  <use  "../Hailpads_Processing/figures/data_anelfa_torro_ptbr.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56]
+ [54]
 File: ../General_Processing/figures/cases_dbz_size_lightning_ptbr.png Graphic f
 ile (type QTm)
 
@@ -1418,12 +1429,7 @@ Overfull \hbox (17.41934pt too wide) in paragraph at lines 25--25
 
 
 Overfull \hbox (4.52272pt too wide) in paragraph at lines 25--25
- []|$\OT1/lmr/m/n/10 13130$| 
- []
-
-
-Overfull \hbox (4.52272pt too wide) in paragraph at lines 25--25
- []|$\OT1/lmr/m/n/10 15131$| 
+ []|$\OT1/lmr/m/n/10 10525$| 
  []
 
 
@@ -1438,136 +1444,157 @@ Overfull \hbox (17.41934pt too wide) in paragraph at lines 25--25
 
 
 Overfull \hbox (4.52272pt too wide) in paragraph at lines 25--25
- []|$\OT1/lmr/m/n/10 13130$| 
- []
-
-
-Overfull \hbox (4.52272pt too wide) in paragraph at lines 25--25
- []|$\OT1/lmr/m/n/10 15131$| 
+ []|$\OT1/lmr/m/n/10 10525$| 
  []
 
 )
 Underfull \vbox (badness 1701) has occurred while \output is active []
 
- [57]
+ [55]
 Overfull \vbox (3.9222pt too high) has occurred while \output is active []
 
 
-[58]
-File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200.png Graphi
-c file (type QTm)
+[56]
+File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200_ptbr.png G
+raphic file (type QTm)
 
-<use  "../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200.png" >
-File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017031412.png Graphi
-c file (type QTm)
+<use  "../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200_ptbr.png"
+ >
+File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201703141200_ptbr.png
+ Graphic file (type QTm)
 
-<use  "../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017031412.png" >
+<use  "../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201703141200_ptbr.pn
+g" >
 Overfull \hbox (7.83322pt too wide) in paragraph at lines 72--74
  [][][] 
  []
 
-File: ../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_2017031415.png Gra
-phic file (type QTm)
+File: ../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201703141500_ptbr.
+png Graphic file (type QTm)
 
-<use  "../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_2017031415.png" >
-File: ../Sounding_Processing/figures/sounding_SBMT2017031412UTC.png Graphic fil
-e (type QTm)
-<use  "../Sounding_Processing/figures/sounding_SBMT2017031412UTC.png" >
-File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141751.p
-ng Graphic file (type QTm)
+<use  "../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201703141500_ptbr
+.png" >
+File: ../Sounding_Processing/figures/sounding_SBMT2017031412UTC_ptbr.png Graphi
+c file (type QTm)
 
-<use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141751.
-png" >
-File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141951.p
-ng Graphic file (type QTm)
+<use  "../Sounding_Processing/figures/sounding_SBMT2017031412UTC_ptbr.png" >
+File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141751_p
+tbr.png Graphic file (type QTm)
 
-<use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141951.
-png" >
+<use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141751_
+ptbr.png" >
+File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141951_p
+tbr.png Graphic file (type QTm)
+
+<use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201703141951_
+ptbr.png" >
 Overfull \hbox (7.83322pt too wide) in paragraph at lines 106--108
  [][][] 
  []
 
-[59] [60] [61]
-File: ../General_Processing/figures/track_flashes_20170314.png Graphic file (ty
-pe QTm)
+[57]
+Underfull \vbox (badness 1968) has occurred while \output is active []
 
-<use  "../General_Processing/figures/track_flashes_20170314.png" > [62]
-File: ../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivi
-ty 2017-03-14 1827 UTC.png Graphic file (type QTm)
+ [58]
+[59]
+File: ../General_Processing/figures/track_flashes_20170314_ptbr.png Graphic fil
+e (type QTm)
+ <use  "../General_Processing/figures/track_flashes_20170314_ptbr.png" >
+File: ../General_Processing/figures/clusters_flashes_2017-03-14_1830_ptbr.png G
+raphic file (type QTm)
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectiv
-ity 2017-03-14 1827 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Differential Reflect
-ivity 2017-03-14 1827 UTC.png Graphic file (type QTm)
+<use  "../General_Processing/figures/clusters_flashes_2017-03-14_1830_ptbr.png"
+ >
+File: ../General_Processing/figures/clusters_flashes_2017-03-14_2000_ptbr.png G
+raphic file (type QTm)
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Differential Reflec
-tivity 2017-03-14 1827 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Specific Differentia
-l Phase 2017-03-14 1827 UTC.png Graphic file (type QTm)
+<use  "../General_Processing/figures/clusters_flashes_2017-03-14_2000_ptbr.png"
+ >
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Specific Differenti
-al Phase 2017-03-14 1827 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation Ra
-tio 2017-03-14 1827 UTC.png Graphic file (type QTm)
+ [60]
+Underfull \vbox (badness 1226) has occurred while \output is active []
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation R
-atio 2017-03-14 1827 UTC.png" >
+ [61]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Float too large for page by 4.51784pt on input line 146.
+ [62]
+File: ../Radar_Processing/figures/ppis/classification/FCTH Refletividade Corrig
+ida 2017-03-14 1827 UTC.png Graphic file (type QTm)
 
-File: ../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-
-03-14 1827 UTC.png Graphic file (type QTm)
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Refletividade Corri
+gida 2017-03-14 1827 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Refletividade Difere
+ncial 2017-03-14 1827 UTC.png Graphic file (type QTm)
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017
--03-14 1827 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Liquid Water Mass 20
-17-03-14 1827 UTC.png Graphic file (type QTm)
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Refletividade Difer
+encial 2017-03-14 1827 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Fase Diferencial Esp
+ecífica 2017-03-14 1827 UTC.png Graphic file (type QTm)
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Liquid Water Mass 2
-017-03-14 1827 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017-
-03-14 1827 UTC.png Graphic file (type QTm)
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Fase Diferencial Es
+pecífica 2017-03-14 1827 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Razão de Correlação 
+Cruzada 2017-03-14 1827 UTC.png Graphic file (type QTm)
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017
--03-14 1827 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivi
-ty 2017-03-14 1957 UTC.png Graphic file (type QTm)
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Razão de Correlação
+ Cruzada 2017-03-14 1827 UTC.png" >
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectiv
-ity 2017-03-14 1957 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Differential Reflect
-ivity 2017-03-14 1957 UTC.png Graphic file (type QTm)
+LaTeX Warning: Float too large for page by 4.66148pt on input line 168.
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Differential Reflec
-tivity 2017-03-14 1957 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Specific Differentia
-l Phase 2017-03-14 1957 UTC.png Graphic file (type QTm)
+File: ../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoros
+ 2017-03-14 1827 UTC.png Graphic file (type QTm)
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Specific Differenti
-al Phase 2017-03-14 1957 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation Ra
-tio 2017-03-14 1957 UTC.png Graphic file (type QTm)
+<use  "../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoro
+s 2017-03-14 1827 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Água Líquid
+a 2017-03-14 1827 UTC.png Graphic file (type QTm)
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation R
-atio 2017-03-14 1957 UTC.png" >
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Massa de Água Líqui
+da 2017-03-14 1827 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-0
+3-14 1827 UTC.png Graphic file (type QTm)
 
-LaTeX Warning: Float too large for page by 4.26367pt on input line 178.
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-
+03-14 1827 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Refletividade Corrig
+ida 2017-03-14 1957 UTC.png Graphic file (type QTm)
 
-File: ../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-
-03-14 1957 UTC.png Graphic file (type QTm)
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Refletividade Corri
+gida 2017-03-14 1957 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Refletividade Difere
+ncial 2017-03-14 1957 UTC.png Graphic file (type QTm)
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017
--03-14 1957 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Liquid Water Mass 20
-17-03-14 1957 UTC.png Graphic file (type QTm)
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Refletividade Difer
+encial 2017-03-14 1957 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Fase Diferencial Esp
+ecífica 2017-03-14 1957 UTC.png Graphic file (type QTm)
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Liquid Water Mass 2
-017-03-14 1957 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017-
-03-14 1957 UTC.png Graphic file (type QTm)
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Fase Diferencial Es
+pecífica 2017-03-14 1957 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Razão de Correlação 
+Cruzada 2017-03-14 1957 UTC.png Graphic file (type QTm)
 
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017
--03-14 1957 UTC.png" >
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Razão de Correlação
+ Cruzada 2017-03-14 1957 UTC.png" >
+
+LaTeX Warning: Float too large for page by 4.0611pt on input line 200.
+
+File: ../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoros
+ 2017-03-14 1957 UTC.png Graphic file (type QTm)
+
+<use  "../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoro
+s 2017-03-14 1957 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Água Líquid
+a 2017-03-14 1957 UTC.png Graphic file (type QTm)
+
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Massa de Água Líqui
+da 2017-03-14 1957 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-0
+3-14 1957 UTC.png Graphic file (type QTm)
+
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-
+03-14 1957 UTC.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [63]
@@ -1578,133 +1605,141 @@ Overfull \vbox (5.0pt too high) has occurred while \output is active []
 Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
  [66]
-Underfull \vbox (badness 3657) has occurred while \output is active []
+[67]
+File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1820 UTC_ptbr.png G
+raphic file (type QTm)
 
- [67]
-File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1820 UTC.png Graphi
-c file (type QTm)
+<use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1820 UTC_ptbr.png"
+ >
+File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1830 UTC_ptbr.png G
+raphic file (type QTm)
 
-<use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1820 UTC.png" >
-File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1830 UTC.png Graphi
-c file (type QTm)
+<use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1830 UTC_ptbr.png"
+ >
+File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC_ptbr.png G
+raphic file (type QTm)
 
-<use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1830 UTC.png" >
+<use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC_ptbr.png"
+ >
+File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 2000 UTC_ptbr.png G
+raphic file (type QTm)
+
+<use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 2000 UTC_ptbr.png"
+ >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [68]
-File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC.png Graphi
-c file (type QTm)
+[69]
+File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200_ptbr.png G
+raphic file (type QTm)
 
-<use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC.png" >
-File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 2000 UTC.png Graphi
-c file (type QTm)
+<use  "../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200_ptbr.png"
+ >
+File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201711151200_ptbr.png
+ Graphic file (type QTm)
 
-<use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 2000 UTC.png" >
-File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200.png Graphi
-c file (type QTm)
-
-<use  "../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200.png" >
-File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017111512.png Graphi
-c file (type QTm)
-
-<use  "../Reanalysis_Processing/figures/ERA5_SA_cape-shear_2017111512.png" >
-Overfull \hbox (7.83322pt too wide) in paragraph at lines 234--236
+<use  "../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201711151200_ptbr.pn
+g" >
+Overfull \hbox (7.83322pt too wide) in paragraph at lines 258--260
  [][][] 
  []
 
-File: ../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_2017111518.png Gra
-phic file (type QTm)
+File: ../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201711151800_ptbr.
+png Graphic file (type QTm)
 
-<use  "../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_2017111518.png" >
-File: ../Sounding_Processing/figures/sounding_SBMT2017111512UTC.png Graphic fil
-e (type QTm)
-<use  "../Sounding_Processing/figures/sounding_SBMT2017111512UTC.png" >
-File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711151800.p
-ng Graphic file (type QTm)
+<use  "../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201711151800_ptbr
+.png" >
+File: ../Sounding_Processing/figures/sounding_SBMT2017111512UTC_ptbr.png Graphi
+c file (type QTm)
 
-<use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711151800.
-png" >
-File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711152100.p
-ng Graphic file (type QTm)
+<use  "../Sounding_Processing/figures/sounding_SBMT2017111512UTC_ptbr.png" >
+File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711151800_p
+tbr.png Graphic file (type QTm)
 
-<use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711152100.
-png" >
-Overfull \hbox (7.83322pt too wide) in paragraph at lines 269--271
+<use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711151800_
+ptbr.png" >
+File: ../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711152100_p
+tbr.png Graphic file (type QTm)
+
+<use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711152100_
+ptbr.png" >
+Overfull \hbox (7.83322pt too wide) in paragraph at lines 293--295
  [][][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [69]
+[70] [71] [72]
 File: ../General_Processing/figures/track_flashes_20171115_ptbr.png Graphic fil
 e (type QTm)
 
 <use  "../General_Processing/figures/track_flashes_20171115_ptbr.png" >
+File: ../General_Processing/figures/clusters_flashes_2017-11-15_2150_ptbr.png G
+raphic file (type QTm)
+
+<use  "../General_Processing/figures/clusters_flashes_2017-11-15_2150_ptbr.png"
+ > [73]
+File: ../Radar_Processing/figures/ppis/classification/FCTH Refletividade Corrig
+ida 2017-11-15 2150 UTC.png Graphic file (type QTm)
+
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Refletividade Corri
+gida 2017-11-15 2150 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Refletividade Difere
+ncial 2017-11-15 2150 UTC.png Graphic file (type QTm)
+
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Refletividade Difer
+encial 2017-11-15 2150 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Fase Diferencial Esp
+ecífica 2017-11-15 2150 UTC.png Graphic file (type QTm)
+
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Fase Diferencial Es
+pecífica 2017-11-15 2150 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Razão de Correlação 
+Cruzada 2017-11-15 2150 UTC.png Graphic file (type QTm)
+
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Razão de Correlação
+ Cruzada 2017-11-15 2150 UTC.png" >
+
+LaTeX Warning: Float too large for page by 6.00584pt on input line 342.
+
+File: ../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoros
+ 2017-11-15 2150 UTC.png Graphic file (type QTm)
+
+<use  "../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoro
+s 2017-11-15 2150 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Água Líquid
+a 2017-11-15 2150 UTC.png Graphic file (type QTm)
+
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Massa de Água Líqui
+da 2017-11-15 2150 UTC.png" >
+File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-1
+1-15 2150 UTC.png Graphic file (type QTm)
+
+<use  "../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-
+11-15 2150 UTC.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [70]
-[71] [72]
-File: ../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectivi
-ty 2017-11-15 2150 UTC.png Graphic file (type QTm)
-
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Corrected Reflectiv
-ity 2017-11-15 2150 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Differential Reflect
-ivity 2017-11-15 2150 UTC.png Graphic file (type QTm)
-
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Differential Reflec
-tivity 2017-11-15 2150 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Specific Differentia
-l Phase 2017-11-15 2150 UTC.png Graphic file (type QTm)
-
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Specific Differenti
-al Phase 2017-11-15 2150 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation Ra
-tio 2017-11-15 2150 UTC.png Graphic file (type QTm)
-
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Cross Correlation R
-atio 2017-11-15 2150 UTC.png" >
-
-LaTeX Warning: Float too large for page by 5.80696pt on input line 307.
-
-File: ../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017-
-11-15 2150 UTC.png Graphic file (type QTm)
-
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Hydrometeor ID 2017
--11-15 2150 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Liquid Water Mass 20
-17-11-15 2150 UTC.png Graphic file (type QTm)
-
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Liquid Water Mass 2
-017-11-15 2150 UTC.png" >
-File: ../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017-
-11-15 2150 UTC.png Graphic file (type QTm)
-
-<use  "../Radar_Processing/figures/ppis/classification/FCTH Ice Water Mass 2017
--11-15 2150 UTC.png" > [73]
-Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
  [74]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
  [75]
-File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC.png G
-raphic file (type QTm)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<use  "../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC.png"
- >
-File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC.png G
-raphic file (type QTm)
+ [76]
+File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC_ptbr.
+png Graphic file (type QTm)
 
-<use  "../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC.png"
- >) (./tex/conclusions.tex [76] [77] [78
+<use  "../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC_ptbr
+.png" >
+File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC_ptbr.
+png Graphic file (type QTm)
 
-]) (./main.bbl (./main.brf)
+<use  "../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC_ptbr
+.png" >) [77] (./tex/conclusions.tex [78]) (./main.bbl (./main.brf)
 \tf@brf=\write5
 \openout5 = `main.brf'.
 
- [79]
+ [79
+
+]
 [80
 
 ]
@@ -1717,15 +1752,14 @@ bibitemlist
 Missing character: There is no – in font ec-lmr12!
  [82] [83]
 Missing character: There is no ́ in font ec-lmr12!
- [84] [85] [86] [87] [88] [89] [90]) (./tex/appendices.tex)
-(./tex/annexes.tex [91] [92
-
-]
+ [84] [85] [86] [87] [88] [89] [90] [91]) (./tex/appendices.tex)
+(./tex/annexes.tex [92]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\uppercase' on input line 8.
 
 [93
+
 
 ] [94]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <24.88> not available
@@ -1779,12 +1813,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 439.
  ) 
 Here is how much of TeX's memory you used:
- 27422 strings out of 493068
- 491372 string characters out of 6137720
- 701578 words of memory out of 5000000
- 30948 multiletter control sequences out of 15000+600000
+ 27553 strings out of 493068
+ 494250 string characters out of 6137720
+ 707284 words of memory out of 5000000
+ 31076 multiletter control sequences out of 15000+600000
  136406 words of font info for 91 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 47i,14n,49p,10422b,1073s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,14n,49p,10422b,1083s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (97 pages).

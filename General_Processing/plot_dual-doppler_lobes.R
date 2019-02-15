@@ -157,4 +157,4 @@ ggplot() +
 # ggsave("General_Processing/figures/dual_doppler_lobes.png", width = 3.2,
 #        height = 6, bg = "transparent")
 ggsave("General_Processing/figures/dual_doppler_lobes_ptbr.png", width = 3.2,
-       height = 6, bg = "transparent")  # pt-br
+       height = 6.5, bg = "transparent")  # pt-br

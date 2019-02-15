@@ -720,19 +720,32 @@ def plot_gridded_wind_dbz_panel(
     # - General aspects
     plt.suptitle(name_multi + date, weight='bold',
                  stretch='condensed', size='x-large')
+    # ax1.set_title((
+    #     str(level+1) + ' km ' 'Reflectivity\nMin/Max Vertical Velocity (' +
+    #     r'$ms^{-1}$' + ')'
+    # ))
     ax1.set_title((
-        str(level+1) + ' km ' 'Reflectivity\nMin/Max Vertical Velocity (' +
-        r'$ms^{-1}$' + ')'
-    ))
+        'Refletividade em ' + str(level+1) + ' km\nVelocidade Vertical ' +
+        'Mín/Máx (' + r'$ms^{-1}$' + ')'
+    ))  # pt-br
+    # ax2.set_title((
+    #     'Cross Section Reflectivity\nVertical Velocity (' +
+    #     r'$ms^{-1}$' + ')'
+    #     ))
     ax2.set_title((
-        'Cross Section Reflectivity\nVertical Velocity (' + r'$ms^{-1}$' + ')'
-        ))
+        'Corte Vertical de Refletividade\nVelocidade Vertical (' +
+        r'$ms^{-1}$' + ')'
+        ))  # pt-br
     ax2.set_xlabel('')
-    ax2.set_ylabel('Distance above Ground (km)')
+    # ax2.set_ylabel('Distance above Ground (km)')
+    ax2.set_ylabel('Distância acima da Superfície (km)')  # pt-br
     ax2.grid(linestyle='-', linewidth=0.25)
+    # plt.savefig('figures/' + name_multi.split(' ')[0].replace('/', '-') +
+    #             ' ' + date + '.png', dpi=300, bbox_inches='tight',
+    #             facecolor='none', edgecolor='w')
     plt.savefig('figures/' + name_multi.split(' ')[0].replace('/', '-') + ' ' +
-                date + '.png', dpi=300, bbox_inches='tight',
-                facecolor='none', edgecolor='w')
+                date + '_ptbr.png', dpi=300, bbox_inches='tight',
+                facecolor='none', edgecolor='w')  # pt-br
 
 
 def adjust_fhc_colorbar_for_pyart(cb):

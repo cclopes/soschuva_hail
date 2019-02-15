@@ -88,7 +88,7 @@ data_clusters <- list()
   data_clusters[[i]][data_clusters[[i]] <= 0] <- NA
   # data_clusters[[i]] <- t(data_clusters[[i]][, cols:1])
 }
-rm(filenames_clusters)
+# rm(filenames_clusters)
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Reading and processing cappis data

@@ -24,9 +24,13 @@ import custom_cbars
 for filename in cv.filenames_pkl:
     name = filename.split('/')[2].split('_')[0].replace('-', '/').upper()
     grid = misc.open_object(filename)
+    grid.fields['reflectivity']['long_name'] = (
+        "Refletividade Combinada dos Radares ")  # pt-br
     plot_gridded_wind_dbz_panel(
         grid, level=2, lat_index=cv.cs_lat, lon_index=cv.cs_lon, cmap='dbz',
-        date=cv.date_name, name_multi=name + ' Multi-Doppler at ',
+        date=cv.date_name,
+        # name_multi=name + ' Multi-Doppler at ',
+        name_multi=name + ' Multi-Doppler em ',  # pt-br
         shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
         zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
         grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim, lg_spc=cv.lg_spc,

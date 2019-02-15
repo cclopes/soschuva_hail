@@ -710,9 +710,13 @@ def adjust_fhc_colorbar_for_pyart(cb):
     """
 
     cb.set_ticks(np.arange(1.4, 10, 0.9))
-    cb.ax.set_yticklabels(['Drizzle', 'Rain', 'Ice Crystals', 'Aggregates',
-                           'Wet Snow', 'Vertical Ice', 'LD Graupel',
-                           'HD Graupel', 'Hail', 'Big Drops'])
+    # cb.ax.set_yticklabels(['Drizzle', 'Rain', 'Ice Crystals', 'Aggregates',
+    #                        'Wet Snow', 'Vertical Ice', 'LD Graupel',
+    #                        'HD Graupel', 'Hail', 'Big Drops'])
+    cb.ax.set_yticklabels(['Chuvisco', 'Chuva', 'Cristais de Gelo',
+                           'Agregados', 'Neve Molhada', 'Gelo Vertical',
+                           'Graupel DB', 'Graupel DA', 'Granizo',
+                           'Gotas Grandes'])  # pt-br
     cb.ax.set_ylabel('')
     cb.ax.tick_params(length=0)
     return cb
@@ -862,11 +866,15 @@ def plot_field_panel(
     if field == 'FH':
         field_name = grid.fields[field]['standard_name']
     else:
-        field_name = grid.fields[field]['standard_name'].title()
-    ax1.set_title(str(level+1) + ' km ' + field_name)
-    ax2.set_title('Cross Section ' + field_name)
+        # field_name = grid.fields[field]['standard_name'].title()
+        field_name = grid.fields[field]['standard_name']  # pt-br
+    # ax1.set_title(str(level+1) + ' km ' + field_name)
+    ax1.set_title(field_name + ' em ' + str(level+1) + ' km')
+    # ax2.set_title('Cross Section ' + field_name)
+    ax2.set_title('Corte Vertical de ' + field_name)  # pt-br
     ax2.set_xlabel('')
-    ax2.set_ylabel('Distance above Ground (km)')
+    # ax2.set_ylabel('Distance above Ground (km)')
+    ax2.set_ylabel('Distância acima da Superfície (km)')  # pt-br
     ax2.grid(linestyle='-', linewidth=0.25)
     ax2.set_ylim(1, 20)
     plt.savefig(save_path + name_multi + ' ' + field_name + ' ' +

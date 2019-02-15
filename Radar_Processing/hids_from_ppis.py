@@ -43,6 +43,22 @@ grid = rf.grid_radar(
             xlim=cv.grid_xlim, ylim=cv.grid_ylim, grid_shape=cv.grid_shape)
 grid.fields['specific_differential_phase']['units'] = r'$\degree\  km^{-1}$'
 grid.fields['differential_reflectivity']['units'] = 'dB'
+# pt-br
+grid.fields['cross_correlation_ratio']['units'] = 'adimensional'
+grid.fields['corrected_reflectivity']['standard_name'] = (
+    "Refletividade Corrigida")
+grid.fields['FH']['standard_name'] = (
+    "IDs de Hidrometeoros")
+grid.fields['MW']['standard_name'] = (
+    "Massa de Água Líquida")
+grid.fields['MI']['standard_name'] = (
+    "Massa de Gelo")
+grid.fields['cross_correlation_ratio']['standard_name'] = (
+    "Razão de Correlação Cruzada")
+grid.fields['differential_reflectivity']['standard_name'] = (
+    "Refletividade Diferencial")
+grid.fields['specific_differential_phase']['standard_name'] = (
+    "Fase Diferencial Específica")
 
 name = 'FCTH'
 level = 2
