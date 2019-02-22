@@ -60,21 +60,21 @@ from datetime import datetime
 # hailpad = (-47.13110, -22.69160)
 # index = "b"
 # - 19h50
-# path = "cases/2017-03-14_19h50/"
-# date_name = '2017-03-14 1950 UTC'
-# # -- plot_multidop
-# cs_lat, cs_lon = (-22.8, -23.15), (-47.23, -47.19)
-# xlim, ylim = (-47.7, -47), (-23.2, -22.65)
-# hailpad = (-47.20541, -23.02940)
-# index = "a"
-# - 20h
-path = "cases/2017-03-14_20h00/"
-date_name = '2017-03-14 2000 UTC'
+path = "cases/2017-03-14_19h50/"
+date_name = '2017-03-14 1950 UTC'
 # -- plot_multidop
-cs_lat, cs_lon = (-22.8, -23.17), (-47.23, -47.19)
-xlim, ylim = (-47.7, -47), (-23.25, -22.7)
+cs_lat, cs_lon = (-22.8, -23.15), (-47.23, -47.19)
+xlim, ylim = (-47.7, -47), (-23.2, -22.65)
 hailpad = (-47.20541, -23.02940)
-index = "b"
+index = "a"
+# - 20h
+# path = "cases/2017-03-14_20h00/"
+# date_name = '2017-03-14 2000 UTC'
+# # -- plot_multidop
+# cs_lat, cs_lon = (-22.8, -23.17), (-47.23, -47.19)
+# xlim, ylim = (-47.7, -47), (-23.25, -22.7)
+# hailpad = (-47.20541, -23.02940)
+# index = "b"
 # - for both scripts
 date = datetime(2017, 3, 14, 12)
 station = "SBMT"

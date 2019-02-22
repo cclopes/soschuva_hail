@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.9.22)  15 FEB 2019 19:11
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.9.22)  22 FEB 2019 18:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1277,15 +1277,20 @@ Overfull \hbox (9.24742pt too wide) in paragraph at lines 56--56
 12 -\T1/lmss/bx/sl/12 FLASHES\T1/lmss/bx/n/12 : TESTE DE SEN- 
  []
 
-) [20] (./tex/introduction.tex) (./tex/theories.tex [21
+) [20] (./tex/introduction.tex
+Overfull \hbox (4.23221pt too wide) in paragraph at lines 11--19
+[]\T1/lmr/m/n/12 [sobre o SOS-CHUVA] "Como parte do Pro-jeto SOS-CHUVA (FA-PESP
+ 2015/14497-
+ []
+
+) (./tex/theories.tex [21
 
 
 ] [22
 
 ]
 File: figs/growth_knight_ptbr.png Graphic file (type QTm)
-
-<use  "figs/growth_knight_ptbr.png" > [23]
+ <use  "figs/growth_knight_ptbr.png" > [23]
 File: figs/takahashi_williams_ptbr.png Graphic file (type QTm)
 
 <use  "figs/takahashi_williams_ptbr.png" >
@@ -1492,30 +1497,21 @@ Overfull \hbox (7.83322pt too wide) in paragraph at lines 106--108
  [][][] 
  []
 
-[57]
-Underfull \vbox (badness 1968) has occurred while \output is active []
-
- [58]
-[59]
+[57] [58] [59]
 File: ../General_Processing/figures/track_flashes_20170314_ptbr.png Graphic fil
 e (type QTm)
- <use  "../General_Processing/figures/track_flashes_20170314_ptbr.png" >
+
+<use  "../General_Processing/figures/track_flashes_20170314_ptbr.png" >
 File: ../General_Processing/figures/clusters_flashes_2017-03-14_1830_ptbr.png G
 raphic file (type QTm)
 
 <use  "../General_Processing/figures/clusters_flashes_2017-03-14_1830_ptbr.png"
- >
+ > [60]
 File: ../General_Processing/figures/clusters_flashes_2017-03-14_2000_ptbr.png G
 raphic file (type QTm)
 
 <use  "../General_Processing/figures/clusters_flashes_2017-03-14_2000_ptbr.png"
- >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [60]
-Underfull \vbox (badness 1226) has occurred while \output is active []
-
- [61]
+ > [61]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [62]
@@ -1580,6 +1576,13 @@ Cruzada 2017-03-14 1957 UTC.png Graphic file (type QTm)
 
 LaTeX Warning: Float too large for page by 4.0611pt on input line 200.
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [63]
+Overfull \vbox (5.0pt too high) has occurred while \output is active []
+
+ [64]
 File: ../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoros
  2017-03-14 1957 UTC.png Graphic file (type QTm)
 
@@ -1597,15 +1600,13 @@ File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-0
 03-14 1957 UTC.png" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [63]
-Overfull \vbox (5.0pt too high) has occurred while \output is active []
-
- [64]
-[65]
+ [65]
 Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
  [66]
-[67]
+Underfull \vbox (badness 3088) has occurred while \output is active []
+
+ [67]
 File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1820 UTC_ptbr.png G
 raphic file (type QTm)
 
@@ -1616,6 +1617,9 @@ raphic file (type QTm)
 
 <use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1830 UTC_ptbr.png"
  >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [68]
 File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC_ptbr.png G
 raphic file (type QTm)
 
@@ -1625,11 +1629,10 @@ File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 2000 UTC_ptbr.png G
 raphic file (type QTm)
 
 <use  "../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 2000 UTC_ptbr.png"
- >
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ > [69]
+Underfull \vbox (badness 8056) has occurred while \output is active []
 
- [68]
-[69]
+ [70]
 File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200_ptbr.png G
 raphic file (type QTm)
 
@@ -1640,7 +1643,7 @@ File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201711151200_ptbr.png
 
 <use  "../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201711151200_ptbr.pn
 g" >
-Overfull \hbox (7.83322pt too wide) in paragraph at lines 258--260
+Overfull \hbox (7.83322pt too wide) in paragraph at lines 260--262
  [][][] 
  []
 
@@ -1648,7 +1651,7 @@ File: ../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201711151800_ptbr.
 png Graphic file (type QTm)
 
 <use  "../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201711151800_ptbr
-.png" >
+.png" > [71]
 File: ../Sounding_Processing/figures/sounding_SBMT2017111512UTC_ptbr.png Graphi
 c file (type QTm)
 
@@ -1663,20 +1666,20 @@ tbr.png Graphic file (type QTm)
 
 <use  "../Satellite_Processing/figures/Band_13/GOES16_B13_SP-BR_SD201711152100_
 ptbr.png" >
-Overfull \hbox (7.83322pt too wide) in paragraph at lines 293--295
+Overfull \hbox (7.83322pt too wide) in paragraph at lines 297--299
  [][][] 
  []
 
-[70] [71] [72]
+[72]
 File: ../General_Processing/figures/track_flashes_20171115_ptbr.png Graphic fil
 e (type QTm)
-
-<use  "../General_Processing/figures/track_flashes_20171115_ptbr.png" >
+ <use  "../General_Processing/figures/track_flashes_20171115_ptbr.png" >
+[73]
 File: ../General_Processing/figures/clusters_flashes_2017-11-15_2150_ptbr.png G
 raphic file (type QTm)
 
 <use  "../General_Processing/figures/clusters_flashes_2017-11-15_2150_ptbr.png"
- > [73]
+ > [74]
 File: ../Radar_Processing/figures/ppis/classification/FCTH Refletividade Corrig
 ida 2017-11-15 2150 UTC.png Graphic file (type QTm)
 
@@ -1698,7 +1701,7 @@ Cruzada 2017-11-15 2150 UTC.png Graphic file (type QTm)
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Razão de Correlação
  Cruzada 2017-11-15 2150 UTC.png" >
 
-LaTeX Warning: Float too large for page by 6.00584pt on input line 342.
+LaTeX Warning: Float too large for page by 6.00584pt on input line 354.
 
 File: ../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoros
  2017-11-15 2150 UTC.png Graphic file (type QTm)
@@ -1714,16 +1717,13 @@ File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-1
 1-15 2150 UTC.png Graphic file (type QTm)
 
 <use  "../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-
-11-15 2150 UTC.png" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [74]
+11-15 2150 UTC.png" > [75]
 Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
- [75]
+ [76]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [76]
+ [77]
 File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC_ptbr.
 png Graphic file (type QTm)
 
@@ -1733,14 +1733,20 @@ File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC_ptbr.
 png Graphic file (type QTm)
 
 <use  "../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2150 UTC_ptbr
-.png" >) [77] (./tex/conclusions.tex [78]) (./main.bbl (./main.brf)
-\tf@brf=\write5
-\openout5 = `main.brf'.
+.png" >) (./tex/conclusions.tex [78]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [79
 
 ]
-[80
+Underfull \vbox (badness 1558) has occurred while \output is active []
+
+ [80])
+(./main.bbl (./main.brf)
+\tf@brf=\write5
+\openout5 = `main.brf'.
+
+ [81] [82
 
 ]
 
@@ -1748,20 +1754,20 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\uppercase' on input line 3.
 
 bibitemlist
-[81]
+[83]
 Missing character: There is no – in font ec-lmr12!
- [82] [83]
+ [84] [85]
 Missing character: There is no ́ in font ec-lmr12!
- [84] [85] [86] [87] [88] [89] [90] [91]) (./tex/appendices.tex)
-(./tex/annexes.tex [92]
+ [86] [87] [88] [89] [90] [91] [92] [93]) (./tex/appendices.tex)
+(./tex/annexes.tex [94]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\uppercase' on input line 8.
 
-[93
+[95
 
 
-] [94]
+] [96]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <24.88> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 10.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1787,11 +1793,39 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 10.
 
+File: ../Lightning_Processing/figures/brasildat_flash_stats_1km_ptbr.png Graphi
+c file (type QTm)
+<use  "../Lightning_Processing/figures/brasildat_flash_stats_1km_ptbr.png" >
+Overfull \hbox (3.91661pt too wide) in paragraph at lines 22--22
+ [] 
+ []
+
+File: ../Lightning_Processing/figures/brasildat_flash_stats_ptbr.png Graphic fi
+le (type QTm)
+<use  "../Lightning_Processing/figures/brasildat_flash_stats_ptbr.png" >
+Overfull \hbox (3.91661pt too wide) in paragraph at lines 24--24
+ [][] 
+ []
+
+File: ../Lightning_Processing/figures/brasildat_flash_stats_5km_ptbr.png Graphi
+c file (type QTm)
+<use  "../Lightning_Processing/figures/brasildat_flash_stats_5km_ptbr.png" >
+Overfull \hbox (3.91661pt too wide) in paragraph at lines 35--35
+ [] 
+ []
+
+File: ../Lightning_Processing/figures/brasildat_flash_stats_10km_ptbr.png Graph
+ic file (type QTm)
+<use  "../Lightning_Processing/figures/brasildat_flash_stats_10km_ptbr.png" >
+Overfull \hbox (3.91661pt too wide) in paragraph at lines 37--37
+ [][] 
+ []
+
 )
 No file main.ind.
-[95
+[97
 
-]
+] [98] [99]
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
@@ -1813,12 +1847,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 439.
  ) 
 Here is how much of TeX's memory you used:
- 27553 strings out of 493068
- 494250 string characters out of 6137720
- 707284 words of memory out of 5000000
- 31076 multiletter control sequences out of 15000+600000
- 136406 words of font info for 91 fonts, out of 8000000 for 9000
+ 27595 strings out of 493068
+ 495149 string characters out of 6137720
+ 710274 words of memory out of 5000000
+ 31114 multiletter control sequences out of 15000+600000
+ 139398 words of font info for 92 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 47i,14n,49p,10422b,1083s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,14n,57p,10422b,1080s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (97 pages).
+Output written on main.pdf (101 pages).
