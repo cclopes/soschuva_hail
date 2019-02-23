@@ -10,11 +10,11 @@ from datetime import datetime
 
 # 2017-11-15
 # - 21h30
-path = "cases/2017-11-15_21h30/"
-date_name = '2017-11-15 2130 UTC'
-# -- plot_multidop
-cs_lat, cs_lon = (-22.89, -23.02), (-47.36, -47.2)
-index = "a"
+# path = "cases/2017-11-15_21h30/"
+# date_name = '2017-11-15 2130 UTC'
+# # -- plot_multidop
+# cs_lat, cs_lon = (-22.89, -23.02), (-47.36, -47.2)
+# index = "a"
 # - 21h40
 # path = "cases/2017-11-15_21h40/"
 # date_name = '2017-11-15 2140 UTC'
@@ -28,19 +28,19 @@ index = "a"
 # cs_lat, cs_lon = (-23.03, -23.03), (-47.33, -47.12)
 # index = "b"
 # - for both scripts
-date = datetime(2017, 11, 15, 12)
-station = "SBMT"
-# - run_multidop
-grid_xlim, grid_ylim = (-200000.0, 10000.0), (-10000.0, 200000.0)
-grid_shape = (20, 211, 211)
-grid_spacing = 1000.0
-# - plot_multidop
-xlim, ylim = (-47.4, -47.12), (-23.1, -22.88)
-hailpad = (-47.20541, -23.02940)
-zerodeg_height = 4.5
-fortydeg_height = 10.2
-plotgrid_spc = .07
-lg_spc = 0.5
+# date = datetime(2017, 11, 15, 12)
+# station = "SBMT"
+# # - run_multidop
+# grid_xlim, grid_ylim = (-200000.0, 10000.0), (-10000.0, 200000.0)
+# grid_shape = (20, 211, 211)
+# grid_spacing = 1000.0
+# # - plot_multidop
+# xlim, ylim = (-47.4, -47.12), (-23.1, -22.88)
+# hailpad = (-47.20541, -23.02940)
+# zerodeg_height = 4.5
+# fortydeg_height = 10.2
+# plotgrid_spc = .07
+# lg_spc = 0.5
 
 # 2017-03-14
 # - 18h20
@@ -60,13 +60,13 @@ lg_spc = 0.5
 # hailpad = (-47.13110, -22.69160)
 # index = "b"
 # - 19h50
-# path = "cases/2017-03-14_19h50/"
-# date_name = '2017-03-14 1950 UTC'
-# # -- plot_multidop
-# cs_lat, cs_lon = (-22.8, -23.15), (-47.23, -47.19)
-# xlim, ylim = (-47.7, -47), (-23.2, -22.65)
-# hailpad = (-47.20541, -23.02940)
-# index = "a"
+path = "cases/2017-03-14_19h50/"
+date_name = '2017-03-14 1950 UTC'
+# -- plot_multidop
+cs_lat, cs_lon = (-22.8, -23.15), (-47.23, -47.19)
+xlim, ylim = (-47.7, -47), (-23.2, -22.65)
+hailpad = (-47.20541, -23.02940)
+index = "a"
 # - 20h
 # path = "cases/2017-03-14_20h00/"
 # date_name = '2017-03-14 2000 UTC'
@@ -76,17 +76,17 @@ lg_spc = 0.5
 # hailpad = (-47.20541, -23.02940)
 # index = "b"
 # - for both scripts
-# date = datetime(2017, 3, 14, 12)
-# station = "SBMT"
-# # - run_multidop
-# grid_xlim, grid_ylim = (-200000.0, 10000.0), (-10000.0, 200000.0)
-# grid_shape = (20, 211, 211)
-# grid_spacing = 1000.0
-# # - plot_multidop
-# zerodeg_height = 5.1
-# fortydeg_height = 10.6
-# plotgrid_spc = .15
-# lg_spc = 1.
+date = datetime(2017, 3, 14, 12)
+station = "SBMT"
+# - run_multidop
+grid_xlim, grid_ylim = (-200000.0, 10000.0), (-10000.0, 200000.0)
+grid_shape = (20, 211, 211)
+grid_spacing = 1000.0
+# - plot_multidop
+zerodeg_height = 5.1
+fortydeg_height = 10.6
+plotgrid_spc = .15
+lg_spc = 1.
 
 # General
 # -- run_multidop

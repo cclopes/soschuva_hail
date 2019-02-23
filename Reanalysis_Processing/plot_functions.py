@@ -75,16 +75,20 @@ def plot_sfc_jets(data, fig_asp, **kwargs):
         data.lon, data.lat, data.wind, levels=np.arange(0, 120, 10),
         zorder=1, transform=trans, cmap='wind')
     fig.colorbar(wind_shaded, spacing='uniform',
-                 label='250 hPa Wind Speed (' + r'$m s^{-1}$' + ')',
+                 # label='250 hPa Wind Speed (' + r'$m s^{-1}$' + ')',
+                 label='Vento 250 hPa (' + r'$m s^{-1}$' + ')',  # pt-br
                  aspect=fig_asp['cbar_aspect'], shrink=fig_asp['cbar_shrink'],
                  pad=0.025)
 
     plt.title(data.title_plot, weight='bold', stretch='condensed',
-              size='large', position=(0.55, 1))
+              size='medium', position=(0.55, 1))
 
     # Saving
+    # plt.savefig(('figures/ERA5_' + fig_asp['fig_type'] + data.title_figure +
+    #              '.png'), dpi=300, transparent=True, bbox_inches='tight')
+    # pt-br
     plt.savefig(('figures/ERA5_' + fig_asp['fig_type'] + data.title_figure +
-                 '.png'), dpi=300, transparent=True, bbox_inches='tight')
+                 '_ptbr.png'), dpi=300, transparent=True, bbox_inches='tight')
     plt.close()
 
 
@@ -127,9 +131,12 @@ def plot_cape_shear(data, fig_asp, **kwargs):
                  pad=0.025)
 
     plt.title(data.title_plot, weight='bold', stretch='condensed',
-              size='large', position=(0.55, 1))
+              size='medium', position=(0.55, 1))
 
     # Saving
+    # plt.savefig(('figures/ERA5_' + fig_asp['fig_type'] + data.title_figure +
+    #              '.png'), dpi=300, transparent=True, bbox_inches='tight')
+    # pt-br
     plt.savefig(('figures/ERA5_' + fig_asp['fig_type'] + data.title_figure +
-                 '.png'), dpi=300, transparent=True, bbox_inches='tight')
+                 '_ptbr.png'), dpi=300, transparent=True, bbox_inches='tight')
     plt.close()

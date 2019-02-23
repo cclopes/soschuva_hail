@@ -12,7 +12,7 @@ Como parte do Projeto SOS-CHUVA, uma rede de detecção de granizo através de \
 	\begin{center}
 		\caption{(a) Rede de \textit{hailpads} instalada na Região Metropolitana de Campinas com a localização e cobertura de 80 km do radar XPOL. (b) Hailpad instalado na cidade de Indaiatuba, na localização indicada com a seta em (a)} 
 		\label{overview_hailpads}
-		\subfloat[]{\includegraphics[width=0.75\columnwidth]{figs/hailpad_network.png}
+		\subfloat[]{\includegraphics[width=0.75\columnwidth]{figs/hailpad_network_ptbr.png}
 			\label{rede_hailpads}}
 		\ \
 		\subfloat[]{\includegraphics[width=0.158\columnwidth]{figs/hailpad.png}
@@ -75,7 +75,7 @@ A partir de um \textit{hailpad} é possível derivar diversas grandezas relacion
 	\end{center}
 \end{figure}
 
-Como houve no máximo 2 placas sensibilizadas em todos os casos (quantidade insuficiente para inferir a energia cinética do granizo), calculou-se a energia cinética do \textit{hailpad} $E_t\:(Jm^{-2})$, definida por \citeonline{Mezeix1981} como:
+Como houve no máximo 2 placas sensibilizadas em todos os casos (quantidade insuficiente para inferir a energia cinética do granizo), calculou-se a energia cinética do \textit{hailpad} $E_t\:(Jm^{-2})$, definida por \citeonline{Waldvogel1978} como:
 
 \begin{equation} \label{mezeix}
 	E_t = 4,58\:e^{-6} \sum_{i=1}^{k} n_i d_i^4
@@ -96,7 +96,7 @@ A \autoref{cobertura_radares} mostra a localização e cobertura espacial dos ra
 	\begin{center}
 		\caption{Localização e cobertura dos radares da FCTH (laranja), de São Roque (azul) e o XPOL (verde). As linhas mais grossas representam a cobertura de $250$ ($80$) $km$ dos radares FCTH e São Roque (XPOL), enquanto que as linhas mais finas representam a cobertura de $100$ ($60$) $km$ dos mesmos radares} 
 		\label{cobertura_radares}
-		\includegraphics[width=\columnwidth]{figs/radar_coverages_hires2.jpg}
+		\includegraphics[width=\columnwidth]{figs/radar_coverages_hires2_ptbr.png}
 		\legend{Fonte: Produzido pela autora.}
 	\end{center}
 \end{figure}
@@ -161,7 +161,7 @@ Este Classificador Fuzzy de Hidrometeoros leva em consideração intervalos de v
 	\item Gotas Grandes (\textit{Big Drops})
 \end{alineas}
 
-O classificador utiliza como entrada os campos de refletividade, refletividade diferencial, fase diferencial específica e coeficiente de correlação, além de um perfil de temperatura obtido a partir de uma radiossondagem. O método de ponderação desta função (chamado de híbrido) multiplica a soma dos pesos das variáveis polarimétricas ao valor verdadeiro nos casos de refletividade e perfil de temperatura; os pesos de refletividade diferencial, fase diferencial específica e coeficiente de correlação foram subjetivamente definidos como 1 pois não foi possível determinar a confiabilidade dessas variáveis. As funções beta de cada variável estão descritas em \citeonline{Carey1998a}, \citeonline{Liu2000a} e \citeonline{Dolan2009}. As radiossondagens aplicadas foram coletadas no Campo de Marte (Estação SBMT, São Paulo) em datas próximas aos eventos; os perfis de temperatura foram extraídos usando o pacote Siphon \cite{siphon}.
+O classificador utiliza como entrada os campos de refletividade, refletividade diferencial, fase diferencial específica e coeficiente de correlação, além de um perfil de temperatura obtido a partir de uma radiossondagem. O método de ponderação desta função (chamado de híbrido) multiplica a soma dos pesos das variáveis polarimétricas ao valor verdadeiro dos campos de refletividade e perfil de temperatura (dando assim maior peso à essas variáveis); os pesos de refletividade diferencial, fase diferencial específica e coeficiente de correlação foram subjetivamente definidos como 1 pois não foi possível determinar a confiabilidade dessas variáveis. As funções beta de cada variável estão descritas em \citeonline{Carey1998a}, \citeonline{Liu2000a} e \citeonline{Dolan2009}. As radiossondagens aplicadas foram coletadas no Campo de Marte (Estação SBMT, São Paulo) em datas próximas aos eventos; os perfis de temperatura foram extraídos usando o pacote Siphon \cite{siphon}.
 
 Para verificar subjetivamente a performance do método de classificação de hidrometeoros, os campos de variáveis polarimétricas foram analisados e relacionados com os mesmos tipos de hidrometeoros do método a partir da classificação de \citeonline{Straka2000}. A \autoref{hid_straka} mostra os intervalos de valores de cada variável correspondente a cada tipo de hidrometeoro, incluindo também a mistura de chuva com granizo (\textit{rain + hail}).
 
@@ -272,8 +272,8 @@ Como mostrado na \autoref{tabela_multidop}, os dados de radar foram convertidos 
 		\caption{Velocidade radial verdadeira vs medida de um alvo com uma velocidade de Nyquist de $10\:ms^{-1}$ mostrando a ambiguidade para valores de velocidade verdadeira além do intervalo de $-10$ a $10\:ms^{-1}$} 
 		\label{nyquist}
 		%		\setcaptionmargin{1cm}
-		\includegraphics[width=\columnwidth]{figs/nyquist_rauber.png}
-		\legend{Fonte: \citeonline{Rauber2018}.}
+		\includegraphics[width=\columnwidth]{figs/nyquist_rauber_ptbr.png}
+		\legend{Fonte: Adaptado de \citeonline{Rauber2018}.}
 	\end{center}
 \end{figure}
 

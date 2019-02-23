@@ -11,11 +11,11 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-Reallocated field_info (elt_size=4) to 11762 items from 5000.
+Reallocated field_info (elt_size=4) to 12728 items from 5000.
 Database file #1: abntex2-options.bib
 Database file #2: library.bib
 Warning--entry type for "siphon" isn't style-file defined
---line 1583 of file library.bib
+--line 4892 of file library.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -25,45 +25,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 98 entries,
+You've used 112 entries,
             6714 wiz_defined-function locations,
-            1984 strings with 37293 characters,
-and the built_in function-call counts, 245124 in all, are:
-= -- 31772
-> -- 3429
-< -- 8442
-+ -- 9481
-- -- 1017
-* -- 15174
-:= -- 28371
-add.period$ -- 484
-call.type$ -- 98
-change.case$ -- 1138
-chr.to.int$ -- 307
-cite$ -- 97
-duplicate$ -- 28714
-empty$ -- 6111
-format.name$ -- 4919
-if$ -- 46055
-int.to.chr$ -- 1
+            2082 strings with 41001 characters,
+and the built_in function-call counts, 282708 in all, are:
+= -- 36635
+> -- 4006
+< -- 9759
++ -- 10969
+- -- 1185
+* -- 17538
+:= -- 32697
+add.period$ -- 555
+call.type$ -- 112
+change.case$ -- 1318
+chr.to.int$ -- 353
+cite$ -- 111
+duplicate$ -- 33150
+empty$ -- 6961
+format.name$ -- 5722
+if$ -- 53070
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 1751
-newline$ -- 612
-num.names$ -- 488
-pop$ -- 2290
+missing$ -- 2005
+newline$ -- 703
+num.names$ -- 558
+pop$ -- 2631
 preamble$ -- 1
-purify$ -- 419
+purify$ -- 483
 quote$ -- 0
-skip$ -- 28605
+skip$ -- 33000
 stack$ -- 1
-substring$ -- 11853
-swap$ -- 10590
-text.length$ -- 286
+substring$ -- 13625
+swap$ -- 12226
+text.length$ -- 331
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 16
+type$ -- 17
 warning$ -- 0
-while$ -- 839
+while$ -- 961
 width$ -- 0
-write$ -- 1763
+write$ -- 2023
 (There was 1 warning)

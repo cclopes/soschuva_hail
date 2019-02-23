@@ -20,7 +20,7 @@ theme_set(theme_bw())
 
 # 2017-03-14 -------------------------------------------------------------------
 fams_df <- selected_fams_df %>% 
-  filter(case == "Case 2017-03-14 ")
+  filter(as.Date(date) == "2017-03-14")
 grid_df <- grid[c(1,2),]
 
 plt_fortracc <- ggplot(data = fams_df) +
@@ -57,9 +57,9 @@ plt_fortracc <- ggplot(data = fams_df) +
   )
 
 flashes_df <- flashes_brasildat_df %>% 
-  filter(case == "Case 2017-03-14 ")
+  filter(as.Date(date) == "2017-03-14")
 flashes_df_total <- flashes_qte_total %>% 
-  filter(case == "Case 2017-03-14 ")
+  filter(str_sub(case, -11, -2) == "2017-03-14")
 plt_flashes <- ggplot(data = flashes_df) +
   scale_x_continuous(limits = lims_in_plot$lon) + scale_y_continuous(limits = lims_in_plot$lat) +
   geom_point(aes(x = lon, y = lat, shape = class, color = hour)) +
@@ -114,7 +114,7 @@ save_plot("General_Processing/figures/track_flashes_20170314_ptbr.png",
 
 # 2017-11-15 -------------------------------------------------------------------
 fams_df <- selected_fams_df %>% 
-  filter(case == "Case 2017-11-15 ")
+  filter(as.Date(date) == "2017-11-15")
 grid_df <- grid[c(1,2),]
 
 plt_fortracc <- ggplot(data = fams_df) +
@@ -151,9 +151,9 @@ plt_fortracc <- ggplot(data = fams_df) +
   )
 
 flashes_df <- flashes_brasildat_df %>% 
-  filter(case == "Case 2017-11-15 ")
+  filter(as.Date(date) == "2017-11-15")
 flashes_df_total <- flashes_qte_total %>% 
-  filter(case == "Case 2017-11-15 ")
+  filter(str_sub(case, -11, -2) == "2017-11-15")
 plt_flashes <- ggplot(data = flashes_df) +
   scale_x_continuous(limits = lims_in_plot$lon) + scale_y_continuous(limits = lims_in_plot$lat) +
   geom_point(aes(x = lon, y = lat, shape = class, color = hour)) +
@@ -205,3 +205,4 @@ plt <- plot_grid(plt_fortracc, plt_flashes, legend, labels = c("a", "b"),
 #           plot = plt, ncol = 3, base_width = 2.5, base_height = 3.4, bg = "transparent")
 save_plot("General_Processing/figures/track_flashes_20171115_ptbr.png",
           plot = plt, ncol = 3, base_width = 2.5, base_height = 3.4, bg = "transparent")  # pt-br
+

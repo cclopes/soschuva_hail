@@ -64,15 +64,15 @@ Os estudos dos casos de 2017-03-14 e 2017-11-15 estão descritos a seguir, focan
 
 A influência de uma frente fria no litoral de São Paulo e do Rio de Janeiro durante a madrugada foi determinante para o disparo de sistemas convectivos no estado de São Paulo durante a tarde. O sistema frontal em si se deslocou para o Oceano Atlântico ao longo do dia - às 1200 UTC (Figura\autoref{era5_2017031412_jets}), o sistema está à leste de $30^{\circ}W$ - mas favoreceu a convergência de umidade na região de estudo (não mostrado). Às 1200 UTC, a radiossondagem (\autoref{sondagem_20170314}) mostra uma camada úmida entre a superfície e $600\:hPa$, mas com CAPE (\textit{Convective Available Potential Energy}, Energia Potencial Disponível para Convecção) nulo e pouco cisalhamento (mesma condição no resto do estado, como mostra a Figura\autoref{era5_2017031412_cape}). Já às 1500 UTC (Figura\autoref{era5_2017031415_cape}), o potencial para convecção (CAPE entre 500 e $1500\:J\:kg^{-1}$) e o cisalhamento (de até 10 nós) aumentaram, disparando sistemas convectivos no centro do estado de São Paulo. As imagens de satélite da \autoref{goes16_sp_20170314} mostram a propagação e intensificação de sistemas convectivos com topos de até $-75^{\circ}C$ de temperatura de brilho em alguns pontos na região de estudo aproximadamente às 1800 (a) e 2000 UTC (b), o que inclui o sistema que causou queda de granizo em Cosmópolis e Indaiatuba. 
 
-\begin{figure}[htb]
+\begin{figure}[hp]
 	\begin{center}
 		\caption{Campos da reanálise do ERA5 em 2017-03-14: Pressão ao nível médio do mar, espessura entre $1000$ e $500\:hPa$ e velocidade do vento em $250\:hPa$ às 1200 UTC (a); altura geopotencial em $850\:hPa$, cisalhamento do vento entre $1000$ e $500\:hPa$ e CAPE em superfície às 1200 (b) e 1500 UTC, no domínio do Estado de São Paulo (c)} 
 		\label{era5_20170314_main}
-		\subfloat[]{\includegraphics[width=0.45\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200_ptbr.png}
+		\subfloat[]{\includegraphics[width=0.495\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200_ptbr.png}
 			\label{era5_2017031412_jets}}
-		\subfloat[]{\includegraphics[width=0.55\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201703141200_ptbr.png}
+		\subfloat[]{\includegraphics[width=0.505\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201703141200_ptbr.png}
 			\label{era5_2017031412_cape}} \\
-		\subfloat[]{\includegraphics[width=0.5\columnwidth]{../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201703141500_ptbr.png}
+		\subfloat[]{\includegraphics[width=0.505\columnwidth]{../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201703141500_ptbr.png}
 			\label{era5_2017031415_cape}} \\
 		\legend{Fonte: Produzido pela autora.}
 	\end{center}
@@ -139,7 +139,7 @@ Depois da queda de granizo em Cosmópolis, o sistema convectivo se separou em di
 
 \begin{figure}[htb]
 	\centering
-	\caption{Campos de refletividade (a) e \textit{flashes} IC (b) e CG (c) acumulados em 10 minutos do sistema convectivo (delimitado pela linha preta) responsável pela queda de granizo em Indaiatuba em 2017-03-14. O triângulo preto indica a localização do \textit{hailpad}} 
+	\caption{Campos de refletividade (CAPPI em $3\:km$ do radar de São Roque) (a) e \textit{flashes} IC (b) e CG (c) acumulados em 10 minutos do sistema convectivo (delimitado pela linha preta) responsável pela queda de granizo em Indaiatuba em 2017-03-14. O triângulo preto indica a localização do \textit{hailpad}} 
 	\label{dbz_flashes_20170314_2}
 	%\vspace{-5pt}
 	\includegraphics[width=0.99\columnwidth]{../General_Processing/figures/clusters_flashes_2017-03-14_2000_ptbr.png} \\
@@ -154,7 +154,7 @@ Os campos derivados das variáveis polarimétricas são acurados na classificaç
 
 \begin{figure}[hp]
 	\centering
-	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos do radar da FCTH em 2017-03-14 1827 UTC, quando houve queda de granizo em Cosmópolis: Refletividade corrigida (a) e diferencial (b), fase diferencial específica (c) e coeficiente de correlação (d). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT}
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos do radar da FCTH em 2017-03-14 1827 UTC, quando houve queda de granizo em Cosmópolis: Refletividade corrigida (a) e diferencial (b), fase diferencial específica (c) e coeficiente de correlação (d). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SBMT}
 	\label{radar_20170314_1}
 	\vspace{-5pt}
 	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Refletividade Corrigida 2017-03-14 1827 UTC.png} \\
@@ -167,9 +167,9 @@ Os campos derivados das variáveis polarimétricas são acurados na classificaç
 	\legend{Fonte: Produzido pela autora.}
 \end{figure}
 
-\begin{figure}[hp]
+\begin{figure}[htb]
 	\centering
-	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos derivados do radar da FCTH em 2017-03-14 1827 UTC, quando houve queda de granizo em Cosmópolis: Identificação de hidrometeoros (a) e massas de água líquida (b) e gelo (c). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos derivados do radar da FCTH em 2017-03-14 1827 UTC, quando houve queda de granizo em Cosmópolis: Identificação de hidrometeoros (a) e massas de água líquida (b) e gelo (c). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SBMT} 
 	\label{radar_derived_20170314_1}
 	\vspace{-5pt}
 	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoros 2017-03-14 1827 UTC.png} \\
@@ -186,7 +186,7 @@ A classificação de hidrometeoros do sistema convectivo que causou queda de gra
 
 \begin{figure}[hp]
 	\centering
-	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos do radar da FCTH em 2017-03-14 1957 UTC, quando houve queda de granizo em Indaiatuba: Refletividade corrigida (a) e diferencial (b), fase diferencial específica (c) e coeficiente de correlação (d). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT}
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos do radar da FCTH em 2017-03-14 1957 UTC, quando houve queda de granizo em Indaiatuba: Refletividade corrigida (a) e diferencial (b), fase diferencial específica (c) e coeficiente de correlação (d). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SBMT}
 	\label{radar_20170314_2}
 	\vspace{-5pt}
 	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Refletividade Corrigida 2017-03-14 1957 UTC.png} \\
@@ -201,7 +201,7 @@ A classificação de hidrometeoros do sistema convectivo que causou queda de gra
 
 \begin{figure}[htb]
 	\centering
-	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos derivados do radar da FCTH em 2017-03-14 1957 UTC, quando houve queda de granizo em Indaiatuba: Identificação de hidrometeoros (a) e massas de água líquida (b) e gelo (c). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos derivados do radar da FCTH em 2017-03-14 1957 UTC, quando houve queda de granizo em Indaiatuba: Identificação de hidrometeoros (a) e massas de água líquida (b) e gelo (c). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SBMT} 
 	\label{radar_derived_20170314_2}
 	\vspace{-5pt}
 	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoros 2017-03-14 1957 UTC.png} \\
@@ -220,7 +220,7 @@ A \autoref{doppler_20170314_1} mostra os campos de refletividade mesclada e velo
 
 \begin{figure}[htb]
 	\centering
-	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de refletividade e velocidade do vento (correntes ascendentes e descendentes máximas no painel da esquerda, escoamento no painel da direita) derivado por Multi-Doppler em 2017-03-14 às 1820 (a) e 1830 UTC (b), quando houve queda de granizo em Cosmópolis. O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de refletividade e velocidade do vento (correntes ascendentes e descendentes máximas no painel da esquerda, escoamento no painel da direita) derivado por Multi-Doppler em 2017-03-14 às 1820 (a) e 1830 UTC (b), quando houve queda de granizo em Cosmópolis. O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SBMT} 
 	\label{doppler_20170314_1}
 	\vspace{-5pt}
 	\includegraphics[width=\columnwidth]{../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1820 UTC_ptbr.png} \\
@@ -233,7 +233,7 @@ A \autoref{doppler_20170314_2} mostra os campos de refletividade mesclada e velo
 
 \begin{figure}[hbt]
 	\centering
-	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de refletividade e velocidade do vento (correntes ascendentes e descendentes máximas no painel da esquerda, escoamento no painel da direita) derivado por Multi-Doppler em 2017-03-14 às 1950 (a) e 2000 UTC (b), quando houve queda de granizo em Indaiatuba. O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de refletividade e velocidade do vento (correntes ascendentes e descendentes máximas no painel da esquerda, escoamento no painel da direita) derivado por Multi-Doppler em 2017-03-14 às 1950 (a) e 2000 UTC (b), quando houve queda de granizo em Indaiatuba. O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SBMT} 
 	\label{doppler_20170314_2}
 	\vspace{-5pt}
 	\includegraphics[width=\columnwidth]{../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC_ptbr.png} \\
@@ -244,27 +244,31 @@ A \autoref{doppler_20170314_2} mostra os campos de refletividade mesclada e velo
 
 Em ambos os casos, o intenso movimento ascendente de hidrometeoros dentro da região de fase mista antes (\autoref{doppler_20170314_1}a) ou durante (\autoref{doppler_20170314_2}a) a queda de granizo contribui para a alta densidade de raios na região (\autoref{dbz_flashes_20170314_1}, \autoref{dbz_flashes_20170314_2}), pois promove maior colisão entre hidrometeoros e consequentemente aumenta a transferência de cargas (\autoref{granizo_eletrificacao}).
 
+\newpage
+
 \subsection{Caso de 2017-11-15}
 
 \subsubsection{Ambiente Sinótico e Termodinâmico}\label{sinotica_20171115}
 
 Diferentemente do caso anterior, o caso de 2017-11-15 não teve condições sinóticas favoráveis. Mesmo com a Zona de Convergência do Atlântico Sul (ZCAS) localizada à norte do estado de São Paulo em fase de desconfiguração, a subsidência na região se manteve durante o dia: às 1200 UTC, a radiossondagem (\autoref{sondagem_20171115} mostra uma camada seca acima de $750\:hPa$, com baixo cisalhamento do vento e CAPE nulo, condição similar ao resto do estado (Figuras\autoref{era5_2017111512_jets} e\autoref{era5_2017111512_cape}); às 1800 UTC (Figura\autoref{era5_2017111518_cape}), o CAPE aumenta, mas ainda é baixo (entre 0 e $1000\:J\:kg^{-1}$), com um pouco de cisalhamento entre 1000 e $500\:hPa$ (até 5 nós). Ainda assim, as imagens de satélite mostram pequenos sistemas convectivos espalhados pelo centro-norte do estado se formando às 1800 (Figura\autoref{goes16_sp_20171115_1}) e 2100 UTC (Figura\autoref{goes16_sp_20171115_2}), com topos de nuvem de até $-60\:^{\circ}C$ de temperatura de brilho, incluindo o sistema que causou queda de granizo em Indaiatuba.
 
-\begin{figure}[hp]
+\begin{figure}[H]
 	\begin{center}
 		\caption{Campos da reanálise do ERA5 em 2017-11-15: Pressão ao nível médio do mar, espessura entre $1000$ e $500\:hPa$ e velocidade do vento em $250\:hPa$ às 1200 UTC (a); altura geopotencial em $850\:hPa$, cisalhamento do vento entre $1000$ e $500\:hPa$ e CAPE em superfície às 1200 UTC (b) e 1800 UTC (c)} 
 		\label{era5_20171115_main}
-		\subfloat[]{\includegraphics[width=0.45\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200_ptbr.png}
+		\subfloat[]{\includegraphics[width=0.495\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200_ptbr.png}
 			\label{era5_2017111512_jets}}
-		\subfloat[]{\includegraphics[width=0.55\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201711151200_ptbr.png}
+		\subfloat[]{\includegraphics[width=0.505\columnwidth]{../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201711151200_ptbr.png}
 			\label{era5_2017111512_cape}} \\
-		\subfloat[]{\includegraphics[width=0.5\columnwidth]{../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201711151800_ptbr.png}
+		\subfloat[]{\includegraphics[width=0.505\columnwidth]{../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201711151800_ptbr.png}
 			\label{era5_2017111518_cape}} \\
 		\legend{Fonte: Produzido pela autora.}
 	\end{center}
 \end{figure}
 
-\begin{figure}[hp]
+\newpage
+
+\begin{figure}[H]
 	\begin{center}
 		\caption{Plotagem Skew-T Log-P da radiossondagem do Campo de Marte (SP) com hodógrafa do vento e índices CAPE e CIN em 2017-11-15 1200 UTC.} 
 		\label{sondagem_20171115}
@@ -285,7 +289,7 @@ Diferentemente do caso anterior, o caso de 2017-11-15 não teve condições sin�
 %\end{figure}
 
 
-\begin{figure}[hp]
+\begin{figure}[H]
 	\begin{center}
 		\caption{Imagem de satélite do canal 13 do GOES-16 mostrando a temperatura de brilho do topo das nuvens no estado de São Paulo em 2017-11-15 1800 (a) e 2100 UTC (b).} 
 		\label{goes16_sp_20171115}
@@ -313,9 +317,11 @@ A \autoref{track_flashes_20171115} mostra a localização do sistema convectivo 
 
 A \autoref{dbz_flashes_20171115} mostra os campos de refletividade (a) e \textit{flashes} IC (b) e CG (c) para o caso de 2017-11-15 antes, durante e depois da queda de granizo em Indaiatuba. O núcleo convectivo mais próximo à localização do \textit{hailpad} está embebido em um sistema multicelular que abrange algumas cidades do oeste e sudoeste da RMC e passa por um processo de separação durante a queda de granizo. A densidade de raios (de até 4 (2) \textit{flashes} IC (CG)) está concentrada neste núcleo convectivo intenso (refletividade acima de $60\:dBZ$), no entorno da localização do \textit{hailpad}.
 
+\newpage
+
 \begin{figure}[htb]
 	\centering
-	\caption{Campos de refletividade (a) e \textit{flashes} IC (b) e CG (c) acumulados em 10 minutos do sistema convectivo (delimitado pela linha preta) responsável pela queda de granizo em Indaiatuba em 2017-11-15. O triângulo preto indica a localização do \textit{hailpad}} 
+	\caption{Campos de refletividade (CAPPI em $3\:km$ do radar de São Roque) (a) e \textit{flashes} IC (b) e CG (c) acumulados em 10 minutos do sistema convectivo (delimitado pela linha preta) responsável pela queda de granizo em Indaiatuba em 2017-11-15. O triângulo preto indica a localização do \textit{hailpad}} 
 	\label{dbz_flashes_20171115}
 	%\vspace{-5pt}
 	\includegraphics[width=0.99\columnwidth]{../General_Processing/figures/clusters_flashes_2017-11-15_2150_ptbr.png} \\
@@ -326,9 +332,15 @@ A \autoref{dbz_flashes_20171115} mostra os campos de refletividade (a) e \textit
 
 A \autoref{radar_20171115} mostra os campos de refletividade e variáveis polarimétricas refletividade diferencial, fase diferencial específica e coeficiente de correlação do radar da FCTH para o caso de 2017-11-15, quando houve queda de granizo em Indaiatuba; a \autoref{radar_derived_20171115} mostra a identificação de hidrometeoros e massas de água líquida e gelo calculadas a partir dos campos de radar. O núcleo convectivo responsável pela queda de granizo é formado por uma região de refletividades acima de $50\:dBZ$ com cerca de $8\:km$ de extensão horizontal e $10\:km$ de extensão vertical (entre $1\:km$ de altura e a isoterma de $-40^{\circ}C$) (\autoref{radar_20171115}a). Entre a superfície e a isoterma de $0^{\circ}C$ observa-se refletividades acima de $60\:dBZ$ na localização do \textit{hailpad}, o que indica a presença de granizo ou chuva misturada com granizo - a refletividade diferencial (\autoref{radar_20171115}b) confirma isso, com valores entre 0 e $1\:dBZ$ nessa região.
 
+A identificação de hidrometeoros no núcleo convectivo responsável pela queda de granizo (\autoref{radar_derived_20171115}a) novamente é similar ao campo de refletividade, classificando como granizo a região de refletividades acima de $50\:dBZ$, graupel de densidade alta (DA) entre 40 e $50\:dBZ$ e graupel de densidade baixa (DB) entre 30 e $40\:dBZ$. O problema está em regiões com refletividade abaixo de $30\:dBZ$, que são classificadas como cristais de gelo ou agregados mesmo abaixo da isoterma de $0^{\circ}C$ (em $\ang{23.03}S$, $\ang{47.17}W$, por exemplo, há cristais de gelo em $1\:km$ de altura. As variáveis polarimétricas indicam a presença de graupel), condição muito difícil de ser encontrada em nuvens frias de tempestades tropicais. Assim como no caso de 2017-03-14, a estratégia do radar influencia os resultados encontrados, já que a região está à aproximadamente $140\:km$ do radar (portanto, a primeira elevação faz varreduras entre aproximadamente 2,5 e $4,5\:km$ de altura, contribuindo para a mistura de hidrometeoros).
+
+Há uma maior concentração de massa de água líquida (cerca de $6\:gm^{-3}$, \autoref{radar_derived_20171115}b) em $1\:km$ de altura dentro do núcleo convectivo, extendendo-se até $7,5\:km$. A massa de gelo (\autoref{radar_derived_20171115}c), por outro lado, chega a concentrações muito mais altas ($30\:gm^{-3}$) na mesma região, chegando a $12,5\:km$ de altura; essa alta concentração reforça a intensidade da queda de granizo observada no \textit{hailpad} (\autoref{tabela_resumo_casos}).
+
+Mesmo com a alta massa de gelo dentro da região de fase mista do núcleo convectivo, a baixa massa de água líquida pode ter contribuído para a baixa densidade de raios observada na região (\autoref{dbz_flashes_20171115}), já que o conteúdo de água líquida determina a espessura da camada quase-líquida dos hidrometeoros de gelo e é a troca de massa dessa camada durante colisões que carrega eletricamente os hidrometeoros e consequentemente a tempestade (\autoref{granizo_eletrificacao}).
+
 \begin{figure}[hp]
 	\centering
-	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos do radar da FCTH em 2017-11-15 2150 UTC, quando houve queda de granizo em Indaiatuba: Refletividade corrigida (a) e diferencial (b), fase diferencial específica (c) e coeficiente de correlação (d). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT}
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos do radar da FCTH em 2017-11-15 2150 UTC, quando houve queda de granizo em Indaiatuba: Refletividade corrigida (a) e diferencial (b), fase diferencial específica (c) e coeficiente de correlação (d). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SBMT}
 	\label{radar_20171115}
 	\vspace{-5pt}
 	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH Refletividade Corrigida 2017-11-15 2150 UTC.png} \\
@@ -343,7 +355,7 @@ A \autoref{radar_20171115} mostra os campos de refletividade e variáveis polari
 
 \begin{figure}[htb]
 	\centering
-	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos derivados do radar da FCTH em 2017-11-15 2150 UTC, quando houve queda de granizo em Indaiatuba: Identificação de hidrometeoros (a) e massas de água líquida (b) e gelo (c). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de campos derivados do radar da FCTH em 2017-11-15 2150 UTC, quando houve queda de granizo em Indaiatuba: Identificação de hidrometeoros (a) e massas de água líquida (b) e gelo (c). O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SBMT} 
 	\label{radar_derived_20171115}
 	\vspace{-5pt}
 	\includegraphics[width=\columnwidth]{../Radar_Processing/figures/ppis/classification/FCTH IDs de Hidrometeoros 2017-11-15 2150 UTC.png} \\
@@ -354,19 +366,13 @@ A \autoref{radar_20171115} mostra os campos de refletividade e variáveis polari
 	\legend{Fonte: Produzido pela autora.}
 \end{figure}
 
-A identificação de hidrometeoros no núcleo convectivo responsável pela queda de granizo (\autoref{radar_derived_20171115}a) novamente é similar ao campo de refletividade, classificando como granizo a região de refletividades acima de $50\:dBZ$, graupel de densidade alta (DA) entre 40 e $50\:dBZ$ e graupel de densidade baixa (DB) entre 30 e $40\:dBZ$. O problema está em regiões com refletividade abaixo de $30\:dBZ$, que são classificadas como cristais de gelo ou agregados mesmo abaixo da isoterma de $0^{\circ}C$ (em $\ang{23.03}S$, $\ang{47.17}W$, por exemplo, há cristais de gelo em $1\:km$ de altura. As variáveis polarimétricas indicam a presença de graupel), condição muito difícil de ser encontrada em nuvens frias de tempestades tropicais. Assim como no caso de 2017-03-14, a estratégia do radar influencia os resultados encontrados, já que a região está à aproximadamente $140\:km$ do radar (portanto, a primeira elevação faz varreduras entre aproximadamente 2,5 e $4,5\:km$ de altura, contribuindo para a mistura de hidrometeoros).
-
-Há uma maior concentração de massa de água líquida (cerca de $6\:gm^{-3}$, \autoref{radar_derived_20171115}b) em $1\:km$ de altura dentro do núcleo convectivo, extendendo-se até $7,5\:km$. A massa de gelo (\autoref{radar_derived_20171115}c), por outro lado, chega a concentrações muito mais altas ($30\:gm^{-3}$) na mesma região, chegando a $12,5\:km$ de altura; essa alta concentração reforça a intensidade da queda de granizo observada no \textit{hailpad} (\autoref{tabela_resumo_casos}).
-
-Mesmo com a alta massa de gelo dentro da região de fase mista do núcleo convectivo, a baixa massa de água líquida pode ter contribuído para a baixa densidade de raios observada na região (\autoref{dbz_flashes_20171115}), já que o conteúdo de água líquida determina a espessura da camada quase-líquida dos hidrometeoros de gelo e é a troca de massa dessa camada durante colisões que carrega eletricamente os hidrometeoros e consequentemente a tempestade (\autoref{granizo_eletrificacao}).
-
 \subsubsection{Cinemática}\label{cinematica_20171115}
 
 A \autoref{doppler_20171115} mostra os campos de refletividade mesclada e velocidade do vento derivado por Multi-Doppler usando a combinação dos radares de São Roque, FCTH e XPOL, para o caso de 2017-11-15, quando houve queda de granizo em Cosmópolis. O sistema convectivo responsável pelo evento mostra um núcleo isolado de refletividade acima de $40\:dBZ$ que se separa entre 2140 (\autoref{doppler_20171115}a) e 2150 UTC (\autoref{doppler_20171115}b), sendo que o núcleo mais intenso é localizado próximo ao \textit{hailpad}. Esse núcleo tem $15\:km$ de extensão vertical, com refletividades próximas a $55\:dBZ$ entre as isotermas de 0 e $-40^{\circ}C$ (\autoref{doppler_20171115}a) e acima de $60\:dBZ$ abaixo da isoterma de $0^{\circ}C$ (\autoref{doppler_20171115}b), indicando momentos distintos de formação e crescimento de hidrometeoros e subsequente precipitação. Antes da queda de granizo, uma região de corrente ascendente com velocidades de até $20\:ms^{-1}$ está associada ao núcleo convectivo, com um escoamento ascendente entre 5 e $13\:km$ de altura, divergência no topo e um escoamento descendente intenso (até $10\:ms^{-1}$) fora do núcleo, além de uma corrente descendente mais fraca dentro do núcleo. Dez minutos depois, a corrente ascendente (descendente) enfraquece (é fortalecida) dentro do núcleo convectivo, com um gradiente intenso (cerca de $5\:ms^{-1}km^{-1}$) entre as isotermas de 0 e $-40^{\circ}C$. Próximo à localização do \textit{hailpad}, a corrente descendente da isoterma de $0^{\circ}C$ à superfície e a refletividade de até $70\:dBZ$ próximo à superfície indicam intensa precipitação de hidrometeoros, incluindo chuva e granizos maiores (comparado ao caso de 2017-03-14), como observado pelo \textit{hailpad} (\autoref{tabela_resumo_casos}).
 
 \begin{figure}[htb]
 	\centering
-	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de refletividade e velocidade do vento (correntes ascendentes e descendentes máximas no painel da esquerda, escoamento no painel da direita) derivado por Multi-Doppler em 2017-11-15 às 2140 (a) e 2150 UTC (b), quando houve queda de granizo em Cosmópolis. O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SMBT} 
+	\caption{Corte horizontal em $3\:km$ de altura e vertical entre os pontos A e B de refletividade e velocidade do vento (correntes ascendentes e descendentes máximas no painel da esquerda, escoamento no painel da direita) derivado por Multi-Doppler em 2017-11-15 às 2140 (a) e 2150 UTC (b), quando houve queda de granizo em Cosmópolis. O 'x' indica a localização do \textit{hailpad} e as isotermas de $0$ e $-40^{\circ}C$ foram definidas a partir da radiossondagem de SBMT} 
 	\label{doppler_20171115}
 	\vspace{-5pt}
 	\includegraphics[width=\columnwidth]{../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC_ptbr.png} \\
@@ -375,4 +381,4 @@ A \autoref{doppler_20171115} mostra os campos de refletividade mesclada e veloci
 	\legend{Fonte: Produzido pela autora.}
 \end{figure}
 
-O escoamento de hidrometeoros dentro do núcleo convectivo antes ou durante a queda de granizo mostra uma baixa ascendência e/ou descendência abaixo da região de fase mista, o que não indica um transporte significativo de hidrometeoros na forma líquida para a região de fase mista. Essa observação confirma a baixa massa de água líquida estimada na região (\autoref{radar_derived_20171115}b) e a baixa densidade de raios do sistema nesse período (\autoref{dbz_flashes_20171115}).
+O escoamento de hidrometeoros dentro do núcleo convectivo antes ou durante a queda de granizo mostra uma baixa ascendência e/ou descendência abaixo da região de fase mista, o que não indica um transporte significativo de hidrometeoros na forma líquida para a região de fase mista. Essa observação é compatível com a baixa massa de água líquida estimada na região (\autoref{radar_derived_20171115}b) e a baixa densidade de raios do sistema nesse período (\autoref{dbz_flashes_20171115}).

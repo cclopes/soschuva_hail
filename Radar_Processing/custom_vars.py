@@ -48,28 +48,28 @@ hail_flag = True
 # xlim, ylim = (-47.7, -47), (-23.2, -22.65)
 # hailpad = (-47.20541, -23.02940)
 # - 20h
-# filename = path + "CTH/level_0_hdf5/2017-03-14/PNOVA2-20170314195729.HDF5"
-# date_name = '2017-03-14 1957 UTC'
-# cs_lat, cs_lon = (-22.8, -23.17), (-47.23, -47.19)
-# xlim, ylim = (-47.7, -47), (-23.25, -22.7)
-# hailpad = (-47.20541, -23.02940)
+filename = path + "CTH/level_0_hdf5/2017-03-14/PNOVA2-20170314195729.HDF5"
+date_name = '2017-03-14 1957 UTC'
+cs_lat, cs_lon = (-22.8, -23.17), (-47.23, -47.19)
+xlim, ylim = (-47.7, -47), (-23.25, -22.7)
+hailpad = (-47.20541, -23.02940)
 # - for both times
-# grid_xlim, grid_ylim = (-200000.0, 10000.0), (-10000.0, 200000.0)
-# grid_shape = (20, 211, 211)
-# grid_spacing = 1000.0
-# zerodeg_height = 5.1
-# fortydeg_height = 10.6
-# sounding_name = "../Data/SOUNDINGS/83779_2017031512Z.txt"
-# plotgrid_spc = .15
+grid_xlim, grid_ylim = (-200000.0, 10000.0), (-10000.0, 200000.0)
+grid_shape = (20, 211, 211)
+grid_spacing = 1000.0
+zerodeg_height = 5.1
+fortydeg_height = 10.6
+sounding_name = "../Data/SOUNDINGS/83779_2017031512Z.txt"
+plotgrid_spc = .15
 
 # 2017-11-15
 # - 21h30
-filename = path + "CTH/level_0_hdf5/2017-11-15/PNOVA2-20171115213004.HDF5"
-# filename = (path +
-#             "CTH/level_0_mod/2017-11-15/20171115_214004_XXXXXXXX_v001_PPI.uf")
-date_name = '2017-11-15 2130 UTC'
-cs_lat, cs_lon = (-22.89, -23.02), (-47.36, -47.27)
-hail_flag = False
+# filename = path + "CTH/level_0_hdf5/2017-11-15/PNOVA2-20171115213004.HDF5"
+# # filename = (path +
+# #             "CTH/level_0_mod/2017-11-15/20171115_214004_XXXXXXXX_v001_PPI.uf")
+# date_name = '2017-11-15 2130 UTC'
+# cs_lat, cs_lon = (-22.89, -23.02), (-47.36, -47.27)
+# hail_flag = False
 # - 21h40
 # filename = path + "CTH/level_0_hdf5/2017-11-15/PNOVA2-20171115214004.HDF5"
 # # filename = (path +
@@ -85,15 +85,15 @@ hail_flag = False
 # cs_lat, cs_lon = (-23.03, -23.03), (-47.33, -47.12)
 # (-23.09, -22.99), (-47.28, -47.16)
 # for both times
-grid_xlim, grid_ylim = (-200000.0, 10000.0), (-10000.0, 200000.0)
-grid_shape = (20, 211, 211)
-grid_spacing = 1000.0
-xlim, ylim = (-47.4, -47.12), (-23.1, -22.88)
-hailpad = (-47.20541, -23.02940)
-zerodeg_height = 4.5
-fortydeg_height = 10.2
-sounding_name = "../Data/SOUNDINGS/83779_2017111512Z.txt"
-plotgrid_spc = .07
+# grid_xlim, grid_ylim = (-200000.0, 10000.0), (-10000.0, 200000.0)
+# grid_shape = (20, 211, 211)
+# grid_spacing = 1000.0
+# xlim, ylim = (-47.4, -47.12), (-23.1, -22.88)
+# hailpad = (-47.20541, -23.02940)
+# zerodeg_height = 4.5
+# fortydeg_height = 10.2
+# sounding_name = "../Data/SOUNDINGS/83779_2017111512Z.txt"
+# plotgrid_spc = .07
 
 # General
 shp_path = "../Data/GENERAL/shapefiles/sao_paulo"

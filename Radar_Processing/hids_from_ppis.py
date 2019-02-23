@@ -43,6 +43,22 @@ grid = rf.grid_radar(
             xlim=cv.grid_xlim, ylim=cv.grid_ylim, grid_shape=cv.grid_shape)
 grid.fields['specific_differential_phase']['units'] = r'$\degree\  km^{-1}$'
 grid.fields['differential_reflectivity']['units'] = 'dB'
+# pt-br
+grid.fields['cross_correlation_ratio']['units'] = 'adimensional'
+grid.fields['corrected_reflectivity']['standard_name'] = (
+    "Refletividade Corrigida")
+grid.fields['FH']['standard_name'] = (
+    "IDs de Hidrometeoros")
+grid.fields['MW']['standard_name'] = (
+    "Massa de Água Líquida")
+grid.fields['MI']['standard_name'] = (
+    "Massa de Gelo")
+grid.fields['cross_correlation_ratio']['standard_name'] = (
+    "Razão de Correlação Cruzada")
+grid.fields['differential_reflectivity']['standard_name'] = (
+    "Refletividade Diferencial")
+grid.fields['specific_differential_phase']['standard_name'] = (
+    "Fase Diferencial Específica")
 
 name = 'FCTH'
 level = 2
@@ -62,7 +78,8 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="b")
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="b",
+    hailpad_cs_flag=cv.hail_flag)
 
 rf.plot_field_panel(
     grid, 'MI', level=level, fmin=0, fmax=30, cmap='mass',
@@ -70,7 +87,8 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="c")
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="c",
+    hailpad_cs_flag=cv.hail_flag)
 
 rf.plot_field_panel(
     grid, 'corrected_reflectivity', level=level, fmin=0, fmax=70, cmap='dbz',
@@ -78,7 +96,8 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="a")
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="a",
+    hailpad_cs_flag=cv.hail_flag)
 
 rf.plot_field_panel(
     grid, 'differential_reflectivity', level=level, fmin=-2, fmax=4,
@@ -86,7 +105,8 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="b")
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="b",
+    hailpad_cs_flag=cv.hail_flag)
 
 rf.plot_field_panel(
     grid, 'specific_differential_phase', level=level, fmin=-2, fmax=3.2,
@@ -94,7 +114,8 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="c")
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="c",
+    hailpad_cs_flag=cv.hail_flag)
 
 rf.plot_field_panel(
     grid, 'cross_correlation_ratio', level=level, fmin=0.8, fmax=1.013,
@@ -102,4 +123,5 @@ rf.plot_field_panel(
     date=cv.date_name, name_multi=name,
     shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
     zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="d")
+    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="d",
+    hailpad_cs_flag=cv.hail_flag)

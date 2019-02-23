@@ -83,8 +83,10 @@ def get_sfc_jets_data(data_plevs, data_sfc, **kwargs):
     """
 
     lat, lon, date, time = get_main_data(data_plevs)
-    title_plot = ('MSLP (hPa), 1000-500hPa Thickness (dam)\n' +
-                  date + ' ' + time + ' UTC')
+    # title_plot = ('MSLP (hPa), 1000-500hPa Thickness (dam)\n' +
+    #               date + ' ' + time + ' UTC')
+    title_plot = ('PNMM (hPa), Espessura 1000-500hPa (dam)\n' +
+                  date + ' ' + time + ' UTC')  # pt-br
     title_figure = ('_sfc-jets_' + date.replace('-', '') + time)
 
     wind = calc_filter_wind_speed(data_plevs['u'].sel(level=250),
@@ -107,11 +109,13 @@ def get_cape_shear_data(data_plevs, data_sfc, **kwargs):
     """
 
     lat, lon, date, time = get_main_data(data_plevs)
+    # title_plot = (
+    #     '850hPa Geo. Height (dam), 1000-500hPa Shear (kt)\n' +
+    #     date + ' ' + time + ' UTC')
     title_plot = (
-        '850hPa Geo. Height (dam), 1000-500hPa Shear (kt)\n' +
-        date + ' ' + time + ' UTC')
-    title_figure = ('_cape-shear_' + date.replace('-', '') +
-                    time.replace(':', '')[:-2])
+        'Alt. Geo. 850hPa (dam), Cisalhamento 1000-500hPa (kt)\n' +
+        date + ' ' + time + ' UTC')  # pt-br
+    title_figure = ('_cape-shear_' + date.replace('-', '') + time)
 
     z = calc_filter_geo_height(data_plevs['z'].sel(level=850))
     cape = ndimage.gaussian_filter(data_sfc['cape'], sigma=3, order=0)
