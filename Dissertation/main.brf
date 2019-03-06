@@ -127,14 +127,14 @@
 \backcite {siphon}{{44}{3.2.1}{Item.16}}
 \backcite {Straka2000}{{44}{3.2.1}{Item.16}}
 \backcite {Sassen1987}{{44}{3.2.1}{figure.caption.26}}
-\backcite {Deierling2005, Deierling2008}{{44}{3.2.1}{figure.caption.26}}
-\backcite {Deierling2005, Deierling2008}{{44}{3.2.1}{figure.caption.26}}
-\backcite {Carey2000}{{44}{3.2.1}{figure.caption.26}}
-\backcite {Cifelli2002b}{{44}{3.2.1}{figure.caption.26}}
 \backcite {Straka2000}{{45}{14}{figure.caption.26}}
+\backcite {Deierling2005, Deierling2008}{{45}{3.2.1}{figure.caption.26}}
+\backcite {Deierling2005, Deierling2008}{{45}{3.2.1}{figure.caption.26}}
+\backcite {Carey2000}{{45}{3.2.1}{figure.caption.26}}
+\backcite {Cifelli2002b}{{45}{3.2.1}{figure.caption.26}}
 \backcite {Golestani1989}{{45}{3.2.1}{figure.caption.26}}
 \backcite {Cifelli2002b}{{45}{3.2.1}{equation.3.2.3}}
-\backcite {Ryzhkov1995}{{45}{{{a)}}}{equation.3.2.4}}
+\backcite {Ryzhkov1995}{{46}{{{a)}}}{equation.3.2.4}}
 \backcite {Carey2000}{{46}{{{a)}}}{equation.3.2.5}}
 \backcite {Bringi2001}{{46}{{{b)}}}{equation.3.2.6}}
 \backcite {Lang2017a}{{46}{3.2.1}{Item.19}}
@@ -142,8 +142,8 @@
 \backcite {Shapiro2009, Potvin2012b}{{47}{3.2.2}{figure.caption.28}}
 \backcite {Potvin2012b}{{47}{3.2.2}{equation.3.2.8}}
 \backcite {Helmus2016}{{47}{3.2.2}{equation.3.2.8}}
-\backcite {Potvin2012b}{{47}{3.2.2}{equation.3.2.8}}
-\backcite {James2001}{{49}{3.2.2}{table.caption.29}}
+\backcite {Potvin2012b}{{49}{3.2.2}{equation.3.2.8}}
+\backcite {James2001}{{50}{3.2.2}{table.caption.29}}
 \backcite {Rauber2018}{{50}{16}{figure.caption.30}}
 \backcite {Naccarato2014}{{50}{3.3}{section.3.3}}
 \backcite {Lewis1960}{{50}{3.3}{section.3.3}}
@@ -159,7 +159,7 @@
 \backcite {RCoreTeam2018a}{{51}{3.3.1}{Item.22}}
 \backcite {Cummins1998}{{51}{3.3.1}{Item.22}}
 \backcite {Murphy2015}{{51}{3.3.1}{Item.22}}
-\backcite {Cummins1998}{{51}{3.3.1}{Item.22}}
+\backcite {Cummins1998}{{52}{3.3.1}{Item.22}}
 \backcite {Copernicus2017}{{52}{3.4}{section.3.4}}
 \backcite {PythonCoreTeam2018}{{52}{3.4}{section.3.4}}
 \backcite {PythonCoreTeam2018}{{53}{3.5}{section.3.5}}
