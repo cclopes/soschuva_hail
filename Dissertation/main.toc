@@ -1,57 +1,57 @@
 \changetocdepth {4}
-\select@language {brazil}
-\select@language {brazil}
+\babel@toc {brazil}{}
+\babel@toc {brazil}{}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{23}{chapter.1}
-\contentsline {section}{\numberline {1.1}Objetivos}{24}{section.1.1}
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{23}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Objetivos}{24}{section.1.1}% 
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Fundamentação Teórica}}{25}{chapter.2}
-\contentsline {section}{\numberline {2.1}Processos de Formação do Granizo e Eletrificação de Tempestades}{25}{section.2.1}
-\contentsline {section}{\numberline {2.2}Medindo Características de Tempestades de Granizo}{28}{section.2.2}
-\contentsline {section}{\numberline {2.3}Tempestades de Granizo na América do Sul}{29}{section.2.3}
-\contentsline {section}{\numberline {2.4}Usando Radares Meteorológicos para Estudar a Cinemática das Tempestades}{31}{section.2.4}
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Fundamentação Teórica}}{25}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Processos de Formação do Granizo e Eletrificação de Tempestades}{25}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Medindo Características de Tempestades de Granizo}{28}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Tempestades de Granizo na América do Sul}{29}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Usando Radares Meteorológicos para Estudar a Cinemática das Tempestades}{31}{section.2.4}% 
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Material e Métodos}}{35}{chapter.3}
-\contentsline {section}{\numberline {3.1}Rede de Detecção de Granizo}{35}{section.3.1}
-\contentsline {section}{\numberline {3.2}Radares Meteorológicos}{38}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Identificação de Hidrometeoros}{42}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Recuperação de Vento por Multi-Doppler}{46}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Rede de Detecção de Raios}{50}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Conversão \textit {Strokes}-\textit {Flashes}}{50}{subsection.3.3.1}
-\contentsline {section}{\numberline {3.4}Reanálise}{52}{section.3.4}
-\contentsline {section}{\numberline {3.5}Satélite}{52}{section.3.5}
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Material e Métodos}}{35}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Rede de Detecção de Granizo}{35}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Radares Meteorológicos}{38}{section.3.2}% 
+\contentsline {subsection}{\numberline {3.2.1}Identificação de Hidrometeoros}{42}{subsection.3.2.1}% 
+\contentsline {subsection}{\numberline {3.2.2}Recuperação de Vento por Multi-Doppler}{46}{subsection.3.2.2}% 
+\contentsline {section}{\numberline {3.3}Rede de Detecção de Raios}{50}{section.3.3}% 
+\contentsline {subsection}{\numberline {3.3.1}Conversão \textit {Strokes}-\textit {Flashes}}{51}{subsection.3.3.1}% 
+\contentsline {section}{\numberline {3.4}Reanálise}{52}{section.3.4}% 
+\contentsline {section}{\numberline {3.5}Satélite}{53}{section.3.5}% 
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Resultados}}{55}{chapter.4}
-\contentsline {section}{\numberline {4.1}Intensidade das Tempestades que Geraram Granizo}{55}{section.4.1}
-\contentsline {section}{\numberline {4.2}Estudos de Caso}{59}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Caso de 2017-03-14}{59}{subsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.1.1}Ambiente Sinótico e Termodinâmico}{59}{subsubsection.4.2.1.1}
-\contentsline {subsubsection}{\numberline {4.2.1.2}Eletrificação}{62}{subsubsection.4.2.1.2}
-\contentsline {subsubsection}{\numberline {4.2.1.3}Microfísica}{63}{subsubsection.4.2.1.3}
-\contentsline {subsubsection}{\numberline {4.2.1.4}Cinemática}{69}{subsubsection.4.2.1.4}
-\contentsline {subsection}{\numberline {4.2.2}Caso de 2017-11-15}{72}{subsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.2.1}Ambiente Sinótico e Termodinâmico}{72}{subsubsection.4.2.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2.2}Eletrificação}{75}{subsubsection.4.2.2.2}
-\contentsline {subsubsection}{\numberline {4.2.2.3}Microfísica}{76}{subsubsection.4.2.2.3}
-\contentsline {subsubsection}{\numberline {4.2.2.4}Cinemática}{77}{subsubsection.4.2.2.4}
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Resultados}}{55}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Intensidade das Tempestades que Geraram Granizo}{55}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Estudos de Caso}{59}{section.4.2}% 
+\contentsline {subsection}{\numberline {4.2.1}Caso de 2017-03-14}{59}{subsection.4.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.1.1}Ambiente Sinótico e Termodinâmico}{59}{subsubsection.4.2.1.1}% 
+\contentsline {subsubsection}{\numberline {4.2.1.2}Eletrificação}{62}{subsubsection.4.2.1.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1.3}Microfísica}{63}{subsubsection.4.2.1.3}% 
+\contentsline {subsubsection}{\numberline {4.2.1.4}Cinemática}{67}{subsubsection.4.2.1.4}% 
+\contentsline {subsection}{\numberline {4.2.2}Caso de 2017-11-15}{71}{subsection.4.2.2}% 
+\contentsline {subsubsection}{\numberline {4.2.2.1}Ambiente Sinótico e Termodinâmico}{71}{subsubsection.4.2.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.2.2}Eletrificação}{73}{subsubsection.4.2.2.2}% 
+\contentsline {subsubsection}{\numberline {4.2.2.3}Microfísica}{75}{subsubsection.4.2.2.3}% 
+\contentsline {subsubsection}{\numberline {4.2.2.4}Cinemática}{76}{subsubsection.4.2.2.4}% 
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Conclusões}}{81}{chapter.5}
-\contentsline {section}{\numberline {5.1}Sugestões para Trabalhos Futuros}{82}{section.5.1}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Conclusões}}{81}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Sugestões para Trabalhos Futuros}{82}{section.5.1}% 
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{85}{section*.58}
+\contentsline {chapter}{\MakeTextUppercase {Refer\^encias}}{85}{section*.58}% 
 \cftinsert {AAA}
 \renewcommand *{\cftappendixname }{ANEXO \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Anexos}}{99}{section*.59}
+\contentsline {part}{\uppercase {Anexos}}{99}{section*.59}% 
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Conversão \textit {Strokes}-\textit {Flashes}: Teste de Sensibilidade de $\epsilon _{spc}$}}{101}{appendix.anexochapback.1}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Conversão \textit {Strokes}-\textit {Flashes}: Teste de Sensibilidade de $\epsilon _{spc}$}}{101}{appendix.anexochapback.1}% 
 \vspace {\cftbeforechapterskip }
