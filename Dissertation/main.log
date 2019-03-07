@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.1.20)  6 MAR 2019 09:27
+=======
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.1.20)  5 MAR 2019 11:03
+>>>>>>> master
 entering extended mode
 **./main.tex
 (main.tex
@@ -1447,10 +1451,17 @@ Underfull \vbox (badness 1043) has occurred while \output is active []
 File: ../General_Processing/figures/dual_doppler_lobes_ptbr.png Graphic file (t
 ype bmp)
 <../General_Processing/figures/dual_doppler_lobes_ptbr.png>
+<<<<<<< HEAD
 
 
 LaTeX Warning: Float too large for page by 31.34181pt on input line 254.
 
+=======
+
+
+LaTeX Warning: Float too large for page by 31.34181pt on input line 254.
+
+>>>>>>> master
 [47]
 Overfull \vbox (5.0pt too high) has occurred while \output is active []
 
@@ -1524,9 +1535,64 @@ Overfull \vbox (3.31541pt too high) has occurred while \output is active []
 
 
 [58]
+
+LaTeX Warning: File `../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_20170314
+1200_ptbr.png' not found on input line 72.
+
+! Unable to load picture or PDF file '../Reanalysis_Processing/figures/ERA5_SA_
+sfc-jets_201703141200_ptbr.png'.
+<to be read again> 
+                   }
+l.72 ^^I^^I^^I\label{era5_2017031412_jets}}
+                                           
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.72 ^^I^^I^^I\label{era5_2017031412_jets}}
+                                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200_ptbr.png G
 raphic file (type bmp)
 <../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201703141200_ptbr.png>
+<<<<<<< HEAD
+=======
+
+LaTeX Warning: File `../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201703
+141200_ptbr.png' not found on input line 74.
+
+! Unable to load picture or PDF file '../Reanalysis_Processing/figures/ERA5_SA_
+cape-shear_201703141200_ptbr.png'.
+<to be read again> 
+                   }
+l.74 ^^I^^I^^I\label{era5_2017031412_cape}}
+                                            \\
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74 ^^I^^I^^I\label{era5_2017031412_cape}}
+                                            \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+>>>>>>> master
 File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201703141200_ptbr.png
  Graphic file (type bmp)
 <../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201703141200_ptbr.png>
@@ -1535,6 +1601,35 @@ Overfull \hbox (7.83322pt too wide) in paragraph at lines 72--74
  [][][] 
  []
 
+<<<<<<< HEAD
+=======
+
+LaTeX Warning: File `../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201
+703141500_ptbr.png' not found on input line 76.
+
+! Unable to load picture or PDF file '../Reanalysis_Processing/figures/ERA5_SP-
+BR_cape-shear_201703141500_ptbr.png'.
+<to be read again> 
+                   }
+l.76 ^^I^^I^^I\label{era5_2017031415_cape}}
+                                            \\
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.76 ^^I^^I^^I\label{era5_2017031415_cape}}
+                                            \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+>>>>>>> master
 File: ../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201703141500_ptbr.
 png Graphic file (type bmp)
 <../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201703141500_ptbr.png>
@@ -1608,17 +1703,22 @@ Overfull \hbox (7.83322pt too wide) in paragraph at lines 106--108
  [][][] 
  []
 
+<<<<<<< HEAD
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [60]
 [61]
+=======
+[60]
+>>>>>>> master
 File: ../General_Processing/figures/track_flashes_20170314_ptbr.png Graphic fil
 e (type bmp)
 <../General_Processing/figures/track_flashes_20170314_ptbr.png>
 File: ../General_Processing/figures/clusters_flashes_2017-03-14_1830_ptbr.png G
 raphic file (type bmp)
 <../General_Processing/figures/clusters_flashes_2017-03-14_1830_ptbr.png>
+<<<<<<< HEAD
  [62]
 File: ../General_Processing/figures/clusters_flashes_2017-03-14_2000_ptbr.png G
 raphic file (type bmp)
@@ -1627,6 +1727,12 @@ raphic file (type bmp)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [64]
+=======
+File: ../General_Processing/figures/clusters_flashes_2017-03-14_2000_ptbr.png G
+raphic file (type bmp)
+<../General_Processing/figures/clusters_flashes_2017-03-14_2000_ptbr.png>
+ [61]
+>>>>>>> master
 
 LaTeX Warning: File `../Radar_Processing/figures/ppis/classification/FCTH Refle
 tividade Corrigida 2017-03-14 1827 UTC.png' not found on input line 160.
@@ -1837,7 +1943,10 @@ File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-0
 3-14 1827 UTC.png Graphic file (type bmp)
 <../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-03-14 
 1827 UTC.png>
+<<<<<<< HEAD
 [65]
+=======
+>>>>>>> master
 
 LaTeX Warning: File `../Radar_Processing/figures/ppis/classification/FCTH Refle
 tividade Corrigida 2017-03-14 1957 UTC.png' not found on input line 192.
@@ -2048,7 +2157,14 @@ File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-0
 3-14 1957 UTC.png Graphic file (type bmp)
 <../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-03-14 
 1957 UTC.png>
+<<<<<<< HEAD
 [66]
+=======
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [62]
+>>>>>>> master
 ! Missing $ inserted.
 <inserted text> 
                 $
@@ -2103,6 +2219,7 @@ Overfull \hbox (58.02156pt too wide) in paragraph at lines 228--228
  \T1/lmr/m/n/12 UTC$[]\OML/lmm/m/it/12 tbr:bb[]$ 
  []
 
+<<<<<<< HEAD
 [67]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2115,6 +2232,17 @@ l.239 ...res/SR-FCTH 2017-03-14 1950 UTC_ptbr.png}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+=======
+[63]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.239 ...res/SR-FCTH 2017-03-14 1950 UTC_ptbr.png}
+                                                   \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+>>>>>>> master
 File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC_ptbr.png G
 raphic file (type bmp)
 <../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 1950 UTC_ptbr.png>
@@ -2133,12 +2261,28 @@ my insertion and my current dilemma will both disappear.
 Overfull \hbox (58.02156pt too wide) in paragraph at lines 239--239
  \T1/lmr/m/n/12 UTC$[]\OML/lmm/m/it/12 tbr:bb[]$ 
  []
+<<<<<<< HEAD
+
+=======
 
 ! Missing $ inserted.
 <inserted text> 
                 $
 l.241 ...res/SR-FCTH 2017-03-14 2000 UTC_ptbr.png}
                                                    \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+File: ../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 2000 UTC_ptbr.png G
+raphic file (type bmp)
+<../MultiDoppler_Processing/figures/SR-FCTH 2017-03-14 2000 UTC_ptbr.png>
+>>>>>>> master
+! Missing $ inserted.
+<inserted text> 
+                $
+l.241 ...res/SR-FCTH 2017-03-14 2000 UTC_ptbr.png}
+                                                   \\
+<<<<<<< HEAD
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -2165,6 +2309,75 @@ Overfull \hbox (58.02156pt too wide) in paragraph at lines 241--241
 File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200_ptbr.png G
 raphic file (type bmp)
 <../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200_ptbr.png>
+=======
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (58.02156pt too wide) in paragraph at lines 241--241
+ \T1/lmr/m/n/12 UTC$[]\OML/lmm/m/it/12 tbr:bb[]$ 
+ []
+
+[64]
+
+LaTeX Warning: File `../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_20171115
+1200_ptbr.png' not found on input line 260.
+
+! Unable to load picture or PDF file '../Reanalysis_Processing/figures/ERA5_SA_
+sfc-jets_201711151200_ptbr.png'.
+<to be read again> 
+                   }
+l.260 ^^I^^I^^I\label{era5_2017111512_jets}}
+                                            
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.260 ^^I^^I^^I\label{era5_2017111512_jets}}
+                                            
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200_ptbr.png G
+raphic file (type bmp)
+<../Reanalysis_Processing/figures/ERA5_SA_sfc-jets_201711151200_ptbr.png>
+
+LaTeX Warning: File `../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201711
+151200_ptbr.png' not found on input line 262.
+
+! Unable to load picture or PDF file '../Reanalysis_Processing/figures/ERA5_SA_
+cape-shear_201711151200_ptbr.png'.
+<to be read again> 
+                   }
+l.262 ^^I^^I^^I\label{era5_2017111512_cape}}
+                                             \\
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.262 ^^I^^I^^I\label{era5_2017111512_cape}}
+                                             \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+>>>>>>> master
 File: ../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201711151200_ptbr.png
  Graphic file (type bmp)
 <../Reanalysis_Processing/figures/ERA5_SA_cape-shear_201711151200_ptbr.png>
@@ -2173,6 +2386,7 @@ Overfull \hbox (7.83322pt too wide) in paragraph at lines 260--262
  [][][] 
  []
 
+<<<<<<< HEAD
 File: ../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201711151800_ptbr.
 png Graphic file (type bmp)
 <../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201711151800_ptbr.png>
@@ -2181,6 +2395,38 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [71]
 [72]
+=======
+
+LaTeX Warning: File `../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201
+711151800_ptbr.png' not found on input line 264.
+
+! Unable to load picture or PDF file '../Reanalysis_Processing/figures/ERA5_SP-
+BR_cape-shear_201711151800_ptbr.png'.
+<to be read again> 
+                   }
+l.264 ^^I^^I^^I\label{era5_2017111518_cape}}
+                                             \\
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.264 ^^I^^I^^I\label{era5_2017111518_cape}}
+                                             \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201711151800_ptbr.
+png Graphic file (type bmp)
+<../Reanalysis_Processing/figures/ERA5_SP-BR_cape-shear_201711151800_ptbr.png>
+[65]
+>>>>>>> master
 File: ../Sounding_Processing/figures/sounding_SBMT2017111512UTC_ptbr.png Graphi
 c file (type bmp)
 <../Sounding_Processing/figures/sounding_SBMT2017111512UTC_ptbr.png>
@@ -2250,6 +2496,7 @@ Overfull \hbox (7.83322pt too wide) in paragraph at lines 297--299
  [][][] 
  []
 
+<<<<<<< HEAD
 [73]
 File: ../General_Processing/figures/track_flashes_20171115_ptbr.png Graphic fil
 e (type bmp)
@@ -2259,6 +2506,17 @@ File: ../General_Processing/figures/clusters_flashes_2017-11-15_2150_ptbr.png G
 raphic file (type bmp)
 <../General_Processing/figures/clusters_flashes_2017-11-15_2150_ptbr.png>
  [75]
+=======
+[66]
+File: ../General_Processing/figures/track_flashes_20171115_ptbr.png Graphic fil
+e (type bmp)
+<../General_Processing/figures/track_flashes_20171115_ptbr.png>
+ [67]
+File: ../General_Processing/figures/clusters_flashes_2017-11-15_2150_ptbr.png G
+raphic file (type bmp)
+<../General_Processing/figures/clusters_flashes_2017-11-15_2150_ptbr.png>
+
+>>>>>>> master
 
 LaTeX Warning: File `../Radar_Processing/figures/ppis/classification/FCTH Refle
 tividade Corrigida 2017-11-15 2150 UTC.png' not found on input line 346.
@@ -2469,6 +2727,7 @@ File: ../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-1
 1-15 2150 UTC.png Graphic file (type bmp)
 <../Radar_Processing/figures/ppis/classification/FCTH Massa de Gelo 2017-11-15 
 2150 UTC.png>
+<<<<<<< HEAD
 [76]
 ! Missing $ inserted.
 <inserted text> 
@@ -2478,6 +2737,20 @@ l.378 ...R-FCTH-XPOL 2017-11-15 2140 UTC_ptbr.png}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+=======
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [68]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.378 ...R-FCTH-XPOL 2017-11-15 2140 UTC_ptbr.png}
+                                                   \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+>>>>>>> master
 File: ../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC_ptbr.
 png Graphic file (type bmp)
 <../MultiDoppler_Processing/figures/SR-FCTH-XPOL 2017-11-15 2140 UTC_ptbr.png>
@@ -2524,7 +2797,12 @@ Overfull \hbox (58.02156pt too wide) in paragraph at lines 380--380
  \T1/lmr/m/n/12 UTC$[]\OML/lmm/m/it/12 tbr:bb[]$ 
  []
 
+<<<<<<< HEAD
 ) (tex/conclusions.tex [77] [78] [79] [80
+=======
+) (tex/conclusions.tex [69] [70] [71] [72] [73] [74] [75] [76] [77] [78]
+[79] [80
+>>>>>>> master
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2638,10 +2916,17 @@ Package rerunfilecheck Info: File `main.brf' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 441.
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  31025 strings out of 427748
  558513 string characters out of 3147012
  794971 words of memory out of 3000000
  34547 multiletter control sequences out of 15000+200000
+=======
+ 31042 strings out of 427748
+ 559262 string characters out of 3147012
+ 804044 words of memory out of 3000000
+ 34546 multiletter control sequences out of 15000+200000
+>>>>>>> master
  668096 words of font info for 102 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  47i,14n,87p,2667b,979s stack positions out of 5000i,500n,10000p,200000b,50000s
