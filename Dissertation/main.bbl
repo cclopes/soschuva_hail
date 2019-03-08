@@ -326,6 +326,15 @@ ISBN 9780122214226. Dispon{\'\i}vel em:
 \emph{International Journal of Climatology}, v.~32, n.~4, p. 503--517, 2012.
 ISSN 08998418.}
 
+\bibitem[Emersic e Saunders 2010]{Emersic2010}
+\abntrefinfo{Emersic e Saunders}{EMERSIC; SAUNDERS}{2010}
+{EMERSIC, C.; SAUNDERS, C.~P. {Further laboratory investigations into the
+  Relative Diffusional Growth Rate theory of thunderstorm electrification}.
+\emph{Atmospheric Research}, Elsevier, v.~98, n.~2-4, p. 327--340, nov 2010.
+ISSN 01698095.
+Dispon{\'\i}vel em:
+  \url{https://www.sciencedirect.com/science/article/pii/S0169809510001869?via\%3Dihub}.}
+
 \bibitem[Ester et al. 1996]{Ester1996}
 \abntrefinfo{Ester et al.}{ESTER et al.}{1996}
 {ESTER, M. et al. {A Density-Based Algorithm for Discovering Clusters in Large
@@ -593,11 +602,22 @@ ISSN 01698095.
 Dispon{\'\i}vel em:
   \url{http://linkinghub.elsevier.com/retrieve/pii/S016980951630480X}.}
 
-\bibitem[May et al. 2017]{siphon}
-\abntrefinfo{May et al.}{MAY et al.}{2017}
-{MAY, R. et al. \emph{{Siphon: A collection of Python Utilities for Accessing
-  Remote Atmospheric and Oceanic Datasets}}. Boulder, Colorado: [s.n.], 2017.
-Dispon{\'\i}vel em: \url{https://github.com/Unidata/siphon}.}
+\bibitem[Mattos et al. 2016]{Mattos2016a}
+\abntrefinfo{Mattos et al.}{MATTOS et al.}{2016}
+{MATTOS, E.~V. et al. {Polarimetric radar characteristics of storms with and
+  without lightning activity}.
+\emph{Journal of Geophysical Research}, John Wiley and Sons, Ltd, v.~121,
+  n.~23, p. 14,201--14,220, dec 2016.
+ISSN 21562202.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1002/2016JD025142}.}
+
+\bibitem[Mattos et al. 2017]{Mattos2017}
+\abntrefinfo{Mattos et al.}{MATTOS et al.}{2017}
+{MATTOS, E.~V. et al. {Electrification life cycle of incipient thunderstorms}.
+\emph{Journal of Geophysical Research}, John Wiley and Sons, Ltd, v.~122, n.~8,
+  p. 4670--4697, apr 2017.
+ISSN 21562202.
+Dispon{\'\i}vel em: \url{http://doi.wiley.com/10.1002/2016JD025772}.}
 
 \bibitem[Moller 2001]{Moller2001c}
 \abntrefinfo{Moller}{MOLLER}{2001}
@@ -635,6 +655,13 @@ Dispon{\'\i}vel em:
   Conference on Lightning Protection (ICLP)}. Shanghai: [s.n.], 2014.
   Dispon{\'\i}vel em:
   \url{http://mtc-m21b.sid.inpe.br/col/sid.inpe.br/mtc-m21b/2014/12.17.16.43/doc/Naccarato\_ILDC\_2014\_final.pdf?metadatarepository=&mirror=iconet.com.br/banon/2006/11.26.21.31}.}
+
+\bibitem[Nascimento 2005]{Nascimento2005}
+\abntrefinfo{Nascimento}{NASCIMENTO}{2005}
+{NASCIMENTO, E.~L. {Previs{\~{a}}o de Tempestades Severas utilizando-se
+  Par{\^{a}}metros Convectivos e Modelos de Mesoescala: Uma Estrat{\'{e}}gia
+  Operacional adot{\'{a}}vel no Brasil?}
+\emph{Revista Brasileira de Meteorologia}, v.~20, n.~1, p. 121--140, 2005.}
 
 \bibitem[Pereyra et al. 2000]{Pereyra2000}
 \abntrefinfo{Pereyra et al.}{PEREYRA et al.}{2000}
@@ -925,24 +952,24 @@ Dispon{\'\i}vel em:
   \url{http://journals.ametsoc.org/doi/abs/10.1175/1520-0469(1978)035\%3C1536:REAACG\%3E2.0.CO;2
   http://journals.ametsoc.org/doi/pdf/10.1175/1520-0469(1978)035\%3C1536:REAACG\%3E2.0.CO;2}.}
 
-\bibitem[{Thomaz J{\'{u}}nior} 2016]{ThomazJunior2016}
-\abntrefinfo{{Thomaz J{\'{u}}nior}}{{Thomaz J{\'{u}}nior}}{2016}
-{{Thomaz J{\'{u}}nior}, J.~C. \emph{{S{\'{i}}tios Experimentais do Hailpad}}.
+\bibitem[{Thomaz{ }J{\'{u}}nior} 2016]{ThomazJunior2016}
+\abntrefinfo{{Thomaz{ }J{\'{u}}nior}}{{Thomaz{ }J{\'{u}}nior}}{2016}
+{{Thomaz{ }J{\'{u}}nior}, J.~C. \emph{{S{\'{i}}tios Experimentais do Hailpad}}.
   Campinas: [s.n.], 2016. 10~p.
 Dispon{\'\i}vel em:
   \url{http://soschuva.cptec.inpe.br/soschuva/pdf/reunioes/17-05/CelsoThomaz-ApresentacaoHailpad\_mai2016.pdf}.}
 
-\bibitem[{Thomaz J{\'{u}}nior} et al. 2015]{ThomazJunior2015a}
-\abntrefinfo{{Thomaz J{\'{u}}nior} et al.}{{Thomaz J{\'{u}}nior} et al.}{2015}
-{{Thomaz J{\'{u}}nior}, J.~C. et al. \emph{{Desenvolvimento de uma Metodologia
+\bibitem[{Thomaz{ }J{\'{u}}nior} et al. 2015]{ThomazJunior2015a}
+\abntrefinfo{{Thomaz{ }J{\'{u}}nior} et al.}{{Thomaz J{\'{u}}nior} et al.}{2015}
+{{Thomaz{ }J{\'{u}}nior}, J.~C. et al. \emph{{Desenvolvimento de uma Metodologia
   para Medidas de Eventos de Granizo (Concep{\c{c}}{\~{a}}o, Materiais,
   Correspond{\^{e}}ncia dos Dados e Refer{\^{e}}ncia) no Laborat{\'{o}}rio de
   Instrumenta{\c{c}}{\~{a}}o Meteorol{\'{o}}gica (LIM)}}.
 [S.l.], 2015. 14~p.}
 
-\bibitem[Vemado e {Pereira Filho} 2016]{Vemado2016}
+\bibitem[Vemado e Pereira{ }Filho 2016]{Vemado2016}
 \abntrefinfo{Vemado e {Pereira Filho}}{VEMADO; {Pereira Filho}}{2016}
-{VEMADO, F.; {Pereira Filho}, A.~J. {Severe weather caused by heat island and
+{VEMADO, F.; PEREIRA{ }FILHO, A.~J. {Severe weather caused by heat island and
   sea breeze effects in the metropolitan area of s{\~{a}}o paulo, Brazil}.
 \emph{Advances in Meteorology}, Hindawi, v.~2016, p. 1--13, dec 2016.
 ISSN 16879317.
