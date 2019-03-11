@@ -1,9 +1,7 @@
 # soschuva_hail
 R and Python scripts to read and process weather radar, lightning and other data related to hail cases in SOS-CHUVA Project.
 
----
-**Disclaimer**: I'm still improving these scripts (specially converting from old Jupyter notebooks to sets of python scripts)
----
+***Disclaimer**: I'm still improving these scripts (specially converting from old Jupyter notebooks to sets of python scripts)*
 
 ## ForTraCC_Processing [R]
 Processing ForTraCC-Radar clusters and families per case as lists using `tidyverse` functions.
