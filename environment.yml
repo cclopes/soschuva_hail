@@ -1,0 +1,22 @@
+name: soschuva_hail
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.*
+  - pip=19.*
+  - cython
+  - xarray
+  - h5py
+  - basemap
+  - basemap-data-hires
+  - cartopy
+  - arm_pyart
+  - metpy
+  - pydda
+  - pip:
+      - csu_radartools
+
+# Problem with PROJ_LIB in Basemap
+# /.../mpl_toolkits/basemap/__init__.py
+# os.environ['PROJ_LIB'] = '/home/camila/miniconda3/envs/soschuva_hail/share/proj'
