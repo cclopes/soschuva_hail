@@ -552,7 +552,7 @@ class GridMapDisplay(object):
             axislabels=(None, None), axislabels_flag=True, colorbar_flag=True,
             colorbar_label=None, colorbar_orient='vertical', edges=True,
             ax=None, fig=None, ticks=None, ticklabs=None, rotate=False,
-            field_2=None, dot_pos=None, zerodeg_height=0,
+            field_2=None, dot_pos=None, dot_flag=True, zerodeg_height=0,
             minusfortydeg_height=0, zdh_col='w', lg_spc=' ', **kwargs):
         """
         Plot a slice along two points given by its lat, lon
@@ -737,11 +737,11 @@ class GridMapDisplay(object):
                             alpha=0.35
                         ))
             ax.annotate(
-                'A', (xy_1d[0], z_1d[0]), fontsize=10,
+                'A', (xy_1d[0], z_1d[1]), fontsize=10,
                 fontweight='bold', fontstretch='condensed', ha='center',
                 bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
             ax.annotate(
-                'B', (xy_1d[-1], z_1d[0]), fontsize=10,
+                'B', (xy_1d[-1], z_1d[1]), fontsize=10,
                 fontweight='bold', fontstretch='condensed', ha='center',
                 bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
 
@@ -799,14 +799,16 @@ class GridMapDisplay(object):
             x_prof, y_prof, self.grid.get_projparams())
 
         # plotting 'x' in the hailpad position
-        if plot_type == 'pcolormesh':
-            if (ind_2[0] - ind_1[0]) <= 10:
-                pos = np.argmax(lat_prof.round(2) == round(dot_pos[1], 2))
-            else:
-                pos = np.argmax(lon_prof.round(2) == round(dot_pos[0], 2))
-            xpos = np.arange(nh_prof)[pos]*xy_res/1000.
-            ax.plot(xpos, z_1d[0] + 0.1, 'kX', zorder=10, clip_on=False,
-                    markerfacecolor='w', markersize=15, alpha=0.75)
+        if dot_flag:
+            if plot_type == 'pcolormesh':
+                if (ind_2[0] - ind_1[0]) <= 10:
+                    pos = np.argmax(lat_prof.round(2) == round(dot_pos[1], 2))
+                else:
+                    pos = np.argmax(lon_prof.round(2) == round(dot_pos[0], 2))
+                xpos = np.arange(nh_prof)[pos]*xy_res/1000.
+                ax.plot(xpos, z_1d[0] + 0.1, 'kX', zorder=10,
+                        clip_on=False, markerfacecolor='w', markersize=15,
+                        alpha=0.75)
 
         xticks_labels = []
         # - for Southern Hemisphere!
