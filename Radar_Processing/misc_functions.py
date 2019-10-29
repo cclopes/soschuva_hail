@@ -55,8 +55,8 @@ def check_sounding_for_montonic(sounding):
     -------
     snd_T, snd_z: sounding temperature and height
     """
-    snd_T = sounding.soundingdata['temp']  # In old SkewT, was sounding.data
-    snd_z = sounding.soundingdata['hght']  # In old SkewT, was sounding.data
+    snd_T = sounding['temperature']
+    snd_z = sounding['height']  # In old SkewT, was sounding.data
     dummy_z = []
     dummy_T = []
     if not snd_T.mask[0]:  # May cause issue for specific soundings

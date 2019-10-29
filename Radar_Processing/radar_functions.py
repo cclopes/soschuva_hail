@@ -12,9 +12,9 @@ import numpy as np
 import numpy.ma as ma
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
-from mpl_toolkits.basemap import cm
 from matplotlib.colors import LinearSegmentedColormap, BoundaryNorm
 from matplotlib.cm import revcmap
+from mpl_toolkits.basemap import cm
 
 import pyart
 try:
@@ -22,7 +22,7 @@ try:
 except ModuleNotFoundError:
     pass
 try:
-    from skewt import SkewT
+    from SkewTplus.sounding import sounding
     from csu_radartools import (csu_fhc, csu_liquid_ice_mass)
 except ModuleNotFoundError:
     pass
@@ -76,9 +76,9 @@ def calculate_radar_hid(radar, sounding_names, radar_band="S"):
     # radar_date = pd.to_datetime(radar.time['units'][14:])
 
     # Interpolating with sounding
-    sounding = SkewT.Sounding(sounding_names)
+    soundings = sounding(sounding_names)
     # - optional: sounding_names.loc[str(radar_date.date())].item()
-    radar_T, radar_z = interpolate_sounding_to_radar(sounding, radar)
+    radar_T, radar_z = interpolate_sounding_to_radar(soundings, radar)
 
     # Extracting necessary variables
     z_corrected = radar.fields['corrected_reflectivity']['data']
@@ -254,22 +254,22 @@ def add_field_to_grid_object(field, grid, field_name='Reflectivity',
                              standard_name='Reflectivity',
                              dz_field='reflectivity'):
     """
-    Adds a newly created field to the Py-ART radar object. If reflectivity is a
+    Adds a newly created field to the Py-ART grid object. If reflectivity is a
     masked array, make the new field masked the same as reflectivity.
 
     Parameters
     ----------
-    field:
-    grid:
-    field_name:
-    units:
-    long_name:
-    standard_name:
-    dz_field:
+    field: Py-ART field
+    grid: Py-ART grid object
+    field_name: name of the field to be added
+    units: units of the field to be added
+    long_name: long name of the field to be added
+    standard_name: standard name of the field to be added
+    dz_field: field to be based on
 
     Returns
     -------
-    grid:
+    grid: Py-ART gridded data with added field
     """
 
     fill_value = -32768
@@ -486,216 +486,6 @@ def plot_gridded_velocity(grid, name_radar, name_base, height=0,
     plt.show()
 
 
-def calc_plot_gridded_wind_dbz(
-        grid, lon_index, name_base, name_multi, index=2, thin=2,
-        xlim_hv=(-150, 150), ylim_hv=(-150, 150),
-        xlim_vv=(-150, 150), ylim_vv=(0, 20)):
-    """
-    Using gridded multidoppler processed data:
-    - Select wind data and calculate grids and wind medians
-    - Plot horizontal and vertical views
-        - In a specific height (defined by index)
-        - In a specific longitudinal cross-section (defined by lon_index)
-
-    Parameters
-    ----------
-    grid: gridded multidoppler processed data
-    lon_index: longitude index for cross-section
-    name_base: name of the radar whose grid is based on
-    name_multi: acronym with all radar names
-    index: height of the horizontal view plot
-    thin: grid interval to plot wind arrows
-    xlim_hv, ylim_hv: plot limits in x, y for horizontal view
-        (min, max) in kilometers
-    xlim_vv, ylim_vv: plot limits in x, y for vertical view
-        (min, max) in kilometers
-    """
-
-    # Selecting data
-    U = grid.fields['eastward_wind']['data']
-    V = grid.fields['northward_wind']['data']
-    W = grid.fields['upward_air_velocity']['data']
-    Z = grid.fields['reflectivity']['data']
-
-    # Defining grids
-    x, y = np.meshgrid(0.001*grid.x['data'], 0.001*grid.y['data'])
-    y_cs, z_cs = np.meshgrid(0.001*grid.y['data'], 0.001*grid.z['data'])
-
-    # Wind medians - necessary?
-    # Um = np.ma.median(U[index])
-    # Vm = np.ma.median(V[index])
-    # Wm = np.ma.median([W[i][:,lon_index] for i in range(0,20)])
-
-    # Plotting horizontal view
-
-    # - Main figure
-    fig = plt.figure(figsize=(10, 8))
-    ax = fig.add_subplot(111)
-
-    # - Reflectivity (shaded)
-    cs = ax.pcolormesh(0.001*grid.x['data'], 0.001*grid.y['data'],
-                       Z[index], vmin=0, vmax=65, cmap=cm.GMT_wysiwyg)
-    plt.colorbar(cs, label='Reflectivity (dBZ)', ax=ax)
-
-    # - Vertical wind (contour)
-    cl = plt.contour(x, y, W[index], levels=range(-20, 20),
-                     colors=['k'], linewidths=1)
-    plt.clabel(cl, inline=1, fontsize=10, fmt='%1.0f', inline_spacing=0.01)
-
-    # - Wind arrows
-    winds = ax.quiver(x[::thin, ::thin], y[::thin, ::thin],
-                      U[index][::thin, ::thin], V[index][::thin, ::thin],
-                      scale=5, units='xy', color='brown', label='Winds (m/s)')
-    ax.quiverkey(winds, 0.8, 0.08, 5, '5 m/s', coordinates='figure')
-
-    # - General aspects
-    ax.set_xlim(xlim_hv)
-    ax.set_ylim(ylim_hv)
-    ax.set_xlabel('Distance East of ' + name_base + ' (km)')
-    ax.set_ylabel('Distance North of ' + name_base + ' (km)')
-    ax.set_title(name_multi + ' U & V, W (contours, m/s),' +
-                 ' & dBZ @ ' + str(index+1) + ' km MSL')
-    plt.show()
-
-    # Plotting vertical view
-
-    # - Main figure
-    fig = plt.figure(figsize=(10, 8))
-    ax = fig.add_subplot(111)
-
-    # - Reflectivity (shaded)
-    cs = ax.pcolormesh(0.001*grid.y['data'], 0.001*grid.z['data'],
-                       [Z[i][:, lon_index] for i in range(0, 20)],
-                       vmin=0, vmax=70, cmap=cm.GMT_wysiwyg)
-    plt.colorbar(cs, label='Reflectivity (dBZ)', ax=ax)
-
-    # - Vertical wind (contour)
-    cl = plt.contour(y_cs, z_cs, [W[i][:, lon_index] for i in range(0, 20)],
-                     levels=range(-20, 20), colors=['k'], linewidths=1)
-    plt.clabel(cl, inline=1, fontsize=10, fmt='%1.0f', inline_spacing=0.01)
-
-    # - Wind barbs
-    wind = ax.quiver(y_cs, z_cs, [V[i][:, lon_index] for i in range(0, 20)],
-                     [W[i][:, lon_index] for i in range(0, 20)],
-                     scale=5, units='xy', color='brown', label='Winds (m/s)')
-    ax.quiverkey(wind, 0.8, 0.08, 5, '5 m/s', coordinates='figure')
-
-    # - General aspects
-    ax.set_xlim(xlim_vv)
-    ax.set_ylim(ylim_vv)
-    ax.set_xlabel('Distance North of ' + name_base + ' (km)')
-    ax.set_ylabel('Distance above ' + name_base + ' (km)')
-    ax.set_title(name_multi + ' V & W, W (contours, m/s),' +
-                 ' & dBZ @ '+str(x[0, lon_index])+' km East of ' + name_base)
-    plt.show()
-
-
-def plot_gridded_wind_dbz_panel(
-        grid, level, lat_index=None, lon_index=None, date='', name_multi='',
-        shp_name='', hailpad_pos=None, zero_height=3., minusforty_height=10.,
-        grid_spc=.25, cmap=None, reverse_cmap=False,
-        xlim=(-48, -46), ylim=(-24, -22)):
-    """
-    Using gridded multidoppler processed data, plot horizontal and vertical
-    views:
-    - In a specific height (defined by index)
-    - In a specific cross-section (defined by lat_index and lon_index)
-
-    Parameters
-    ----------
-    grid: gridded multidoppler processed data
-    level: level of horizontal plot
-    lat_index: tuple of latitude indexes for cross section
-        (end, start) in degrees
-    lon_index: tuple of longitude indexes for cross section
-        (end, start) in degrees
-    date: date to be shown on main title
-    name_multi: acronym with all radar names
-    shp_name: path of shapefiles
-    hailpad_pos: tuple of hailpad position
-        (lon, lat)
-    zero_height: 0 degrees height
-    cmap: define colorbar. None will use Py-ART defauts
-    reverse_cmap: If cmap is defined and this is True, the colormap will be
-        reversed
-    grid_spc: grid spacing for horizontal plot
-    xlim, ylim: plot limits in lon, lat for horizontal view
-        (min, max) in degrees
-    """
-
-    # Getting lat-lon-z points
-    lons, lats = grid.get_point_longitude_latitude(level)
-    xz, z = np.meshgrid(grid.get_point_longitude_latitude()[0], grid.z['data'])
-
-    # Opening colortables
-    if cmap:
-        cpt = loadCPT(cmap)
-        if reverse_cmap:
-            cmap = LinearSegmentedColormap('cpt_r', revcmap(cpt))
-        else:
-            cmap = LinearSegmentedColormap('cpt', cpt)
-
-    # Main figure
-    display = pyart.graph.GridMapDisplay(grid)
-    fig = plt.figure(figsize=(10, 3.25), constrained_layout=True)
-    gs = GridSpec(nrows=1, ncols=7, figure=fig)
-
-    # - Horizontal view
-    print('-- Plotting horizontal view --')
-    ax1 = fig.add_subplot(gs[0, :3])
-    display.plot_basemap(min_lon=xlim[0], max_lon=xlim[1],
-                         min_lat=ylim[0], max_lat=ylim[1],
-                         lon_lines=np.arange(xlim[0], xlim[1], grid_spc),
-                         lat_lines=np.arange(ylim[0], ylim[1], grid_spc),
-                         auto_range=False)
-    display.basemap.readshapefile(shp_name, 'sao_paulo', color='gray')
-    # -- Reflectivity (shaded)
-    display.plot_grid('reflectivity', level, vmin=0, vmax=70,
-                      colorbar_flag=False, cmap=cmap)
-    # -- Updraft (contour)
-    x, y = display.basemap(lons, lats)
-    w = np.amax(grid.fields['upward_air_velocity']['data'], axis=0)
-    cl = display.basemap.contour(x, y, w, linewidths=0.5, colors='black')
-    plt.clabel(cl, inline=1, fontsize=10, fmt='%1.0f', inline_spacing=0.01)
-    # -- Hailpad position
-    display.basemap.plot(hailpad_pos[0], hailpad_pos[1], 'kX', markersize=15,
-                         markerfacecolor='None', latlon=True)
-    # -- Cross section position
-    display.basemap.plot(lon_index, lat_index, 'k--', latlon=True)
-
-    # - Vertical view
-    print('-- Plotting vertical view --')
-    ax2 = fig.add_subplot(gs[0, 3:])
-    # -- Reflectivity (shaded)
-    display.plot_latlon_slice('reflectivity',
-                              coord1=(lon_index[0], lat_index[0]),
-                              coord2=(lon_index[1], lat_index[1]),
-                              vmin=0, vmax=70, zerodeg_height=zero_height,
-                              minusfortydeg_height=minusforty_height,
-                              cmap=cmap)
-    # -- Updraft (contour)
-    display.plot_latlon_slice('upward_air_velocity',
-                              coord1=(lon_index[0], lat_index[0]),
-                              coord2=(lon_index[1], lat_index[1]),
-                              plot_type='contour', colorbar_flag=False)
-    # -- Wind vectors
-    display.plot_latlon_slice('northward_wind', field_2='upward_air_velocity',
-                              coord1=(lon_index[0], lat_index[0]),
-                              coord2=(lon_index[1], lat_index[1]),
-                              plot_type='quiver', colorbar_flag=False)
-
-    # - General aspects
-    plt.suptitle(name_multi + date, weight='bold',
-                 stretch='condensed', size='x-large')
-    ax1.set_title(str(level+1) + ' km ' 'Reflectivity, Max Updrafts (m/s)')
-    ax2.set_title('Cross Section Reflectivity, Updrafts (m/s)')
-    ax2.set_xlabel('')
-    ax2.set_ylabel('Distance above Ground (km)')
-    ax2.grid(linestyle='-', linewidth=0.25)
-    plt.savefig('figures/' + name_multi.split(' ')[0].replace('/', '-') + ' ' +
-                date + '.png', dpi=300, bbox_inches='tight', transparent=True)
-
-
 def adjust_fhc_colorbar_for_pyart(cb):
     """
     Adjust colorbar aspects.
@@ -754,29 +544,28 @@ def plot_field_panel(
         date='', name_multi='', shp_name='', hailpad_pos=None, zero_height=3.,
         minusforty_height=10., grid_spc=.25, cmap=None, reverse_cmap=False,
         norm=None, xlim=(-48, -46), ylim=(-24, -22), save_path='./', index='',
-        hailpad_cs_flag=True):
+        hailpad_cs_flag=True, pt_br=False):
     """
-    Using gridded multidoppler processed data, plot horizontal and vertical
+    Using gridded radar data, plot horizontal and vertical
     views:
-    - In a specific height (defined by index)
+    - In a specific height (defined by level)
     - In a specific cross-section (defined by lat_index and lon_index)
 
     Parameters
     ----------
-    grid: gridded multidoppler processed data
+    grid: gridded radar data
     field: field to be plotted
     level: level of horizontal plot
     fmin, fmax: field min and max values
-    lat_index: tuple of latitude indexes for cross section
-        (end, start) in degrees
-    lon_index: tuple of longitude indexes for cross section
+    lat_index, lon_index: tuple of latitude, longitude indexes for cross section
         (end, start) in degrees
     date: date to be shown on main title
-    name_multi: acronym with all radar names
+    name_multi: acronym with radar name
     shp_name: path of shapefiles
     hailpad_pos: tuple of hailpad position
         (lon, lat)
     zero_height: 0 degrees height
+    minusforty_height: -40 degrees height
     grid_spc: grid spacing for horizontal plot
     cmap: define colorbar. None will use Py-ART defauts
     reverse_cmap: If cmap is defined and this is True, the colormap will be
@@ -785,6 +574,9 @@ def plot_field_panel(
     xlim, ylim: plot limits in lon, lat for horizontal view
         (min, max) in degrees
     save_path: path to save the figures
+    index: plot index (positioned in top-left, publication purposes)
+    hailpad_cs_flag: If true, plot hailpad position in cross-section
+    pt_br: If true, legends will be in portuguese
     """
 
     # Getting lat-lon-z points
@@ -838,7 +630,7 @@ def plot_field_panel(
         fontweight='bold', fontstretch='condensed', ha='center',
         bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
 
-    # -- Index
+    # -- Plot index
     plt.gcf().text(
         0.025, 0.9, index, fontsize=20,
         fontweight='bold', fontstretch='condensed', ha='center')
@@ -866,17 +658,160 @@ def plot_field_panel(
     if field == 'FH':
         field_name = grid.fields[field]['standard_name']
     else:
-        # field_name = grid.fields[field]['standard_name'].title()
-        field_name = grid.fields[field]['standard_name']  # pt-br
-    # ax1.set_title(str(level+1) + ' km ' + field_name)
-    ax1.set_title(field_name + ' em ' + str(level+1) + ' km')
-    # ax2.set_title('Cross Section ' + field_name)
-    ax2.set_title('Corte Vertical de ' + field_name)  # pt-br
+        if pt_br:
+            field_name = grid.fields[field]['standard_name']
+        else:
+            field_name = grid.fields[field]['standard_name'].title()
+    if pt_br:
+        ax1.set_title(field_name + ' em ' + str(level + 1) + ' km')
+        ax2.set_title('Corte Vertical de ' + field_name)
+        ax2.set_ylabel('Distância acima da Superfície (km)')
+    else:
+        ax1.set_title(str(level+1) + ' km ' + field_name)
+        ax2.set_title('Cross Section ' + field_name)
+        ax2.set_ylabel('Distance above Ground (km)')
     ax2.set_xlabel('')
-    # ax2.set_ylabel('Distance above Ground (km)')
-    ax2.set_ylabel('Distância acima da Superfície (km)')  # pt-br
     ax2.grid(linestyle='-', linewidth=0.25)
     ax2.set_ylim(1, 20)
+
+    plt.savefig(save_path + name_multi + ' ' + field_name + ' ' +
+                date + '.png', dpi=300, bbox_inches='tight',
+                facecolor='none', edgecolor='w')
+
+def plot_ppi_panel(
+        grid, field, level, fmin, fmax, azim=0,
+        date='', name_multi='', shp_name='', hailpad_pos=None, zero_height=3.,
+        minusforty_height=10., grid_spc=.25, cmap=None, reverse_cmap=False,
+        norm=None, xlim=(-48, -46), ylim=(-24, -22), save_path='./', index='',
+        hailpad_cs_flag=True, pt_br=False):
+    """
+    Using radar data, plot horizontal and vertical
+    views:
+    - In a specific elevation (defined by level)
+    - In a specific azimuth (defined by azim)
+
+    Parameters
+    ----------
+    grid: gridded radar data
+    field: field to be plotted
+    level: level of horizontal plot
+    fmin, fmax: field min and max values
+    azim: azimuth of vertical plot
+    date: date to be shown on main title
+    name_multi: acronym with radar name
+    shp_name: path of shapefiles
+    hailpad_pos: tuple of hailpad position
+        (lon, lat)
+    zero_height: 0 degrees height
+    minusforty_height: -40 degrees height
+    grid_spc: grid spacing for horizontal plot
+    cmap: define colorbar. None will use Py-ART defauts
+    reverse_cmap: If cmap is defined and this is True, the colormap will be
+        reversed
+    norm: normalization of the colormap
+    xlim, ylim: plot limits in lon, lat for horizontal view
+        (min, max) in degrees
+    save_path: path to save the figures
+    index: plot index (positioned in top-left, publication purposes)
+    hailpad_cs_flag: If true, plot hailpad position in cross-section
+    pt_br: If true, legends will be in portuguese
+    """
+
+    # Getting lat-lon-z points
+    lons, lats = grid.get_point_longitude_latitude(level)
+    xz, z = np.meshgrid(grid.get_point_longitude_latitude()[0], grid.z['data'])
+
+    # Opening colortables
+    # if field != 'FH':
+    #     if cmap:
+    #         cpt = loadCPT(cmap)
+    #         if reverse_cmap:
+    #             cmap = LinearSegmentedColormap('cpt_r', revcmap(cpt))
+    #         else:
+    #             cmap = LinearSegmentedColormap('cpt', cpt)
+
+    # Main figure
+    display = pyart.graph.GridMapDisplay(grid)
+    fig = plt.figure(figsize=(10, 3.25), constrained_layout=True)
+    if field == 'FH':
+        gs = GridSpec(nrows=1, ncols=8, figure=fig)
+    else:
+        gs = GridSpec(nrows=1, ncols=7, figure=fig)
+
+    # - Horizontal view
+    print('-- Plotting horizontal view --')
+    ax1 = fig.add_subplot(gs[0, :3], facecolor='w')
+    display.plot_basemap(min_lon=xlim[0], max_lon=xlim[1],
+                         min_lat=ylim[0], max_lat=ylim[1],
+                         lon_lines=np.arange(xlim[0], xlim[1], grid_spc),
+                         lat_lines=np.arange(ylim[0], ylim[1], grid_spc),
+                         auto_range=False, ax=ax1)
+    display.basemap.readshapefile(shp_name, 'sao_paulo', color='gray')
+    # -- Reflectivity (shaded)
+    display.plot_grid(field, level, vmin=fmin, vmax=fmax, cmap=cmap,
+                      colorbar_flag=False, norm=norm, ax=ax1)
+
+    # -- Hailpad position
+    display.basemap.plot(hailpad_pos[0], hailpad_pos[1], 'kX', markersize=15,
+                         markerfacecolor='w', alpha=0.75, latlon=True)
+    # -- Cross section position
+    display.basemap.plot(lon_index, lat_index, 'k--', latlon=True)
+    bmap = display.get_basemap()
+    x, y = bmap(lon_index[0], lat_index[0])
+    ax1.annotate(
+        'A', (x, y), fontsize=11,
+        fontweight='bold', fontstretch='condensed', ha='center',
+        bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
+    x, y = bmap(lon_index[1], lat_index[1])
+    ax1.annotate(
+        'B', (x, y), fontsize=11,
+        fontweight='bold', fontstretch='condensed', ha='center',
+        bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
+
+    # -- Plot index
+    plt.gcf().text(
+        0.025, 0.9, index, fontsize=20,
+        fontweight='bold', fontstretch='condensed', ha='center')
+
+    # - Vertical view
+    print('-- Plotting vertical view --')
+    ax2 = fig.add_subplot(gs[0, 3:])
+    # -- Reflectivity (shaded)
+    display.plot_latlon_slice(field, vmin=fmin, vmax=fmax,
+                              coord1=(lon_index[0], lat_index[0]),
+                              coord2=(lon_index[1], lat_index[1]),
+                              zerodeg_height=zero_height,
+                              minusfortydeg_height=minusforty_height,
+                              zdh_col='k', cmap=cmap, colorbar_flag=False,
+                              norm=norm, dot_pos=hailpad_pos,
+                              dot_flag=hailpad_cs_flag)
+    cb = display.plot_colorbar(orientation='vertical', ax=ax2,
+                               label=grid.fields[field]['units'])
+    if field == 'FH':
+        cb = adjust_fhc_colorbar_for_pyart(cb)
+
+    # - General aspects
+    plt.suptitle(name_multi + ' ' + date, weight='bold',
+                 stretch='condensed', size='x-large')
+    if field == 'FH':
+        field_name = grid.fields[field]['standard_name']
+    else:
+        if pt_br:
+            field_name = grid.fields[field]['standard_name']
+        else:
+            field_name = grid.fields[field]['standard_name'].title()
+    if pt_br:
+        ax1.set_title(field_name + ' em ' + str(level + 1) + ' km')
+        ax2.set_title('Corte Vertical de ' + field_name)
+        ax2.set_ylabel('Distância acima da Superfície (km)')
+    else:
+        ax1.set_title(str(level+1) + ' km ' + field_name)
+        ax2.set_title('Cross Section ' + field_name)
+        ax2.set_ylabel('Distance above Ground (km)')
+    ax2.set_xlabel('')
+    ax2.grid(linestyle='-', linewidth=0.25)
+    ax2.set_ylim(1, 20)
+
     plt.savefig(save_path + name_multi + ' ' + field_name + ' ' +
                 date + '.png', dpi=300, bbox_inches='tight',
                 facecolor='none', edgecolor='w')
