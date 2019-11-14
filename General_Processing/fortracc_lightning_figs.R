@@ -25,7 +25,8 @@ selected_clusters <- data_clusters[which(dates_clusters_cappis %in% selected_fam
                                          arr.ind = T)]
 selected_cappis <- data_cappis[which(dates_clusters_cappis %in% selected_fam$date,
                                          arr.ind = T)]
-selected_hailpad <- data_hailpads[3,]
+# selected_hailpad <- data_hailpads[3,]
+selected_hailpad <- data_hailpads[1,] # For less cases
 
 # - 18h30
 clusters <- cappis <- flashes <- qte_flashes <- NA
@@ -36,13 +37,13 @@ for(i in seq(10, 12)){
   
   test <- matrix(unlist(selected_clusters[i]), ncol = 500, byrow = T)
   row.names(test) <- sort(lat_vector, decreasing = F); colnames(test) <- lon_vector
-  test_clusters <- melt(test) %>% na.omit() %>% filter(value == selected_sys) %>% 
+  test_clusters <- reshape2::melt(test) %>% na.omit() %>% filter(value == selected_sys) %>% 
     mutate(name = name)
   clusters <- rbind(clusters, test_clusters) %>% na.omit()
   
   test <- matrix(unlist(selected_cappis[i]), ncol = 500, byrow = T)
   row.names(test) <- sort(lat_vector, decreasing = F); colnames(test) <- lon_vector
-  test <- melt(test) %>% na.omit() %>% # semi_join(., test_clusters, by = c("Var1", "Var2"))
+  test <- reshape2::melt(test) %>% na.omit() %>% # semi_join(., test_clusters, by = c("Var1", "Var2"))
     mutate(name = name)
   cappis <- rbind(cappis, test) %>% na.omit()
   
@@ -51,13 +52,13 @@ for(i in seq(10, 12)){
     mutate(name = name)
   flashes <- rbind(flashes, selected_flash) %>% na.omit()
   
-  selected_totais <- select(selected_flash, lat, lon, date, class, case)
+  selected_totais <- dplyr::select(selected_flash, lat, lon, date, class, case)
   selected_flash_total <- selected_totais %>%
     group_by(case, class) %>%
     count() %>%
     ungroup() %>%
     mutate(class = paste("Total", class, "=", n), name = name) %>%
-    select(case, class, name)
+    dplyr::select(case, class, name)
   qte_flashes <- rbind(qte_flashes, selected_flash_total) %>% na.omit()
 }
 
@@ -68,8 +69,8 @@ plts[[1]] <- ggplot() +
   scale_x_continuous(limits = lims_in_plot$lon) +
   scale_y_continuous(limits = lims_in_plot$lat) +
   geom_raster(data = cappis, aes(x = Var2, y = Var1, fill = value)) +
-  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                expand = 0.01, size = 2) +
+  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                expand = 0.025, size = 2) +
   geom_point(data = selected_hailpad, aes(x = lon, y = lat),
              pch = 17, size = 2) +
   geom_path(data = fortify(shape_states), aes(long, lat, group = group),
@@ -79,7 +80,8 @@ plts[[1]] <- ggplot() +
   scale_fill_gradientn(colours = c("#99CCFF", "#18A04C", "#FFDF8E", "#D64646", "#0F0D0D"),
                        breaks = seq(0, 70, 10), limits = c(0, 70), guide = "legend") +
   labs(x = "", y = expression("Latitude ("*degree*")"),
-       fill = "Refletividade (dBZ)") +  # pt-br
+       fill = "Reflectivity (dBZ)") +
+       # fill = "Refletividade (dBZ)") +  # pt-br
   guides(fill = guide_colorbar(title.position = "top", title.hjust = 0.5, barwidth = 10)) +
   theme(plot.background = element_rect(fill = "transparent", color = "transparent"),
         legend.background = element_rect(fill = "transparent", color = "transparent"),
@@ -91,8 +93,8 @@ plts[[2]] <- ggplot() +
   scale_y_continuous(limits = lims_in_plot$lat, labels = NULL) +
   geom_bin2d(data = filter(flashes, class == "IC"), aes(x = lon, y = lat),
              binwidth = c(0.05, 0.05), color = "black") +
-  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                expand = 0.01, size = 2) +
+  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                expand = 0.025, size = 2) +
   geom_point(data = selected_hailpad, aes(x = lon, y = lat),
              pch = 17, size = 2) +
   geom_path(data = fortify(shape_states), aes(long, lat, group = group),
@@ -118,8 +120,8 @@ plts[[3]] <- ggplot() +
   scale_y_continuous(limits = lims_in_plot$lat, labels = NULL) +
   geom_bin2d(data = filter(flashes, class == "CG"), aes(x = lon, y = lat),
              binwidth = c(0.05, 0.05), color = "black") +
-  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                expand = 0.01, size = 2) +
+  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                expand = 0.025, size = 2) +
   geom_point(data = selected_hailpad, aes(x = lon, y = lat),
              pch = 17, size = 2) +
   geom_path(data = fortify(shape_states), aes(long, lat, group = group),
@@ -146,7 +148,8 @@ save_plot(paste("General_Processing/figures/clusters_flashes_",
           plt, ncol = 3, base_width = 2.5, base_height = 7, bg = "transparent")
 
 # - 20h00
-selected_hailpad <- data_hailpads[4,]
+# selected_hailpad <- data_hailpads[4,]
+selected_hailpad <- data_hailpads[2,] # For less cases
 
 clusters <- cappis <- flashes <- qte_flashes <- NA
 for(i in seq(19, 21)){
@@ -156,13 +159,13 @@ for(i in seq(19, 21)){
   
   test <- matrix(unlist(selected_clusters[i]), ncol = 500, byrow = T)
   row.names(test) <- sort(lat_vector, decreasing = F); colnames(test) <- lon_vector
-  test_clusters <- melt(test) %>% na.omit() %>% filter(value == selected_sys) %>% 
+  test_clusters <- reshape2::melt(test) %>% na.omit() %>% filter(value == selected_sys) %>% 
     mutate(name = name)
   clusters <- rbind(clusters, test_clusters) %>% na.omit()
   
   test <- matrix(unlist(selected_cappis[i]), ncol = 500, byrow = T)
   row.names(test) <- sort(lat_vector, decreasing = F); colnames(test) <- lon_vector
-  test <- melt(test) %>% na.omit() %>% # semi_join(., test_clusters, by = c("Var1", "Var2"))
+  test <- reshape2::melt(test) %>% na.omit() %>% # semi_join(., test_clusters, by = c("Var1", "Var2"))
     mutate(name = name)
   cappis <- rbind(cappis, test) %>% na.omit()
   
@@ -171,13 +174,13 @@ for(i in seq(19, 21)){
     mutate(name = name)
   flashes <- rbind(flashes, selected_flash) %>% na.omit()
   
-  selected_totais <- select(selected_flash, lat, lon, date, class, case)
+  selected_totais <- dplyr::select(selected_flash, lat, lon, date, class, case)
   selected_flash_total <- selected_totais %>%
     group_by(case, class) %>%
     count() %>%
     ungroup() %>%
     mutate(class = paste("Total", class, "=", n), name = name) %>%
-    select(case, class, name)
+    dplyr::select(case, class, name)
   qte_flashes <- rbind(qte_flashes, selected_flash_total) %>% na.omit()
 }
 
@@ -188,8 +191,8 @@ plts[[1]] <- ggplot() +
   scale_x_continuous(limits = lims_in_plot$lon) +
   scale_y_continuous(limits = lims_in_plot$lat) +
   geom_raster(data = cappis, aes(x = Var2, y = Var1, fill = value)) +
-  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                expand = 0.01, size = 2) +
+  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                expand = 0.025, size = 2) +
   geom_point(data = selected_hailpad, aes(x = lon, y = lat),
              pch = 17, size = 2) +
   geom_path(data = fortify(shape_states), aes(long, lat, group = group),
@@ -199,7 +202,8 @@ plts[[1]] <- ggplot() +
   scale_fill_gradientn(colours = c("#99CCFF", "#18A04C", "#FFDF8E", "#D64646", "#0F0D0D"),
                        breaks = seq(0, 70, 10), limits = c(0, 70), guide = "legend") +
   labs(x = "", y = expression("Latitude ("*degree*")"),
-       fill = "Refletividade (dBZ)") +  # pt-br
+       fill = "Reflectivity (dBZ)") +
+       # fill = "Refletividade (dBZ)") +  # pt-br
   guides(fill = guide_colorbar(title.position = "top", title.hjust = 0.5, barwidth = 10)) +
   theme(plot.background = element_rect(fill = "transparent", color = "transparent"),
         legend.background = element_rect(fill = "transparent", color = "transparent"),
@@ -211,8 +215,8 @@ plts[[2]] <- ggplot() +
   scale_y_continuous(limits = lims_in_plot$lat, labels = NULL) +
   geom_bin2d(data = filter(flashes, class == "IC"), aes(x = lon, y = lat),
              binwidth = c(0.05, 0.05), color = "black") +
-  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                expand = 0.01, size = 2) +
+  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                expand = 0.025, size = 2) +
   geom_point(data = selected_hailpad, aes(x = lon, y = lat),
              pch = 17, size = 2) +
   geom_path(data = fortify(shape_states), aes(long, lat, group = group),
@@ -238,8 +242,8 @@ plts[[3]] <- ggplot() +
   scale_y_continuous(limits = lims_in_plot$lat, labels = NULL) +
   geom_bin2d(data = filter(flashes, class == "CG"), aes(x = lon, y = lat),
              binwidth = c(0.05, 0.05), color = "black") +
-  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                expand = 0.01, size = 2) +
+  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                expand = 0.025, size = 2) +
   geom_point(data = selected_hailpad, aes(x = lon, y = lat),
              pch = 17, size = 2) +
   geom_path(data = fortify(shape_states), aes(long, lat, group = group),
@@ -272,7 +276,8 @@ selected_clusters <- data_clusters[which(dates_clusters_cappis %in% selected_fam
                                          arr.ind = T)]
 selected_cappis <- data_cappis[which(dates_clusters_cappis %in% selected_fam$date,
                                      arr.ind = T)]
-selected_hailpad <- data_hailpads[4,]
+# selected_hailpad <- data_hailpads[4,]
+selected_hailpad <- data_hailpads[3,] # For less cases
 
 clusters <- cappis <- flashes <- qte_flashes <- NA
 for(i in seq(5, 7)){
@@ -282,13 +287,13 @@ for(i in seq(5, 7)){
   
   test <- matrix(unlist(selected_clusters[i]), ncol = 500, byrow = T)
   row.names(test) <- sort(lat_vector, decreasing = F); colnames(test) <- lon_vector
-  test_clusters <- melt(test) %>% na.omit() %>% filter(value == selected_sys) %>% 
+  test_clusters <- reshape2::melt(test) %>% na.omit() %>% filter(value == selected_sys) %>% 
     mutate(name = name)
   clusters <- rbind(clusters, test_clusters) %>% na.omit()
   
   test <- matrix(unlist(selected_cappis[i]), ncol = 500, byrow = T)
   row.names(test) <- sort(lat_vector, decreasing = F); colnames(test) <- lon_vector
-  test <- melt(test) %>% na.omit() %>% # semi_join(., test_clusters, by = c("Var1", "Var2"))
+  test <- reshape2::melt(test) %>% na.omit() %>% # semi_join(., test_clusters, by = c("Var1", "Var2"))
     mutate(name = name)
   cappis <- rbind(cappis, test) %>% na.omit()
   
@@ -297,13 +302,13 @@ for(i in seq(5, 7)){
     mutate(name = name)
   flashes <- rbind(flashes, selected_flash) %>% na.omit()
   
-  selected_totais <- select(selected_flash, lat, lon, date, class, case)
+  selected_totais <- dplyr::select(selected_flash, lat, lon, date, class, case)
   selected_flash_total <- selected_totais %>%
     group_by(case, class) %>%
     count() %>%
     ungroup() %>%
     mutate(class = paste("Total", class, "=", n), name = name) %>%
-    select(case, class, name)
+    dplyr::select(case, class, name)
   qte_flashes <- rbind(qte_flashes, selected_flash_total) %>% na.omit()
 }
 
@@ -314,8 +319,8 @@ plts[[1]] <- ggplot() +
   scale_x_continuous(limits = lims_in_plot$lon) +
   scale_y_continuous(limits = lims_in_plot$lat) +
   geom_raster(data = cappis, aes(x = Var2, y = Var1, fill = value)) +
-  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                expand = 0.01, size = 2) +
+  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                expand = 0.025, size = 2) +
   geom_point(data = selected_hailpad, aes(x = lon, y = lat),
              pch = 17, size = 2) +
   geom_path(data = fortify(shape_states), aes(long, lat, group = group),
@@ -325,7 +330,8 @@ plts[[1]] <- ggplot() +
   scale_fill_gradientn(colours = c("#99CCFF", "#18A04C", "#FFDF8E", "#D64646", "#0F0D0D"),
                        breaks = seq(0, 70, 10), limits = c(0, 70), guide = "legend") +
   labs(x = "", y = expression("Latitude ("*degree*")"),
-       fill = "Refletividade (dBZ)") +  # pt-br
+       fill = "Reflectivity (dBZ)") +
+       # fill = "Refletividade (dBZ)") +  # pt-br
   guides(fill = guide_colorbar(title.position = "top", title.hjust = 0.5, barwidth = 10)) +
   theme(plot.background = element_rect(fill = "transparent", color = "transparent"),
         legend.background = element_rect(fill = "transparent", color = "transparent"),
@@ -337,8 +343,8 @@ plts[[2]] <- ggplot() +
   scale_y_continuous(limits = lims_in_plot$lat, labels = NULL) +
   geom_bin2d(data = filter(flashes, class == "IC"), aes(x = lon, y = lat),
              binwidth = c(0.025, 0.025), color = "black") +
-  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                expand = 0.01, size = 2) +
+  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                expand = 0.025, size = 2) +
   geom_point(data = selected_hailpad, aes(x = lon, y = lat),
              pch = 17, size = 2) +
   geom_path(data = fortify(shape_states), aes(long, lat, group = group),
@@ -364,8 +370,8 @@ plts[[3]] <- ggplot() +
   scale_y_continuous(limits = lims_in_plot$lat, labels = NULL) +
   geom_bin2d(data = filter(flashes, class == "CG"), aes(x = lon, y = lat),
              binwidth = c(0.025, 0.025), color = "black") +
-  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                expand = 0.01, size = 2) +
+  geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                expand = 0.025, size = 2) +
   geom_point(data = selected_hailpad, aes(x = lon, y = lat),
              pch = 17, size = 2) +
   geom_path(data = fortify(shape_states), aes(long, lat, group = group),

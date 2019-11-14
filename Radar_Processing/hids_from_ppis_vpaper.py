@@ -34,69 +34,59 @@ radar = rf.calculate_radar_hid(radar, cv.sounding_name, "S")
 radar.fields['specific_differential_phase']['units'] = r'$\degree\  km^{-1}$'
 radar.fields['differential_reflectivity']['units'] = 'dB'
 
-name = 'FCTH'
-level = 2
 
 rf.plot_ppi_panel(
-    radar, 'FH', level=level, fmin=0, fmax=10, cmap=cv.cmaphid,
-    lat_index=cv.cs_lat, lon_index=cv.cs_lon,
-    date=cv.date_name, name_multi=name,
-    shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
+    radar, 'corrected_reflectivity', level=cv.level, fmin=0, fmax=70, azim=cv.azim,
+    cmap='dbz', date=cv.date_name, name_multi=cv.name,
+    shp_name=cv.shp_path, hailpad_pos=cv.hailpad, hailpad_distance=cv.hailpad_distance,
     zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
-    grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim,
-    save_path=cv.save_path, index="a", hailpad_cs_flag=cv.hail_flag,
-    pt_br=cv.pt_br)
+    grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim, cslim=cv.cs_azim,
+    save_path=cv.save_path, index="a", hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
 
 rf.plot_ppi_panel(
-    radar, 'MW', level=level, fmin=0, fmax=10, cmap='mass',
-    lat_index=cv.cs_lat, lon_index=cv.cs_lon,
-    date=cv.date_name, name_multi=name,
-    shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="b",
-    hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
+    radar, 'differential_reflectivity', level=cv.level, fmin=-2, fmax=4, azim=cv.azim,
+    cmap='zdr', date=cv.date_name, name_multi=cv.name,
+    shp_name=cv.shp_path, hailpad_pos=cv.hailpad, hailpad_distance=cv.hailpad_distance,
+    zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
+    grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim, cslim=cv.cs_azim,
+    save_path=cv.save_path, index="b", hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
 
 rf.plot_ppi_panel(
-    radar, 'MI', level=level, fmin=0, fmax=30, cmap='mass',
-    lat_index=cv.cs_lat, lon_index=cv.cs_lon,
-    date=cv.date_name, name_multi=name,
-    shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="c",
-    hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
+    radar, 'specific_differential_phase', level=cv.level, fmin=-2, fmax=3.2, azim=cv.azim,
+    cmap='kdp', date=cv.date_name, name_multi=cv.name,
+    shp_name=cv.shp_path, hailpad_pos=cv.hailpad, hailpad_distance=cv.hailpad_distance,
+    zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
+    grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim, cslim=cv.cs_azim,
+    save_path=cv.save_path, index="c", hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
 
 rf.plot_ppi_panel(
-    radar, 'corrected_reflectivity', level=level, fmin=0, fmax=70, cmap='dbz',
-    lat_index=cv.cs_lat, lon_index=cv.cs_lon,
-    date=cv.date_name, name_multi=name,
-    shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="a",
-    hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
+    radar, 'cross_correlation_ratio', level=cv.level, fmin=0.8, fmax=1.013, azim=cv.azim,
+    cmap='rho', date=cv.date_name, name_multi=cv.name,
+    shp_name=cv.shp_path, hailpad_pos=cv.hailpad, hailpad_distance=cv.hailpad_distance,
+    zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
+    grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim, cslim=cv.cs_azim,
+    save_path=cv.save_path, index="d", hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
 
 rf.plot_ppi_panel(
-    radar, 'differential_reflectivity', level=level, fmin=-2, fmax=4,
-    cmap='zdr', lat_index=cv.cs_lat, lon_index=cv.cs_lon,
-    date=cv.date_name, name_multi=name,
-    shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="b",
-    hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
+    radar, 'FH', level=cv.level, fmin=0, fmax=10, azim=cv.azim, cmap=cv.cmaphid,
+    date=cv.date_name, name_multi=cv.name,
+    shp_name=cv.shp_path, hailpad_pos=cv.hailpad, hailpad_distance=cv.hailpad_distance,
+    zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
+    grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim, cslim=cv.cs_azim,
+    save_path=cv.save_path, index="a", hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
 
 rf.plot_ppi_panel(
-    radar, 'specific_differential_phase', level=level, fmin=-2, fmax=3.2,
-    cmap='kdp', lat_index=cv.cs_lat, lon_index=cv.cs_lon,
-    date=cv.date_name, name_multi=name,
-    shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="c",
-    hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
+    radar, 'MW', level=cv.level, fmin=0, fmax=10, azim=cv.azim, cmap='mass',
+    date=cv.date_name, name_multi=cv.name,
+    shp_name=cv.shp_path, hailpad_pos=cv.hailpad, hailpad_distance=cv.hailpad_distance,
+    zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
+    grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim, cslim=cv.cs_azim,
+    save_path=cv.save_path, index="b", hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
 
 rf.plot_ppi_panel(
-    radar, 'cross_correlation_ratio', level=level, fmin=0.8, fmax=1.013,
-    cmap='rho', lat_index=cv.cs_lat, lon_index=cv.cs_lon,
-    date=cv.date_name, name_multi=name,
-    shp_name=cv.shp_path, hailpad_pos=cv.hailpad,
-    zero_height=cv.zerodeg_height, grid_spc=cv.plotgrid_spc,
-    xlim=cv.xlim, ylim=cv.ylim, save_path=cv.save_path, index="d",
-    hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)
+    radar, 'MI', level=cv.level, fmin=0, fmax=30, azim=cv.azim, cmap='mass',
+    date=cv.date_name, name_multi=cv.name,
+    shp_name=cv.shp_path, hailpad_pos=cv.hailpad, hailpad_distance=cv.hailpad_distance,
+    zero_height=cv.zerodeg_height, minusforty_height=cv.fortydeg_height,
+    grid_spc=cv.plotgrid_spc, xlim=cv.xlim, ylim=cv.ylim, cslim=cv.cs_azim,
+    save_path=cv.save_path, index="c", hailpad_cs_flag=cv.hail_flag, pt_br=cv.pt_br)

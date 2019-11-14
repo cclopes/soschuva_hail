@@ -47,10 +47,10 @@ selected_latlon <- modify_depth(selected_clusters, 2, mutate,
 
 
 # Reading/processing lightning data (strokes) ----------------------------------
-data_brasildat <- read_table("Lightning_Processing/filenames_brasildat", col_names = F) %>% 
-  distinct() %>% unlist() %>%
-# data_brasildat <- read_table("Lightning_Processing/filenames_brasildat_less", col_names = F) %>%
-  # unlist() %>% # For less plots 
+# data_brasildat <- read_table("Lightning_Processing/filenames_brasildat", col_names = F) %>% 
+#   distinct() %>% unlist() %>%
+data_brasildat <- read_table("Lightning_Processing/filenames_brasildat_less", col_names = F) %>%
+  unlist() %>% # For less plots
   purrr::map(read_csv) %>%
   purrr::map(~`colnames<-`(.x, c(
     "date", "lat", "lon", "z", "peak_curr", "class", "axis_bigger", # Reading files
@@ -63,7 +63,7 @@ data_brasildat <- read_table("Lightning_Processing/filenames_brasildat", col_nam
     ~filter(.x, period %in% .y)
   ) %>% # Selecting the same times as the radar
   purrr::map(., ~group_by(.x, period) %>% nest()) %>% # Separating into a nested list (as selected_latlon)
-  purrr::map(., ~set_names(.x$data, .x$period))
+  purrr::map(., ~set_names(.x$data, as.character(.x$period)))
 # modify_depth(., 2, mutate, period = floor_date(date, "10 minutes")) # and recreating "period" column
 selected_latlon <- map2(selected_latlon, data_brasildat, ~.x[names(.y)]) # Selecting matching dates between clusters and
  # lightning data
@@ -75,7 +75,8 @@ data_brasildat <- map2(
 )
 
 # Reading/processing lightning data (flashes) ----------------------------------
-flashes_brasildat <- flashes_brasildat %>% 
+# flashes_brasildat <- flashes_brasildat %>% 
+flashes_brasildat <- flashes_brasildat[c(3,4)] %>% # For less cases
   purrr::map(~mutate(.x, lon_r = round(lon/0.1)*0.1, lat_r = round(lat/0.1)*0.1)) %>%
   purrr::map(~mutate(.x, period = floor_date(date, "10 minutes"))) %>% # Making with the same timestep as the radar data
   map2(
@@ -83,7 +84,7 @@ flashes_brasildat <- flashes_brasildat %>%
     ~filter(.x, period %in% .y)
   ) %>% # Selecting the same times as the radar
   purrr::map(., ~group_by(.x, period) %>% nest()) %>% # Separating into a nested list (as selected_latlon)
-  purrr::map(., ~set_names(.x$data, .x$period))
+  purrr::map(., ~set_names(.x$data, as.character(.x$period)))
 # modify_depth(., 2, mutate, period = floor_date(date, "10 minutes")) # and recreating "period" column
 selected_latlon <- map2(selected_latlon, flashes_brasildat, ~.x[names(.y)]) # Selecting matching dates between clusters and
 # lightning data
@@ -94,19 +95,23 @@ flashes_brasildat <- map2(
   #                              round(lat, 2) %in% c(.y$col, .y$col_m1, .y$col_p1, .y$col_m2, .y$col_p2)))
 )
 
-opt <- c("", "", "", "", "")
-# opt <- c("", " ", "") # For less plots
+# opt <- c("", "", "", "", "")
+opt <- c("", "") # For less plots
+data_hailpads_less <- data_hailpads[2:3,] # For less plots
 data_brasildat_df <- map2(data_brasildat, opt, ~mutate(.x, case = paste("Case", lubridate::date(date), .y))) %>%
-  map2(., data_hailpads$lon, ~mutate(.x, lon_hailpad = .y)) %>%
-  map2(., data_hailpads$lat, ~mutate(.x, lat_hailpad = .y)) %>%
-  map2(., data_hailpads$date, ~mutate(.x, date_hailpad = .y)) %>%
+  map2(., data_hailpads_less$lon, ~mutate(.x, lon_hailpad = .y)) %>%
+  map2(., data_hailpads_less$lat, ~mutate(.x, lat_hailpad = .y)) %>%
+  map2(., data_hailpads_less$date, ~mutate(.x, date_hailpad = .y)) %>%
   map_df(rbind) %>%
   mutate(hour = date)
 lubridate::date(data_brasildat_df$hour) <- lubridate::date(data_brasildat_df$date_hailpad) <- "2017-01-01"
-data_brasildat_df$lon_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lon_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
-data_brasildat_df$lat_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lat_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
-data_brasildat_df$date_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- "2017-01-01 18:00:00"
-data_brasildat_df$case <- str_replace(data_brasildat_df$case, "Case ", "Caso de ")  # pt-br
+# data_brasildat_df$lon_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lon_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
+# data_brasildat_df$lat_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lat_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
+# data_brasildat_df$date_hailpad[data_brasildat_df$case == "Case 2017-03-14 "][1] <- "2017-01-01 18:00:00"
+data_brasildat_df$lon_hailpad[1] <- data_hailpads$lon[1] # For less plots
+data_brasildat_df$lat_hailpad[1] <- data_hailpads$lat[1] # For less plots
+data_brasildat_df$date_hailpad[1] <- as.POSIXct("2017-01-01 18:30:00", tz = "GMT") # For less plots
+# data_brasildat_df$case <- str_replace(data_brasildat_df$case, "Case ", "Caso de ")  # pt-br
 
 totais <- select(data_brasildat_df, lat, lon, date, class, case)
 qte_total <- totais %>%
@@ -119,16 +124,19 @@ rcount <- select(data_brasildat_df, case, hour, class, date_hailpad) %>%
   mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
 
 flashes_brasildat_df <- map2(flashes_brasildat, opt, ~mutate(.x, case = paste("Case", lubridate::date(date), .y))) %>%
-  map2(., data_hailpads$lon, ~mutate(.x, lon_hailpad = .y)) %>%
-  map2(., data_hailpads$lat, ~mutate(.x, lat_hailpad = .y)) %>%
-  map2(., data_hailpads$date, ~mutate(.x, date_hailpad = .y)) %>%
+  map2(., data_hailpads_less$lon, ~mutate(.x, lon_hailpad = .y)) %>%
+  map2(., data_hailpads_less$lat, ~mutate(.x, lat_hailpad = .y)) %>%
+  map2(., data_hailpads_less$date, ~mutate(.x, date_hailpad = .y)) %>%
   map_df(rbind) %>%
   mutate(hour = date)
 lubridate::date(flashes_brasildat_df$hour) <- lubridate::date(flashes_brasildat_df$date_hailpad) <- "2017-01-01"
-flashes_brasildat_df$lon_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lon_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
-flashes_brasildat_df$lat_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lat_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
-flashes_brasildat_df$date_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- "2017-01-01 18:00:00"
-flashes_brasildat_df$case <- str_replace(flashes_brasildat_df$case, "Case ", "Caso de ")  # pt-br
+# flashes_brasildat_df$lon_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lon_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
+# flashes_brasildat_df$lat_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- selected_fams_df$lat_hailpad[selected_fams_df$case == "Case 2017-03-14 "][1]
+# flashes_brasildat_df$date_hailpad[flashes_brasildat_df$case == "Case 2017-03-14 "][1] <- "2017-01-01 18:00:00"
+flashes_brasildat_df$lon_hailpad[1] <- data_hailpads$lon[1] # For less plots
+flashes_brasildat_df$lat_hailpad[1] <- data_hailpads$lat[1] # For less plots
+flashes_brasildat_df$date_hailpad[1] <- as.POSIXct("2017-01-01 18:30:00", tz = "GMT") # For less plots
+# flashes_brasildat_df$case <- str_replace(flashes_brasildat_df$case, "Case ", "Caso de ")  # pt-br
 
 flashes_totais <- select(flashes_brasildat_df, lat, lon, date, class, case)
 flashes_qte_total <- flashes_totais %>%
@@ -138,13 +146,13 @@ flashes_qte_total <- flashes_totais %>%
   mutate(class = paste("Total", class, "=", n)) %>%
   select(case, class)
 flashes_rcount <- select(flashes_brasildat_df, case, hour, class, date_hailpad) %>%
-  # mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
-  mutate(case = str_replace(string = case, pattern = "de ", replacement = "de\n"))  # pt-br
+  mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
+  # mutate(case = str_replace(string = case, pattern = "de ", replacement = "de\n"))  # pt-br
 
 # Plotting spatial distribution ------------------------------------------------
 theme_set(theme_bw())
-grid <- data.frame("lon" = rep(c(-47.5, -46.5), 5), "lat" = rep(-22, 10)) # Label positions
-# grid <- data.frame("lon" = rep(c(-47.5, -46.5), 3), "lat" = rep(-22, 6)) # Label positions for less plots
+# grid <- data.frame("lon" = rep(c(-47.5, -46.5), 5), "lat" = rep(-22, 10)) # Label positions
+grid <- data.frame("lon" = rep(c(-47.5, -46.5), 2), "lat" = rep(-22, 4)) # Label positions for less plots
 
 ggplot(data = data_brasildat_df) +
   scale_x_continuous(limits = lims_in_plot$lon) + scale_y_continuous(limits = lims_in_plot$lat) +
@@ -155,23 +163,24 @@ ggplot(data = data_brasildat_df) +
   scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                         breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
-  # labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
-  #      color = "Time (UTC)", shape = "Stroke\nType") +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
-       color = "Hora (UTC)", shape = "Tipo de\nStroke") +  # pt-br
-  guides(size = "none", color = guide_colorbar(barheight = 12)) +
-  theme(
-    plot.background = element_rect(fill = "transparent", color = "transparent"),
-    legend.background = element_rect(fill = "transparent")
-  ) +
-  # theme(legend.position = "bottom") + # For less plots
-  # guides(size = "none", color = guide_colorbar(barwidth = 15)) + # For less plots
+       color = "Time (UTC)", shape = "Stroke\nType") +
+  # labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
+  #      color = "Hora (UTC)", shape = "Tipo de\nStroke") +  # pt-br
+  # guides(size = "none", color = guide_colorbar(barheight = 12)) +
+  # theme(
+  #   plot.background = element_rect(fill = "transparent", color = "transparent"),
+  #   legend.background = element_rect(fill = "transparent")
+  # ) +
+  theme(legend.position = "bottom") + # For less plots
+  guides(size = "none", color = guide_colorbar(barwidth = 15)) + # For less plots
   facet_wrap(~case)
 # ggsave("Lightning_Processing/figures/brasildat_location.png", bg = "transparent",
 #        width = 8.5, height = 4.25)
-ggsave("Lightning_Processing/figures/brasildat_location_ptbr.png", bg = "transparent",
-       width = 8.5, height = 4.25)  # pt-br
-# ggsave("Lightning_Processing/figures/brasildat_location_less.png", width = 7.5, height = 3.25, bg = "transparent") # For less plots
+# ggsave("Lightning_Processing/figures/brasildat_location_ptbr.png", bg = "transparent",
+#        width = 8.5, height = 4.25)  # pt-br
+ggsave("Lightning_Processing/figures/brasildat_location_less.png", 
+       width = 7.5, height = 3.25, bg = "transparent") # For less plots
 
 ggplot(data = flashes_brasildat_df) +
   scale_x_continuous(limits = lims_in_plot$lon) + scale_y_continuous(limits = lims_in_plot$lat) +
@@ -182,23 +191,24 @@ ggplot(data = flashes_brasildat_df) +
   scale_color_gradientn(colours = cpt(pal = "oc_zeu"), labels = date_format("%H%M"),
                         breaks = pretty_breaks(n = 10), trans = time_trans()) +
   scale_shape_manual(values = c(4, 1)) +
-  # labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
-  #      color = "Time (UTC)", shape = "Flash\nType") +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
-       color = "Hora (UTC)", shape = "Tipo de\nFlash") +  # pt-br
-  guides(size = "none", color = guide_colorbar(barheight = 12)) +
-  theme(
-    plot.background = element_rect(fill = "transparent", color = "transparent"),
-    legend.background = element_rect(fill = "transparent")
-  ) +
-  # theme(legend.position = "bottom") + # For less plots
-  # guides(size = "none", color = guide_colorbar(barwidth = 15)) + # For less plots
+       color = "Time (UTC)", shape = "Flash\nType") +
+  # labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")"),
+  #      color = "Hora (UTC)", shape = "Tipo de\nFlash") +  # pt-br
+  # guides(size = "none", color = guide_colorbar(barheight = 12)) +
+  # theme(
+  #   plot.background = element_rect(fill = "transparent", color = "transparent"),
+  #   legend.background = element_rect(fill = "transparent")
+  # ) +
+  theme(legend.position = "bottom") + # For less plots
+  guides(size = "none", color = guide_colorbar(barwidth = 15)) + # For less plots
   facet_wrap(~case)
 # ggsave("Lightning_Processing/figures/brasildat_flash_location.png", bg = "transparent",
 #        width = 8.5, height = 4.25)
-ggsave("Lightning_Processing/figures/brasildat_flash_location_ptbr.png", bg = "transparent",
-       width = 8.5, height = 4.25)  # pt-br
-# ggsave("Lightning_Processing/figures/brasildat_flash_location_less.png", width = 7.5, height = 3.25, bg = "transparent") # For less plots
+# ggsave("Lightning_Processing/figures/brasildat_flash_location_ptbr.png", bg = "transparent",
+#        width = 8.5, height = 4.25)  # pt-br
+ggsave("Lightning_Processing/figures/brasildat_flash_location_less.png", 
+       width = 7.5, height = 3.25, bg = "transparent") # For less plots
 
 # Plotting temporal distribution
 plt_brasildat <- ggplot(rcount) +
@@ -211,8 +221,8 @@ plt_brasildat <- ggplot(rcount) +
     legend.background = element_rect(fill = "transparent"),
     legend.position = "bottom"
   ) +
-  # labs(x = "Time (UTC)", y = expression("Strokes"~min^-1), fill = "Type") +
-  labs(x = "Hora (UTC)", y = expression("Strokes"~min^-1), fill = "Tipo") +  # pt-br
+  labs(x = "Time (UTC)", y = expression("Strokes"~min^-1), fill = "Type") +
+  # labs(x = "Hora (UTC)", y = expression("Strokes"~min^-1), fill = "Tipo") +  # pt-br
   facet_wrap(case ~ ., scales = "free", ncol = 1, strip.position = 'right')
 
 plt_flash_brasildat <- ggplot(flashes_rcount) +
@@ -225,8 +235,8 @@ plt_flash_brasildat <- ggplot(flashes_rcount) +
     legend.background = element_rect(fill = "transparent"),
     legend.position = "bottom"
   ) +
-  # labs(x = "Time (UTC)", y = expression("Flashes"~min^-1), fill = "Type") +
-  labs(x = "Hora (UTC)", y = expression("Flashes"~min^-1), fill = "Tipo") +  # pt-br
+  labs(x = "Time (UTC)", y = expression("Flashes"~min^-1), fill = "Type") +
+  # labs(x = "Hora (UTC)", y = expression("Flashes"~min^-1), fill = "Tipo") +  # pt-br
   facet_wrap(case ~ ., scales = "free", ncol = 1, strip.position = 'right')
 
 # Saving variables

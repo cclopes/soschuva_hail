@@ -12,6 +12,10 @@ require(lubridate)
 require(scales)
 require(cowplot)
 require(cptcity)
+require(raster)
+require(rgeos)
+require(igraph)
+require(data.table)
 theme_set(theme_bw())
 # ForTraCC pre-processing
 load("General_Processing/lifecycle_data.RData")
@@ -24,7 +28,8 @@ selected_clusters <- data_clusters[which(dates_clusters_cappis %in% selected_fam
                                          arr.ind = T)]
 selected_cappis <- data_cappis[which(dates_clusters_cappis %in% selected_fam$date,
                                      arr.ind = T)]
-selected_hailpad <- data_hailpads[3:4,]
+# selected_hailpad <- data_hailpads[3:4,]
+selected_hailpad <- data_hailpads[1:2,] # For less cases
 
 for(i in seq(1, length(selected_clusters))){
   selected_date <- selected_fam$date[i]
@@ -33,7 +38,7 @@ for(i in seq(1, length(selected_clusters))){
   
   test <- matrix(unlist(selected_clusters[i]), ncol = 500, byrow = T)
   row.names(test) <- sort(lat_vector, decreasing = F); colnames(test) <- lon_vector
-  clusters <- melt(test) %>% na.omit() %>% filter(value == selected_sys) %>% 
+  clusters <- melt(test) %>% na.omit() %>% filter(value == selected_sys) %>%
     mutate(name = name)
 
   test <- matrix(unlist(selected_cappis[i]), ncol = 500, byrow = T)
@@ -45,8 +50,8 @@ for(i in seq(1, length(selected_clusters))){
     scale_x_continuous(limits = lims_in_plot$lon) +
     scale_y_continuous(limits = lims_in_plot$lat) +
     geom_raster(data = cappis, aes(x = Var2, y = Var1, fill = value)) +
-    geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                  expand = 0.01, size = 2) +
+    geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                  expand = 0.025, size = 2) +
     geom_point(data = selected_hailpad, aes(x = lon, y = lat),
                pch = 17, size = 2) +
     geom_path(data = fortify(shape_states), aes(long, lat, group = group),
@@ -74,7 +79,8 @@ selected_clusters <- data_clusters[which(dates_clusters_cappis %in% selected_fam
                                          arr.ind = T)]
 selected_cappis <- data_cappis[which(dates_clusters_cappis %in% selected_fam$date,
                                      arr.ind = T)]
-selected_hailpad <- data_hailpads[4,]
+# selected_hailpad <- data_hailpads[4,]
+selected_hailpad <- data_hailpads[3,] # For less cases
 
 for(i in seq(1, length(selected_clusters))){
   selected_date <- selected_fam$date[i]
@@ -95,8 +101,8 @@ for(i in seq(1, length(selected_clusters))){
     scale_x_continuous(limits = lims_in_plot$lon) +
     scale_y_continuous(limits = lims_in_plot$lat) +
     geom_raster(data = cappis, aes(x = Var2, y = Var1, fill = value)) +
-    geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 0.5,
-                  expand = 0.01, size = 2) +
+    geom_encircle(data = clusters, aes(x = Var2, y = Var1), s_shape = 2,
+                  expand = 0.025, size = 2) +
     geom_point(data = selected_hailpad, aes(x = lon, y = lat),
                pch = 17, size = 2) +
     geom_path(data = fortify(shape_states), aes(long, lat, group = group),

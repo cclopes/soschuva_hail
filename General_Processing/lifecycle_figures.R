@@ -47,13 +47,17 @@ fams_summary <- selected_fams_df %>%
 # write.csv2(fams_summary, file = "General_Processing/cases_fams", row.names = F, dec = ",")
 
 # Joining dBZ, size and lightning ----------------------------------------------
-plt <- plot_grid(arrangeGrob(plt_dbz, nullGrob(), ncol=1, heights = c(0.915, 0.085)),
-                 arrangeGrob(plt_size, nullGrob(), ncol=1, heights = c(0.915, 0.085)), 
+# plt <- plot_grid(arrangeGrob(plt_dbz, nullGrob(), ncol=1, heights = c(0.915, 0.085)),
+#                  arrangeGrob(plt_size, nullGrob(), ncol=1, heights = c(0.915, 0.085)), 
+#                  plt_flash_brasildat, labels = c("a", "b", "c"), 
+#                  ncol = 3, rel_widths = c(0.3, 0.3, 0.34))
+plt <- plot_grid(arrangeGrob(plt_dbz, nullGrob(), ncol=1, heights = c(0.45, 0.085)),
+                 arrangeGrob(plt_size, nullGrob(), ncol=1, heights = c(0.45, 0.085)), 
                  plt_flash_brasildat, labels = c("a", "b", "c"), 
-                 ncol = 3, rel_widths = c(0.3, 0.3, 0.34))
+                 ncol = 3, rel_widths = c(0.27, 0.3, 0.315)) # For less plots
 # save_plot("General_Processing/figures/cases_dbz_size_lightning.png",
 #           plot = plt, ncol = 3, base_width = 2.5, base_height = 6.5, bg = "transparent")
-save_plot("General_Processing/figures/cases_dbz_size_lightning_ptbr.png",
-          plot = plt, ncol = 3, base_width = 2.5, base_height = 6.5, bg = "transparent")  # pt-br
-# save_plot("General_Processing/figures/cases_dbz_size_lightning_less.png",
-  # plot = plt, ncol = 3, base_width = 3, base_height = 3) #-- For less plots
+# save_plot("General_Processing/figures/cases_dbz_size_lightning_ptbr.png",
+#           plot = plt, ncol = 3, base_width = 2.5, base_height = 6.5, bg = "transparent")  # pt-br
+save_plot("General_Processing/figures/cases_dbz_size_lightning_less.png", 
+          plot = plt, ncol = 3, base_width = 2.5, base_height = 3.5, bg = "transparent") #-- For less plots

@@ -10,7 +10,13 @@
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #-- Loading necessary scripts and packages
-require(tidyverse); require(lubridate); require(fields); require(maptools); require(reshape2); require(magrittr)
+require(tidyverse)
+require(lubridate)
+require(fields)
+require(maptools)
+require(reshape2)
+require(magrittr)
+
 source("General_Processing/functions.R")
 #---------------------------------------------------------------------------------------------------------------------------------
 
