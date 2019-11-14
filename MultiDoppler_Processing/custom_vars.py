@@ -65,6 +65,7 @@ date_name = '2017-03-14 1950 UTC'
 # -- plot_multidop
 cs_lat, cs_lon = (-22.8, -23.15), (-47.23, -47.19)
 xlim, ylim = (-47.7, -47), (-23.2, -22.65)
+zero_height = 5.1
 hailpad = (-47.20541, -23.02940)
 index = "a"
 # - 20h

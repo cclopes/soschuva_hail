@@ -333,7 +333,7 @@ def grid_radar(radar, grid_shape=(20, 301,  301),
 
     if not for_multidop:
         gatefilter = pyart.filters.GateFilter(radar)
-        gatefilter.exclude_below(fields[4], 0.8)
+        # gatefilter.exclude_below(fields[4], 0.8)
     else:
         gatefilter = None
 
