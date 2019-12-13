@@ -103,9 +103,9 @@ radars_dist <- data.frame(
   mutate(distance = sprintf("%3.0f km", distance))
 radars <- bind_rows(
   list(
-    SR = bind_rows(sr, sr) %>% mutate(combination = c("SR/FCTH", "SR/XPOL")), 
-    FCTH = bind_rows(fcth, fcth) %>% mutate(combination = c("SR/FCTH", "FCTH/XPOL")),
-    XPOL = bind_rows(xpol, xpol) %>% mutate(combination = c("SR/XPOL", "FCTH/XPOL"))
+    SR = bind_rows(sr, sr, sr) %>% mutate(combination = c("SR/FCTH", "SR/XPOL", "SR/FCTH/XPOL")), 
+    FCTH = bind_rows(fcth, fcth, fcth) %>% mutate(combination = c("SR/FCTH", "FCTH/XPOL", "SR/FCTH/XPOL")),
+    XPOL = bind_rows(xpol, xpol, xpol) %>% mutate(combination = c("SR/XPOL", "FCTH/XPOL", "SR/FCTH/XPOL"))
     ),
   .id = "radar")
 
@@ -120,7 +120,7 @@ dd45 <- list(sr_fcth = DualDopplerLobes(sr, fcth, 45, 0, 180),
              sr_xpol = DualDopplerLobes(sr, xpol, 45, 93, 273),
              fcth_xpol = DualDopplerLobes(fcth, xpol, 45, 38.5, 218.5))
 
-circles <- list(
+circles_duald <- list(
   map(dd30, ~dfCircle(.x$p1.x, .x$p1.y, .x$r*1e-3) %>% mutate(group = "a", angle = "30")),
   map(dd30, ~dfCircle(.x$p2.x, .x$p2.y, .x$r*1e-3) %>% mutate(group = "b", angle = "30")),
   map(dd45, ~dfCircle(.x$p1.x, .x$p1.y, .x$r*1e-3) %>% mutate(group = "c", angle = "45")),
@@ -129,8 +129,38 @@ circles <- list(
   flatten_dfr(.id = "combination") %>%
   mutate(combination = toupper(combination) %>% str_replace("_", "/"))
 
+# circles_trippled <- list(
+#   map(dd30, ~dfCircle(.x$p1.x, .x$p1.y, .x$r*1e-3) %>% mutate(group = "a", angle = "30")),
+#   map(dd30, ~dfCircle(.x$p2.x, .x$p2.y, .x$r*1e-3) %>% mutate(group = "b", angle = "30")),
+#   map(dd45, ~dfCircle(.x$p1.x, .x$p1.y, .x$r*1e-3) %>% mutate(group = "c", angle = "45")),
+#   map(dd45, ~dfCircle(.x$p2.x, .x$p2.y, .x$r*1e-3) %>% mutate(group = "d", angle = "45"))
+# ) %>%
+#   flatten_dfr(.id = "combination") %>%
+#   mutate(combination = toupper(combination) %>% str_replace("_", "/")) %>% 
+#   group_by(combination) %>% 
+#   filter
+
+circles_trippled <- bind_rows(
+  dfCircle(dd30$fcth_xpol$p1.x, dd30$fcth_xpol$p1.y, dd30$fcth_xpol$r*1e-3) %>% mutate(group = "e", angle = "30"),
+  dfCircle(dd30$sr_xpol$p2.x, dd30$sr_xpol$p2.y, dd30$sr_xpol$r*1e-3) %>% mutate(group = "f", angle = "30"),
+  dfCircle(dd30$sr_fcth$p2.x, dd30$sr_fcth$p2.y, dd30$sr_fcth$r*1e-3) %>% mutate(group = "g", angle = "30"),
+  dfCircle(dd45$fcth_xpol$p1.x, dd45$fcth_xpol$p1.y, dd45$fcth_xpol$r*1e-3) %>% mutate(group = "h", angle = "45"),
+  dfCircle(dd45$sr_xpol$p2.x, dd45$sr_xpol$p2.y, dd45$sr_xpol$r*1e-3) %>% mutate(group = "i", angle = "45"),
+  dfCircle(dd45$sr_fcth$p2.x, dd45$sr_fcth$p2.y, dd45$sr_fcth$r*1e-3) %>% mutate(group = "j", angle = "45")
+) %>%
+  mutate(combination = "SR/FCTH/XPOL") %>% 
+  group_by(group) 
+  
+ggplot(circles_trippled) +
+  geom_point(aes(x = lon, y = lat)) +
+  facet_wrap(~ group)
+
+circles <- bind_rows(circles_duald, circles_trippled) %>% 
+  mutate(combination = factor(combination, levels = c("FCTH/XPOL", "SR/FCTH", "SR/XPOL", "SR/FCTH/XPOL")))
+
 # - Plotting
 theme_set(theme_bw())
+
 ggplot() +
   coord_cartesian(xlim = xlim, ylim = ylim) +
   geom_path(data = fortify(STATES), aes(long, lat, group = group), inherit.aes = F, colour = "gray30", size = 0.3) +
@@ -139,13 +169,13 @@ ggplot() +
   geom_path(data = IND, aes(x, y), inherit.aes = F, colour = "gray30", size = 0.3) +
   geom_point(data = radars, aes(x, y)) +
   geom_path(data = circles, aes(x = lon, y = lat, color = angle, group = group)) +
-  # scale_color_manual(name = expression("Beam Crossing Angle ("*degree*")"),
-  #                    values = c("red", "blue")) +
-  scale_color_manual(name = expression("Ângulo de Cruzamento do Feixe ("*degree*")"),
-                     values = c("red", "blue")) +  # pt-br
+  scale_color_manual(name = expression("Beam Crossing Angle ("*degree*")"),
+                     values = c("red", "blue")) +
+  # scale_color_manual(name = expression("Ângulo de Cruzamento do Feixe ("*degree*")"),
+  #                    values = c("red", "blue")) +  # pt-br
   geom_label_repel(data = radars, aes(x, y, label = radar), point.padding = 0.25,
                    force = 100, size = 3, alpha = 0.7, min.segment.length = 0) +
-  geom_line(data = radars, aes(x, y), linetype = "dashed") +
+  geom_path(data = radars, aes(x, y), linetype = "dashed") +
   geom_label_repel(data = radars_dist, aes(midlon, midlat, label = distance),
                    point.padding = 0.1, size = 2, alpha = 0.7, min.segment.length = 0) +
   theme(legend.position = "bottom", legend.title.align = 0.5, 
@@ -153,8 +183,8 @@ ggplot() +
         legend.background = element_rect(fill = "transparent")) +
   guides(color = guide_legend(nrow = 2)) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")")) +
-  facet_grid(combination ~ .)
-# ggsave("General_Processing/figures/dual_doppler_lobes.png", width = 3.2,
-#        height = 6, bg = "transparent")
-ggsave("General_Processing/figures/dual_doppler_lobes_ptbr.png", width = 3.2,
-       height = 6.5, bg = "transparent")  # pt-br
+  facet_wrap(~ combination)
+ggsave("General_Processing/figures/dual_doppler_lobes.png", width = 3.2,
+       height = 6, bg = "transparent")
+# ggsave("General_Processing/figures/dual_doppler_lobes_ptbr.png", width = 3.2,
+#        height = 6.5, bg = "transparent")  # pt-br

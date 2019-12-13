@@ -18,5 +18,5 @@ dependencies:
       - csu_radartools
 
 # Problem with PROJ_LIB in Basemap
-# /.../mpl_toolkits/basemap/__init__.py
+# /.../lib/python3.7/site-packages/mpl_toolkits/basemap/__init__.py
 # os.environ['PROJ_LIB'] = '/home/camila/miniconda3/envs/soschuva_hail/share/proj'

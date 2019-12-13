@@ -744,7 +744,7 @@ def plot_ppi_panel(
     #                                central_longitude=ppi.longitude['data'][0])
     projection = ccrs.PlateCarree()
     if field == 'FH':
-        gs = GridSpec(nrows=1, ncols=9, figure=fig)
+        gs = GridSpec(nrows=1, ncols=11, figure=fig)
     else:
         gs = GridSpec(nrows=1, ncols=9, figure=fig)
 
@@ -783,7 +783,10 @@ def plot_ppi_panel(
 
     # - Vertical view
     print('-- Plotting vertical view --')
-    ax2 = fig.add_subplot(gs[0, 4:])
+    if field == 'FH':
+        ax2 = fig.add_subplot(gs[0, 5:])
+    else:
+        ax2 = fig.add_subplot(gs[0, 4:])
     # -- Reflectivity (shaded)
     display.plot_azimuth_to_rhi(field, azim, vmin=fmin, vmax=fmax,
                                 cmap=cmap, colorbar_flag=False, norm=norm,
@@ -791,7 +794,7 @@ def plot_ppi_panel(
     ax2.set_ylim((1, 20))
     ax2.set_xlim((cslim[1], cslim[0]))
     if field == 'FH':
-        cb = display.plot_colorbar(orient='vertical', ax=ax2, fraction=0.1,
+        cb = display.plot_colorbar(orient='vertical', ax=ax2, fraction=0.075,
                                    label=ppi.fields[field]['units'])
         cb = adjust_fhc_colorbar_for_pyart(cb, pt_br)
     else:
@@ -832,10 +835,9 @@ def plot_ppi_panel(
              rotation='horizontal', rotation_mode='anchor',
              transform=ax1.transAxes)
     if pt_br:
-        ax1.set_title(field_name + ' em ' + str(ppi.get_elevation(level)[0]) +
-                      '$\degree$')
-        ax2.set_title('Corte Vertical em Azimute = ' + str(azim) + '$\degree$ de ' +
-                      field_name)
+        ax1.set_title('PPI ' + str(ppi.get_elevation(level)[0]) +
+                      '$\degree$ ' + field_name)
+        ax2.set_title('Corte Vertical em Azimute = ' + str(azim) + '$\degree$')
         ax2.set_xlabel('Distância do Radar (km)')
         ax2.set_ylabel('Distância acima da Superfície (km)')
     else:

@@ -33,7 +33,22 @@ radar = rf.read_radar(cv.filename)
 radar = rf.calculate_radar_hid(radar, cv.sounding_name, "S")
 radar.fields['specific_differential_phase']['units'] = r'$\degree\  km^{-1}$'
 radar.fields['differential_reflectivity']['units'] = 'dB'
-
+if cv.pt_br:
+    radar.fields['cross_correlation_ratio']['units'] = 'adimensional'
+    radar.fields['corrected_reflectivity']['standard_name'] = (
+        "Refletividade Corrigida")
+    radar.fields['FH']['standard_name'] = (
+        "IDs de Hidrometeoros")
+    radar.fields['MW']['standard_name'] = (
+        "Massa de Água Líquida")
+    radar.fields['MI']['standard_name'] = (
+        "Massa de Gelo")
+    radar.fields['cross_correlation_ratio']['standard_name'] = (
+        "Razão de Correlação Cruzada")
+    radar.fields['differential_reflectivity']['standard_name'] = (
+        "Refletividade Diferencial")
+    radar.fields['specific_differential_phase']['standard_name'] = (
+        "Fase Diferencial Específica")
 
 rf.plot_ppi_panel(
     radar, 'corrected_reflectivity', level=cv.level, fmin=0, fmax=70, azim=cv.azim,

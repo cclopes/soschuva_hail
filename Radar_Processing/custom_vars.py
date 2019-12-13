@@ -12,13 +12,13 @@ shp_path = "../Data/GENERAL/shapefiles/sao_paulo.shp"
 save_path = "figures/ppis/classification/"
 cptpath = "../Data/GENERAL/colortables/"
 hail_flag = True
-pt_br = False
+pt_br = True
 level = 0
 name = 'FCTH'
 
 # Defining case
 case_date = "2017-03-14"
-case_time = "18h20"
+case_time = "20h00"
 
 # Variables for defined case
 if case_date == "2017-03-14":
