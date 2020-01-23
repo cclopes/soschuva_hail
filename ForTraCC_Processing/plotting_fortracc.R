@@ -115,7 +115,7 @@ plt_size <- ggplot(data = selected_fams_df) +
     legend.background = element_rect(fill = "transparent")
   ) +
   geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
-  labs(x = "Time (UTC)", y = expression("Size ("*km^2*")")) +
+  labs(x = "Time (UTC)", y = expression("Area ("*km^2*")")) +
   # labs(x = "Hora (UTC)", y = expression("Tamanho ("*km^2*")")) +  # pt-br
   facet_wrap(case ~ ., scales = "free", ncol = 1) +
   theme(strip.text = element_blank())

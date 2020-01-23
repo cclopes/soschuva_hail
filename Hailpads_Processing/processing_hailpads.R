@@ -1,92 +1,97 @@
-#-------------------------------------------------------------------------------
-#-- Reading, processing and generating plots of the hailpad network measurements
-#-------------------------------------------------------------------------------
-
-# Loading necessary packages ---------------------------------------------------
-require(readr)
-require(tidyverse)
-require(reshape2)
-
-# Defining language of the plots -----------------------------------------------
-pt_br <- F
-
-# Defining if plots will be from all cases or only two -------------------------
-less_cases <- T
-
-# Reading and pre-processing data ----------------------------------------------
-hailpads <- read.csv2(file = "Data/HAILPADS/Medidas_Hailpads.csv", dec = ",") %>%
-  .[colSums(!is.na(.)) > 0] %>%
-  melt(.) %>%
-  separate(variable, into = c("plate", "measured_by", "#"), sep = "_") %>%
-  mutate(plate = toupper(plate), measured_by = str_to_upper(measured_by)) %>%
-  na.omit() %>%
-  mutate(value = ifelse(measured_by == "IAG", (value + 3.7207) / 1.0349, value)) %>%
-  mutate(plate_full = plate) %>% 
-  mutate(plate_full = ifelse(plate == "C001", paste("2017-03-14", plate, sep = "\n"), plate_full)) %>%
-  mutate(plate_full = ifelse(plate == "C002", paste("2016-12-25", plate, sep = "\n"), plate_full)) %>%
-  mutate(plate_full = ifelse(plate == "C003", paste("2017-01-31", plate, sep = "\n"), plate_full)) %>%
-  mutate(plate_full = ifelse(plate == "C004", paste("2017-01-31", plate, sep = "\n"), plate_full)) %>%
-  mutate(plate_full = ifelse(plate == "R002", paste("2017-03-14", plate, sep = "\n"), plate_full)) %>%
-  mutate(plate_full = ifelse(plate == "R004", paste("2017-11-15", plate, sep = "\n"), plate_full)) %>%
-  mutate(plate_full = ifelse(plate == "R038", paste("2017-11-16", plate, sep = "\n"), plate_full)) %>%
-  unite(measured_by, "#", col = "measured_by", sep = " ")
-if(pt_br){
-  hailpads <- mutate(hailpads, 
-                     case = paste("Caso de", str_extract(plate_full, "\\d\\d\\d\\d-\\d\\d-\\d\\d"), sep = "\n"))
-} else{
-  hailpads <- mutate(hailpads,
-                     case = paste("Case", str_extract(plate_full, "\\d\\d\\d\\d-\\d\\d-\\d\\d"), sep = "\n"))
-}
-if(less_cases){
-  hailpads <- filter(hailpads, 
-                     plate_full == "2017-03-14\nC001" | 
-                       plate_full == "2017-03-14\nR002" | 
-                       plate_full == "2017-11-15\nR004")
-}
-
-# - Mean diameters [mm] by 1 mm bins and amount of points [1/m²] ---------------
-hailpads_diams <- hailpads %>%
-  mutate(bin = value - value %% 1) %>%
-  group_by(plate_full, measured_by, bin) %>%
-  summarise(diam_bin = mean(value), sd_bin = sd(value), qte = n()) %>%
-  ungroup() %>%
-  group_by(plate_full, bin) %>%
-  summarise(diam_plate = mean(diam_bin), sd_plate = sqrt(sum(sd_bin^2, na.rm = T)),
-            n = mean(qte) / (0.399 * 0.298)) %>%
-  ungroup()
-
-# - Typical (median) and maximum diameters of each plate -----------------------
-tmp <- hailpads %>%
-  group_by(measured_by, plate_full) %>%
-  mutate(typical = median(value), maximum = max(value)) %>%
-  ungroup() %>%
-  group_by(plate_full) %>%
-  summarise(TORRO = mean(typical), TORRO_sd = sd(typical),
-            ANELFA = mean(maximum), ANELFA_sd = sd(maximum))
-
-# - Kinetic energy [J/m²] of each plate ----------------------------------------
-tmp2 <- hailpads_diams %>%
-  group_by(plate_full) %>%
-  mutate(
-    encin = 4.58e-6 * sum(n * diam_plate^4),
-    encin_sd = sqrt(sum(4.58e-6 * n * 4 * diam_plate^3 * sd_plate, na.rm = T))
-  ) %>%
-  ungroup() %>%
-  distinct(encin, encin_sd)
-
-hailpads_perplate <- bind_cols(tmp, tmp2) %>% 
-  gather(scale, diams, -plate_full, -TORRO_sd, -ANELFA_sd, -encin, -encin_sd) %>% 
-  mutate(sd = ifelse(scale == "TORRO", TORRO_sd, ANELFA_sd)) %>% 
-  select(-c(TORRO_sd, ANELFA_sd))
-rm(tmp, tmp2)
-
-# Plotting data ----------------------------------------------------------------
-
-# - Defining centered titles and theme -----------------------------------------
-theme_set(theme_bw())
-theme_update(plot.title = element_text(hjust = 0.5))
+  #-------------------------------------------------------------------------------
+  #-- Reading, processing and generating plots of the hailpad network measurements
+  #-------------------------------------------------------------------------------
+  
+  # Loading necessary packages ---------------------------------------------------
+  require(readr)
+  require(tidyverse)
+  require(reshape2)
+  
+  # Defining language of the plots -----------------------------------------------
+  pt_br <- F
+  
+  # Defining if plots will be from all cases or only two -------------------------
+  less_cases <- T
+  
+  # Reading and pre-processing data ----------------------------------------------
+  hailpads <- read.csv2(file = "Data/HAILPADS/Medidas_Hailpads.csv", dec = ",") %>%
+    .[colSums(!is.na(.)) > 0] %>%
+    melt(.) %>%
+    separate(variable, into = c("plate", "measured_by", "#"), sep = "_") %>%
+    mutate(plate = toupper(plate), measured_by = str_to_upper(measured_by)) %>%
+    na.omit() %>%
+    mutate(value = ifelse(measured_by == "IAG", (value + 3.7207) / 1.0349, value)) %>%
+    mutate(plate_full = plate) %>% 
+    mutate(plate_full = ifelse(plate == "C001", paste("2017-03-14", plate, sep = "\n"), plate_full)) %>%
+    mutate(plate_full = ifelse(plate == "C002", paste("2016-12-25", plate, sep = "\n"), plate_full)) %>%
+    mutate(plate_full = ifelse(plate == "C003", paste("2017-01-31", plate, sep = "\n"), plate_full)) %>%
+    mutate(plate_full = ifelse(plate == "C004", paste("2017-01-31", plate, sep = "\n"), plate_full)) %>%
+    mutate(plate_full = ifelse(plate == "R002", paste("2017-03-14", plate, sep = "\n"), plate_full)) %>%
+    mutate(plate_full = ifelse(plate == "R004", paste("2017-11-15", plate, sep = "\n"), plate_full)) %>%
+    mutate(plate_full = ifelse(plate == "R038", paste("2017-11-16", plate, sep = "\n"), plate_full)) %>%
+    unite(measured_by, "#", col = "measured_by", sep = " ")
+  if(pt_br){
+    hailpads <- mutate(hailpads, 
+                       case = paste("Caso de", str_extract(plate_full, "\\d\\d\\d\\d-\\d\\d-\\d\\d"), sep = "\n"))
+  } else{
+    hailpads <- mutate(hailpads,
+                       case = paste("Case", str_extract(plate_full, "\\d\\d\\d\\d-\\d\\d-\\d\\d"), sep = "\n"))
+  }
+  if(less_cases){
+    hailpads <- filter(hailpads, 
+                       plate_full == "2017-03-14\nC001" | 
+                         plate_full == "2017-03-14\nR002" | 
+                         plate_full == "2017-11-15\nR004")
+  }
+  
+  # - Mean diameters [mm] by 1 mm bins and amount of points [1/m²] ---------------
+  hailpads_diams <- hailpads %>%
+    mutate(bin = value - value %% 1) %>%
+    group_by(plate_full, measured_by, bin) %>%
+    summarise(diam_bin = mean(value), sd_bin = sd(value), qte = n()) %>%
+    ungroup() %>%
+    group_by(plate_full, bin) %>%
+    summarise(diam_plate = mean(diam_bin), sd_plate = sqrt(sum(sd_bin^2, na.rm = T)),
+              n = mean(qte) / (0.399 * 0.298)) %>%
+    ungroup()
+  
+  # - Typical (median) and maximum diameters of each plate -----------------------
+  tmp <- hailpads %>%
+    group_by(measured_by, plate_full) %>%
+    mutate(typical = median(value), maximum = max(value)) %>%
+    ungroup() %>%
+    group_by(plate_full) %>%
+    summarise(TORRO = mean(typical), TORRO_sd = sd(typical),
+              ANELFA = mean(maximum), ANELFA_sd = sd(maximum))
+  
+  # - Kinetic energy [J/m²] of each plate ----------------------------------------
+  tmp2 <- hailpads_diams %>%
+    group_by(plate_full) %>%
+    mutate(
+      encin = 4.58e-6 * sum(n * diam_plate^4),
+      encin_sd = sqrt(sum(4.58e-6 * n * 4 * diam_plate^3 * sd_plate, na.rm = T))
+    ) %>%
+    ungroup() %>%
+    distinct(encin, encin_sd)
+  
+  hailpads_perplate <- bind_cols(tmp, tmp2) %>% 
+    gather(scale, diams, -plate_full, -TORRO_sd, -ANELFA_sd, -encin, -encin_sd) %>% 
+    mutate(sd = ifelse(scale == "TORRO", TORRO_sd, ANELFA_sd)) %>% 
+    select(-c(TORRO_sd, ANELFA_sd))
+  rm(tmp, tmp2)
+  
+  # Plotting data ----------------------------------------------------------------
+  
+  # - Defining centered titles and theme -----------------------------------------
+  theme_set(theme_bw())
+  theme_update(plot.title = element_text(hjust = 0.5))
 
 # - Plot 1: Boxplots of all plates and measurements ----------------------------
+if(less_cases){
+  hailpads$plate[hailpads$plate == "C001"] <- "Cosmópolis\n1827 UTC"
+  hailpads$plate[hailpads$plate == "R002"] <- "Indaiatuba\n1957 UTC"
+  hailpads$plate[hailpads$plate == "R004"] <- "Indaiatuba\n2150 UTC"
+}
 plt <- ggplot(data = hailpads, aes(x = plate, y = value, color = measured_by)) +
   geom_violin(position = position_dodge(width = 1), fill = NA, size = 0.3) +
   geom_boxplot(width = 0.25, position = position_dodge(width = 1),

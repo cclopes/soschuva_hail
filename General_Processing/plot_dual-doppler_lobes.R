@@ -11,6 +11,8 @@ require(mapproj)  # mapproject function
 require(geosphere)
 require(tidyverse)
 require(ggrepel)
+require(sp)
+require(rgdal)
 
 # Defining necessary functions -------------------------------------------------
 dfElipse <- function(x, y, r) {
@@ -92,21 +94,38 @@ IND <- coordinates(CITIES@lines[[251]])[[1]] %>%
 sr <- data.frame(x = -(47 + (5+52/60)/60), y = -(23 + (35+56/60)/60))
 fcth <- data.frame(x = -(45 + (58+20/60)/60), y = -(23 + (36+0/60)/60))
 xpol <- data.frame(x = -47.05641, y = -22.81405)
+# radars_dist <- data.frame(
+#   combination = c("SR/FCTH", "SR/XPOL", "FCTH/XPOL"),
+#   distance = c(distm(sr, fcth, fun = distHaversine) * 1e-3,
+#                distm(sr, xpol, fun = distHaversine) * 1e-3,
+#                distm(fcth, xpol, fun = distHaversine) * 1e-3),
+#   midlon = c(midPoint(sr, fcth)[1], midPoint(sr, xpol)[1], midPoint(fcth, xpol)[1]),
+#   midlat = c(midPoint(sr, fcth)[2], midPoint(sr, xpol)[2], midPoint(fcth, xpol)[2])
+# ) %>% 
+#   mutate(distance = sprintf("%3.0f km", distance))
 radars_dist <- data.frame(
-  combination = c("SR/FCTH", "SR/XPOL", "FCTH/XPOL"),
+  combination = c("SR/FCTH", "SR/FCTH/XPOL", "SR/FCTH/XPOL", "SR/FCTH/XPOL"),
   distance = c(distm(sr, fcth, fun = distHaversine) * 1e-3,
+               distm(sr, fcth, fun = distHaversine) * 1e-3,
                distm(sr, xpol, fun = distHaversine) * 1e-3,
                distm(fcth, xpol, fun = distHaversine) * 1e-3),
-  midlon = c(midPoint(sr, fcth)[1], midPoint(sr, xpol)[1], midPoint(fcth, xpol)[1]),
-  midlat = c(midPoint(sr, fcth)[2], midPoint(sr, xpol)[2], midPoint(fcth, xpol)[2])
+  midlon = c(midPoint(sr, fcth)[1], midPoint(sr, fcth)[1], midPoint(sr, xpol)[1], midPoint(fcth, xpol)[1]),
+  midlat = c(midPoint(sr, fcth)[2], midPoint(sr, fcth)[2], midPoint(sr, xpol)[2], midPoint(fcth, xpol)[2])
 ) %>% 
   mutate(distance = sprintf("%3.0f km", distance))
+# radars <- bind_rows(
+#   list(
+#     SR = bind_rows(sr, sr, sr) %>% mutate(combination = c("SR/FCTH", "SR/XPOL", "SR/FCTH/XPOL")), 
+#     FCTH = bind_rows(fcth, fcth, fcth) %>% mutate(combination = c("SR/FCTH", "FCTH/XPOL", "SR/FCTH/XPOL")),
+#     XPOL = bind_rows(xpol, xpol, xpol) %>% mutate(combination = c("SR/XPOL", "FCTH/XPOL", "SR/FCTH/XPOL"))
+#     ),
+#   .id = "radar")
 radars <- bind_rows(
   list(
-    SR = bind_rows(sr, sr, sr) %>% mutate(combination = c("SR/FCTH", "SR/XPOL", "SR/FCTH/XPOL")), 
-    FCTH = bind_rows(fcth, fcth, fcth) %>% mutate(combination = c("SR/FCTH", "FCTH/XPOL", "SR/FCTH/XPOL")),
-    XPOL = bind_rows(xpol, xpol, xpol) %>% mutate(combination = c("SR/XPOL", "FCTH/XPOL", "SR/FCTH/XPOL"))
-    ),
+    SR = bind_rows(sr, sr) %>% mutate(combination = c("SR/FCTH", "SR/FCTH/XPOL")), 
+    FCTH = bind_rows(fcth, fcth) %>% mutate(combination = c("SR/FCTH", "SR/FCTH/XPOL")),
+    XPOL = bind_rows(xpol) %>% mutate(combination = c("SR/FCTH/XPOL"))
+  ),
   .id = "radar")
 
 xlim <- c(-49, -45); ylim <- c(-25, -22)
@@ -120,6 +139,7 @@ dd45 <- list(sr_fcth = DualDopplerLobes(sr, fcth, 45, 0, 180),
              sr_xpol = DualDopplerLobes(sr, xpol, 45, 93, 273),
              fcth_xpol = DualDopplerLobes(fcth, xpol, 45, 38.5, 218.5))
 
+# - Dual-Doppler
 circles_duald <- list(
   map(dd30, ~dfCircle(.x$p1.x, .x$p1.y, .x$r*1e-3) %>% mutate(group = "a", angle = "30")),
   map(dd30, ~dfCircle(.x$p2.x, .x$p2.y, .x$r*1e-3) %>% mutate(group = "b", angle = "30")),
@@ -127,36 +147,108 @@ circles_duald <- list(
   map(dd45, ~dfCircle(.x$p2.x, .x$p2.y, .x$r*1e-3) %>% mutate(group = "d", angle = "45"))
   ) %>%
   flatten_dfr(.id = "combination") %>%
-  mutate(combination = toupper(combination) %>% str_replace("_", "/"))
+  mutate(combination = toupper(combination) %>% str_replace("_", "/")) %>% 
+  filter(combination == "SR/FCTH")
 
-# circles_trippled <- list(
-#   map(dd30, ~dfCircle(.x$p1.x, .x$p1.y, .x$r*1e-3) %>% mutate(group = "a", angle = "30")),
-#   map(dd30, ~dfCircle(.x$p2.x, .x$p2.y, .x$r*1e-3) %>% mutate(group = "b", angle = "30")),
-#   map(dd45, ~dfCircle(.x$p1.x, .x$p1.y, .x$r*1e-3) %>% mutate(group = "c", angle = "45")),
-#   map(dd45, ~dfCircle(.x$p2.x, .x$p2.y, .x$r*1e-3) %>% mutate(group = "d", angle = "45"))
-# ) %>%
-#   flatten_dfr(.id = "combination") %>%
-#   mutate(combination = toupper(combination) %>% str_replace("_", "/")) %>% 
-#   group_by(combination) %>% 
-#   filter
+# - Tripple Doppler
+# -- Doing in two parts: within (in) the lobe, outside (out) the lobe
 
-circles_trippled <- bind_rows(
-  dfCircle(dd30$fcth_xpol$p1.x, dd30$fcth_xpol$p1.y, dd30$fcth_xpol$r*1e-3) %>% mutate(group = "e", angle = "30"),
-  dfCircle(dd30$sr_xpol$p2.x, dd30$sr_xpol$p2.y, dd30$sr_xpol$r*1e-3) %>% mutate(group = "f", angle = "30"),
-  dfCircle(dd30$sr_fcth$p2.x, dd30$sr_fcth$p2.y, dd30$sr_fcth$r*1e-3) %>% mutate(group = "g", angle = "30"),
-  dfCircle(dd45$fcth_xpol$p1.x, dd45$fcth_xpol$p1.y, dd45$fcth_xpol$r*1e-3) %>% mutate(group = "h", angle = "45"),
-  dfCircle(dd45$sr_xpol$p2.x, dd45$sr_xpol$p2.y, dd45$sr_xpol$r*1e-3) %>% mutate(group = "i", angle = "45"),
-  dfCircle(dd45$sr_fcth$p2.x, dd45$sr_fcth$p2.y, dd45$sr_fcth$r*1e-3) %>% mutate(group = "j", angle = "45")
+# -- Combo 1 (FCTH/XPOL)
+circles_trippled_in <- bind_rows(
+  dfCircle(dd30$fcth_xpol$p2.x, dd30$fcth_xpol$p2.y, dd30$fcth_xpol$r*1e-3) %>% mutate(group = "a1", angle = "30"),
+  dfCircle(dd45$fcth_xpol$p2.x, dd45$fcth_xpol$p2.y, dd45$fcth_xpol$r*1e-3) %>% mutate(group = "a2", angle = "45"),
 ) %>%
-  mutate(combination = "SR/FCTH/XPOL") %>% 
-  group_by(group) 
-  
-ggplot(circles_trippled) +
-  geom_point(aes(x = lon, y = lat)) +
-  facet_wrap(~ group)
+  # Excluding points outside lobes (manual)
+  mutate(lon_p1 = lon >= radars[radars$radar == "XPOL",]$x[1],
+         lat_p1 = lat >= radars[radars$radar == "XPOL",]$y[1],
+         lon_p2 = lon >= radars[radars$radar == "FCTH",]$x[1],
+         lat_p2 = lat >= radars[radars$radar == "FCTH",]$y[1]) %>% 
+  filter(lon_p1 & lat_p2)
 
+circles_trippled_out <- bind_rows(
+  dfCircle(dd30$fcth_xpol$p1.x, dd30$fcth_xpol$p1.y, dd30$fcth_xpol$r*1e-3) %>% mutate(group = "b1", angle = "30"),
+  dfCircle(dd45$fcth_xpol$p1.x, dd45$fcth_xpol$p1.y, dd45$fcth_xpol$r*1e-3) %>% mutate(group = "b2", angle = "45"),
+) %>%
+  # Excluding points outside lobes (manual)
+  mutate(lon_p = between(lon, radars[radars$radar == "XPOL",]$x[1], radars[radars$radar == "FCTH",]$x[1]),
+         lat_p = between(lat, radars[radars$radar == "FCTH",]$y[1], radars[radars$radar == "XPOL",]$y[1]),
+         lon_p2 = lon < radars[radars$radar == "FCTH",]$x[1],
+         lat_p2 = lat <= radars[radars$radar == "FCTH",]$y[1]) %>% 
+  filter(!(lat_p & lon_p)) %>% filter(!(lat_p2 & lon_p2))
+
+circles_trippled_1 <- bind_rows(circles_trippled_in, circles_trippled_out)
+
+# --- Testing
+# ggplot(circles_trippled_1) +
+#   geom_point(aes(x = lon, y = lat)) +
+#   coord_cartesian(xlim = c(-47.5, -43.5), ylim = c(-24.5, -21))
+
+# -- Combo 2 (SR/XPOL)
+circles_trippled_in <- bind_rows(
+  dfCircle(dd30$sr_xpol$p1.x, dd30$sr_xpol$p1.y, dd30$sr_xpol$r*1e-3) %>% mutate(group = "c1", angle = "30"),
+  dfCircle(dd45$sr_xpol$p1.x, dd45$sr_xpol$p1.y, dd45$sr_xpol$r*1e-3) %>% mutate(group = "c2", angle = "45"),
+) %>%
+  # Excluding points outside lobes (manual)
+  mutate(lon_p1 = lon <= radars[radars$radar == "XPOL",]$x[1],
+         lat_p1 = lat <= radars[radars$radar == "XPOL",]$y[1],
+         lon_p2 = lon <= radars[radars$radar == "SR",]$x[1],
+         lat_p2 = lat <= radars[radars$radar == "SR",]$y[1]) %>% 
+  filter(lon_p1 & lat_p1) %>% filter(lon_p1 & !lat_p2)
+
+circles_trippled_out <- bind_rows(
+  dfCircle(dd30$sr_xpol$p2.x, dd30$sr_xpol$p2.y, dd30$sr_xpol$r*1e-3) %>% mutate(group = "d1", angle = "30"),
+  dfCircle(dd45$sr_xpol$p2.x, dd45$sr_xpol$p2.y, dd45$sr_xpol$r*1e-3) %>% mutate(group = "d2", angle = "45"),
+) %>%
+  # Excluding points outside lobes (manual)
+  mutate(lon_p1 = lon <= radars[radars$radar == "XPOL",]$x[1],
+         lat_p2 = lat >= radars[radars$radar == "SR",]$y[1],
+         lon_p2 = lon >= radars[radars$radar == "SR",]$x[1]) %>% 
+  filter(lon_p1) %>% filter(!(lon_p2 & lat_p2))
+
+circles_trippled_2 <- bind_rows(circles_trippled_in, circles_trippled_out)
+
+# --- Testing
+# ggplot(circles_trippled_out) +
+#   geom_point(aes(x = lon, y = lat)) +
+#   coord_cartesian(xlim = c(-49, -45), ylim = c(-24.5, -22))
+
+# -- Combo 3 (SR/FCTH)
+circles_trippled_in <- bind_rows(
+  dfCircle(dd30$sr_fcth$p1.x, dd30$sr_fcth$p1.y, dd30$sr_fcth$r*1e-3) %>% mutate(group = "e1", angle = "30"),
+  dfCircle(dd45$sr_fcth$p1.x, dd45$sr_fcth$p1.y, dd45$sr_fcth$r*1e-3) %>% mutate(group = "e2", angle = "45"),
+) %>%
+  # Excluding points outside lobes (manual)
+  mutate(lon_p1 = lon >= radars[radars$radar == "SR",]$x[1],
+         lat_p1 = lat <= radars[radars$radar == "SR",]$y[1],
+         lon_p2 = lon <= radars[radars$radar == "FCTH",]$x[1],
+         lat_p2 = lat <= radars[radars$radar == "FCTH",]$y[1]) %>% 
+  filter(lon_p1 & lon_p2 & lat_p1)
+
+circles_trippled_out <- bind_rows(
+  dfCircle(dd30$sr_fcth$p2.x, dd30$sr_fcth$p2.y, dd30$sr_fcth$r*1e-3) %>% mutate(group = "f1", angle = "30"),
+  dfCircle(dd45$sr_fcth$p2.x, dd45$sr_fcth$p2.y, dd45$sr_fcth$r*1e-3) %>% mutate(group = "f2", angle = "45")
+) %>%
+  # Excluding points outside lobes (manual)
+  mutate(lon_p = between(lon, radars[radars$radar == "SR",]$x[1], radars[radars$radar == "FCTH",]$x[1]),
+         lat_p = between(lat, radars[radars$radar == "FCTH",]$y[1], radars[radars$radar == "SR",]$y[1]),
+         lat_p2 = lat <= radars[radars$radar == "FCTH",]$y[1]) %>% 
+  filter(lat_p2)
+
+circles_trippled_3 <- bind_rows(circles_trippled_in, circles_trippled_out)
+
+# --- Testing
+# ggplot(circles_trippled) +
+#   geom_point(aes(x = lon, y = lat)) +
+#   coord_cartesian(xlim = c(-48, -45), ylim = c(-25.5, -21))
+
+# -- Joining them
+circles_trippled <- bind_rows(circles_trippled_1, circles_trippled_2, circles_trippled_3) %>% 
+  mutate(combination = "SR/FCTH/XPOL") %>% 
+  select(-c(lon_p, lat_p, lon_p1, lat_p1, lon_p2, lat_p2)) 
+
+# - Joining dual and tripple doppler
 circles <- bind_rows(circles_duald, circles_trippled) %>% 
-  mutate(combination = factor(combination, levels = c("FCTH/XPOL", "SR/FCTH", "SR/XPOL", "SR/FCTH/XPOL")))
+  mutate(combination = factor(combination, levels = c("SR/FCTH","SR/FCTH/XPOL")))
 
 # - Plotting
 theme_set(theme_bw())
@@ -167,24 +259,24 @@ ggplot() +
   geom_path(data = SAO, aes(x, y), inherit.aes = F, colour = "gray30", size = 0.3) +
   geom_path(data = CMP, aes(x, y), inherit.aes = F, colour = "gray30", size = 0.3) +
   geom_path(data = IND, aes(x, y), inherit.aes = F, colour = "gray30", size = 0.3) +
+  geom_point(data = circles, aes(x = lon, y = lat, color = angle, group = group), size = 0.025) +
   geom_point(data = radars, aes(x, y)) +
-  geom_path(data = circles, aes(x = lon, y = lat, color = angle, group = group)) +
   scale_color_manual(name = expression("Beam Crossing Angle ("*degree*")"),
                      values = c("red", "blue")) +
   # scale_color_manual(name = expression("Ângulo de Cruzamento do Feixe ("*degree*")"),
   #                    values = c("red", "blue")) +  # pt-br
   geom_label_repel(data = radars, aes(x, y, label = radar), point.padding = 0.25,
                    force = 100, size = 3, alpha = 0.7, min.segment.length = 0) +
-  geom_path(data = radars, aes(x, y), linetype = "dashed") +
+  geom_path(data = rbind(radars, radars[1:2,]), aes(x, y), linetype = "dashed") +
   geom_label_repel(data = radars_dist, aes(midlon, midlat, label = distance),
                    point.padding = 0.1, size = 2, alpha = 0.7, min.segment.length = 0) +
   theme(legend.position = "bottom", legend.title.align = 0.5, 
         plot.background = element_rect(fill = "transparent", color = "transparent"),
         legend.background = element_rect(fill = "transparent")) +
-  guides(color = guide_legend(nrow = 2)) +
+  guides(color = guide_legend(override.aes = list(size = 3))) +
   labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")")) +
   facet_wrap(~ combination)
-ggsave("General_Processing/figures/dual_doppler_lobes.png", width = 3.2,
-       height = 6, bg = "transparent")
+ggsave("General_Processing/figures/dual_doppler_lobes.png", width = 6,
+       height = 3.5, bg = "transparent")
 # ggsave("General_Processing/figures/dual_doppler_lobes_ptbr.png", width = 3.2,
 #        height = 6.5, bg = "transparent")  # pt-br
