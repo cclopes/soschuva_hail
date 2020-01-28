@@ -16,7 +16,7 @@ Processing hailpads data per case as lists using `tidyverse` functions.
 Processing BrasilDAT lightning data with `tidyverse` functions, converting strokes to flashes using [`DBSCAN`](https://github.com/mhahsler/dbscan) package.
 
 ## MultiDoppler_Processing [Python]
-Processing doppler data from 2 (or 3) weather radars using [`MultiDop`](https://github.com/nasa/MultiDop).
+Processing doppler data from 2 (or 3) weather radars using [`MultiDop`](https://github.com/nasa/MultiDop) and [`PyDDA`](https://github.com/openradar/PyDDA) (not fully implemented). Plotting output data with [`Py-ART`](https://github.com/ARM-DOE/pyart).
 
 ## PyART_CSURT_Tutorial [Python]
 A small tutorial about working with brazilian weather radar data in Python with the following packages:
