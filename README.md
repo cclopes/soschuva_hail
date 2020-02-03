@@ -1,5 +1,5 @@
 # soschuva_hail
-R and Python scripts to read and process weather radar, lightning and other data related to hail cases in SOS-CHUVA Project.
+R and Python scripts to read and process weather radar, lightning and other data related to hailstorm cases in SOS-CHUVA Project. Part of dissertation ["Microphysics, Kinematics and Electrification in Hail Producing Tropical Storms during SOS-CHUVA Project"](https://teses.usp.br/teses/disponiveis/14/14133/tde-06052019-155657/en.php) @ USP - Brasil.
 
 ***Disclaimer**: I'm still improving these scripts (specially converting from old Jupyter notebooks to sets of python scripts)*
 
