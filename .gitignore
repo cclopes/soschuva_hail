@@ -5,12 +5,10 @@ Data/SOUNDINGS/
 Data/RADAR/
 Data/SATELLITE/
 Data/REANALYSIS/
-
-\.RData
-.Rproj.user
-.Rhistory
+Data/RADAR_DORADE/
 
 Radar_Processing/\.ipynb_checkpoints/
+Radar_Processing/__pycache__/
 Radar_Processing/figures/
 
 Satellite_Processing/\.ipynb_checkpoints/
@@ -28,7 +26,10 @@ General_Processing/figures/dbz_lightning/
 
 Dissertation/
 
-Radar_Processing/__pycache__/
-.vscode/settings.json
-
+.vscode/
 .idea/
+
+\.RData
+.Rproj.user
+.Rhistory
+

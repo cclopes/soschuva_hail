@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Instalados</name>
+    <Style id="icon-1899-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>PIR1 (Piracicaba - Areião 1)</name>
+      <description>Responsável: Felipe Pilau</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.64075,-22.6931944444444,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>PIR5 (Piracicaba - ESALQ)</name>
+      <description>Responsável: Felipe Pilau</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.6236666666667,-22.7028611111111,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CMP1 (Campinas - Def. Civil - Diretoria)
+</name>
+      <description>Responsável: Ana Avila</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.0672536,-22.9095825,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CMP2 (Campinas - Def. Civil - Almoxarifado)
+</name>
+      <description>Responsável: Ana Avila</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.0720333,-22.9140096,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CMP3 (Campinas - Adm. Regional n°7)
+</name>
+      <description>Responsável: Ana Avila</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.0956045,-22.9353584,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CMP4 (Campinas - Adm. Regional n°5)
+</name>
+      <description>Responsável: Ana Avila</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.1104318,-22.9143888,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CMP5 (Campinas - Subprefeitura Barão)
+</name>
+      <description>Responsável: Ana Avila</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.0815256,-22.830929,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CMP6 (Campinas - Vale das Garças)</name>
+      <description>Responsável: Ana Avila</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.0682809,-22.7370719,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CMP7 (Campinas - Unicamp)</name>
+      <description>Responsável: Ana Avila</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.0564166666667,-22.8140555555556,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>JAG (Jaguariúna - Embrapa)</name>
+      <description>Responsável: Ana Avila (e outros)</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.0161944444444,-22.72825,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>SUM1 (Sumaré)</name>
+      <description>Responsável: Ana Avila</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.3094444444445,-22.8258333333333,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>COS (Cosmópolis - Luiza)</name>
+      <description>Responsável: Ana Avila </description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.1311,-22.6916,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>BRP (Bragança Paulista - Luiza)</name>
+      <description>Responsável: Ana Avila </description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -46.5952,-22.9029,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>CAP (Capivari - Bernadete Rossi)</name>
+      <description>Responsável: Rachel Albrecht</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.5095418,-22.9963974,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ELI (Elias Fausto - Sítio Primavera)</name>
+      <description>Responsável: Rachel Albrecht</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.3282862,-23.0383993,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>IND1 (Indaiatuba - Sítio S.J.Mirim)</name>
+      <description>Responsável: Rachel Albrecht</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.2054169,-23.0294095,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>IND2 (Indaiatuba - Indaiá Bengalas)</name>
+      <description>Responsável:Tiago Ifanger</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.2288325,-23.1282592,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>IND3 (Indaiatuba - Rodrigo Ifanger)</name>
+      <description>Responsável: Tiago Ifanger</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.1752742,-23.1119168,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>VAL (Valinhos - IAG)</name>
+      <description>Responsável: Camila Lopes</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -46.9659841,-23.0022168,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>SUM2 (Sumaré - Pais do Caio/Meteo)</name>
+      <description>Responsável: Camila Lopes </description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -47.2177452,-22.8284505,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ITA1 (Itatiba - Tio da Isabela)</name>
+      <description>Responsável: Camila Lopes</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -46.814609,-22.932904,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ITA2 (Itatiba - Caio/Geofísica)</name>
+      <description>Responsável: Camila Lopes</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -46.835112,-23.00088,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>ITA3 (Itatiba - Sítio Caio/Geofísica)</name>
+      <description>Responsável: Camila Lopes</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -46.795855,-23.021332,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>JUN (Jundiaí - Júlio Caio/Geofísica)</name>
+      <description>Responsável: Camila Lopes</description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          -46.911854,-23.19239,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>PIR6 (Piracicaba - Jessé)</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -47.7465981,-22.6126119,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

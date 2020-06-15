@@ -6,13 +6,15 @@
 # Loading necessary packages ---------------------------------------------------
 require(maptools)
 require(maps)
-require(mapdata)  # worldHires database
-require(mapproj)  # mapproject function
+# require(mapdata)  # worldHires database
+# require(mapproj)  # mapproject function
 require(geosphere)
 require(tidyverse)
-require(ggrepel)
-require(sp)
-require(rgdal)
+# require(ggrepel)
+# require(sp)
+# require(rgdal)
+require(sf)
+
 
 # Defining necessary functions -------------------------------------------------
 dfElipse <- function(x, y, r) {
@@ -79,16 +81,25 @@ DualDopplerLobes <- function(radar1, radar2, deg, bearing1, bearing2){
 # Running for SOS-CHUVA settings -----------------------------------------------
 
 # - Reading city boundaries shapefile ------------------------------------------
-CITIES <- readShapeLines("Data/GENERAL/shapefiles/sao_paulo.shp")
-STATES <- readShapeLines("Data/GENERAL/shapefiles/estadosl_2007.shp")
-SAO <- coordinates(CITIES@lines[[578]])[[1]] %>%
-  data.frame(x = .[, 1], y =.[, 2])
-GUA <- coordinates(CITIES@lines[[578]])[[1]] %>%
-  data.frame(x = .[, 1], y = .[, 2])
-CMP <- coordinates(CITIES@lines[[147]])[[1]] %>%
-  data.frame(x = .[, 1], y = .[, 2])
-IND <- coordinates(CITIES@lines[[251]])[[1]] %>%
-  data.frame(x = .[, 1], y = .[, 2])
+
+# st_layers("Data/GENERAL/shapefiles/statesl_2007.shp")
+sao_paulo <- st_read("Data/GENERAL/shapefiles/sao_paulo.shp",
+                     stringsAsFactors = F)
+cities <- sao_paulo[
+  sao_paulo$NOMEMUNICP %in% c(
+    "AMERICANA", "ARTUR NOGUEIRA", "CAMPINAS", "ENGENHEIRO COELHO", "HOLAMBRA", 
+    "HORTOLÂNDIA", "ITATIBA", "JAGUARIUNA", "MONTE MOR", "MORUNGABA", 
+    "NOVA ODESSA", "PAULINIA", "PEDREIRA", "SANTA BARBARA D'OESTE", 
+    "SANTO ANTONIO DE POSSE", "SUMARE", "VALINHOS", "VINHEDO"
+  ),
+  ]
+cities_highlight <- sao_paulo[
+  sao_paulo$NOMEMUNICP %in% c("COSMOPOLIS", "INDAIATUBA"),
+  ]
+
+states <- st_read("Data/GENERAL/shapefiles/estadosl_2007.shp",
+                  stringsAsFactors = F)
+st_crs(states) <- 4326
 
 # - Radar coordinates
 sr <- data.frame(x = -(47 + (5+52/60)/60), y = -(23 + (35+56/60)/60))
@@ -128,7 +139,7 @@ radars <- bind_rows(
   ),
   .id = "radar")
 
-xlim <- c(-49, -45); ylim <- c(-25, -22)
+xlim <- c(-48.75, -44.75); ylim <- c(-24.5, -22)
 
 # - 30 degrees view
 dd30 <- list(sr_fcth = DualDopplerLobes(sr, fcth, 30, 0, 180),
@@ -254,29 +265,29 @@ circles <- bind_rows(circles_duald, circles_trippled) %>%
 theme_set(theme_bw())
 
 ggplot() +
-  coord_cartesian(xlim = xlim, ylim = ylim) +
-  geom_path(data = fortify(STATES), aes(long, lat, group = group), inherit.aes = F, colour = "gray30", size = 0.3) +
-  geom_path(data = SAO, aes(x, y), inherit.aes = F, colour = "gray30", size = 0.3) +
-  geom_path(data = CMP, aes(x, y), inherit.aes = F, colour = "gray30", size = 0.3) +
-  geom_path(data = IND, aes(x, y), inherit.aes = F, colour = "gray30", size = 0.3) +
-  geom_point(data = circles, aes(x = lon, y = lat, color = angle, group = group), size = 0.025) +
-  geom_point(data = radars, aes(x, y)) +
+  geom_sf(data = states, fill = NA, size = 0.25) +
+  geom_sf(data = cities, fill = NA, size = 0.25) +
+  geom_sf(data = cities_highlight, fill = NA, size = 0.5, colour = "gray20") +
+  geom_point(data = circles, 
+             aes(x = lon, y = lat, color = angle, group = group), size = 0.5) +
+  geom_path(data = rbind(radars, radars[1:2,]), aes(x, y), linetype = "dashed") +
+  geom_point(data = radars, aes(x, y, shape = radar), fill = "white", size = 2) +
+  geom_label(data = radars_dist, aes(midlon, midlat, label = distance),
+             size = 2, alpha = 0.7) +
+  coord_sf(xlim = xlim, ylim = ylim, expand = F) +
   scale_color_manual(name = expression("Beam Crossing Angle ("*degree*")"),
                      values = c("red", "blue")) +
   # scale_color_manual(name = expression("Ângulo de Cruzamento do Feixe ("*degree*")"),
   #                    values = c("red", "blue")) +  # pt-br
-  geom_label_repel(data = radars, aes(x, y, label = radar), point.padding = 0.25,
-                   force = 100, size = 3, alpha = 0.7, min.segment.length = 0) +
-  geom_path(data = rbind(radars, radars[1:2,]), aes(x, y), linetype = "dashed") +
-  geom_label_repel(data = radars_dist, aes(midlon, midlat, label = distance),
-                   point.padding = 0.1, size = 2, alpha = 0.7, min.segment.length = 0) +
-  theme(legend.position = "bottom", legend.title.align = 0.5, 
-        plot.background = element_rect(fill = "transparent", color = "transparent"),
+  scale_shape_manual(name = "Radar", values = c(21, 22, 24)) +
+  theme(axis.title = element_blank(),
+        legend.position = "bottom", legend.title.align = 0.5, 
+        plot.background = element_rect(fill = "transparent", 
+                                       color = "transparent"),
         legend.background = element_rect(fill = "transparent")) +
   guides(color = guide_legend(override.aes = list(size = 3))) +
-  labs(x = expression("Longitude ("*degree*")"), y = expression("Latitude ("*degree*")")) +
   facet_wrap(~ combination)
-ggsave("General_Processing/figures/dual_doppler_lobes.png", width = 6,
-       height = 3.5, bg = "transparent")
+ggsave("General_Processing/figures/dual_doppler_lobes.png", 
+       width = 7.1, height = 3.5, bg = "transparent")
 # ggsave("General_Processing/figures/dual_doppler_lobes_ptbr.png", width = 3.2,
 #        height = 6.5, bg = "transparent")  # pt-br

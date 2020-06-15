@@ -146,7 +146,8 @@ flashes_qte_total <- flashes_totais %>%
   mutate(class = paste("Total", class, "=", n)) %>%
   select(case, class)
 flashes_rcount <- select(flashes_brasildat_df, case, hour, class, date_hailpad) %>%
-  mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
+  mutate(case = ifelse(case == "Case 2017-03-14 ", "Case 1\n2017-03-14", "Case 2\n2017-11-15"))
+  # mutate(case = str_replace(string = case, pattern = " ", replacement = "\n"))
   # mutate(case = str_replace(string = case, pattern = "de ", replacement = "de\n"))  # pt-br
 
 # Plotting spatial distribution ------------------------------------------------
