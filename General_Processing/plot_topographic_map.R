@@ -147,14 +147,14 @@ ggplot() +
   geom_sf(data = states, fill = NA, size = 0.25) +
   geom_sf(data = cities, fill = NA, size = 0.25) +
   geom_sf(data = cities_highlight, fill = NA, size = 0.5, colour = "gray20") +
-  geom_path(data = radars_circles,
-            aes(circle_250_lon, circle_250_lat, color = radar, size = "250")) +
-  geom_path(data = radars_circles,
-            aes(circle_100_lon, circle_100_lat, color = radar, size = "100")) +
-  geom_path(data = radars_circles,
-            aes(circle_80_lon, circle_80_lat, color = radar, size = "80")) +
-  geom_path(data = radars_circles,
-            aes(circle_60_lon, circle_60_lat, color = radar, size = "60")) +
+  geom_path(data = radars_circles, size = 1,
+            aes(circle_250_lon, circle_250_lat, color = radar, linetype = "250")) +
+  geom_path(data = radars_circles, size = 1,
+            aes(circle_100_lon, circle_100_lat, color = radar, linetype = "100")) +
+  geom_path(data = radars_circles, size = 1,
+            aes(circle_80_lon, circle_80_lat, color = radar, linetype = "80")) +
+  geom_path(data = radars_circles, size = 1,
+            aes(circle_60_lon, circle_60_lat, color = radar, linetype = "60")) +
   geom_point(data = radars_circles, aes(lon, lat, color = radar), 
              shape = 17, size = 2) +
   annotation_scale(location = "bl", width_hint = 0.4) +
@@ -167,9 +167,9 @@ ggplot() +
                                    na.value = "mediumaquamarine") +
   scale_color_manual(name = "Radar",
                      values = c("#e41a1c", "#3D3308", "#352C51")) +
-  scale_size_manual(name = "Radius (km)",
+  scale_linetype_manual(name = "Radius (km)",
                     breaks = c("250", "100", "80", "60"),
-                    values = c(2, 1, 1.5, 0.5)) +
+                    values = c(41, 11, "solid", 3111)) +
   guides(fill = guide_legend(reverse = T, order = 1),
          color = guide_legend(order = 2),
          size = guide_legend(order = 3)) +
@@ -185,7 +185,7 @@ ggplot() +
 ggsave("General_Processing/figures/radar_coverages.png",
        width = 6, height = 4, dpi = 300, bg = "transparent")
 
-# Hailpad positions
+q# Hailpad positions
 ggplot() +
   geom_tile(data = elevs_df, aes(x, y, fill = cellvalue)) +
   geom_sf(data = states, fill = NA, size = 0.25) +
