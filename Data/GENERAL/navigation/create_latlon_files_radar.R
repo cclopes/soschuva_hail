@@ -4,7 +4,7 @@
 #-- DADOS DE ENTRADA
 
 #--- Onde irá gerar os arquivos
-setwd("ForTraCC_Processing/navigation")
+setwd("Data/GENERAL/navigation/")
 
 #--- Coordenadas do radar
 lat_central <- -23.602 #-- FCTH: -23.60000
