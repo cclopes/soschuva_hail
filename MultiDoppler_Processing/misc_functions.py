@@ -20,7 +20,7 @@ def save_object(obj, filename):
     filename: name of the saved file
     """
 
-    with open(filename, 'wb') as output:  # Overwrites any existing file.
+    with open(filename, "wb") as output:  # Overwrites any existing file.
         pickle.dump(obj, output, pickle.HIGHEST_PROTOCOL)
 
 
@@ -37,7 +37,7 @@ def open_object(filename):
     obj: python object
     """
 
-    with open(filename, 'rb') as input:
+    with open(filename, "rb") as input:
         obj = pickle.load(input)
 
     return obj
@@ -55,8 +55,8 @@ def check_sounding_for_montonic(sounding):
     -------
     snd_T, snd_z: sounding temperature and height
     """
-    snd_T = sounding.soundingdata['temp']  # In old SkewT, was sounding.data
-    snd_z = sounding.soundingdata['hght']  # In old SkewT, was sounding.data
+    snd_T = sounding["temperature"]  # In old SkewT, was sounding.data
+    snd_z = sounding["height"]  # In old SkewT, was sounding.data
     dummy_z = []
     dummy_T = []
     if not snd_T.mask[0]:  # May cause issue for specific soundings
@@ -64,7 +64,7 @@ def check_sounding_for_montonic(sounding):
         dummy_T.append(snd_T[0])
         for i, height in enumerate(snd_z):
             if i > 0:
-                if snd_z[i] > snd_z[i-1] and not snd_T.mask[i]:
+                if snd_z[i] > snd_z[i - 1] and not snd_T.mask[i]:
                     dummy_z.append(snd_z[i])
                     dummy_T.append(snd_T[i])
         snd_z = np.array(dummy_z)
@@ -88,12 +88,12 @@ def make_colormap(seq, name, n=256):
     """
 
     seq = [(None,) * 3, 0.0] + list(seq) + [1.0, (None,) * 3]
-    cdict = {'red': [], 'green': [], 'blue': []}
+    cdict = {"red": [], "green": [], "blue": []}
     for i, item in enumerate(seq):
         if isinstance(item, float):
             r1, g1, b1 = seq[i - 1]
             r2, g2, b2 = seq[i + 1]
-            cdict['red'].append([item, r1, r2])
-            cdict['green'].append([item, g1, g2])
-            cdict['blue'].append([item, b1, b2])
+            cdict["red"].append([item, r1, r2])
+            cdict["green"].append([item, g1, g2])
+            cdict["blue"].append([item, b1, b2])
     return LinearSegmentedColormap(name, cdict, N=n)
