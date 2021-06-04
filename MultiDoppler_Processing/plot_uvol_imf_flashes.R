@@ -81,8 +81,8 @@ uvol_imf[which(uvol_imf$time == "2150"), c("mean_flashes", "max_flashes")] <- fl
   as.list()
 
 # Changing NAs to 0
-uvol_imf <- mutate(uvol_imf, mean_flashes = ifelse(is.na(mean_flashes), 0, mean_flashes),
-                   max_flashes = ifelse(max_flashes == -Inf, 0, max_flashes))
+# uvol_imf <- mutate(uvol_imf, mean_flashes = ifelse(is.na(mean_flashes), 0, mean_flashes),
+#                    max_flashes = ifelse(max_flashes == -Inf, 0, max_flashes))
 
 # Plotting
 theme_set(theme_bw())
@@ -96,10 +96,53 @@ theme_update(plot.title = element_text(hjust = 0.5))
 #   facet_grid(level ~ case, scales = "free_x")
 
 # Updraft vol vs flashes
+# MEAN FLASH RATE
+ggplot(uvol_imf %>% filter(vel == "Above 0 m/s")) +
+  geom_point(aes(x = uvol, y = mean_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
+  labs(x = expression("Updraft Volume > 0 m"~s^-1 *" ("~km^3 *")"), 
+       y = expression("Mean Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e9, 1e13)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
+  scale_shape_manual(values = c(24, 25), name = "") +
+  scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  scale_fill_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  guides(color = guide_legend(keyheight=0.9, order = 1, default.unit = "cm"), shape = guide_legend(order = 2), alpha = guide_legend(order = 3), fill = F)
+ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/uvol_meanflashes_0ms.png", width = 6, height = 3.5, dpi=300)
+
+ggplot(uvol_imf %>% filter(vel == "Above 5 m/s")) +
+  geom_point(aes(x = uvol, y = mean_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
+  labs(x = expression("Updraft Volume > 5 m"~s^-1 *" ("~km^3 *")"), 
+       y = expression("Mean Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e9, 1e13)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
+  scale_shape_manual(values = c(24, 25), name = "") +
+  scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  scale_fill_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  guides(color = guide_legend(keyheight=0.9, order = 1, default.unit = "cm"), shape = guide_legend(order = 2), alpha = guide_legend(order = 3), fill = F)
+ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/uvol_meanflashes_5ms.png", width = 6, height = 3.5, dpi=300)
+
+ggplot(uvol_imf %>% filter(vel == "Above 10 m/s")) +
+  geom_point(aes(x = uvol, y = mean_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
+  labs(x = expression("Updraft Volume > 10 m"~s^-1 *" ("~km^3 *")"), 
+       y = expression("Mean Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e9, 1e13)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
+  scale_shape_manual(values = c(24, 25), name = "") +
+  scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  scale_fill_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  guides(color = guide_legend(keyheight=0.9, order = 1, default.unit = "cm"), shape = guide_legend(order = 2), alpha = guide_legend(order = 3), fill = F)
+ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/uvol_meanflashes_10ms.png", width = 6, height = 3.5, dpi=300)
+
+# MAX FLASH RATE
 ggplot(uvol_imf %>% filter(vel == "Above 0 m/s")) +
   geom_point(aes(x = uvol, y = max_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
   labs(x = expression("Updraft Volume > 0 m"~s^-1 *" ("~km^3 *")"), 
        y = expression("Max Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e9, 1e13)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
   scale_shape_manual(values = c(24, 25), name = "") +
   scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
   scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
@@ -111,6 +154,8 @@ ggplot(uvol_imf %>% filter(vel == "Above 5 m/s")) +
   geom_point(aes(x = uvol, y = max_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
   labs(x = expression("Updraft Volume > 5 m"~s^-1 *" ("~km^3 *")"), 
        y = expression("Max Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e9, 1e13)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
   scale_shape_manual(values = c(24, 25), name = "") +
   scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
   scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
@@ -122,6 +167,8 @@ ggplot(uvol_imf %>% filter(vel == "Above 10 m/s")) +
   geom_point(aes(x = uvol, y = max_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
   labs(x = expression("Updraft Volume > 10 m"~s^-1 *" ("~km^3 *")"), 
        y = expression("Max Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e9, 1e13)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
   scale_shape_manual(values = c(24, 25), name = "") +
   scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
   scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
@@ -130,10 +177,27 @@ ggplot(uvol_imf %>% filter(vel == "Above 10 m/s")) +
 ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/uvol_maxflashes_10ms.png", width = 6, height = 3.5, dpi=300)
 
 # Total mass vs flashes
+# MEAN FLASH RATE
+ggplot(uvol_imf %>% filter(vel == "Above 0 m/s")) +
+  geom_point(aes(x = im, y = mean_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
+  labs(x = expression("Total Ice Mass (kg)"), 
+       y = expression("Mean Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e8, 1e16)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
+  scale_shape_manual(values = c(24, 25), name = "") +
+  scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  scale_fill_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  guides(color = guide_legend(keyheight=0.9, order = 1, default.unit = "cm"), shape = guide_legend(order = 2), alpha = guide_legend(order = 3), fill = F)
+ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/mass_meanflashes_0ms.png", width = 6, height = 3.5, dpi=300)
+
+# MAX FLASH RATE
 ggplot(uvol_imf %>% filter(vel == "Above 0 m/s")) +
   geom_point(aes(x = im, y = max_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
   labs(x = expression("Total Ice Mass (kg)"), 
        y = expression("Max Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e8, 1e16)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
   scale_shape_manual(values = c(24, 25), name = "") +
   scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
   scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
@@ -142,14 +206,60 @@ ggplot(uvol_imf %>% filter(vel == "Above 0 m/s")) +
 ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/mass_maxflashes_0ms.png", width = 6, height = 3.5, dpi=300)
 
 # Mass flux vs flashes
+# MEAN FLASH RATE, MEAN IMF
+ggplot(uvol_imf %>% filter(vel == "Above 0 m/s")) +
+  geom_point(aes(x = mean_imf, y = mean_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
+  labs(x = expression("Mean Ice Mass Flux (kg"~m^-2 *"s)"),
+       y = expression("Mean Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e-2, 1e6)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
+  scale_shape_manual(values = c(24, 25), name = "") +
+  scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  scale_fill_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  guides(color = guide_legend(keyheight=0.9, order = 1, default.unit = "cm"), shape = guide_legend(order = 2), alpha = guide_legend(order = 3), fill = F)
+ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/meanimf_meanflashes_0ms.png", width = 6, height = 3.5, dpi=300)
+
+# MEAN FLASH RATE, MAX IMF
+ggplot(uvol_imf %>% filter(vel == "Above 0 m/s")) +
+  geom_point(aes(x = max_imf, y = mean_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
+  labs(x = expression("Max Ice Mass Flux (kg"~m^-2 *"s)"),
+       y = expression("Mean Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e-2, 1e6)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
+  scale_shape_manual(values = c(24, 25), name = "") +
+  scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  scale_fill_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  guides(color = guide_legend(keyheight=0.9, order = 1, default.unit = "cm"), shape = guide_legend(order = 2), alpha = guide_legend(order = 3), fill = F)
+ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/maximf_meanflashes_0ms.png", width = 6, height = 3.5, dpi=300)
+
+
+# MAX FLASH RATE, MEAN IMF
+ggplot(uvol_imf %>% filter(vel == "Above 0 m/s")) +
+  geom_point(aes(x = mean_imf, y = max_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
+  labs(x = expression("Mean Ice Mass Flux (kg"~m^-2 *"s)"),
+       y = expression("Max Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e-2, 1e6)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
+  scale_shape_manual(values = c(24, 25), name = "") +
+  scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
+  scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  scale_fill_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
+  guides(color = guide_legend(keyheight=0.9, order = 1, default.unit = "cm"), shape = guide_legend(order = 2), alpha = guide_legend(order = 3), fill = F)
+ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/meanimf_maxflashes_0ms.png", width = 6, height = 3.5, dpi=300)
+
+
+# MAX FLASH RATE, MAX IMF
 ggplot(uvol_imf %>% filter(vel == "Above 0 m/s")) +
   geom_point(aes(x = max_imf, y = max_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
   labs(x = expression("Max Ice Mass Flux (kg"~m^-2 *"s)"),
        y = expression("Max Flash Rate (Flashes"~min^-1 *")")) +
+  scale_x_log10(limits = c(1e-2, 1e6)) +
+  scale_y_log10(limits = c(1e-1, 1e3)) +
   scale_shape_manual(values = c(24, 25), name = "") +
   scale_alpha_discrete(range = c(0.3, 1), name = "", ) +
   scale_color_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
   scale_fill_manual(values = c("darkred", "darkblue", "darkgreen"), name = "") +
   guides(color = guide_legend(keyheight=0.9, order = 1, default.unit = "cm"), shape = guide_legend(order = 2), alpha = guide_legend(order = 3), fill = F)
 ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/maximf_maxflashes_0ms.png", width = 6, height = 3.5, dpi=300)
-

@@ -177,7 +177,7 @@ def open_select_upvol_im(
         & (xgrid.lat < ylim_aoi[1])
         & (xgrid.lon > xlim_aoi[0])
         & (xgrid.lon < xlim_aoi[1])
-        & (xgrid.reflectivity >= 40)
+        & (xgrid.reflectivity >= 35)
     )
 
     # Calculating updraft volume + total mass
