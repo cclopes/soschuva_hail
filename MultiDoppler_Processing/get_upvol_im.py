@@ -26,7 +26,13 @@ import custom_vars as cv
 
 
 def select_updraft_vol_im(
-    x_grid, below=True, vel=5, zero_height=cv.zerodeg_height
+    x_grid,
+    below=False,
+    above=False,
+    between=False,
+    vel=5,
+    zero_height=cv.zerodeg_height,
+    forty_height=cv.fortydeg_height,
 ):
     """
     """
@@ -79,10 +85,13 @@ def select_updraft_vol_im(
             ).max().values * 1e-3
         except ValueError:
             max_imf = np.nan
-    else:
+    if between:
         u_vol = (
             x_grid.where(
-                (x_grid.z > zero_height * 1e3)
+                (
+                    (x_grid.z > zero_height * 1e3)
+                    & (x_grid.z < forty_height * 1e3)
+                )
                 & (x_grid.upward_air_velocity > vel),
                 drop=True,
             )
@@ -92,7 +101,10 @@ def select_updraft_vol_im(
         )
         im = (
             x_grid.where(
-                (x_grid.z > zero_height * 1e3)
+                (
+                    (x_grid.z > zero_height * 1e3)
+                    & (x_grid.z < forty_height * 1e3)
+                )
                 & (x_grid.upward_air_velocity > vel),
                 drop=True,
             )
@@ -102,12 +114,18 @@ def select_updraft_vol_im(
         )
         mean_imf = (
             x_grid.where(
-                (x_grid.z > zero_height * 1e3)
+                (
+                    (x_grid.z > zero_height * 1e3)
+                    & (x_grid.z < forty_height * 1e3)
+                )
                 & (x_grid.upward_air_velocity > vel),
                 drop=True,
             ).MI
             * x_grid.where(
-                (x_grid.z > zero_height * 1e3)
+                (
+                    (x_grid.z > zero_height * 1e3)
+                    & (x_grid.z < forty_height * 1e3)
+                )
                 & (x_grid.upward_air_velocity > vel),
                 drop=True,
             ).upward_air_velocity
@@ -115,12 +133,66 @@ def select_updraft_vol_im(
         try:
             max_imf = (
                 x_grid.where(
-                    (x_grid.z > zero_height * 1e3)
+                    (
+                        (x_grid.z > zero_height * 1e3)
+                        & (x_grid.z < forty_height * 1e3)
+                    )
                     & (x_grid.upward_air_velocity > vel),
                     drop=True,
                 ).MI
                 * x_grid.where(
-                    (x_grid.z > zero_height * 1e3)
+                    (
+                        (x_grid.z > zero_height * 1e3)
+                        & (x_grid.z < forty_height * 1e3)
+                    )
+                    & (x_grid.upward_air_velocity > vel),
+                    drop=True,
+                ).upward_air_velocity
+            ).max().values * 1e-3
+        except ValueError:
+            max_imf = np.nan
+    if above:
+        u_vol = (
+            x_grid.where(
+                (x_grid.z > forty_height * 1e3)
+                & (x_grid.upward_air_velocity > vel),
+                drop=True,
+            )
+            .upward_air_velocity.count()
+            .values
+            * 1e9
+        )
+        im = (
+            x_grid.where(
+                (x_grid.z > forty_height * 1e3)
+                & (x_grid.upward_air_velocity > vel),
+                drop=True,
+            )
+            .MI.sum()
+            .values
+            * 1e6
+        )
+        mean_imf = (
+            x_grid.where(
+                (x_grid.z > forty_height * 1e3)
+                & (x_grid.upward_air_velocity > vel),
+                drop=True,
+            ).MI
+            * x_grid.where(
+                (x_grid.z > forty_height * 1e3)
+                & (x_grid.upward_air_velocity > vel),
+                drop=True,
+            ).upward_air_velocity
+        ).mean().values * 1e-3
+        try:
+            max_imf = (
+                x_grid.where(
+                    (x_grid.z > forty_height * 1e3)
+                    & (x_grid.upward_air_velocity > vel),
+                    drop=True,
+                ).MI
+                * x_grid.where(
+                    (x_grid.z > forty_height * 1e3)
                     & (x_grid.upward_air_velocity > vel),
                     drop=True,
                 ).upward_air_velocity
@@ -142,6 +214,7 @@ def open_select_upvol_im(
     ylim_aoi,
     case,
     zero_height=cv.zerodeg_height,
+    forty_height=cv.fortydeg_height,
 ):
     """
     """
@@ -181,14 +254,14 @@ def open_select_upvol_im(
     )
 
     # Calculating updraft volume + total mass
-    # - below 0°C
+    # - BELOW 0°C
     # -- w > 0 m/s
     uvol_b0_a0, im_b0_a0, meanimf_b0_a0, maximf_b0_a0 = select_updraft_vol_im(
-        xgrid, vel=0, zero_height=zero_height
+        xgrid, below=True, vel=0, zero_height=zero_height
     )
     # -- w > 5 m/s
     uvol_b0_a5, im_b0_a5, meanimf_b0_a5, maximf_b0_a5 = select_updraft_vol_im(
-        xgrid, vel=5, zero_height=zero_height
+        xgrid, below=True, vel=5, zero_height=zero_height
     )
     # -- w > 10 m/s
     (
@@ -196,29 +269,43 @@ def open_select_upvol_im(
         im_b0_a10,
         meanimf_b0_a10,
         maximf_b0_a10,
-    ) = select_updraft_vol_im(xgrid, vel=10, zero_height=zero_height)
+    ) = select_updraft_vol_im(
+        xgrid, below=True, vel=10, zero_height=zero_height
+    )
     # -- w > 15 m/s
     (
         uvol_b0_a15,
         im_b0_a15,
         meanimf_b0_a15,
         maximf_b0_a15,
-    ) = select_updraft_vol_im(xgrid, vel=15, zero_height=zero_height)
-    # -- w > 205 m/s
+    ) = select_updraft_vol_im(
+        xgrid, below=True, vel=15, zero_height=zero_height
+    )
+    # -- w > 20 m/s
     (
         uvol_b0_a20,
         im_b0_a20,
         meanimf_b0_a20,
         maximf_b0_a20,
-    ) = select_updraft_vol_im(xgrid, vel=20, zero_height=zero_height)
-    # - above 0°C
+    ) = select_updraft_vol_im(
+        xgrid, below=True, vel=20, zero_height=zero_height
+    )
+    # - 0°C < T < -40°C
     # -- w > 0 m/s
     uvol_a0_a0, im_a0_a0, meanimf_a0_a0, maximf_a0_a0 = select_updraft_vol_im(
-        xgrid, below=False, vel=0, zero_height=zero_height
+        xgrid,
+        between=True,
+        vel=0,
+        zero_height=zero_height,
+        forty_height=forty_height,
     )
     # -- w > 5 m/s
     uvol_a0_a5, im_a0_a5, meanimf_a0_a5, maximf_a0_a5 = select_updraft_vol_im(
-        xgrid, below=False, vel=5, zero_height=zero_height
+        xgrid,
+        between=True,
+        vel=5,
+        zero_height=zero_height,
+        forty_height=forty_height,
     )
     # -- w > 10 m/s
     (
@@ -227,7 +314,11 @@ def open_select_upvol_im(
         meanimf_a0_a10,
         maximf_a0_a10,
     ) = select_updraft_vol_im(
-        xgrid, below=False, vel=10, zero_height=zero_height
+        xgrid,
+        between=True,
+        vel=10,
+        zero_height=zero_height,
+        forty_height=forty_height,
     )
     # -- w > 15 m/s
     (
@@ -236,7 +327,11 @@ def open_select_upvol_im(
         meanimf_a0_a15,
         maximf_a0_a15,
     ) = select_updraft_vol_im(
-        xgrid, below=False, vel=15, zero_height=zero_height
+        xgrid,
+        between=True,
+        vel=15,
+        zero_height=zero_height,
+        forty_height=forty_height,
     )
     # -- w > 20 m/s
     (
@@ -245,7 +340,77 @@ def open_select_upvol_im(
         meanimf_a0_a20,
         maximf_a0_a20,
     ) = select_updraft_vol_im(
-        xgrid, below=False, vel=20, zero_height=zero_height
+        xgrid,
+        between=True,
+        vel=20,
+        zero_height=zero_height,
+        forty_height=forty_height,
+    )
+    # - ABOVE -40°C
+    # -- w > 0 m/s
+    (
+        uvol_a40_a0,
+        im_a40_a0,
+        meanimf_a40_a0,
+        maximf_a40_a0,
+    ) = select_updraft_vol_im(
+        xgrid,
+        above=True,
+        vel=0,
+        zero_height=zero_height,
+        forty_height=forty_height,
+    )
+    # -- w > 5 m/s
+    (
+        uvol_a40_a5,
+        im_a40_a5,
+        meanimf_a40_a5,
+        maximf_a40_a5,
+    ) = select_updraft_vol_im(
+        xgrid,
+        above=True,
+        vel=5,
+        zero_height=zero_height,
+        forty_height=forty_height,
+    )
+    # -- w > 10 m/s
+    (
+        uvol_a40_a10,
+        im_a40_a10,
+        meanimf_a40_a10,
+        maximf_a40_a10,
+    ) = select_updraft_vol_im(
+        xgrid,
+        above=True,
+        vel=10,
+        zero_height=zero_height,
+        forty_height=forty_height,
+    )
+    # -- w > 15 m/s
+    (
+        uvol_a40_a15,
+        im_a40_a15,
+        meanimf_a40_a15,
+        maximf_a40_a15,
+    ) = select_updraft_vol_im(
+        xgrid,
+        above=True,
+        vel=15,
+        zero_height=zero_height,
+        forty_height=forty_height,
+    )
+    # -- w > 20 m/s
+    (
+        uvol_a40_a20,
+        im_a40_a20,
+        meanimf_a40_a20,
+        maximf_a40_a20,
+    ) = select_updraft_vol_im(
+        xgrid,
+        above=True,
+        vel=20,
+        zero_height=zero_height,
+        forty_height=forty_height,
     )
 
     uvol = [
@@ -259,6 +424,11 @@ def open_select_upvol_im(
         uvol_a0_a10,
         uvol_a0_a15,
         uvol_a0_a20,
+        uvol_a40_a0,
+        uvol_a40_a5,
+        uvol_a40_a10,
+        uvol_a40_a15,
+        uvol_a40_a20,
     ]
     im = [
         im_b0_a0,
@@ -271,6 +441,11 @@ def open_select_upvol_im(
         im_a0_a10,
         im_a0_a15,
         im_a0_a20,
+        im_a40_a0,
+        im_a40_a5,
+        im_a40_a10,
+        im_a40_a15,
+        im_a40_a20,
     ]
     mean_imf = [
         meanimf_b0_a0,
@@ -283,6 +458,11 @@ def open_select_upvol_im(
         meanimf_a0_a10,
         meanimf_a0_a15,
         meanimf_a0_a20,
+        meanimf_a40_a0,
+        meanimf_a40_a5,
+        meanimf_a40_a10,
+        meanimf_a40_a15,
+        meanimf_a40_a20,
     ]
     max_imf = [
         maximf_b0_a0,
@@ -295,6 +475,11 @@ def open_select_upvol_im(
         maximf_a0_a10,
         maximf_a0_a15,
         maximf_a0_a20,
+        maximf_a40_a0,
+        maximf_a40_a5,
+        maximf_a40_a10,
+        maximf_a40_a15,
+        maximf_a40_a20,
     ]
     uvol_temp = [
         "Below 0°C",
@@ -302,13 +487,23 @@ def open_select_upvol_im(
         "Below 0°C",
         "Below 0°C",
         "Below 0°C",
-        "Above 0°C",
-        "Above 0°C",
-        "Above 0°C",
-        "Above 0°C",
-        "Above 0°C",
+        "0°C > T > -40°C",
+        "0°C > T > -40°C",
+        "0°C > T > -40°C",
+        "0°C > T > -40°C",
+        "0°C > T > -40°C",
+        "Above -40°C",
+        "Above -40°C",
+        "Above -40°C",
+        "Above -40°C",
+        "Above -40°C",
     ]
     uvol_vel = [
+        "Above 0 m/s",
+        "Above 5 m/s",
+        "Above 10 m/s",
+        "Above 15 m/s",
+        "Above 20 m/s",
         "Above 0 m/s",
         "Above 5 m/s",
         "Above 10 m/s",
@@ -349,6 +544,8 @@ uvol_im = pd.concat(
             xlim_aoi=(-47.2, -47),
             ylim_aoi=(-22.73, -22.6),
             case="Case 1 2017-03-14\nCosmópolis",
+            zero_height=5.1,
+            forty_height=10.6,
         ),
         open_select_upvol_im(
             filepath_m="./MultiDoppler_Processing/cases/2017-03-14_18h30/sr-fcth_cf.pkl",
@@ -357,6 +554,8 @@ uvol_im = pd.concat(
             xlim_aoi=(-47.2, -47),
             ylim_aoi=(-22.76, -22.61),
             case="Case 1 2017-03-14\nCosmópolis",
+            zero_height=5.1,
+            forty_height=10.6,
         ),
         open_select_upvol_im(
             filepath_m="./MultiDoppler_Processing/cases/2017-03-14_19h50/sr-fcth_cf.pkl",
@@ -365,6 +564,8 @@ uvol_im = pd.concat(
             xlim_aoi=(-47.3, -47.1),
             ylim_aoi=(-23.1, -22.95),
             case="Case 1 2017-03-14\nIndaiatuba",
+            zero_height=5.1,
+            forty_height=10.6,
         ),
         open_select_upvol_im(
             filepath_m="./MultiDoppler_Processing/cases/2017-03-14_20h00/sr-fcth_cf.pkl",
@@ -373,6 +574,8 @@ uvol_im = pd.concat(
             xlim_aoi=(-47.25, -47.1),
             ylim_aoi=(-23.11, -22.95),
             case="Case 1 2017-03-14\nIndaiatuba",
+            zero_height=5.1,
+            forty_height=10.6,
         ),
         open_select_upvol_im(
             filepath_m="./MultiDoppler_Processing/cases/2017-11-15_21h40/sr-fcth-xpol_cf.pkl",
@@ -382,6 +585,7 @@ uvol_im = pd.concat(
             ylim_aoi=(-23.07, -22.9),
             case="Case 2 2017-11-15\nIndaiatuba",
             zero_height=4.5,
+            forty_height=10.2,
         ),
         open_select_upvol_im(
             filepath_m="./MultiDoppler_Processing/cases/2017-11-15_21h50/sr-fcth-xpol_cf.pkl",
@@ -391,6 +595,7 @@ uvol_im = pd.concat(
             ylim_aoi=(-23.1, -22.97),
             case="Case 2 2017-11-15\nIndaiatuba",
             zero_height=4.5,
+            forty_height=10.2,
         ),
     ],
 )
