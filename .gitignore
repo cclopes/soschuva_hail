@@ -10,6 +10,7 @@ Dissertation/
 
 ForTraCC_Processing/clusters/
 ForTraCC_Processing/figures/
+ForTraCC_Processing/families/
 
 General_Processing/figures/
 
@@ -17,6 +18,7 @@ Hailpads_Processing/figures/
 
 Lightning_Processing/figures/
 Lightning_Processing/figures_old/
+Lightning_Processing/entrydata_old/
 
 MultiDoppler_Processing/.ipynb_checkpoints/
 MultiDoppler_Processing/__pycache__/
@@ -30,6 +32,7 @@ Radar_Processing/.ipynb_checkpoints/
 Radar_Processing/__pycache__/
 Radar_Processing/cappis_for_fortracc/
 Radar_Processing/figures/
+Radar_Processing/data_files/
 
 Reanalysis_Processing/__pycache__/
 Reanalysis_Processing/.ipynb_checkpoints/
