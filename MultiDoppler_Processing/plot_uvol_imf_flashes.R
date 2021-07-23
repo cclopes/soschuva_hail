@@ -143,8 +143,9 @@ ggplot(uvol_imf %>% filter(vel == "Above 5 m/s")) +
          shape = guide_legend(order = 2), 
          alpha = guide_legend(order = 3), 
          fill = F) +
-  theme(legend.background = element_rect(fill = NA), legend.spacing = unit(-0.5, "cm"))
-ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/uvol_meanflashes_5ms.png", width = 6, height = 3.5, dpi=300)
+  theme(legend.background = element_rect(fill = NA), legend.spacing = unit(-0.5, "cm"),
+        plot.background = element_rect(fill = "transparent",colour = NA))
+ggsave("MultiDoppler_Processing/figures/uvol_imf_studies/uvol_meanflashes_5ms.png", width = 6, height = 3.5, dpi=300, bg = "transparent")
 
 ggplot(uvol_imf %>% filter(vel == "Above 10 m/s")) +
   geom_point(aes(x = uvol, y = mean_flashes, color = case, fill = case, alpha = time_label, shape = level), size = 3) +
