@@ -1,0 +1,2 @@
+# MultiDoppler_Processing [Python, R scripts]
+Processing doppler data from 2 (or 3) weather radars using [`MultiDop`](https://github.com/nasa/MultiDop) and [`PyDDA`](https://github.com/openradar/PyDDA) (not fully implemented). Plotting output data with [`Py-ART`](https://github.com/ARM-DOE/pyart).

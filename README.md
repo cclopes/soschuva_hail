@@ -1,13 +1,14 @@
 # soschuva_hail
-R and Python scripts to read and process weather radar, lightning and other data related to hailstorm cases in SOS-CHUVA Project. Part of dissertation ["Microphysics, Kinematics and Electrification in Hail Producing Tropical Storms during SOS-CHUVA Project"](https://teses.usp.br/teses/disponiveis/14/14133/tde-06052019-155657/en.php) @ USP - Brasil.
+R and Python scripts to read and process weather radar, lightning and other data related to hailstorm cases in SOS-CHUVA Project. Part of dissertation ["Microphysics, Kinematics and Electrification in Hail Producing Tropical Storms during SOS-CHUVA Project"](https://teses.usp.br/teses/disponiveis/14/14133/tde-06052019-155657/en.php) @ IAG/USP - Brazil.
 
 ***Disclaimer**: I'm still improving these scripts (specially converting from old Jupyter notebooks to sets of python scripts)*
 
-## ForTraCC_Processing [R]
+More info about each folder can be found in each respective README.
+
+- ## [ForTraCC_Processing](ForTraCC_Processing/README.md)
 Processing ForTraCC-Radar clusters and families per case as lists using `tidyverse` functions.
 
-## General_Processing [R]
-Generating figures and data about the cases, joining ForTraCC, radar and lightning. Generating misc figures.
+- ## [General_Processing](General_Processing/README.md)
 
 ## Hailpads_Processing [R]
 Processing hailpads data per case as lists using `tidyverse` functions.
@@ -15,8 +16,7 @@ Processing hailpads data per case as lists using `tidyverse` functions.
 ## Lightning_Processing [R]
 Processing BrasilDAT lightning data with `tidyverse` functions, converting strokes to flashes using [`DBSCAN`](https://github.com/mhahsler/dbscan) package.
 
-## MultiDoppler_Processing [Python]
-Processing doppler data from 2 (or 3) weather radars using [`MultiDop`](https://github.com/nasa/MultiDop) and [`PyDDA`](https://github.com/openradar/PyDDA) (not fully implemented). Plotting output data with [`Py-ART`](https://github.com/ARM-DOE/pyart).
+- ## [MultiDoppler_Processing](MultiDoppler_Processing/README.md)
 
 ## PyART_CSURT_Tutorial [Python]
 A small tutorial about working with brazilian weather radar data in Python with the following packages:
@@ -51,3 +51,4 @@ Acquiring Wyoming sounding data with the following installed packages:
 
 - [`siphon`](https://github.com/Unidata/siphon)
 - [`MetPy`](https://github.com/Unidata/MetPy)
+
