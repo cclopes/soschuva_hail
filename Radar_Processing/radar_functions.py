@@ -19,15 +19,17 @@ import cartopy.crs as ccrs
 from cartopy.io.shapereader import Reader
 
 import pyart
+
 try:
     import multidop
 except ModuleNotFoundError:
     pass
 try:
     from SkewTplus.sounding import sounding
-    from csu_radartools import (csu_fhc, csu_liquid_ice_mass)
 except ModuleNotFoundError:
     pass
+from csu_radartools import csu_fhc, csu_liquid_ice_mass
+
 
 from cpt_convert import loadCPT
 from read_brazil_radar_py3 import read_rainbow_hdf5
@@ -83,36 +85,98 @@ def calculate_radar_hid(radar, sounding_names, radar_band="S"):
     radar_T, radar_z = interpolate_sounding_to_radar(soundings, radar)
 
     # Extracting necessary variables
-    z_corrected = radar.fields['corrected_reflectivity']['data']
-    zdr = radar.fields['differential_reflectivity']['data']
-    kdp = radar.fields['specific_differential_phase']['data']
-    rho_hv = radar.fields['cross_correlation_ratio']['data']
+    z_corrected = radar.fields["corrected_reflectivity"]["data"]
+    zdr = radar.fields["differential_reflectivity"]["data"]
+    kdp = radar.fields["specific_differential_phase"]["data"]
+    rho_hv = radar.fields["cross_correlation_ratio"]["data"]
 
     # Classifying
-    scores = csu_fhc.csu_fhc_summer(weights={'DZ': 1, 'DR': 1, 'KD': 1,
-                                             'RH': 1, 'LD': 1, 'T': 1},
-                                    dz=z_corrected, zdr=zdr, kdp=kdp,
-                                    rho=rho_hv, use_temp=True, T=radar_T,
-                                    band=radar_band, verbose=True,
-                                    method='hybrid')
+    scores = csu_fhc.csu_fhc_summer(
+        weights={"DZ": 1, "DR": 1, "KD": 1, "RH": 1, "LD": 1, "T": 1},
+        dz=z_corrected,
+        zdr=zdr,
+        kdp=kdp,
+        rho=rho_hv,
+        use_temp=True,
+        T=radar_T,
+        band=radar_band,
+        verbose=True,
+        method="hybrid",
+    )
     fh = np.argmax(scores, axis=0) + 1
     # - Adding to radar file
-    radar = add_field_to_radar_object(fh, radar,
-                                      standard_name='Hydrometeor ID')
+    radar = add_field_to_radar_object(fh, radar, standard_name="Hydrometeor ID")
 
     # - Calculating liquid and ice mass
     mw, mi = csu_liquid_ice_mass.calc_liquid_ice_mass(
-                z_corrected, zdr, radar_z/1000.0, T=radar_T)
+        z_corrected, zdr, radar_z / 1000.0, T=radar_T
+    )
 
     # - Adding to radar file
     file = add_field_to_radar_object(
-                mw, radar, field_name='MW', units=r'$g\  m^{-3}$',
-                long_name='Liquid Water Mass',
-                standard_name='Liquid Water Mass')
+        mw,
+        radar,
+        field_name="MW",
+        units=r"$g\  m^{-3}$",
+        long_name="Liquid Water Mass",
+        standard_name="Liquid Water Mass",
+    )
     file = add_field_to_radar_object(
-                mi, file, field_name='MI', units=r'$g\  m^{-3}$',
-                long_name='Ice Water Mass',
-                standard_name='Ice Water Mass')
+        mi,
+        file,
+        field_name="MI",
+        units=r"$g\  m^{-3}$",
+        long_name="Ice Water Mass",
+        standard_name="Ice Water Mass",
+    )
+
+    return file
+
+
+def calculate_radar_mw_mi(radar, radar_band="S"):
+    """
+    Use radar data to calculate:
+    - Liquid and ice water masses, ice fraction
+
+    Parameters
+    ----------
+    radar: Py-ART radar data
+    radar_band: radar band
+
+    Returns
+    -------
+    file: radar data with HID and water masses
+    """
+
+    # - optional: sounding_names.loc[str(radar_date.date())].item()
+    radar_z = get_z_from_radar(radar)
+
+    # Extracting necessary variables
+    z_corrected = radar.fields["corrected_reflectivity"]["data"]
+    zdr = radar.fields["differential_reflectivity"]["data"]
+
+    # - Calculating liquid and ice mass
+    mw, mi = csu_liquid_ice_mass.calc_liquid_ice_mass(
+        z_corrected, zdr, radar_z / 1000.0,
+    )
+
+    # - Adding to radar file
+    file = add_field_to_radar_object(
+        mw,
+        radar,
+        field_name="MW",
+        units=r"$g\  m^{-3}$",
+        long_name="Liquid Water Mass",
+        standard_name="Liquid Water Mass",
+    )
+    file = add_field_to_radar_object(
+        mi,
+        file,
+        field_name="MI",
+        units=r"$g\  m^{-3}$",
+        long_name="Ice Water Mass",
+        standard_name="Ice Water Mass",
+    )
 
     return file
 
@@ -180,13 +244,13 @@ def get_z_from_radar(radar):
     -------
     Height in radar coordinates
     """
-    azimuth_1D = radar.azimuth['data']
-    elevation_1D = radar.elevation['data']
-    srange_1D = radar.range['data']
+    azimuth_1D = radar.azimuth["data"]
+    elevation_1D = radar.elevation["data"]
+    srange_1D = radar.range["data"]
     sr_2d, az_2d = np.meshgrid(srange_1D, azimuth_1D)
     el_2d = np.meshgrid(srange_1D, elevation_1D)[1]
-    xx, yy, zz = radar_coords_to_cart(sr_2d/1000.0, az_2d, el_2d)
-    return zz + radar.altitude['data']
+    xx, yy, zz = radar_coords_to_cart(sr_2d / 1000.0, az_2d, el_2d)
+    return zz + radar.altitude["data"]
 
 
 def interpolate_sounding_to_radar(sounding, radar):
@@ -213,10 +277,15 @@ def interpolate_sounding_to_radar(sounding, radar):
     return np.reshape(rad_T1d, shape), radar_z
 
 
-def add_field_to_radar_object(field, radar, field_name='FH', units='unitless',
-                              long_name='Hydrometeor ID',
-                              standard_name='Hydrometeor ID',
-                              dz_field='corrected_reflectivity'):
+def add_field_to_radar_object(
+    field,
+    radar,
+    field_name="FH",
+    units="unitless",
+    long_name="Hydrometeor ID",
+    standard_name="Hydrometeor ID",
+    dz_field="corrected_reflectivity",
+):
     """
     Adds a newly created field to the Py-ART radar object. If reflectivity is a
     masked array, make the new field masked the same as reflectivity.
@@ -238,23 +307,35 @@ def add_field_to_radar_object(field, radar, field_name='FH', units='unitless',
     fill_value = -32768
     masked_field = np.ma.asanyarray(field)
     masked_field.mask = masked_field == fill_value
-    if hasattr(radar.fields[dz_field]['data'], 'mask'):
-        setattr(masked_field, 'mask', np.logical_or(masked_field.mask,
-                radar.fields[dz_field]['data'].mask))
-        fill_value = radar.fields[dz_field]['data'].fill_value
-    field_dict = {'data': masked_field,
-                  'units': units,
-                  'long_name': long_name,
-                  'standard_name': standard_name,
-                  'fill_value': fill_value}
+    if hasattr(radar.fields[dz_field]["data"], "mask"):
+        setattr(
+            masked_field,
+            "mask",
+            np.logical_or(
+                masked_field.mask, radar.fields[dz_field]["data"].mask
+            ),
+        )
+        fill_value = radar.fields[dz_field]["data"].fill_value
+    field_dict = {
+        "data": masked_field,
+        "units": units,
+        "long_name": long_name,
+        "standard_name": standard_name,
+        "fill_value": fill_value,
+    }
     radar.add_field(field_name, field_dict, replace_existing=True)
     return radar
 
 
-def add_field_to_grid_object(field, grid, field_name='Reflectivity',
-                             units='dBZ', long_name='Reflectivity',
-                             standard_name='Reflectivity',
-                             dz_field='reflectivity'):
+def add_field_to_grid_object(
+    field,
+    grid,
+    field_name="Reflectivity",
+    units="dBZ",
+    long_name="Reflectivity",
+    standard_name="Reflectivity",
+    dz_field="reflectivity",
+):
     """
     Adds a newly created field to the Py-ART grid object. If reflectivity is a
     masked array, make the new field masked the same as reflectivity.
@@ -277,25 +358,37 @@ def add_field_to_grid_object(field, grid, field_name='Reflectivity',
     fill_value = -32768
     masked_field = np.ma.asanyarray(field)
     masked_field.mask = masked_field == fill_value
-    if hasattr(grid.fields[dz_field]['data'], 'mask'):
-        setattr(masked_field, 'mask',
-                np.logical_or(masked_field.mask,
-                              grid.fields[dz_field]['data'].mask))
-        fill_value = grid.fields[dz_field]['_FillValue']
-    field_dict = {'data': masked_field,
-                  'units': units,
-                  'long_name': long_name,
-                  'standard_name': standard_name,
-                  '_FillValue': fill_value}
+    if hasattr(grid.fields[dz_field]["data"], "mask"):
+        setattr(
+            masked_field,
+            "mask",
+            np.logical_or(
+                masked_field.mask, grid.fields[dz_field]["data"].mask
+            ),
+        )
+        fill_value = grid.fields[dz_field]["_FillValue"]
+    field_dict = {
+        "data": masked_field,
+        "units": units,
+        "long_name": long_name,
+        "standard_name": standard_name,
+        "_FillValue": fill_value,
+    }
     grid.add_field(field_name, field_dict, replace_existing=True)
 
     return grid
 
 
-def grid_radar(radar, grid_shape=(20, 301,  301),
-               xlim=(-150000, 150000), ylim=(-150000, 150000),
-               zlim=(1000, 20000), fields=['reflectivity', 'velocity'],
-               origin=None, for_multidop=False):
+def grid_radar(
+    radar,
+    grid_shape=(20, 301, 301),
+    xlim=(-150000, 150000),
+    ylim=(-150000, 150000),
+    zlim=(1000, 20000),
+    fields=["reflectivity", "velocity"],
+    origin=None,
+    for_multidop=False,
+):
 
     """
     Using radar data:
@@ -339,23 +432,25 @@ def grid_radar(radar, grid_shape=(20, 301,  301),
 
     if not for_multidop:
         gatefilter = pyart.filters.GateFilter(radar)
-        gatefilter.exclude_below(fields[4], 0.8)
+        # gatefilter.exclude_below(fields[4], 0.8)
     else:
         gatefilter = None
 
     radar_list = [radar]
 
     if origin is None:
-        origin = (radar.latitude['data'][0], radar.longitude['data'][0])
+        origin = (radar.latitude["data"][0], radar.longitude["data"][0])
 
-    grid = pyart.map.grid_from_radars(radar_list,
-                                      gatefilters=gatefilter,
-                                      grid_shape=grid_shape,
-                                      grid_limits=(zlim, ylim, xlim),
-                                      grid_origin=origin,
-                                      fields=fields,
-                                      gridding_algo='map_gates_to_grid',
-                                      grid_origin_alt=0.)
+    grid = pyart.map.grid_from_radars(
+        radar_list,
+        gatefilters=gatefilter,
+        grid_shape=grid_shape,
+        grid_limits=(zlim, ylim, xlim),
+        grid_origin=origin,
+        fields=fields,
+        gridding_algo="map_gates_to_grid",
+        grid_origin_alt=0.0,
+    )
 
     # Fixing linearity
     # copy = deepcopy(grid.fields[fields[0]]['data'])
@@ -375,16 +470,21 @@ def grid_radar(radar, grid_shape=(20, 301,  301),
         grid = multidop.angles.add_azimuth_as_field(grid)
         grid = multidop.angles.add_elevation_as_field(grid)
 
-    print(time.time()-bt, ' seconds to grid radar')
+    print(time.time() - bt, " seconds to grid radar")
 
     return grid
 
 
-def plot_dbz_vel_grid(radar, xlim, ylim, sweep=0,
-                      dbz_field='corrected_reflectivity',
-                      vel_field='velocity',
-                      shapepath="../Data/GENERAL/shapefiles/sao_paulo",
-                      name_fig='test.png'):
+def plot_dbz_vel_grid(
+    radar,
+    xlim,
+    ylim,
+    sweep=0,
+    dbz_field="corrected_reflectivity",
+    vel_field="velocity",
+    shapepath="../Data/GENERAL/shapefiles/sao_paulo",
+    name_fig="test.png",
+):
     """
     Plot quick view of reflectivity and velocity data
 
@@ -408,28 +508,43 @@ def plot_dbz_vel_grid(radar, xlim, ylim, sweep=0,
     fig = plt.figure(figsize=(12, 5))
 
     fig.add_subplot(121)
-    display.plot_ppi_map(dbz_field, sweep, vmin=10, vmax=70,
-                         shapefile=shapepath,
-                         max_lat=ylim[1], min_lat=ylim[0],
-                         min_lon=xlim[0], max_lon=xlim[1],
-                         lat_lines=np.arange(ylim[0], ylim[1], .25),
-                         lon_lines=np.arange(xlim[0], xlim[1], .25),
-                         cmap='pyart_NWSRef',
-                         colorbar_label=dbz_field + ' (dBZ)')
+    display.plot_ppi_map(
+        dbz_field,
+        sweep,
+        vmin=10,
+        vmax=70,
+        shapefile=shapepath,
+        max_lat=ylim[1],
+        min_lat=ylim[0],
+        min_lon=xlim[0],
+        max_lon=xlim[1],
+        lat_lines=np.arange(ylim[0], ylim[1], 0.25),
+        lon_lines=np.arange(xlim[0], xlim[1], 0.25),
+        cmap="pyart_NWSRef",
+        colorbar_label=dbz_field + " (dBZ)",
+    )
     fig.add_subplot(122)
-    display.plot_ppi_map(vel_field, sweep, vmin=-15, vmax=15,
-                         shapefile=shapepath,
-                         max_lat=ylim[1], min_lat=ylim[0],
-                         min_lon=xlim[0], max_lon=xlim[1],
-                         lat_lines=np.arange(ylim[0], ylim[1], .25),
-                         lon_lines=np.arange(xlim[0], xlim[1], .25),
-                         cmap='pyart_BuDRd18',
-                         colorbar_label=vel_field + ' (m/s)')
-    plt.savefig(name_fig, dpi=300, bbox_inches='tight')
+    display.plot_ppi_map(
+        vel_field,
+        sweep,
+        vmin=-15,
+        vmax=15,
+        shapefile=shapepath,
+        max_lat=ylim[1],
+        min_lat=ylim[0],
+        min_lon=xlim[0],
+        max_lon=xlim[1],
+        lat_lines=np.arange(ylim[0], ylim[1], 0.25),
+        lon_lines=np.arange(xlim[0], xlim[1], 0.25),
+        cmap="pyart_BuDRd18",
+        colorbar_label=vel_field + " (m/s)",
+    )
+    plt.savefig(name_fig, dpi=300, bbox_inches="tight")
 
 
-def plot_gridded_maxdbz(grid, name_radar, name_base,
-                        xlim=[-150000, 150000], ylim=[-150000, 150000]):
+def plot_gridded_maxdbz(
+    grid, name_radar, name_base, xlim=[-150000, 150000], ylim=[-150000, 150000]
+):
     """
     Using gridded radar data, plot max reflectivity field using matplotlib
 
@@ -442,23 +557,35 @@ def plot_gridded_maxdbz(grid, name_radar, name_base,
         (min, max) in meters
     """
 
-    DZcomp = np.amax(grid.fields['DT']['data'], axis=0)
+    DZcomp = np.amax(grid.fields["DT"]["data"], axis=0)
 
     fig = plt.figure(figsize=(6, 5))
-    x, y = np.meshgrid(grid.x['data'], grid.y['data'])
-    cs = plt.pcolormesh(grid.x['data'], grid.y['data'],
-                        DZcomp, vmin=0, vmax=75, cmap='pyart_NWSRef')
+    x, y = np.meshgrid(grid.x["data"], grid.y["data"])
+    cs = plt.pcolormesh(
+        grid.x["data"],
+        grid.y["data"],
+        DZcomp,
+        vmin=0,
+        vmax=75,
+        cmap="pyart_NWSRef",
+    )
     plt.xlim(xlim)
     plt.ylim(ylim)
-    plt.colorbar(cs, label='Reflectivity (dBZ)')
-    plt.title('Max Reflectivity (filled) of ' + name_radar)
-    plt.xlabel('Distance east of ' + name_base + '  (m)')
-    plt.ylabel('Distance north of ' + name_base + '  (m)')
+    plt.colorbar(cs, label="Reflectivity (dBZ)")
+    plt.title("Max Reflectivity (filled) of " + name_radar)
+    plt.xlabel("Distance east of " + name_base + "  (m)")
+    plt.ylabel("Distance north of " + name_base + "  (m)")
     plt.show()
 
 
-def plot_gridded_velocity(grid, name_radar, name_base, height=0,
-                          xlim=[-150000, 150000], ylim=[-150000, 150000]):
+def plot_gridded_velocity(
+    grid,
+    name_radar,
+    name_base,
+    height=0,
+    xlim=[-150000, 150000],
+    ylim=[-150000, 150000],
+):
     """
     Using gridded radar data, plot velocity field in a height using matplotlib
 
@@ -472,19 +599,26 @@ def plot_gridded_velocity(grid, name_radar, name_base, height=0,
         (min, max) in meters
     """
 
-    field = grid.fields['VT']['data'][height]
+    field = grid.fields["VT"]["data"][height]
 
     fig = plt.figure(figsize=(6, 5))
-    x, y = np.meshgrid(grid.x['data'], grid.y['data'])
-    cs = plt.pcolormesh(grid.x['data'], grid.y['data'],
-                        field, vmin=-15, vmax=15, cmap='pyart_BuDRd18')
+    x, y = np.meshgrid(grid.x["data"], grid.y["data"])
+    cs = plt.pcolormesh(
+        grid.x["data"],
+        grid.y["data"],
+        field,
+        vmin=-15,
+        vmax=15,
+        cmap="pyart_BuDRd18",
+    )
     plt.xlim(xlim)
     plt.ylim(ylim)
-    plt.colorbar(cs, label='Velocity (m/s)')
-    plt.title(('Doppler Velocity of ' + name_radar + ' in ' + str(height + 1) +
-               ' km'))
-    plt.xlabel('Distance east of ' + name_base + '  (m)')
-    plt.ylabel('Distance north of ' + name_base + '  (m)')
+    plt.colorbar(cs, label="Velocity (m/s)")
+    plt.title(
+        ("Doppler Velocity of " + name_radar + " in " + str(height + 1) + " km")
+    )
+    plt.xlabel("Distance east of " + name_base + "  (m)")
+    plt.ylabel("Distance north of " + name_base + "  (m)")
     plt.show()
 
 
@@ -504,15 +638,36 @@ def adjust_fhc_colorbar_for_pyart(cb, pt_br=False):
 
     cb.set_ticks(np.arange(1.4, 10, 0.9))
     if pt_br:
-        cb.ax.set_yticklabels(['Chuvisco', 'Chuva', 'Cristais de Gelo',
-                               'Agregados', 'Neve Molhada', 'Gelo Vertical',
-                               'Graupel DB', 'Graupel DA', 'Granizo',
-                               'Gotas Grandes'])
+        cb.ax.set_yticklabels(
+            [
+                "Chuvisco",
+                "Chuva",
+                "Cristais de Gelo",
+                "Agregados",
+                "Neve Molhada",
+                "Gelo Vertical",
+                "Graupel DB",
+                "Graupel DA",
+                "Granizo",
+                "Gotas Grandes",
+            ]
+        )
     else:
-        cb.ax.set_yticklabels(['Drizzle', 'Rain', 'Ice Crystals', 'Aggregates',
-                               'Wet Snow', 'Vertical Ice', 'LD Graupel',
-                               'HD Graupel', 'Hail', 'Big Drops'])
-    cb.ax.set_ylabel('')
+        cb.ax.set_yticklabels(
+            [
+                "Drizzle",
+                "Rain",
+                "Ice Crystals",
+                "Aggregates",
+                "Wet Snow",
+                "Vertical Ice",
+                "LD Graupel",
+                "HD Graupel",
+                "Hail",
+                "Big Drops",
+            ]
+        )
+    cb.ax.set_ylabel("")
     cb.ax.tick_params(length=0)
     return cb
 
@@ -533,23 +688,51 @@ def adjust_meth_colorbar_for_pyart(cb, tropical=False):
 
     if not tropical:
         cb.set_ticks(np.arange(1.25, 5, 0.833))
-        cb.ax.set_yticklabels(['R(Kdp, Zdr)', 'R(Kdp)', 'R(Z, Zdr)', 'R(Z)',
-                               'R(Zrain)'])
+        cb.ax.set_yticklabels(
+            ["R(Kdp, Zdr)", "R(Kdp)", "R(Z, Zdr)", "R(Z)", "R(Zrain)"]
+        )
     else:
         cb.set_ticks(np.arange(1.3, 6, 0.85))
-        cb.ax.set_yticklabels(['R(Kdp, Zdr)', 'R(Kdp)', 'R(Z, Zdr)',
-                               'R(Z_all)', 'R(Z_c)', 'R(Z_s)'])
-    cb.ax.set_ylabel('')
+        cb.ax.set_yticklabels(
+            [
+                "R(Kdp, Zdr)",
+                "R(Kdp)",
+                "R(Z, Zdr)",
+                "R(Z_all)",
+                "R(Z_c)",
+                "R(Z_s)",
+            ]
+        )
+    cb.ax.set_ylabel("")
     cb.ax.tick_params(length=0)
     return cb
 
 
 def plot_field_panel(
-        grid, field, level, fmin, fmax, lat_index=None, lon_index=None,
-        date='', name_multi='', shp_name='', hailpad_pos=None, zero_height=3.,
-        minusforty_height=10., grid_spc=.25, cmap=None, reverse_cmap=False,
-        norm=None, xlim=(-48, -46), ylim=(-24, -22), save_path='./', index='',
-        hailpad_cs_flag=True, pt_br=False):
+    grid,
+    field,
+    level,
+    fmin,
+    fmax,
+    lat_index=None,
+    lon_index=None,
+    date="",
+    name_multi="",
+    shp_name="",
+    hailpad_pos=None,
+    zero_height=3.0,
+    minusforty_height=10.0,
+    grid_spc=0.25,
+    cmap=None,
+    reverse_cmap=False,
+    norm=None,
+    xlim=(-48, -46),
+    ylim=(-24, -22),
+    save_path="./",
+    index="",
+    hailpad_cs_flag=True,
+    pt_br=False,
+):
     """
     Using gridded radar data, plot horizontal and vertical
     views:
@@ -586,7 +769,7 @@ def plot_field_panel(
 
     # Getting lat-lon-z points
     lons, lats = grid.get_point_longitude_latitude(level)
-    xz, z = np.meshgrid(grid.get_point_longitude_latitude()[0], grid.z['data'])
+    xz, z = np.meshgrid(grid.get_point_longitude_latitude()[0], grid.z["data"])
 
     # Opening colortables
     # if field != 'FH':
@@ -600,96 +783,168 @@ def plot_field_panel(
     # Main figure
     display = pyart.graph.GridMapDisplayBasemap(grid)
     fig = plt.figure(figsize=(10, 3.25), constrained_layout=True)
-    if field == 'FH':
+    if field == "FH":
         gs = GridSpec(nrows=1, ncols=8, figure=fig)
     else:
         gs = GridSpec(nrows=1, ncols=7, figure=fig)
 
     # - Horizontal view
-    print('-- Plotting horizontal view --')
-    ax1 = fig.add_subplot(gs[0, :3], facecolor='w')
-    display.plot_basemap(min_lon=xlim[0], max_lon=xlim[1],
-                         min_lat=ylim[0], max_lat=ylim[1],
-                         lon_lines=np.arange(xlim[0], xlim[1], grid_spc),
-                         lat_lines=np.arange(ylim[0], ylim[1], grid_spc),
-                         auto_range=False, ax=ax1)
-    display.basemap.readshapefile(shp_name, 'sao_paulo', color='gray')
+    print("-- Plotting horizontal view --")
+    ax1 = fig.add_subplot(gs[0, :3], facecolor="w")
+    display.plot_basemap(
+        min_lon=xlim[0],
+        max_lon=xlim[1],
+        min_lat=ylim[0],
+        max_lat=ylim[1],
+        lon_lines=np.arange(xlim[0], xlim[1], grid_spc),
+        lat_lines=np.arange(ylim[0], ylim[1], grid_spc),
+        auto_range=False,
+        ax=ax1,
+    )
+    display.basemap.readshapefile(shp_name, "sao_paulo", color="gray")
     # -- Reflectivity (shaded)
-    display.plot_grid(field, level, vmin=fmin, vmax=fmax, cmap=cmap,
-                      colorbar_flag=False, norm=norm, ax=ax1)
+    display.plot_grid(
+        field,
+        level,
+        vmin=fmin,
+        vmax=fmax,
+        cmap=cmap,
+        colorbar_flag=False,
+        norm=norm,
+        ax=ax1,
+    )
 
     # -- Hailpad position
-    display.basemap.plot(hailpad_pos[0], hailpad_pos[1], 'kX', markersize=15,
-                         markerfacecolor='w', alpha=0.75, latlon=True)
+    display.basemap.plot(
+        hailpad_pos[0],
+        hailpad_pos[1],
+        "kX",
+        markersize=15,
+        markerfacecolor="w",
+        alpha=0.75,
+        latlon=True,
+    )
     # -- Cross section position
-    display.basemap.plot(lon_index, lat_index, 'k--', latlon=True)
+    display.basemap.plot(lon_index, lat_index, "k--", latlon=True)
     bmap = display.get_basemap()
     x, y = bmap(lon_index[0], lat_index[0])
     ax1.annotate(
-        'A', (x, y), fontsize=11,
-        fontweight='bold', fontstretch='condensed', ha='center',
-        bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
+        "A",
+        (x, y),
+        fontsize=11,
+        fontweight="bold",
+        fontstretch="condensed",
+        ha="center",
+        bbox=dict(boxstyle="round,pad=0.2", facecolor="w", alpha=0.75),
+    )
     x, y = bmap(lon_index[1], lat_index[1])
     ax1.annotate(
-        'B', (x, y), fontsize=11,
-        fontweight='bold', fontstretch='condensed', ha='center',
-        bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
+        "B",
+        (x, y),
+        fontsize=11,
+        fontweight="bold",
+        fontstretch="condensed",
+        ha="center",
+        bbox=dict(boxstyle="round,pad=0.2", facecolor="w", alpha=0.75),
+    )
 
     # -- Plot index
     plt.gcf().text(
-        0.025, 0.9, index, fontsize=20,
-        fontweight='bold', fontstretch='condensed', ha='center')
+        0.025,
+        0.9,
+        index,
+        fontsize=20,
+        fontweight="bold",
+        fontstretch="condensed",
+        ha="center",
+    )
 
     # - Vertical view
-    print('-- Plotting vertical view --')
+    print("-- Plotting vertical view --")
     ax2 = fig.add_subplot(gs[0, 3:])
     # -- Reflectivity (shaded)
-    display.plot_latlon_slice(field, vmin=fmin, vmax=fmax,
-                              coord1=(lon_index[0], lat_index[0]),
-                              coord2=(lon_index[1], lat_index[1]),
-                              zerodeg_height=zero_height,
-                              minusfortydeg_height=minusforty_height,
-                              zdh_col='k', cmap=cmap, colorbar_flag=False,
-                              norm=norm, dot_pos=hailpad_pos,
-                              dot_flag=hailpad_cs_flag)
-    cb = display.plot_colorbar(orientation='vertical', ax=ax2,
-                               label=grid.fields[field]['units'])
-    if field == 'FH':
+    display.plot_latlon_slice(
+        field,
+        vmin=fmin,
+        vmax=fmax,
+        coord1=(lon_index[0], lat_index[0]),
+        coord2=(lon_index[1], lat_index[1]),
+        zerodeg_height=zero_height,
+        minusfortydeg_height=minusforty_height,
+        zdh_col="k",
+        cmap=cmap,
+        colorbar_flag=False,
+        norm=norm,
+        dot_pos=hailpad_pos,
+        dot_flag=hailpad_cs_flag,
+    )
+    cb = display.plot_colorbar(
+        orientation="vertical", ax=ax2, label=grid.fields[field]["units"]
+    )
+    if field == "FH":
         cb = adjust_fhc_colorbar_for_pyart(cb)
 
     # - General aspects
-    plt.suptitle(name_multi + ' ' + date, weight='bold',
-                 stretch='condensed', size='x-large')
-    if field == 'FH':
-        field_name = grid.fields[field]['standard_name']
+    plt.suptitle(
+        name_multi + " " + date,
+        weight="bold",
+        stretch="condensed",
+        size="x-large",
+    )
+    if field == "FH":
+        field_name = grid.fields[field]["standard_name"]
     else:
         if pt_br:
-            field_name = grid.fields[field]['standard_name']
+            field_name = grid.fields[field]["standard_name"]
         else:
-            field_name = grid.fields[field]['standard_name'].title()
+            field_name = grid.fields[field]["standard_name"].title()
     if pt_br:
-        ax1.set_title(field_name + ' em ' + str(level + 1) + ' km')
-        ax2.set_title('Corte Vertical de ' + field_name)
-        ax2.set_ylabel('Distância acima da Superfície (km)')
+        ax1.set_title(field_name + " em " + str(level + 1) + " km")
+        ax2.set_title("Corte Vertical de " + field_name)
+        ax2.set_ylabel("Distância acima da Superfície (km)")
     else:
-        ax1.set_title(str(level+1) + ' km ' + field_name)
-        ax2.set_title('Cross Section ' + field_name)
-        ax2.set_ylabel('Distance above Ground (km)')
-    ax2.set_xlabel('')
-    ax2.grid(linestyle='-', linewidth=0.25)
+        ax1.set_title(str(level + 1) + " km " + field_name)
+        ax2.set_title("Cross Section " + field_name)
+        ax2.set_ylabel("Distance above Ground (km)")
+    ax2.set_xlabel("")
+    ax2.grid(linestyle="-", linewidth=0.25)
     ax2.set_ylim(1, 20)
 
-    plt.savefig(save_path + name_multi + ' ' + field_name + ' ' +
-                date + '.png', dpi=300, bbox_inches='tight',
-                facecolor='none', edgecolor='w')
+    plt.savefig(
+        save_path + name_multi + " " + field_name + " " + date + ".png",
+        dpi=300,
+        bbox_inches="tight",
+        facecolor="none",
+        edgecolor="w",
+    )
+
 
 def plot_ppi_panel(
-        ppi, field, level, fmin, fmax, azim=0,
-        date='', name_multi='', shp_name='', hailpad_pos=None, hailpad_distance=None,
-        zero_height=3., minusforty_height=10., grid_spc=.25, cmap=None,
-        reverse_cmap=False, norm=None,
-        xlim=(-48, -46), ylim=(-24, -22), cslim=(100, 200),
-        save_path='./', index='', hailpad_cs_flag=True, pt_br=False):
+    ppi,
+    field,
+    level,
+    fmin,
+    fmax,
+    azim=0,
+    date="",
+    name_multi="",
+    shp_name="",
+    hailpad_pos=None,
+    hailpad_distance=None,
+    zero_height=3.0,
+    minusforty_height=10.0,
+    grid_spc=0.25,
+    cmap=None,
+    reverse_cmap=False,
+    norm=None,
+    xlim=(-48, -46),
+    ylim=(-24, -22),
+    cslim=(100, 200),
+    save_path="./",
+    index="",
+    hailpad_cs_flag=True,
+    pt_br=False,
+):
     """
     Using radar data, plot horizontal and vertical
     views:
@@ -743,112 +998,202 @@ def plot_ppi_panel(
     # projection = ccrs.LambertConformal(central_latitude=ppi.latitude['data'][0],
     #                                central_longitude=ppi.longitude['data'][0])
     projection = ccrs.PlateCarree()
-    if field == 'FH':
+    if field == "FH":
         gs = GridSpec(nrows=1, ncols=11, figure=fig)
     else:
         gs = GridSpec(nrows=1, ncols=9, figure=fig)
 
     # - Horizontal view
-    print('-- Plotting horizontal view --')
-    ax1 = fig.add_subplot(gs[0, :3], facecolor='w', projection=projection)
+    print("-- Plotting horizontal view --")
+    ax1 = fig.add_subplot(gs[0, :3], facecolor="w", projection=projection)
     ax1.set_position([-0.12, 0.12, 0.7, 0.7])
-    display.plot_ppi_map(field, level, vmin=fmin, vmax=fmax,
-                         min_lon=xlim[0], max_lon=xlim[1],
-                         min_lat=ylim[0], max_lat=ylim[1],
-                         lon_lines=np.arange(
-                             xlim[0]-2*grid_spc, xlim[1]+2*grid_spc, grid_spc
-                         ),
-                         lat_lines=np.arange(
-                             ylim[0]-2*grid_spc, ylim[1]+2*grid_spc, grid_spc
-                         ),
-                         cmap=cmap, colorbar_flag=False, norm=norm,
-                         shapefile=shp_name,
-                         shapefile_kwargs={'crs': projection, 'edgecolor': 'gray',
-                                           'color': '', 'linewidth': 0.75},
-                         projection=projection, ax=ax1)
+    display.plot_ppi_map(
+        field,
+        level,
+        vmin=fmin,
+        vmax=fmax,
+        min_lon=xlim[0],
+        max_lon=xlim[1],
+        min_lat=ylim[0],
+        max_lat=ylim[1],
+        lon_lines=np.arange(
+            xlim[0] - 2 * grid_spc, xlim[1] + 2 * grid_spc, grid_spc
+        ),
+        lat_lines=np.arange(
+            ylim[0] - 2 * grid_spc, ylim[1] + 2 * grid_spc, grid_spc
+        ),
+        cmap=cmap,
+        colorbar_flag=False,
+        norm=norm,
+        shapefile=shp_name,
+        shapefile_kwargs={
+            "crs": projection,
+            "edgecolor": "gray",
+            "color": "",
+            "linewidth": 0.75,
+        },
+        projection=projection,
+        ax=ax1,
+    )
     # -- Hailpad position
-    display.plot_point(hailpad_pos[0], hailpad_pos[1], 'kX', markersize=15,
-                       markerfacecolor='w', alpha=0.75)
+    display.plot_point(
+        hailpad_pos[0],
+        hailpad_pos[1],
+        "kX",
+        markersize=15,
+        markerfacecolor="w",
+        alpha=0.75,
+    )
     # -- Cross section position
-    x_cs_0 = cslim[0] * 1000. * np.sin(azim*np.pi/180)
-    x_cs_1 = cslim[1] * 1000. * np.sin(azim*np.pi/180)
-    y_cs_0 = cslim[0] * 1000. * np.cos(azim*np.pi/180)
-    y_cs_1 = cslim[1] * 1000. * np.cos(azim*np.pi/180)
-    display.plot_line_xy(np.array([x_cs_0, x_cs_1]),
-                         np.array([y_cs_0, y_cs_1]), 'k--')
+    x_cs_0 = cslim[0] * 1000.0 * np.sin(azim * np.pi / 180)
+    x_cs_1 = cslim[1] * 1000.0 * np.sin(azim * np.pi / 180)
+    y_cs_0 = cslim[0] * 1000.0 * np.cos(azim * np.pi / 180)
+    y_cs_1 = cslim[1] * 1000.0 * np.cos(azim * np.pi / 180)
+    display.plot_line_xy(
+        np.array([x_cs_0, x_cs_1]), np.array([y_cs_0, y_cs_1]), "k--"
+    )
     # -- Plot index
     plt.gcf().text(
-        0.025, 0.9, index, fontsize=20,
-        fontweight='bold', fontstretch='condensed', ha='center')
+        0.025,
+        0.9,
+        index,
+        fontsize=20,
+        fontweight="bold",
+        fontstretch="condensed",
+        ha="center",
+    )
 
     # - Vertical view
-    print('-- Plotting vertical view --')
-    if field == 'FH':
+    print("-- Plotting vertical view --")
+    if field == "FH":
         ax2 = fig.add_subplot(gs[0, 5:])
     else:
         ax2 = fig.add_subplot(gs[0, 4:])
     # -- Reflectivity (shaded)
-    display.plot_azimuth_to_rhi(field, azim, vmin=fmin, vmax=fmax,
-                                cmap=cmap, colorbar_flag=False, norm=norm,
-                                ax=ax2)
+    display.plot_azimuth_to_rhi(
+        field,
+        azim,
+        vmin=fmin,
+        vmax=fmax,
+        cmap=cmap,
+        colorbar_flag=False,
+        norm=norm,
+        ax=ax2,
+    )
     ax2.set_ylim((1, 20))
     ax2.set_xlim((cslim[1], cslim[0]))
-    if field == 'FH':
-        cb = display.plot_colorbar(orient='vertical', ax=ax2, fraction=0.075,
-                                   label=ppi.fields[field]['units'])
+    if field == "FH":
+        cb = display.plot_colorbar(
+            orient="vertical",
+            ax=ax2,
+            fraction=0.075,
+            label=ppi.fields[field]["units"],
+        )
         cb = adjust_fhc_colorbar_for_pyart(cb, pt_br)
     else:
-        cb = display.plot_colorbar(orient='vertical', ax=ax2, fraction=0.075,
-                                   label=ppi.fields[field]['units'])
+        cb = display.plot_colorbar(
+            orient="vertical",
+            ax=ax2,
+            fraction=0.075,
+            label=ppi.fields[field]["units"],
+        )
     # -- 0 and -40 lines
-    ax2.axhline(zero_height, color='k', linestyle=':', linewidth=2)
-    ax2.axhline(minusforty_height, color='k', linestyle=':', linewidth=2)
-    ax2.annotate(r'0$\degree$C', (cslim[1] - 1, zero_height-0.35),
-                 fontsize=12, fontstretch='condensed', weight='bold',
-                 color='k',
-                 bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
-    ax2.annotate(r'-40$\degree$C', (cslim[1] - 1, minusforty_height-0.35),
-                 fontsize=12, fontstretch='condensed', weight='bold',
-                 color='k',
-                 bbox=dict(boxstyle='round,pad=0.2', facecolor='w', alpha=0.75))
+    ax2.axhline(zero_height, color="k", linestyle=":", linewidth=2)
+    ax2.axhline(minusforty_height, color="k", linestyle=":", linewidth=2)
+    ax2.annotate(
+        r"0$\degree$C",
+        (cslim[1] - 1, zero_height - 0.35),
+        fontsize=12,
+        fontstretch="condensed",
+        weight="bold",
+        color="k",
+        bbox=dict(boxstyle="round,pad=0.2", facecolor="w", alpha=0.75),
+    )
+    ax2.annotate(
+        r"-40$\degree$C",
+        (cslim[1] - 1, minusforty_height - 0.35),
+        fontsize=12,
+        fontstretch="condensed",
+        weight="bold",
+        color="k",
+        bbox=dict(boxstyle="round,pad=0.2", facecolor="w", alpha=0.75),
+    )
     # -- Hailpad position
     if hailpad_cs_flag:
-        ax2.plot(hailpad_distance, 1, 'kX', clip_on=False,
-                 markersize=15, markerfacecolor='w', alpha=0.75)
+        ax2.plot(
+            hailpad_distance,
+            1,
+            "kX",
+            clip_on=False,
+            markersize=15,
+            markerfacecolor="w",
+            alpha=0.75,
+        )
 
     # - General aspects
     # plt.tight_layout()
-    plt.suptitle(name_multi + ' ' + date, weight='bold',
-                 stretch='condensed', size='x-large')
-    if field == 'FH':
-        field_name = ppi.fields[field]['standard_name']
+    plt.suptitle(
+        name_multi + " " + date,
+        weight="bold",
+        stretch="condensed",
+        size="x-large",
+    )
+    if field == "FH":
+        field_name = ppi.fields[field]["standard_name"]
     else:
         if pt_br:
-            field_name = ppi.fields[field]['standard_name']
+            field_name = ppi.fields[field]["standard_name"]
         else:
-            field_name = ppi.fields[field]['standard_name'].title()
+            field_name = ppi.fields[field]["standard_name"].title()
     # -- Axis labels
-    ax1.text(-0.23, 0.5, 'Latitude ($\degree$)', va='bottom', ha='center',
-             rotation='vertical', rotation_mode='anchor',
-             transform=ax1.transAxes)
-    ax1.text(0.5, -0.17, 'Longitude ($\degree$)', va='bottom', ha='center',
-             rotation='horizontal', rotation_mode='anchor',
-             transform=ax1.transAxes)
+    ax1.text(
+        -0.23,
+        0.5,
+        "Latitude ($\degree$)",
+        va="bottom",
+        ha="center",
+        rotation="vertical",
+        rotation_mode="anchor",
+        transform=ax1.transAxes,
+    )
+    ax1.text(
+        0.5,
+        -0.17,
+        "Longitude ($\degree$)",
+        va="bottom",
+        ha="center",
+        rotation="horizontal",
+        rotation_mode="anchor",
+        transform=ax1.transAxes,
+    )
     if pt_br:
-        ax1.set_title('PPI ' + str(ppi.get_elevation(level)[0]) +
-                      '$\degree$ ' + field_name)
-        ax2.set_title('Corte Vertical em Azimute = ' + str(azim) + '$\degree$')
-        ax2.set_xlabel('Distância do Radar (km)')
-        ax2.set_ylabel('Distância acima da Superfície (km)')
+        ax1.set_title(
+            "PPI "
+            + str(ppi.get_elevation(level)[0])
+            + "$\degree$ "
+            + field_name
+        )
+        ax2.set_title("Corte Vertical em Azimute = " + str(azim) + "$\degree$")
+        ax2.set_xlabel("Distância do Radar (km)")
+        ax2.set_ylabel("Distância acima da Superfície (km)")
     else:
-        ax1.set_title('PPI ' + str(ppi.get_elevation(level)[0]) +
-                      '$\degree$ ' + field_name)
-        ax2.set_title('Azimuth = ' + str(azim) + '$\degree$ CS ' + field_name)
-        ax2.set_xlabel('Distance from Radar (km)')
-        ax2.set_ylabel('Distance above Ground (km)')
-    ax2.grid(linestyle='-', linewidth=0.25)
+        ax1.set_title(
+            "PPI "
+            + str(ppi.get_elevation(level)[0])
+            + "$\degree$ "
+            + field_name
+        )
+        ax2.set_title("Azimuth = " + str(azim) + "$\degree$ CS " + field_name)
+        ax2.set_xlabel("Distance from Radar (km)")
+        ax2.set_ylabel("Distance above Ground (km)")
+    ax2.grid(linestyle="-", linewidth=0.25)
     ax2.set_ylim(1, 20)
 
-    plt.savefig(save_path + name_multi + ' PPI ' + field_name + ' ' +
-                date + '.png', dpi=300, bbox_inches='tight',
-                facecolor='none', edgecolor='w')
+    plt.savefig(
+        save_path + name_multi + " PPI " + field_name + " " + date + ".png",
+        dpi=300,
+        bbox_inches="tight",
+        facecolor="none",
+        edgecolor="w",
+    )
+

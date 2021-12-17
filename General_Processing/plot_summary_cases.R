@@ -7,6 +7,7 @@
 
 require(sf)
 require(tidyverse)
+require(lubridate)
 require(reshape2)
 require(ggalt)
 require(scales)
@@ -131,20 +132,24 @@ plot_lifecycle <- function(case_name) {
   theme_set(theme_bw())
   theme_update(plot.title = element_text(hjust = 0.5))
   
-  plt_1 <- ggplot(data = selected_fam) +
+  plt_1 <- ggplot(data = total_im %>% filter(case == case_name)) +
     scale_x_datetime(labels = date_format("%H%M")) +
-    geom_path(aes(x = hour, y = pmax), color = "navyblue") +
+    geom_path(aes(x = hour, y = im, color = level)) +
+    geom_point(aes(x = hour, y = im, color = level), shape = 1) +
     geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
+    scale_y_log10() +
+    scale_color_manual(values = c("#bdc9e1", "#2b8cbe", "#045a8d")) +
     theme(
       plot.background = element_rect(fill = "transparent", color = "transparent"),
       legend.background = element_rect(fill = "transparent"),
       axis.title.x = element_blank()
     ) +
-    labs(y = "JUST TESTING (...)")
+    labs(y = expression("Total Ice Mass (" * kg * ")"), color = "")
   
   plt_2 <- ggplot(data = selected_fam) +
     scale_x_datetime(labels = date_format("%H%M")) +
     geom_path(aes(x = hour, y = size), color = "tomato") +
+    geom_point(aes(x = hour, y = size), color = "tomato", shape = 1) +
     geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
     theme(
       plot.background = element_rect(fill = "transparent", color = "transparent"),
@@ -174,12 +179,11 @@ plot_lifecycle <- function(case_name) {
   }
   
   plt <- plot_grid(
-    plot_grid(plt_1, plt_2, plt_3 + theme(legend.position = "none"), 
+    plot_grid(plt_1 + theme(legend.position = "none"), plt_2, plt_3 + theme(legend.position = "none"), 
               ncol = 1, align = "v", labels = labels, 
               rel_heights = c(0.43, 0.43, 0.5)
     ),
-    plot_grid(ggplot() +
-                theme_void(),
+    plot_grid(get_legend(plt_1),
               ggplot() +
                 theme_void(),
               get_legend(plt_3),
@@ -188,7 +192,7 @@ plot_lifecycle <- function(case_name) {
               ncol = 1, align = "hv", axis = "l", 
               rel_heights = c(0.5, 0.5, 0.5, 0.1)
     ),
-    ncol = 2, rel_widths = c(0.95, 0.1), align = "hv"
+    ncol = 2, rel_widths = c(0.7, 0.1), align = "hv"
   )
   
   return(plt)
@@ -242,6 +246,19 @@ selected_clusters <- data_clusters[which(dates_clusters_cappis %in% selected_fam
 selected_cappis <- data_cappis[which(dates_clusters_cappis %in% selected_fam$date,
   arr.ind = T
 )]
+
+# Total ice mass retrieval
+total_im <- 
+  read_csv(
+    "Radar_Processing/data_files/total_im_2017-03-14.csv",
+    col_types = cols(...1 = col_skip(), 
+                     time = col_datetime(format = "%Y-%m-%d %H:%M:%S"))) %>% 
+  mutate(case = str_replace(case, "1 ", "1\n"),
+         hour = time,
+         level = factor(level, levels = c("Above -40°C", "0°C > T > -40°C", "Below 0°C")),
+         date_hailpad = selected_fam$date_hailpad[2])
+lubridate::date(total_im$hour) <- "2017-01-01"
+total_im$date_hailpad[1] <- selected_fam$date_hailpad[1]
 
 # Plots list
 plts <- list(NA, NA, NA)
@@ -314,7 +331,7 @@ plts[[3]] <- plot_lifecycle(case_name = "Case 1\n2017-03-14")
 
 plt <- plot_grid(
   plotlist = plts, nrow = 3, labels = c("a", "b", ""),
-  rel_heights = c(0.45, 0.45, 0.75)
+  rel_heights = c(0.45, 0.45, 0.8)
 )
 
 save_plot(
@@ -323,7 +340,7 @@ save_plot(
     "2017-03-14", ".png",
     sep = ""
   ),
-  plt, base_width = 9, base_height = 11.2, dpi = 300, bg = "transparent"
+  plt, base_width = 9, base_height = 11, dpi = 300, bg = "transparent"
 )
 
 # Case 2017-11-15 --------------------------------------------------------------
@@ -338,6 +355,19 @@ selected_cappis <- data_cappis[which(dates_clusters_cappis %in% selected_fam$dat
 
 # Hailpad location
 selected_hailpad <- data_hailpads[3, ]
+
+# Total ice mass retrieval
+total_im <- 
+  read_csv(
+    "Radar_Processing/data_files/total_im_2017-11-15.csv",
+    col_types = cols(...1 = col_skip(), 
+                     time = col_datetime(format = "%Y-%m-%d %H:%M:%S"))) %>% 
+  mutate(case = str_replace(case, "2 ", "2\n"),
+         hour = time,
+         level = factor(level, levels = c("Above -40°C", "0°C > T > -40°C", "Below 0°C")),
+         date_hailpad = selected_fam$date_hailpad[1])
+lubridate::date(total_im$hour) <- "2017-01-01"
+
 
 # Before/during/after hailfall data
 clusters <- cappis <- flashes <- qte_flashes <- NA

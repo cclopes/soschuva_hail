@@ -131,6 +131,53 @@ def calculate_radar_hid(radar, sounding_names, radar_band="S"):
 
     return file
 
+def calculate_radar_mw_mi(radar, radar_band="S"):
+    """
+    Use radar data to calculate:
+    - Liquid and ice water masses, ice fraction
+
+    Parameters
+    ----------
+    radar: Py-ART radar data
+    radar_band: radar band
+
+    Returns
+    -------
+    file: radar data with HID and water masses
+    """
+
+    # - optional: sounding_names.loc[str(radar_date.date())].item()
+    radar_z = get_z_from_radar(radar)
+
+    # Extracting necessary variables
+    z_corrected = radar.fields["corrected_reflectivity"]["data"]
+    zdr = radar.fields["differential_reflectivity"]["data"]
+
+    # - Calculating liquid and ice mass
+    mw, mi = csu_liquid_ice_mass.calc_liquid_ice_mass(
+        z_corrected, zdr, radar_z / 1000.0,
+    )
+
+    # - Adding to radar file
+    file = add_field_to_radar_object(
+        mw,
+        radar,
+        field_name="MW",
+        units=r"$g\  m^{-3}$",
+        long_name="Liquid Water Mass",
+        standard_name="Liquid Water Mass",
+    )
+    file = add_field_to_radar_object(
+        mi,
+        file,
+        field_name="MI",
+        units=r"$g\  m^{-3}$",
+        long_name="Ice Water Mass",
+        standard_name="Ice Water Mass",
+    )
+
+    return file
+
 
 def radar_coords_to_cart(rng, az, ele, debug=False):
     """

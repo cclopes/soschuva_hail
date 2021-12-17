@@ -1,7 +1,7 @@
 #%%
 # -*- coding: utf-8 -*-
 """
-UPDRAFT VOLUME FROM MULTIDOP RETRIEVALS
+UPDRAFT VOLUME AND ICE WATER MASS FROM MULTIDOP RETRIEVALS
 
 - Specific cases, when hailfall occurred:
     - 2017-11-15 21h40 (SR/FCTH/XPOL)
