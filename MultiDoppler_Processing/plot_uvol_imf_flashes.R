@@ -119,6 +119,16 @@ uvol_imf[which(uvol_imf$time == "2150"), c("mean_flashes", "max_flashes")] <- fl
 #                    max_flashes = ifelse(max_flashes == -Inf, 0, max_flashes))
 
 
+# Fitting equation to data points ----------------------------------------------
+
+uvol_flash_fit <- lm(mean_flashes ~ uvol, uvol_imf %>% filter(vel == "Above 5 m/s"))
+summary(uvol_flash_fit)
+
+cor.test(
+  (uvol_imf %>% filter(vel == "Above 5 m/s"))$uvol,
+  (uvol_imf %>% filter(vel == "Above 5 m/s"))$mean_flashes,
+  method = "pearson")
+
 # Plotting ---------------------------------------------------------------------
 
 # Plot settings
@@ -169,12 +179,13 @@ ggplot(uvol_imf %>%
   mutate(case_mod = paste(case, time_label, sep = "\n"))) +
   geom_point(data = deier_upvol_flashes, aes(x = uvol, y = mean_flashes), shape = 5, color = "gray", size = 2) +
   geom_line(data = tibble("x" = seq(1e9, 1e13, 1e9), "y" = 6.75e-11 * x - 13.9), aes(x, y)) +
+  geom_line(data = tibble("x" = seq(1e9, 1e13, 1e9), "y" = 2.733e-11 * x - 10.39), aes(x, y)) +
   geom_point(aes(x = uvol, y = mean_flashes, color = case_mod, fill = case_mod, shape = level),
     size = 3
   ) +
   geom_label(aes(x = 1.5e10, y = 5e2),
     label = expression(
-      atop("◊  Deierling and Petersen (2008)", "—  y = 6.75×" * 10^-11 ~ "x - 13.9")
+      atop("◊  Deierling and Petersen (2008)", "—  f = 6.75×" * 10^-11 ~ "W - 13.9")
     ),
     size = 3
   ) +

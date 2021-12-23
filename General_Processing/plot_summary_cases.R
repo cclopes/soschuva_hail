@@ -31,7 +31,7 @@ get_data_step <- function(selected_fam_i, selected_clusters_i, selected_cappis_i
   colnames(test) <- lon_vector
   test_clusters <- reshape2::melt(test) %>%
     na.omit() %>%
-    filter(value != selected_sys) %>%
+    filter(value == selected_sys) %>%
     mutate(name = name)
   clusters <- rbind(clusters, test_clusters) %>% na.omit()
 
@@ -73,10 +73,12 @@ plot_z_lightning_panel <- function(grid, pad) {
     # Reflectivity
     geom_raster(data = cappis, aes(x = Var2, y = Var1, fill = value)) +
     # ForTraCC clusters "smoothing"
-    geom_raster(
-      data = clusters, aes(x = Var2, y = Var1),
-      fill = "white", alpha = 0.82
-    ) +
+    # geom_raster(
+    #   data = clusters, aes(x = Var2, y = Var1),
+    #   fill = "white", alpha = 0.82
+    # ) +
+    geom_encircle(data = clusters, aes(x = Var2, y = Var1), 
+                  s_shape = 1, expand = 0.025, spread = 0, size = 2) +
     # Shapefiles
     geom_sf(data = cities, fill = NA, size = 0.25) +
     geom_sf(data = cities_highlight, fill = NA, size = 0.5, colour = "gray20") +
@@ -109,17 +111,19 @@ plot_z_lightning_panel <- function(grid, pad) {
     ) +
     scale_shape_manual(name = "Type", values = c(21, 4)) +
     labs(
-      x = "", y = expression("Latitude (" * degree * ")"),
+      x = "", y = "",
       fill = "Reflectivity (dBZ)"
     ) +
     guides(fill = guide_colorbar(
       title.position = "right", 
-      title.theme = element_text(angle = 90), 
-      title.hjust = 0.5, barheight = 8)) +
+      title.theme = element_text(size = 9.5, angle = 90), 
+      title.hjust = 0.5, barheight = 8)
+    ) +
     theme(
       plot.background = element_rect(fill = "transparent", color = "transparent"),
       legend.background = element_rect(fill = "transparent", color = "transparent"),
-      legend.position = "right"
+      legend.position = "right",
+      legend.title = element_text(size = 9.5)
     ) +
     facet_grid(. ~ name)
 
@@ -131,9 +135,35 @@ plot_lifecycle <- function(case_name) {
   # Plot settings
   theme_set(theme_bw())
   theme_update(plot.title = element_text(hjust = 0.5))
+  dlims <- c(min(selected_fam$hour), max(selected_fam$hour))
+  if(case_name == "Case 1\n2017-03-14"){
+    labels <- c("c", "d", "e")
+    dbreaks <- "hour"
+    grayrect <- tibble(
+      xmin = c(total_im$hour[78], total_im$hour[93]),
+      xmax = c(total_im$hour[82], total_im$hour[97])
+    ) 
+ }
+  else{
+    labels <- c("b", "c", "d")
+    dbreaks <- "30 min"
+    grayrect <- tibble(
+      xmin = c(total_im$hour[1], total_im$hour[21], total_im$hour[33]),
+      xmax = c(total_im$hour[10], total_im$hour[28], max(selected_fam$hour))
+    )
+  }
   
   plt_1 <- ggplot(data = total_im %>% filter(case == case_name)) +
-    scale_x_datetime(labels = date_format("%H%M")) +
+    scale_x_datetime(
+      labels = date_format("%H%M"), 
+      date_breaks = dbreaks, 
+      limits = dlims) +
+    geom_rect(
+      data = grayrect, 
+      aes(xmin = xmin, xmax = xmax, ymin = 0, ymax = Inf), 
+      inherit.aes = F,
+      fill = "gray40", 
+      alpha = 0.25) +
     geom_path(aes(x = hour, y = im, color = level)) +
     geom_point(aes(x = hour, y = im, color = level), shape = 1) +
     geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
@@ -142,24 +172,32 @@ plot_lifecycle <- function(case_name) {
     theme(
       plot.background = element_rect(fill = "transparent", color = "transparent"),
       legend.background = element_rect(fill = "transparent"),
-      axis.title.x = element_blank()
+      axis.title.x = element_blank(),
+      axis.title.y = element_text(size = 9.5)
     ) +
     labs(y = expression("Total Ice Mass (" * kg * ")"), color = "")
   
   plt_2 <- ggplot(data = selected_fam) +
-    scale_x_datetime(labels = date_format("%H%M")) +
+    scale_x_datetime(
+      labels = date_format("%H%M"), 
+      date_breaks = dbreaks,
+      limits = dlims) +
     geom_path(aes(x = hour, y = size), color = "tomato") +
     geom_point(aes(x = hour, y = size), color = "tomato", shape = 1) +
     geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
     theme(
       plot.background = element_rect(fill = "transparent", color = "transparent"),
       legend.background = element_rect(fill = "transparent"),
-      axis.title.x = element_blank()
+      axis.title.x = element_blank(),
+      axis.title.y = element_text(size = 9.5)
     ) +
     labs(y = expression("Area (" * km^2 * ")"))
   
   plt_3 <- ggplot(filter(flashes_rcount, case == case_name)) +
-    scale_x_datetime(labels = date_format("%H%M")) +
+    scale_x_datetime(
+      labels = date_format("%H%M"), 
+      date_breaks = dbreaks,
+      limits = dlims) +
     geom_histogram(binwidth = 60, aes(x = hour, ..count.., fill = forcats::fct_rev(class))) +
     geom_vline(aes(xintercept = date_hailpad), linetype = "dashed") +
     scale_fill_manual(values = c("darkgoldenrod1", "darkorchid")) +
@@ -167,30 +205,25 @@ plot_lifecycle <- function(case_name) {
       plot.background = element_rect(fill = "transparent", color = "transparent"),
       legend.background = element_rect(fill = "transparent"),
       legend.position = "right",
-      legend.justification = "left"
+      legend.justification = "left",
+      legend.title = element_text(size = 9.5),
+      axis.title.x = element_text(size = 9.5),
+      axis.title.y = element_text(size = 9.5)
     ) +
     labs(x = "Time (UTC)", y = expression("Flashes" ~ min^-1), fill = "Type")
-  
-  if(case_name == "Case 1\n2017-03-14"){
-    labels <- c("c", "d", "e")
-  }
-  else{
-    labels <- c("b", "c", "d")
-  }
   
   plt <- plot_grid(
     plot_grid(plt_1 + theme(legend.position = "none"), plt_2, plt_3 + theme(legend.position = "none"), 
               ncol = 1, align = "v", labels = labels, 
+              label_x = 0, label_y = 1,
               rel_heights = c(0.43, 0.43, 0.5)
     ),
     plot_grid(get_legend(plt_1),
               ggplot() +
                 theme_void(),
               get_legend(plt_3),
-              ggplot() +
-                theme_void(),
               ncol = 1, align = "hv", axis = "l", 
-              rel_heights = c(0.5, 0.5, 0.5, 0.1)
+              rel_heights = c(0.5, 0.8, 1)
     ),
     ncol = 2, rel_widths = c(0.7, 0.1), align = "hv"
   )
